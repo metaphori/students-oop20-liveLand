@@ -13,7 +13,7 @@ public class OpenImpl implements Open{
 		this.numPerson = numPerson;
 	}
 	
-	public void PersonIntoPark() {
+	public void FirstEntrance() {
 		for (int i=0; i<numPerson; i++) {
 			PersonTicket person = new PersonTicket(i, null);
 			person.randAge();

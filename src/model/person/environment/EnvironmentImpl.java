@@ -25,6 +25,7 @@ public class EnvironmentImpl implements Environment{
 		exit.deletePerson(personList);
 		
 	}
+
 	
 //entrata e uscita random delle persone all'interno della lista	
 
