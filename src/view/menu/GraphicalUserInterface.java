@@ -129,12 +129,9 @@ public final class GraphicalUserInterface {
             @Override
             public void actionPerformed(final ActionEvent e) {
             	//apri finestra per fair e chiama metodo, restituisce attività che va aggiunta:
-            	ViewActivityImpl newActivity = new ViewActivityImpl("prova", 50, ActivityType.BABYFAIR);
+            	ViewActivityImpl newActivity = new FairGUI().addFair();
             	GraphicalUserInterface.this.activList.add(newActivity);
-            	//String 
-            	activityList.append(newActivity.getName() + ": " +newActivity.getActivityType() + "\n");
-            	//setText(newActivity.getName() + ": " +newActivity.getActivityType());
-            	
+            	activityList.append(newActivity.getName() + ": " +newActivity.getActivityType() + "\n");	
             }
         });
         
@@ -145,7 +142,6 @@ public final class GraphicalUserInterface {
             	//apri finestra per restaurant e chiama metodo, restituisce attività che va aggiunta:
             	ViewActivityImpl newActivity = new ViewActivityImpl("prova", 10, 40, ActivityType.REST);
             	GraphicalUserInterface.this.activList.add(newActivity);
-            	//activityList.setText(newActivity.getName() + ": " +newActivity.getActivityType());
             	activityList.append(newActivity.getName() + ": " +newActivity.getActivityType() + "\n");
             }
         });
@@ -157,7 +153,6 @@ public final class GraphicalUserInterface {
             	//apri finestra per fair e chiama metodo, restituisce attività che va aggiunta:
             	ViewActivityImpl newActivity = new ViewActivityImpl("prova", 1, 20, ActivityType.SHOP);
             	GraphicalUserInterface.this.activList.add(newActivity);
-            	//activityList.setText(newActivity.getName() + ": " +newActivity.getActivityType());
             	activityList.append(newActivity.getName() + ": " +newActivity.getActivityType() + "\n");
             }
         });
