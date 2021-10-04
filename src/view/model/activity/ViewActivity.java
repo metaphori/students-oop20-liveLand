@@ -11,6 +11,8 @@ public interface ViewActivity {
 	
 	int getMaxPrice();
 	
+	String getName();
+	
 	//tipo di giostra?
 	
 }
