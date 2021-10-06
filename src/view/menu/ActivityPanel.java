@@ -29,7 +29,6 @@ public class ActivityPanel extends JPanel{
         this.add(activityPanelInt, BorderLayout.WEST);
         final ActivityInsertionPanelBox activityInsertionPanel = new ActivityInsertionPanelBox(view, this);
         this.add(activityInsertionPanel, BorderLayout.EAST);
-        System.out.print(view.toString());
         
     }
     
@@ -37,5 +36,7 @@ public class ActivityPanel extends JPanel{
     	this.activityList.setText(activity.getName() +
     			": " +activity.getActivityType() + "\n");
     }
+    
+    
 
 }

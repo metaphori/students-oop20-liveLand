@@ -12,6 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 import view.controller.ViewControllerImpl;
+import view.menu.FairGUI.FairGUI;
 
 public class ActivityInsertionPanelBox extends JPanel{
 
@@ -25,8 +26,10 @@ public class ActivityInsertionPanelBox extends JPanel{
     final JButton fair = new JButton("Add a FAIR");
     final JButton restaurant = new JButton("Add a RESTAURANT");
     final JButton shop = new JButton("Add a SHOP");
+    final ActivityPanel gui;
     
     public ActivityInsertionPanelBox(ViewControllerImpl view, ActivityPanel gui) {
+    	this.gui = gui;
     	this.setLayout(new FlowLayout());
     	activityInsertionPanel.setLayout(new GridBagLayout());
 	    cnst.gridy = 0;
@@ -46,11 +49,17 @@ public class ActivityInsertionPanelBox extends JPanel{
 	    @Override
 		    public void actionPerformed(final ActionEvent e) {
 		    //apri finestra per fair e chiama metodo, restituisce attività che va aggiunta:
-		    new FairGUI(view).addFair(view, gui);;
+		    FairGUI fairWindow = new FairGUI(view, ActivityInsertionPanelBox.this);
+		    fairWindow.display();
 	      	
 	      }
 	  });
 	    
+	    
+    }
+    
+    public ActivityPanel getGui() {
+    	return this.gui;
     }
 
 }

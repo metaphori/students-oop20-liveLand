@@ -52,7 +52,6 @@ public final class GraphicalUserInterface {
      * @param controller the controller instance.
      */
     public GraphicalUserInterface() {
-  //      this.view.addNewActivity(new ViewActivityImpl("ciao", 4, ActivityType.BABYFAIR));
         this.canvas.setLayout(new BorderLayout());
         this.canvas.add(this.welcomePanel, BorderLayout.NORTH);
         this.canvas.add(this.menuPanel, BorderLayout.CENTER);
