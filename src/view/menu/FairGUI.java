@@ -3,31 +3,32 @@ package view.menu;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Dimension;
-import java.awt.FlowLayout;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.List;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JPopupMenu;
-import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import controller.EnvironmentController;
+import view.controller.ViewControllerImpl;
 import view.model.activity.ActivityType;
 import view.model.activity.ViewActivityImpl;
 
 public class FairGUI {
     private final JFrame frame = new JFrame();
+    private ActivityType fairType;
+    private ViewActivityImpl fair;
+    private ViewControllerImpl view;
+    private ActivityPanel gui;
     
 //finestra che richiede tipo giostra, nome, capienza e alla pressione del tasto done crea la 
 //relativa activityimpl passandola alla gui principale e si chiude
-	public FairGUI() {
+	public FairGUI(ViewControllerImpl view) {
+		
         final JPanel canvas = new JPanel();
         canvas.setLayout(new BorderLayout());
         final JTextField textField = new JTextField("	***Please, set the following fair fields***");
@@ -66,48 +67,48 @@ public class FairGUI {
         /*
          * Handlers
          */
-//        print.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(final ActionEvent e) {
-//                SimpleGUI.this.controller.setNextStringToPrint(textField.getText());
-//                SimpleGUI.this.controller.printCurrentString();
-//            }
-//        });
-//        showHistory.addActionListener(new ActionListener() {
-//            @Override
-//            public void actionPerformed(final ActionEvent e) {
-//                final StringBuilder text = new StringBuilder();
-//                final List<String> history = SimpleGUI.this.controller.getPrintedStringsHistory();
-//                for (final String print: history) {
-//                    text.append(print);
-//                    text.append('\n');
-//                }
-//                if (!history.isEmpty()) {
-//                    text.deleteCharAt(text.length() - 1);
-//                }
-//                textArea.setText(text.toString());
-//            }
-//        });
-        /*
-         * Make the frame half the resolution of the screen. This very method is
-         * enough for a single screen setup. In case of multiple monitors, the
-         * primary is selected.
-         * 
-         * In order to deal coherently with multimonitor setups, other
-         * facilities exist (see the Java documentation about this issue). It is
-         * MUCH better than manually specify the size of a window in pixel: it
-         * takes into account the current resolution.
-         */
-//        final Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-//        final int sw = (int) screen.getWidth();
-//        final int sh = (int) screen.getHeight();
-//        frame.setSize(sw / 3, sh / 3);
+        adultFair.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent e) {
+                FairGUI.this.fairType = ActivityType.FAIR;
+                adultFair.setBackground(Color.GREEN);
+                adultFair.setEnabled(false);
+                babyFair.setEnabled(false);
+            }
+        });
+        
+        babyFair.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent e) {
+                FairGUI.this.fairType = ActivityType.BABYFAIR;
+                babyFair.setBackground(Color.GREEN);
+                adultFair.setEnabled(false);
+                babyFair.setEnabled(false);
+            }
+        });
+        
+        done.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(final ActionEvent e) {
+//            	
+//            	FairGUI.this.fair = new ViewActivityImpl(textName.getText(), 
+//            			Integer.valueOf(textCapacity.getText()), FairGUI.this.fairType);
+//            	System.out.print(FairGUI.this.fair.toString());
+//            	System.out.print(FairGUI.this.fair);
+            	System.out.print(view.toString());
+            	
+//            	view.createFair(textName.getText(), 
+//            			Integer.valueOf(textCapacity.getText()), FairGUI.this.fairType);
+//            	view.getActivityList();
+            	
+//            	FairGUI.this.gui.activityList.setText(act.getName() +
+//            			": " +act.getActivityType() + "\n");
+//            	FairGUI.this.gui.setActivityList(act);
+            }
+        });
+        
+
         frame.pack();
-        /*
-         * Instead of appearing at (0,0), upper left corner of the screen, this
-         * flag makes the OS window manager take care of the default positioning
-         * on screen. Results may vary, but it is generally the best choice.
-         */
         frame.setLocationByPlatform(true);
     }
 
@@ -115,15 +116,13 @@ public class FairGUI {
         frame.setVisible(true);
     }
 
-    /**
-     * 
-     * @param args
-     *            ignored
-     */
-    public ViewActivityImpl addFair() {
-        new FairGUI().display();
-        return new ViewActivityImpl("prova", 50, ActivityType.BABYFAIR);
+
+    public void addFair(ViewControllerImpl view, ActivityPanel gui){
+    	//this.view = view;
+    	//this.gui = gui;
+        new FairGUI(view).display();
     }
+    
 }
 
 	

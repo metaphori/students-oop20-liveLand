@@ -1,5 +1,8 @@
 package controller;
 
+import java.util.List;
+import java.util.ArrayList;
+
 import model.analysis.Analysis;
 import model.analysis.AnalysisImpl;
 import view.model.activity.ViewActivityImpl;
@@ -10,6 +13,7 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 	private int visitorsNumber;
 	private AnalysisImpl currentAnalysis = new AnalysisImpl();
 	private ActivityControllerImpl activityController = new ActivityControllerImpl();
+	private List<ViewActivityImpl> activList = new ArrayList<>();
 	
 	
 	
@@ -32,6 +36,8 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 
 	@Override
 	public void addNewActivity(ViewActivityImpl activity) {
+		this.activList.add(activity);
+		System.out.print(this.activList);
 		this.activityController.activityInsertion(activity);
 		
 		}
@@ -50,6 +56,11 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 	@Override
 	public int getVisitorsNumber() {
 		return this.visitorsNumber;
+	}
+
+	@Override
+	public List<ViewActivityImpl> getActivityList() {
+		return this.activList;
 	}
 
 }

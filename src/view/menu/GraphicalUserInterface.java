@@ -26,6 +26,7 @@ import controller.ActivityControllerImpl;
 import controller.Controller;
 import controller.ControllerImpl;
 import controller.EnvironmentControllerImpl;
+import view.controller.ViewControllerImpl;
 import view.model.activity.ActivityType;
 import view.model.activity.ViewActivityImpl;
 
@@ -36,78 +37,27 @@ import view.model.activity.ViewActivityImpl;
 public final class GraphicalUserInterface {
 
     private final JFrame frame = new JFrame();
-    private final EnvironmentControllerImpl controller;
+    final JPanel canvas = new JPanel();
+    private final ViewControllerImpl view = new ViewControllerImpl();
+    final WelcomePanel welcomePanel = new WelcomePanel();
+    final MenuPanel menuPanel = new MenuPanel(this.view, this);
+    final BottomPanel bottomPanel = new BottomPanel(this.view, this);
     private List<ViewActivityImpl> activList = new ArrayList<>();
     private int visitorsNum;
+    private ViewActivityImpl newActivity;
 
 
     /**
      * builds a new {@link GraphicalUserInterface}.
      * @param controller the controller instance.
      */
-    public GraphicalUserInterface(final EnvironmentControllerImpl controller) {
-    	
-        this.controller = controller;
+    public GraphicalUserInterface() {
+  //      this.view.addNewActivity(new ViewActivityImpl("ciao", 4, ActivityType.BABYFAIR));
+        this.canvas.setLayout(new BorderLayout());
+        this.canvas.add(this.welcomePanel, BorderLayout.NORTH);
+        this.canvas.add(this.menuPanel, BorderLayout.CENTER);
+        this.canvas.add(this.bottomPanel, BorderLayout.SOUTH);
 
-        final JPanel canvas = new JPanel();
-        canvas.setLayout(new BorderLayout());
-        /* welcome message*/
-        final JTextArea welcomeMsg = new JTextArea();
-        welcomeMsg.setBackground(Color.lightGray);
-        welcomeMsg.setEditable(false);
-        welcomeMsg.setText("  Welcome to LiveLand! To start the simulation please set the environment below." );
-        welcomeMsg.setForeground(Color.CYAN);
-        Font bigFont = welcomeMsg.getFont().deriveFont(Font.PLAIN, 18f);
-        welcomeMsg.setFont(bigFont);
-        canvas.add(welcomeMsg, BorderLayout.NORTH);
-        /*menu panel*/
-        final JPanel menuPanel = new JPanel();
-        menuPanel.setLayout(new FlowLayout(FlowLayout.CENTER));
-        final JLabel capacity = new JLabel("Choose the number of visitors for this simulation (max. 100):");
-        menuPanel.add(capacity);
-        final JButton validate = new JButton("Validate");
-        final JTextField visitors = new JTextField("", 5);
-        visitors.setSize(100, 1);
-        menuPanel.add(visitors);
-        menuPanel.add(validate);
-        canvas.add(menuPanel, BorderLayout.CENTER);
-        /*activity panel*/
-        final JPanel activityPanel = new JPanel(new BorderLayout());
-        final JPanel activityPanelInt = new JPanel(new BorderLayout());
-        final JLabel activityLabel = new JLabel("Activity list: (you must add at least one to launch the simulation)");
-        activityPanelInt.add(activityLabel, BorderLayout.CENTER);
-        final JTextArea activityList = new JTextArea("	***No activity chosen yet***	");
-        activityList.setSize(100, 10);
-        activityList.setEditable(false);
-        activityPanelInt.add(activityList, BorderLayout.SOUTH);
-        activityPanel.add(activityPanelInt, BorderLayout.WEST);
-        final JPanel activityInsertionPanelInt = new JPanel(new GridBagLayout());
-        final GridBagConstraints cnst = new GridBagConstraints();
-        cnst.gridy = 0;
-        cnst.insets = new Insets(3,3,3,3);
-        cnst.fill = GridBagConstraints.HORIZONTAL;
-        final JButton fair = new JButton("Add a FAIR");
-        activityInsertionPanelInt.add(fair, cnst);
-        cnst.gridy++;
-        final JButton restaurant = new JButton("Add a RESTAURANT");
-        activityInsertionPanelInt.add(restaurant, cnst);
-        cnst.gridy++;
-        final JButton shop = new JButton("Add a SHOP");
-        activityInsertionPanelInt.add(shop, cnst);
-        cnst.gridy++;
-        /*activity insertion panel*/
-        final JPanel activityInsertionPanel = new JPanel(new FlowLayout());
-        activityInsertionPanel.setBorder(new TitledBorder("Add a new activity"));
-        activityInsertionPanel.add(activityInsertionPanelInt);
-        activityPanel.add(activityInsertionPanel, BorderLayout.EAST);
-        menuPanel.add(activityPanel);
-        /*south panel*/
-        final JPanel southPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-        canvas.add(southPanel, BorderLayout.SOUTH);
-        final JButton start = new JButton("Start");
-        final JButton reset = new JButton("Reset");
-        southPanel.add(start);
-        southPanel.add(reset);
         frame.setContentPane(canvas);
         frame.pack();
         frame.setTitle("FunFair Simulator");
@@ -116,75 +66,75 @@ public final class GraphicalUserInterface {
          * Handlers
          */
         
-        validate.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(final ActionEvent e) {
-            	visitorsNum = Integer.valueOf(visitors.getText());
-            	validate.setEnabled(false);
-            	activityList.setText("\n");
-            }
-        });
         
-        fair.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(final ActionEvent e) {
-            	//apri finestra per fair e chiama metodo, restituisce attività che va aggiunta:
-            	ViewActivityImpl newActivity = new FairGUI().addFair();
-            	GraphicalUserInterface.this.activList.add(newActivity);
-            	activityList.append(newActivity.getName() + ": " +newActivity.getActivityType() + "\n");	
-            }
-        });
+//        validate.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(final ActionEvent e) {
+//            	visitorsNum = Integer.valueOf(visitors.getText());
+//            	validate.setEnabled(false);
+//            	activityList.setText("\n");
+//            }
+//        });
         
-        
-        restaurant.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(final ActionEvent e) {
-            	//apri finestra per restaurant e chiama metodo, restituisce attività che va aggiunta:
-            	ViewActivityImpl newActivity = new ViewActivityImpl("prova", 10, 40, ActivityType.REST);
-            	GraphicalUserInterface.this.activList.add(newActivity);
-            	activityList.append(newActivity.getName() + ": " +newActivity.getActivityType() + "\n");
-            }
-        });
-        
-        
-        shop.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(final ActionEvent e) {
-            	//apri finestra per fair e chiama metodo, restituisce attività che va aggiunta:
-            	ViewActivityImpl newActivity = new ViewActivityImpl("prova", 1, 20, ActivityType.SHOP);
-            	GraphicalUserInterface.this.activList.add(newActivity);
-            	activityList.append(newActivity.getName() + ": " +newActivity.getActivityType() + "\n");
-            }
-        });
-        
-        /*
-         * alla pressione del pulsante start l'applicativo deve passare all'environmentController il numero
-         * visitatori e ggiungere le attività istanziate, per poi richiamare lo start (per avviare la mainWindow
-         */
-        //nb exception se premuto con 0 attività e se no validate del visitorsNum
-        start.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(final ActionEvent e) {
-            	GraphicalUserInterface.this.controller.setVisitorsNumber(visitorsNum);
-            	for(ViewActivityImpl a: GraphicalUserInterface.this.activList) {
-            		GraphicalUserInterface.this.controller.addNewActivity(a);
-            	}
-            	GraphicalUserInterface.this.controller.start();
-            }
-        });
-        
-        /**
-         * This button must reset the fields previously set, reverting the initial state.
-         */
-        reset.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(final ActionEvent e) {
-                visitors.setText("");
-                activityList.setText("	***No activity chosen yet***	");
-                GraphicalUserInterface.this.activList.clear();
-                validate.setEnabled(true);
-            }
-        });
+//        fair.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(final ActionEvent e) {
+//            	//apri finestra per fair e chiama metodo, restituisce attività che va aggiunta:
+//            	new FairGUI().addFair(controller);
+//            	
+//            }
+//        });
+//        
+//        
+//        restaurant.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(final ActionEvent e) {
+//            	//apri finestra per restaurant e chiama metodo, restituisce attività che va aggiunta:
+//            	ViewActivityImpl newActivity = new ViewActivityImpl("prova", 10, 40, ActivityType.REST);
+//            	GraphicalUserInterface.this.activList.add(newActivity);
+//            	activityList.append(newActivity.getName() + ": " +newActivity.getActivityType() + "\n");
+//            }
+//        });
+//        
+//        
+//        shop.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(final ActionEvent e) {
+//            	//apri finestra per fair e chiama metodo, restituisce attività che va aggiunta:
+//            	ViewActivityImpl newActivity = new ViewActivityImpl("prova", 1, 20, ActivityType.SHOP);
+//            	GraphicalUserInterface.this.activList.add(newActivity);
+//            	activityList.append(newActivity.getName() + ": " +newActivity.getActivityType() + "\n");
+//            }
+//        });
+//        
+//        /*
+//         * alla pressione del pulsante start l'applicativo deve passare all'environmentController il numero
+//         * visitatori e ggiungere le attività istanziate, per poi richiamare lo start (per avviare la mainWindow
+//         */
+//        //nb exception se premuto con 0 attività e se no validate del visitorsNum
+//        start.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(final ActionEvent e) {
+//            	GraphicalUserInterface.this.controller.setVisitorsNumber(visitorsNum);
+//            	for(ViewActivityImpl a: GraphicalUserInterface.this.activList) {
+//            		GraphicalUserInterface.this.controller.addNewActivity(a);
+//            	}
+//            	GraphicalUserInterface.this.controller.start();
+//            }
+//        });
+//        
+//        /**
+//         * This button must reset the fields previously set, reverting the initial state.
+//         */
+//        reset.addActionListener(new ActionListener() {
+//            @Override
+//            public void actionPerformed(final ActionEvent e) {
+//                //visitors.setText("");
+//                activityList.setText("	***No activity chosen yet***	");
+//                GraphicalUserInterface.this.activList.clear();
+//                //validate.setEnabled(true);
+//            }
+//        });
         /*
          * Make the frame half the resolution of the screen. This very method is
          * enough for a single screen setup. In case of multiple monitors, the
@@ -210,6 +160,11 @@ public final class GraphicalUserInterface {
     private void display() {
         frame.setVisible(true);
     }
+    
+//    public void activityAdded(ViewActivityImpl activity) {
+//    	GraphicalUserInterface.this.activList.add(activity);
+//    	GraphicalUserInterface.this.activityList.append(activity.getName() + ": " +activity.getActivityType() + "\n");
+//    }
 
     /**
      * 
@@ -217,6 +172,6 @@ public final class GraphicalUserInterface {
      *            ignored
      */
     public static void main(final String[] args) {
-        new GraphicalUserInterface(new EnvironmentControllerImpl()).display();
+        new GraphicalUserInterface().display();
     }
 }

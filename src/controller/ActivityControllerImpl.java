@@ -14,6 +14,7 @@ public class ActivityControllerImpl implements ActivityController {
 	@Override
 	public void activityInsertion(ViewActivityImpl activity) {
 		final ActivityType actType = activity.getActivityType();
+		System.out.print(actType);
 //		switch(actType) {
 //sulla base del tipo di attività istanziarla sia come model che graficamente 
 //nb 4 tipi possibili!!!!
