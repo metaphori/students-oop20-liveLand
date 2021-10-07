@@ -9,7 +9,7 @@ public class PersonTicket extends PersonImp{
 	private static final int AGE_MIN = 2;
     private static final int AGE_MAX = 95;
     private static final int AGE_MAX_REDUCED= 65;
-    private static final int AGE_MIN_REDUCED= 13;
+    private static final int AGE_MIN_REDUCED= 12;
     
 	public PersonTicket(int age, Ticket ticket) {
 		super(age, ticket);
