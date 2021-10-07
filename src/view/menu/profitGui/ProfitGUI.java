@@ -1,5 +1,4 @@
-package view.menu.FairGUI;
-
+package view.menu.profitGui;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -12,20 +11,31 @@ import javax.swing.JTextField;
 
 import controller.EnvironmentControllerImpl;
 import view.menu.ActivityInsertionPanelBox;
+import view.model.activity.ActivityType;
 import view.model.activity.ViewActivityImpl;
 
-public class FairGUI {
+public class ProfitGUI {
     private final JFrame frame = new JFrame();       
     final JPanel canvas = new JPanel();
-    final JTextField textField = new JTextField("	***Please, set the following fair fields***");
-    final SettingPanel settingPanel = new SettingPanel();    
+    final JTextField textField = new JTextField();
+    final SettingPanel settingPanel;    
     final JButton done = new JButton("Done");
 
     
-//finestra che richiede tipo giostra, nome, capienza e alla pressione del tasto done crea la 
-//relativa activityimpl passandola alla gui principale e si chiude
-	public FairGUI(EnvironmentControllerImpl view, ActivityInsertionPanelBox gui) {
+  //finestra che richiede nome, range prezzo (max e min) e alla pressione del tasto done crea la 
+  //relativa activityimpl passandola alla gui principale e si chiude
+	public ProfitGUI(EnvironmentControllerImpl view, ActivityInsertionPanelBox gui, ActivityType type) {
         canvas.setLayout(new BorderLayout());
+        settingPanel = new SettingPanel(type);
+        switch(type) {
+        case SHOP:
+        	textField.setText("	***Please, set the following shop fields***");
+        	break;
+        case REST:
+        	textField.setText("	***Please, set the following restaurant fields***");
+		default:
+			break;
+        }
         textField.setBackground(Color.lightGray);
         textField.setEditable(false);
         canvas.add(textField, BorderLayout.NORTH);
@@ -42,11 +52,11 @@ public class FairGUI {
         done.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {           	
-            	ViewActivityImpl newFair = FairGUI.this.settingPanel.buildNewFair();
-            	view.addNewActivity(newFair);
-            	gui.getGui().setActivityList(newFair);
-            	FairGUI.this.frame.setVisible(false);
-            	FairGUI.this.frame.dispose();
+            	ViewActivityImpl newProfit = ProfitGUI.this.settingPanel.buildNewProfitActivity();
+            	view.addNewActivity(newProfit);
+            	gui.getGui().setActivityList(newProfit);
+            	ProfitGUI.this.frame.setVisible(false);
+            	ProfitGUI.this.frame.dispose();
 
             }
         });
@@ -64,3 +74,4 @@ public class FairGUI {
 }
 
 	
+

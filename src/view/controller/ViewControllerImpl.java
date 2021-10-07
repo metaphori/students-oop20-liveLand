@@ -20,9 +20,9 @@ public class ViewControllerImpl implements ViewController {
 		
 	}
 	
-	public void createFair(String name, int capacity, ActivityType fairType) {
-		this.controller.addNewActivity(new ViewActivityImpl(name, capacity, fairType));
-	}
+//	public void createFair(String name, int capacity, ActivityType fairType) {
+//		this.controller.addNewActivity(new ViewActivityImpl(name, capacity, fairType));
+//	}
 	
 	@Override
 	public String toString() {
@@ -31,6 +31,14 @@ public class ViewControllerImpl implements ViewController {
 
 	public void getActivityList() {
 		System.out.print(this.controller.getActivityList());
+	}
+	
+	public void start() {
+		this.controller.start();
+	}
+	
+	public void reset() {
+		this.controller.resetActivityList();
 	}
 
 }

@@ -62,5 +62,10 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 	public List<ViewActivityImpl> getActivityList() {
 		return this.activList;
 	}
+	
+	public void resetActivityList() {
+		this.activList.clear();
+	}
+
 
 }

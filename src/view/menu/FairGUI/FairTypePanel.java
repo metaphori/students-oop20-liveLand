@@ -34,7 +34,7 @@ public class FairTypePanel extends JPanel{
             public void actionPerformed(final ActionEvent e) {
                 FairTypePanel.this.FairType = ActivityType.FAIR;
                 adultFair.setBackground(Color.GREEN);
-                adultFair.setEnabled(false);
+                //adultFair.setEnabled(false);
                 babyFair.setEnabled(false);
             }
         });
@@ -45,7 +45,7 @@ public class FairTypePanel extends JPanel{
                 FairTypePanel.this.FairType = ActivityType.BABYFAIR;
                 babyFair.setBackground(Color.GREEN);
                 adultFair.setEnabled(false);
-                babyFair.setEnabled(false);
+                //babyFair.setEnabled(false);
             }
         });
 	}
