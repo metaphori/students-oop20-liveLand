@@ -3,7 +3,7 @@ package model.person.entrance;
 import java.util.List;
 
 import model.person.ticket.PersonTicket;
-import model.ticket.Ticket;
+
 
 public class EntranceImpl implements Entrance{
  // posizionare le persone all'interno della lista
