@@ -3,7 +3,11 @@ package model.person.entrance;
 import java.util.List;
 
 import model.person.ticket.PersonTicket;
+<<<<<<< HEAD
 
+=======
+import model.ticket.Ticket;
+>>>>>>> feature-gui-menu
 
 public class EntranceImpl implements Entrance{
  // posizionare le persone all'interno della lista
