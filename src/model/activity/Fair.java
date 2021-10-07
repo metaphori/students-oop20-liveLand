@@ -9,7 +9,7 @@ import view.model.activity.ActivityType;
 
 public class Fair implements Activity{
 	
-	
+	private String name;
 	private int rideAttendance=0;
 	private int totPeople=0;
 	private int capacity;
@@ -19,7 +19,8 @@ public class Fair implements Activity{
 	ArrayList<PersonTicket> person= new ArrayList<PersonTicket>();
 	
 	
-	public Fair(int capacity, ActivityType activityType) {
+	public Fair(String name, int capacity, ActivityType activityType) {
+		this.name = name;
 		this.capacity=capacity;
 		this.activityType = activityType;
 	}
@@ -61,6 +62,10 @@ public class Fair implements Activity{
 	
 	public ActivityType getActivityType() {
 		return this.activityType;
+	}
+	
+	public String getName() {
+		return this.name;
 	}
 
 }

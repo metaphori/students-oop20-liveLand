@@ -9,6 +9,7 @@ import view.model.activity.ActivityType;
 
 public class Profit implements Activity{
 
+		private String name;
 		private int money=0;
 		private int totMoney=0;
 		private int rideAttendance=0;
@@ -19,7 +20,8 @@ public class Profit implements Activity{
 		ArrayList<PersonTicket> person= new ArrayList<PersonTicket>();
 		
 
-		public Profit(int min, int max, ActivityType activityType) {
+		public Profit(String name, int min, int max, ActivityType activityType) {
+			this.name = name;
 			this.activityType = activityType;
 			this.min=min;
 			this.max=max;
@@ -72,6 +74,10 @@ public class Profit implements Activity{
 		@Override
 		public ActivityType getActivityType() {
 			return this.activityType;
+		}
+		
+		public String getName() {
+			return this.name;
 		}
 
 
