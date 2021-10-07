@@ -23,34 +23,34 @@ public class AnalysisImpl implements Analysis{
 
 	@Override
 	public String mostLikedFair() {
-		for(int i=1; i<NumGiostre; i++) {
+/*		for(int i=1; i<NumGiostre; i++) {
 		this.currentParticipants = fair[i].getAttendance();
 		if(this.currentParticipants > this.participantsMostLikedFair) {
 			this.mostLikedFair = fair[i].getName();
 		}
-		}
-		return this.mostLikedFair;
+		} */
+		return this.mostLikedFair; 
 	}
 
 	@Override
 	public String leastLikedFair() {
-		for(int i=1; i<NumGiostre; i++) {
+/*		for(int i=1; i<NumGiostre; i++) {
 		this.currentParticipants = fair[i].getAttendance();
 		if(this.currentParticipants > this.participantsLeastLikedFair) {
 			this.leastLikedFair = fair[i].getName();
 		}
-		}
-		return this.leastLikedFair;
+		} */
+		return this.leastLikedFair; 
 	}
 
 	@Override
 	public String mostProfitableRestaurant() {
-		for(int i=1; i<NumRestaurants; i++) {
+/*		for(int i=1; i<NumRestaurants; i++) {
 		this.restaurantIncome = restaurant[i].getIncome();
 		if(this.restaurantIncome > this.incomeMostProfitableRestaurant) {
 			this.mostProfitableRestaurant = fair[i].getName();
 		}
-		}
+		} */
 		return this.mostProfitableRestaurant;
 	}
 

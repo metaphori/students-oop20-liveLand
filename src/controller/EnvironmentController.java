@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.List;
+
 import view.model.activity.ViewActivityImpl;
 
 public interface EnvironmentController {
@@ -29,6 +31,12 @@ public interface EnvironmentController {
 	 * Gets the visitors number on the day in which the simulation takes place 
 	 */
 	int getVisitorsNumber();
+	
+	/**
+	 * 
+	 * @return the list of activities set int the environment
+	 */
+	List<ViewActivityImpl> getActivityList();
 	
 	
     /**
