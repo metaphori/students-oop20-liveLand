@@ -26,7 +26,4 @@ public class EnvironmentImpl implements Environment{
 		
 	}
 
-	
-//entrata e uscita random delle persone all'interno della lista	
-
 }
