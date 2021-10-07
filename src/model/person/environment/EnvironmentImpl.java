@@ -9,11 +9,7 @@ import model.person.ticket.PersonTicket;
 
 public class EnvironmentImpl implements Environment{
 	
-<<<<<<< HEAD
 	public final List<PersonTicket> personList = new LinkedList<PersonTicket>();
-=======
-	public final List<PersonTicket> personList = new LinkedList();
->>>>>>> feature-gui-menu
 	public EntranceImpl entrance = new EntranceImpl();
 	public ExitImpl exit= new ExitImpl();
 	
@@ -29,10 +25,7 @@ public class EnvironmentImpl implements Environment{
 		exit.deletePerson(personList);
 		
 	}
-<<<<<<< HEAD
 
-=======
->>>>>>> feature-gui-menu
 	
 //entrata e uscita random delle persone all'interno della lista	
 

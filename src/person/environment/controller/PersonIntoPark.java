@@ -1,6 +1,5 @@
 package person.environment.controller;
 
-<<<<<<< HEAD
 import java.util.Random;
 
 import controller.EnvironmentControllerImpl;
@@ -91,8 +90,4 @@ public class PersonIntoPark extends Thread{
 		}
 	}
 	
-=======
-public class PersonIntoPark extends Thread{
-
->>>>>>> feature-gui-menu
 }
