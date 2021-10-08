@@ -9,6 +9,12 @@ import view.model.activity.ActivityType;
 
 public class Fair implements Activity{
 	
+	@Override
+	public String toString() {
+		return "Fair [name=" + name + ", rideAttendance=" + rideAttendance + ", totPeople=" + totPeople + ", capacity="
+				+ capacity + ", activityType=" + activityType + ", person=" + person + "]";
+	}
+
 	private String name;
 	private int rideAttendance=0;
 	private int totPeople=0;

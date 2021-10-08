@@ -80,5 +80,14 @@ public class Profit implements Activity{
 			return this.name;
 		}
 
+		@Override
+		public String toString() {
+			return "Profit [name=" + name + ", money=" + money + ", totMoney=" + totMoney + ", rideAttendance="
+					+ rideAttendance + ", totPeople=" + totPeople + ", min=" + min + ", max=" + max + ", activityType="
+					+ activityType + ", person=" + person + "]";
+		}
+		
+		
+
 
 	}

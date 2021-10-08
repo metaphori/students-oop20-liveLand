@@ -1,0 +1,33 @@
+package model.analysis;
+
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.general.PieDataset;
+
+import controller.ActivityControllerImpl;
+
+public class FairDatasetFactory extends AbstractDatasetFactory{
+	
+	private ActivityControllerImpl controller = new ActivityControllerImpl();
+
+	@Override
+	public PieDataset createDataset() {
+		DefaultPieDataset dataset = new DefaultPieDataset( );
+	    this.controller.getFairList().forEach(f -> {dataset.setValue(f.getName(), f.getTotPeople());});
+	    return dataset;
+	}
+
+	@Override
+	public JFreeChart createChart( ) {
+	      JFreeChart chart = ChartFactory.createPieChart(      
+			         "Fair liking",   				// chart title 
+			         this.createDataset(),          // data    
+			         true,             				// include legend   
+			         true, 
+			         false);
+
+			      return chart;
+			   }
+
+}

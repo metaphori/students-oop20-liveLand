@@ -19,10 +19,16 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 	
 	@Override
 	public void start() {
-		sim.run(); //fa partire simulazione e thread delle persone
-		//collegarsi a open nel model passandogli numero persone
-		//far partire finestra grafica della simulazione
+//		sim.run(); //fa partire simulazione e thread delle persone
+//		//collegarsi a open nel model passandogli numero persone
+//		//far partire finestra grafica della simulazione
 
+		/*test
+		List<Fair> fairList = this.activityController.getFairList();
+		fairList.forEach(f -> {System.out.print(f.toString());});
+		List<Profit> profitList = this.activityController.getProfitList();
+		profitList.forEach(p -> {System.out.print(p.toString());});
+		*/
 	}
 
 	@Override

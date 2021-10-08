@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 
+import view.analysis.AnalysisBuilder;
+
 /**
  *
  */
@@ -23,9 +25,9 @@ public class FileControllerImpl {
      * @throws IOException
      *             if the writing fails
      */
-    public void save(final String text) throws IOException {
+    public void save(AnalysisControllerImpl controller) throws IOException {
         try (PrintStream out = new PrintStream(dest)) {
-            out.println(text);
+            out.println(new AnalysisBuilder(controller));
         }
     }
 
