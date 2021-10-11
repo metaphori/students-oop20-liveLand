@@ -1,4 +1,4 @@
-package view.menu.FairGUI;
+package view.menu.fairGUI;
 
 import java.awt.BorderLayout;
 import javax.swing.JPanel;

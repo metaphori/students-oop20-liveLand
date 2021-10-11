@@ -1,7 +1,6 @@
 package view.controller;
 
 import controller.EnvironmentControllerImpl;
-import view.model.activity.ActivityType;
 import view.model.activity.ViewActivityImpl;
 
 public class ViewControllerImpl implements ViewController {
@@ -15,7 +14,7 @@ public class ViewControllerImpl implements ViewController {
 
 	@Override
 	public void addNewActivity(ViewActivityImpl newActivity) {
-		this.controller.addNewActivity(newActivity);
+		//this.controller.addNewActivity(newActivity);
 //		this.controller.toString();
 		
 	}

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import model.analysis.Analysis;
 import model.analysis.AnalysisImpl;
+import view.model.activity.ActivityAlreadyPresentException;
 import view.model.activity.ViewActivityImpl;
 
 public class EnvironmentControllerImpl implements EnvironmentController {
@@ -41,7 +42,10 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 	}
 
 	@Override
-	public void addNewActivity(ViewActivityImpl activity) {
+	public void addNewActivity(ViewActivityImpl activity) throws ActivityAlreadyPresentException {
+		if(this.activList.contains(activity)) {
+			throw new ActivityAlreadyPresentException(activity);
+		}
 		this.activList.add(activity);
 		System.out.print(this.activList);
 		this.activityController.activityInsertion(activity);

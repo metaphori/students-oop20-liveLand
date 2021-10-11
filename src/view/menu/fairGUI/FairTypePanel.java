@@ -1,4 +1,4 @@
-package view.menu.FairGUI;
+package view.menu.fairGUI;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;

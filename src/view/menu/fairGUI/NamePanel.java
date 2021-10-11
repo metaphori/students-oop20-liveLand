@@ -1,4 +1,4 @@
-package view.menu.FairGUI;
+package view.menu.fairGUI;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;

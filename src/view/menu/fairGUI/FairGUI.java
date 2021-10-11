@@ -1,4 +1,4 @@
-package view.menu.FairGUI;
+package view.menu.fairGUI;
 
 
 import java.awt.BorderLayout;
@@ -12,6 +12,7 @@ import javax.swing.JTextField;
 
 import controller.EnvironmentControllerImpl;
 import view.menu.ActivityInsertionPanelBox;
+import view.model.activity.ActivityAlreadyPresentException;
 import view.model.activity.ViewActivityImpl;
 
 public class FairGUI {
@@ -43,7 +44,13 @@ public class FairGUI {
             @Override
             public void actionPerformed(final ActionEvent e) {           	
             	ViewActivityImpl newFair = FairGUI.this.settingPanel.buildNewFair();
-            	view.addNewActivity(newFair);
+            	try {
+            		view.addNewActivity(newFair);
+            	}catch(ActivityAlreadyPresentException exc) {
+            		FairGUI.this.textField.setText(exc.getMessage());
+            		FairGUI.this.textField.setForeground(Color.RED);
+            	}
+            	
             	gui.getGui().setActivityList(newFair);
             	FairGUI.this.frame.setVisible(false);
             	FairGUI.this.frame.dispose();

@@ -11,6 +11,7 @@ import javax.swing.JTextField;
 
 import controller.EnvironmentControllerImpl;
 import view.menu.ActivityInsertionPanelBox;
+import view.model.activity.ActivityAlreadyPresentException;
 import view.model.activity.ActivityType;
 import view.model.activity.ViewActivityImpl;
 
@@ -53,7 +54,12 @@ public class ProfitGUI {
             @Override
             public void actionPerformed(final ActionEvent e) {           	
             	ViewActivityImpl newProfit = ProfitGUI.this.settingPanel.buildNewProfitActivity();
-            	view.addNewActivity(newProfit);
+            	try {
+            		view.addNewActivity(newProfit);
+            	}catch(ActivityAlreadyPresentException exc) {
+            		ProfitGUI.this.textField.setText(exc.getMessage());
+            		ProfitGUI.this.textField.setForeground(Color.RED);
+            	}
             	gui.getGui().setActivityList(newProfit);
             	ProfitGUI.this.frame.setVisible(false);
             	ProfitGUI.this.frame.dispose();

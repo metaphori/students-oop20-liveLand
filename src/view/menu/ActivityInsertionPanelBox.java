@@ -12,7 +12,7 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 import controller.EnvironmentControllerImpl;
-import view.menu.FairGUI.FairGUI;
+import view.menu.fairGUI.FairGUI;
 import view.menu.profitGui.ProfitGUI;
 import view.model.activity.ActivityType;
 

@@ -2,6 +2,7 @@ package controller;
 
 import java.util.List;
 
+import view.model.activity.ActivityAlreadyPresentException;
 import view.model.activity.ViewActivityImpl;
 
 public interface EnvironmentController {
@@ -24,8 +25,9 @@ public interface EnvironmentController {
 	/**
 	 * Adds a new activity to the environment, based on user's choices
 	 * @param activity
+	 * @throws ActivityAlreadyPresentException
 	 */
-	void addNewActivity(ViewActivityImpl activity);
+	void addNewActivity(ViewActivityImpl activity) throws ActivityAlreadyPresentException;
 	
 	/**
 	 * Gets the visitors number on the day in which the simulation takes place 
@@ -33,7 +35,6 @@ public interface EnvironmentController {
 	int getVisitorsNumber();
 	
 	/**
-	 * 
 	 * @return the list of activities set int the environment
 	 */
 	List<ViewActivityImpl> getActivityList();
