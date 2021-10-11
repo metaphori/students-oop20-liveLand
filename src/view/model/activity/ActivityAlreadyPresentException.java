@@ -10,10 +10,8 @@ public class ActivityAlreadyPresentException extends Exception{
 
     /**
      * 
-     * @param batteryLevel
-     *            current battery level
-     * @param required
-     *            level required to perform move
+     * @param newActivity
+     *            activity trying to be added
      */
     public ActivityAlreadyPresentException(final ViewActivityImpl newActivity) {
         super();

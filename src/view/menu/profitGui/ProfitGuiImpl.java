@@ -11,11 +11,12 @@ import javax.swing.JTextField;
 
 import controller.EnvironmentControllerImpl;
 import view.menu.ActivityInsertionPanelBox;
+import view.menu.fairGUI.WrongParametersException;
 import view.model.activity.ActivityAlreadyPresentException;
 import view.model.activity.ActivityType;
 import view.model.activity.ViewActivityImpl;
 
-public class ProfitGUI {
+public class ProfitGuiImpl implements ProfitGui {
     private final JFrame frame = new JFrame();       
     final JPanel canvas = new JPanel();
     final JTextField textField = new JTextField();
@@ -25,7 +26,7 @@ public class ProfitGUI {
     
   //finestra che richiede nome, range prezzo (max e min) e alla pressione del tasto done crea la 
   //relativa activityimpl passandola alla gui principale e si chiude
-	public ProfitGUI(EnvironmentControllerImpl view, ActivityInsertionPanelBox gui, ActivityType type) {
+	public ProfitGuiImpl(EnvironmentControllerImpl view, ActivityInsertionPanelBox gui, ActivityType type) {
         canvas.setLayout(new BorderLayout());
         settingPanel = new SettingPanel(type);
         switch(type) {
@@ -52,18 +53,29 @@ public class ProfitGUI {
         
         done.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(final ActionEvent e) {           	
-            	ViewActivityImpl newProfit = ProfitGUI.this.settingPanel.buildNewProfitActivity();
+            public void actionPerformed(final ActionEvent e) {  
             	try {
-            		view.addNewActivity(newProfit);
-            	}catch(ActivityAlreadyPresentException exc) {
-            		ProfitGUI.this.textField.setText(exc.getMessage());
-            		ProfitGUI.this.textField.setForeground(Color.RED);
-            	}
-            	gui.getGui().setActivityList(newProfit);
-            	ProfitGUI.this.frame.setVisible(false);
-            	ProfitGUI.this.frame.dispose();
-
+	            	ViewActivityImpl newProfit = ProfitGuiImpl.this.settingPanel.buildNewProfitActivity();
+	            	try {
+	            		view.addNewActivity(newProfit);
+	            		gui.getGui().setActivityList(newProfit);
+	                	ProfitGuiImpl.this.frame.setVisible(false);
+	                	ProfitGuiImpl.this.frame.dispose();
+	            	}catch(ActivityAlreadyPresentException exc) {
+	            		ProfitGuiImpl.this.textField.setText(exc.getMessage());
+	            		ProfitGuiImpl.this.textField.setForeground(Color.RED);
+	            		ProfitGuiImpl.this.reset();
+	            	}catch(NullPointerException exc) {
+                		ProfitGuiImpl.this.textField.setText("	***You must select the fair type!***	");
+                		ProfitGuiImpl.this.textField.setForeground(Color.RED);
+                		ProfitGuiImpl.this.reset();
+	            	}
+	            }catch(WrongParametersException exc) {
+            		ProfitGuiImpl.this.textField.setText(exc.getMessage());
+            		ProfitGuiImpl.this.textField.setForeground(Color.RED);
+            		ProfitGuiImpl.this.reset();
+	            }
+            	
             }
         });
         
@@ -72,8 +84,16 @@ public class ProfitGUI {
         frame.setLocationByPlatform(true);
     }
 
-    public void display() {
+    @Override
+	public void display() {
         frame.setVisible(true);
+    }
+    
+    @Override
+	public void reset() {
+    	this.settingPanel.namePanel.textName.setText("");
+    	this.settingPanel.rangePanel.textMax.setText("");
+    	this.settingPanel.rangePanel.textMin.setText("");
     }
 
     

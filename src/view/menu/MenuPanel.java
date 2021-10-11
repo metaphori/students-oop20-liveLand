@@ -1,5 +1,6 @@
 package view.menu;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -34,9 +35,19 @@ public class MenuPanel extends JPanel{
         validate.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
-            	view.setVisitorsNumber(Integer.valueOf(visitors.getText()));
-            	validate.setEnabled(false);
-           MenuPanel.this.activityPanel.activityList.setText("\n");
+            	try {
+	            	view.setVisitorsNumber(Integer.valueOf(visitors.getText()));
+	            	validate.setEnabled(false);
+	            	MenuPanel.this.activityPanel.activityList.setText("\n");
+            	}catch(NumberFormatException exc) {
+            		MenuPanel.this.visitors.setText("");
+            		gui.welcomePanel.welcomeMsg.setText("Please, set visitors as a number!");
+            		gui.welcomePanel.welcomeMsg.setForeground(Color.RED);
+            	}catch(VisitorsOutOfBoundException exc) {
+            		MenuPanel.this.visitors.setText("");
+            		gui.welcomePanel.welcomeMsg.setText(exc.getMessage());
+            		gui.welcomePanel.welcomeMsg.setForeground(Color.RED);
+            	}
             }
         });
         

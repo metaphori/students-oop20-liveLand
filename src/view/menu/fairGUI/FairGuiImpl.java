@@ -15,7 +15,7 @@ import view.menu.ActivityInsertionPanelBox;
 import view.model.activity.ActivityAlreadyPresentException;
 import view.model.activity.ViewActivityImpl;
 
-public class FairGUI {
+public class FairGuiImpl implements FairGui {
     private final JFrame frame = new JFrame();       
     final JPanel canvas = new JPanel();
     final JTextField textField = new JTextField("	***Please, set the following fair fields***");
@@ -25,7 +25,7 @@ public class FairGUI {
     
 //finestra che richiede tipo giostra, nome, capienza e alla pressione del tasto done crea la 
 //relativa activityimpl passandola alla gui principale e si chiude
-	public FairGUI(EnvironmentControllerImpl view, ActivityInsertionPanelBox gui) {
+	public FairGuiImpl(EnvironmentControllerImpl view, ActivityInsertionPanelBox gui) {
         canvas.setLayout(new BorderLayout());
         textField.setBackground(Color.lightGray);
         textField.setEditable(false);
@@ -42,18 +42,28 @@ public class FairGUI {
         
         done.addActionListener(new ActionListener() {
             @Override
-            public void actionPerformed(final ActionEvent e) {           	
-            	ViewActivityImpl newFair = FairGUI.this.settingPanel.buildNewFair();
+            public void actionPerformed(final ActionEvent e) { 
             	try {
-            		view.addNewActivity(newFair);
-            	}catch(ActivityAlreadyPresentException exc) {
-            		FairGUI.this.textField.setText(exc.getMessage());
-            		FairGUI.this.textField.setForeground(Color.RED);
+            		ViewActivityImpl newFair = FairGuiImpl.this.settingPanel.buildNewFair();
+                	try {
+                		view.addNewActivity(newFair);
+                    	gui.getGui().setActivityList(newFair);
+                    	FairGuiImpl.this.frame.setVisible(false);
+                    	FairGuiImpl.this.frame.dispose();
+                	}catch(ActivityAlreadyPresentException exc) {
+                		FairGuiImpl.this.textField.setText(exc.getMessage());
+                		FairGuiImpl.this.textField.setForeground(Color.RED);
+                		FairGuiImpl.this.reset();
+                	}catch(NullPointerException exc) {
+                		FairGuiImpl.this.textField.setText("	***You must select the fair type!***	");
+                		FairGuiImpl.this.textField.setForeground(Color.RED);
+                		FairGuiImpl.this.reset();
+                	}
+            	}catch (WrongParametersException exc) {
+            		FairGuiImpl.this.textField.setText(exc.getMessage());
+            		FairGuiImpl.this.textField.setForeground(Color.RED);
+            		FairGuiImpl.this.reset();
             	}
-            	
-            	gui.getGui().setActivityList(newFair);
-            	FairGUI.this.frame.setVisible(false);
-            	FairGUI.this.frame.dispose();
 
             }
         });
@@ -63,8 +73,17 @@ public class FairGUI {
         frame.setLocationByPlatform(true);
     }
 
-    public void display() {
+    @Override
+	public void display() {
         frame.setVisible(true);
+    }
+    
+    @Override
+	public void reset() {
+    	this.settingPanel.capacityPanel.textCapacity.setText("");
+    	this.settingPanel.namePanel.textName.setText("");
+    	this.settingPanel.fTypePanel.adultFair.setEnabled(true);
+    	this.settingPanel.fTypePanel.babyFair.setEnabled(true);
     }
 
     

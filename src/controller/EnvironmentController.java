@@ -2,6 +2,7 @@ package controller;
 
 import java.util.List;
 
+import view.menu.VisitorsOutOfBoundException;
 import view.model.activity.ActivityAlreadyPresentException;
 import view.model.activity.ViewActivityImpl;
 
@@ -28,6 +29,14 @@ public interface EnvironmentController {
 	 * @throws ActivityAlreadyPresentException
 	 */
 	void addNewActivity(ViewActivityImpl activity) throws ActivityAlreadyPresentException;
+	
+	/**
+	 * Sets the visitors number as selected by the user in the gui menu
+	 * @param visitorsNum
+	 * @throws VisitorsOutOfBoundException if the number chosen by the user is 
+	 * less than 1 or greater than 100
+	 */
+	void setVisitorsNumber(int visitorsNum) throws VisitorsOutOfBoundException;
 	
 	/**
 	 * Gets the visitors number on the day in which the simulation takes place 

@@ -3,6 +3,7 @@ package view.menu.profitGui;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
+import view.menu.fairGUI.WrongParametersException;
 import view.model.activity.ActivityType;
 import view.model.activity.ViewActivityImpl;
 
@@ -25,10 +26,14 @@ public class SettingPanel extends JPanel{
 		
 	}
 	
-	public ViewActivityImpl buildNewProfitActivity() {
-		return new ViewActivityImpl(this.namePanel.getName(), 
-				Integer.valueOf(this.rangePanel.textMin.getText()), 
-				Integer.valueOf(this.rangePanel.textMax.getText()), this.type);
+	public ViewActivityImpl buildNewProfitActivity() throws WrongParametersException{
+		try {
+			return new ViewActivityImpl(this.namePanel.getName(), 
+			Integer.valueOf(this.rangePanel.textMin.getText()), 
+			Integer.valueOf(this.rangePanel.textMax.getText()), this.type);
+		}catch (NumberFormatException exc) {
+			throw new WrongParametersException();
+		}
 	}
 
 }

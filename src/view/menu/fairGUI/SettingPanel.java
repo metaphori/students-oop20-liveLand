@@ -24,9 +24,14 @@ public class SettingPanel extends JPanel{
 		
 	}
 	
-	public ViewActivityImpl buildNewFair() {
+	public ViewActivityImpl buildNewFair() throws WrongParametersException{
+		try {
 		return new ViewActivityImpl(this.namePanel.getName(), 
 				this.capacityPanel.getCapacity(), this.fTypePanel.getFairType());
+		
+		}catch (NumberFormatException exc) {
+			throw new WrongParametersException();
+		}
 	}
 
 }

@@ -12,8 +12,10 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 import controller.EnvironmentControllerImpl;
-import view.menu.fairGUI.FairGUI;
-import view.menu.profitGui.ProfitGUI;
+import view.menu.fairGUI.FairGui;
+import view.menu.fairGUI.FairGuiImpl;
+import view.menu.profitGui.ProfitGui;
+import view.menu.profitGui.ProfitGuiImpl;
 import view.model.activity.ActivityType;
 
 public class ActivityInsertionPanelBox extends JPanel{
@@ -51,7 +53,7 @@ public class ActivityInsertionPanelBox extends JPanel{
 	    @Override
 		    public void actionPerformed(final ActionEvent e) {
 		    //apri finestra per fair e chiama metodo, restituisce attività che va aggiunta:
-		    FairGUI fairWindow = new FairGUI(view, ActivityInsertionPanelBox.this);
+		    FairGui fairWindow = new FairGuiImpl(view, ActivityInsertionPanelBox.this);
 		    fairWindow.display();
 	      	
 	      }
@@ -61,7 +63,7 @@ public class ActivityInsertionPanelBox extends JPanel{
 	    @Override
 		    public void actionPerformed(final ActionEvent e) {
 		    //apri finestra per fair e chiama metodo, restituisce attività che va aggiunta:
-		    ProfitGUI fairWindow = new ProfitGUI(view, ActivityInsertionPanelBox.this, ActivityType.REST);
+		    ProfitGui fairWindow = new ProfitGuiImpl(view, ActivityInsertionPanelBox.this, ActivityType.REST);
 		    fairWindow.display();
 	      	
 	      }
@@ -71,7 +73,7 @@ public class ActivityInsertionPanelBox extends JPanel{
 	    @Override
 		    public void actionPerformed(final ActionEvent e) {
 		    //apri finestra per fair e chiama metodo, restituisce attività che va aggiunta:
-		    ProfitGUI fairWindow = new ProfitGUI(view, ActivityInsertionPanelBox.this, ActivityType.SHOP);
+		    ProfitGui fairWindow = new ProfitGuiImpl(view, ActivityInsertionPanelBox.this, ActivityType.SHOP);
 		    fairWindow.display();
 	      	
 	      }

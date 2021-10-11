@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import model.analysis.Analysis;
 import model.analysis.AnalysisImpl;
+import view.menu.VisitorsOutOfBoundException;
 import view.model.activity.ActivityAlreadyPresentException;
 import view.model.activity.ViewActivityImpl;
 
@@ -53,13 +54,16 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 		}
 
 	@Override
-	public Analysis getAnalysis() {
+	public Analysis getAnalysis(){
 		currentAnalysis.build();
 		return currentAnalysis;
 	}
 
-	public void setVisitorsNumber(int visitorsNum) {
-		this.visitorsNumber = visitorsNum;
+	public void setVisitorsNumber(int visitorsNum) throws VisitorsOutOfBoundException{
+		if(visitorsNum >= 1 && visitorsNum <= 100) {
+			this.visitorsNumber = visitorsNum;
+		} else throw new VisitorsOutOfBoundException();
+		
 		
 	}
 	

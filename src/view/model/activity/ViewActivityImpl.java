@@ -9,7 +9,7 @@ public class ViewActivityImpl implements ViewActivity {
 	private final ActivityType activityType;
 	
 	//costruttore valido per giostre, sia per bambini che per adulti
-	public ViewActivityImpl(String name, int capacity, ActivityType activityType) {
+	public ViewActivityImpl(String name, int capacity, ActivityType activityType){
 		this.name = name;
 		this.capacity = capacity;
 		this.activityType = activityType;

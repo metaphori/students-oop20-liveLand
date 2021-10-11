@@ -50,4 +50,9 @@ public class ActivityInsertionTest {
 		assertFalse("Activity3 not added, already present!", this.controller.getActivityList().size() == 3);
 	}
 
+	@Test
+	public void testReset() {
+		this.controller.resetActivityList();
+		assertTrue("Activity list correctly emptied", this.controller.getActivityList().isEmpty());
+	}
 }
