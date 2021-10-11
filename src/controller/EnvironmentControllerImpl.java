@@ -44,13 +44,17 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 
 	@Override
 	public void addNewActivity(ViewActivityImpl activity) throws ActivityAlreadyPresentException {
-		if(this.activList.contains(activity)) {
-			throw new ActivityAlreadyPresentException(activity);
+		if(this.activList.stream().filter(a -> a.getName().equals(activity.getName()))
+									.filter(a -> a.getCapacity()==(activity.getCapacity()))
+									.filter(a -> a.getActivityType().equals(activity.getActivityType()))
+									.count() == 1){
+			throw new ActivityAlreadyPresentException();
 		}
+		else {
 		this.activList.add(activity);
 		System.out.print(this.activList);
 		this.activityController.activityInsertion(activity);
-		
+		}
 		}
 
 	@Override

@@ -4,6 +4,8 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 
+import javax.imageio.ImageIO;
+
 import org.jfree.chart.ChartUtilities;
 import org.jfree.chart.JFreeChart;
 
@@ -34,6 +36,10 @@ public class AnalysisBuilder {
             out.print(this.ticketChartImg());
             out.print(this.profitChartImg());
             out.print(this.fairChartImg());
+//            ImageIO.write(this.fairChartImg(), "ProfitBarChart", dest);
+//            ImageIO.
+        } catch(IOException exc) {
+        	System.out.print("Eccezione di IO nel salvataggio su file");
         }
 	}
 	
