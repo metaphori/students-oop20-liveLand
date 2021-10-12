@@ -11,16 +11,17 @@ import org.junit.jupiter.api.Test;
 import controller.EnvironmentControllerImpl;
 import view.model.activity.ActivityAlreadyPresentException;
 import view.model.activity.ActivityType;
+import view.model.activity.ViewActivityBuilder;
 import view.model.activity.ViewActivityImpl;
 
 public class ActivityInsertionTest {
 	
 	private EnvironmentControllerImpl controller = new EnvironmentControllerImpl();
-	private final ViewActivityImpl act1 = new ViewActivityImpl("katun", 15, ActivityType.FAIR);
-	private final ViewActivityImpl act2 = new ViewActivityImpl("bruco mela", 30, ActivityType.BABYFAIR);
-	private final ViewActivityImpl act3 = new ViewActivityImpl("burger king", 2, 30, ActivityType.REST);
-	private final ViewActivityImpl act4 = new ViewActivityImpl("pizza pazza", 10, 25, ActivityType.REST);
-	private final ViewActivityImpl act5 = new ViewActivityImpl("souvenirs", 1, 15, ActivityType.SHOP);
+	private final ViewActivityImpl act1 = new ViewActivityBuilder("katun", ActivityType.FAIR).capacity(15).build();
+	private final ViewActivityImpl act2 = new ViewActivityBuilder("bruco mela", ActivityType.BABYFAIR).capacity(25).build();
+	private final ViewActivityImpl act3 = new ViewActivityBuilder("burger king", ActivityType.REST).minPrice(2).maxPrice(30).build();
+	private final ViewActivityImpl act4 = new ViewActivityBuilder("pizza pazza", ActivityType.REST).minPrice(10).maxPrice(25).build();
+	private final ViewActivityImpl act5 = new ViewActivityBuilder("souvenirs", ActivityType.SHOP).minPrice(1).maxPrice(15).build();
 	
 	@Test
 	public void testActivityCreation() {

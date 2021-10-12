@@ -5,6 +5,7 @@ import javax.swing.JPanel;
 
 import view.menu.fairGUI.WrongParametersException;
 import view.model.activity.ActivityType;
+import view.model.activity.ViewActivityBuilder;
 import view.model.activity.ViewActivityImpl;
 
 public class SettingPanel extends JPanel{
@@ -28,9 +29,10 @@ public class SettingPanel extends JPanel{
 	
 	public ViewActivityImpl buildNewProfitActivity() throws WrongParametersException{
 		try {
-			return new ViewActivityImpl(this.namePanel.getName(), 
-			Integer.valueOf(this.rangePanel.textMin.getText()), 
-			Integer.valueOf(this.rangePanel.textMax.getText()), this.type);
+			return new ViewActivityBuilder(this.namePanel.getName(), this.type)
+					.minPrice(Integer.valueOf(this.rangePanel.textMin.getText()))
+					.maxPrice(Integer.valueOf(this.rangePanel.textMax.getText()))
+					.build();
 		}catch (NumberFormatException exc) {
 			throw new WrongParametersException();
 		}

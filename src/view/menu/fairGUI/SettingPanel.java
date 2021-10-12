@@ -3,6 +3,7 @@ package view.menu.fairGUI;
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
+import view.model.activity.ViewActivityBuilder;
 import view.model.activity.ViewActivityImpl;
 
 public class SettingPanel extends JPanel{
@@ -26,9 +27,9 @@ public class SettingPanel extends JPanel{
 	
 	public ViewActivityImpl buildNewFair() throws WrongParametersException{
 		try {
-		return new ViewActivityImpl(this.namePanel.getName(), 
-				this.capacityPanel.getCapacity(), this.fTypePanel.getFairType());
-		
+		return new ViewActivityBuilder(this.namePanel.getName(), this.fTypePanel.getFairType())
+										.capacity(this.capacityPanel.getCapacity())
+										.build();
 		}catch (NumberFormatException exc) {
 			throw new WrongParametersException();
 		}

@@ -1,15 +1,17 @@
 package view.model.activity;
 
+import java.util.Optional;
+
 public interface ViewActivity {
 	//entità che possiede campi inseriti sulla base di ciò che viene selezionato dall'utente nel menu principale
 	
 	ActivityType getActivityType();
 	
-	int getCapacity();
+	Optional<Integer> getCapacity();
 	
-	int getMinPrice();
+	Optional<Integer> getMinPrice();
 	
-	int getMaxPrice();
+	Optional<Integer> getMaxPrice();
 	
 	String getName();
 	

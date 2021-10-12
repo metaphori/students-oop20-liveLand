@@ -1,41 +1,44 @@
 package view.model.activity;
 
+import java.util.Optional;
+
 public class ViewActivityImpl implements ViewActivity {
 	
-	private int capacity = 0;
-	private int minPrice = 0;
-	private int maxPrice = 0;
+	private Optional<Integer> capacity;
+	private Optional<Integer> minPrice;
+	private Optional<Integer> maxPrice;
 	private final String name;
 	private final ActivityType activityType;
 	
 	//costruttore valido per giostre, sia per bambini che per adulti
-	public ViewActivityImpl(String name, int capacity, ActivityType activityType){
+	public ViewActivityImpl(String name, Optional<Integer> capacity, Optional<Integer> minPrice,
+			Optional<Integer> maxPrice, ActivityType activityType){
 		this.name = name;
 		this.capacity = capacity;
 		this.activityType = activityType;
 	}
 	
-	//costruttore valido per shop e risto
-	public ViewActivityImpl(String name, int minPrice, int maxPrice, ActivityType activityType) {
-		this.name = name;
-//		this.capacity = 0;
-		this.minPrice = minPrice;
-		this.maxPrice = maxPrice;
-		this.activityType = activityType;
-	}
+//	//costruttore valido per shop e risto
+//	public ViewActivityImpl(String name, int minPrice, int maxPrice, ActivityType activityType) {
+//		this.name = name;
+////		this.capacity = 0;
+//		this.minPrice = minPrice;
+//		this.maxPrice = maxPrice;
+//		this.activityType = activityType;
+//	}
 
 	@Override
-	public int getCapacity() {
+	public Optional<Integer> getCapacity() {
 		return this.capacity;
 	}
 
 	@Override
-	public int getMinPrice() {
+	public Optional<Integer> getMinPrice() {
 		return this.minPrice;
 	}
 
 	@Override
-	public int getMaxPrice() {
+	public Optional<Integer> getMaxPrice() {
 		return this.maxPrice;
 	}
 

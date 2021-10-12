@@ -40,16 +40,18 @@ public class ActivityEnvironmentImpl implements ActivityEnvironment {
 
 			switch(actType) {
 			case BABYFAIR:
-				fairList.add(new Fair(activity.getName(), activity.getCapacity(), actType));
+				fairList.add(new Fair(activity.getName(), activity.getCapacity().orElse(0), actType));
 				break;
 			case FAIR:
-				fairList.add(new Fair(activity.getName(), activity.getCapacity(), actType));
+				fairList.add(new Fair(activity.getName(), activity.getCapacity().orElse(0), actType));
 				break;
 			case REST:
-				profitList.add(new Profit(activity.getName(), activity.getMinPrice(), activity.getMaxPrice(), actType));
+				profitList.add(new Profit(activity.getName(), activity.getMinPrice().orElse(0), 
+						activity.getMaxPrice().orElse(0), actType));
 				break;
 			case SHOP:
-				profitList.add(new Profit(activity.getName(), activity.getMinPrice(), activity.getMaxPrice(), actType));
+				profitList.add(new Profit(activity.getName(), activity.getMinPrice().orElse(0),
+						activity.getMaxPrice().orElse(0), actType));
 				break;
 			default:
 				break;
