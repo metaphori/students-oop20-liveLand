@@ -1,5 +1,6 @@
 package view.menu;
 
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -31,7 +32,12 @@ public class BottomPanel extends JPanel{
 	    start.addActionListener(new ActionListener() {
 	        @Override
 	        public void actionPerformed(final ActionEvent e) {
-	         	view.start();
+	        	try {
+	        		view.start();
+	        	}catch(EmptyEnvironmentException exc) {
+	        		gui.welcomePanel.welcomeMsg.setText(exc.getMessage());
+	        		gui.welcomePanel.welcomeMsg.setForeground(Color.RED);
+	        	}
 	         }
 	     });
 //     

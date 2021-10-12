@@ -2,6 +2,7 @@ package controller;
 
 import java.util.List;
 
+import view.menu.EmptyEnvironmentException;
 import view.menu.VisitorsOutOfBoundException;
 import view.model.activity.ActivityAlreadyPresentException;
 import view.model.activity.ViewActivityImpl;
@@ -15,8 +16,9 @@ public interface EnvironmentController {
 	
 	/**
 	 * Starts the simulation
+	 * @throws EmptyEnvironmentException 
 	 */
-	void start();
+	void start() throws EmptyEnvironmentException;
 	
 	/**
 	 * Stops the simulation
@@ -38,15 +40,11 @@ public interface EnvironmentController {
 	 */
 	void setVisitorsNumber(int visitorsNum) throws VisitorsOutOfBoundException;
 	
-	/**
-	 * Gets the visitors number on the day in which the simulation takes place 
-	 */
-	int getVisitorsNumber();
 	
 	/**
 	 * @return the list of activities set int the environment
 	 */
-	List<ViewActivityImpl> getActivityList();
+	//List<ViewActivityImpl> getActivityList();
 	
 	
     /**

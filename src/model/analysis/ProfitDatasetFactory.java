@@ -4,16 +4,16 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
-import controller.ActivityControllerImpl;
+import controller.EnvironmentControllerImpl;
 
 public class ProfitDatasetFactory extends AbstractDatasetFactory{
 
-	private ActivityControllerImpl controller = new ActivityControllerImpl();
+	private EnvironmentControllerImpl controller = new EnvironmentControllerImpl();
 
 	@Override
 	public DefaultCategoryDataset createDataset() {
 		final DefaultCategoryDataset profitDataset = new DefaultCategoryDataset( );
-	    this.controller.getProfitList().forEach(f -> {profitDataset.addValue(f.getProfit(), 
+	    this.controller.modelActivity.getProfitList().forEach(f -> {profitDataset.addValue(f.getProfit(), 
 	    		f.getName(), f.getActivityType());});
 	    return profitDataset;
 	}

@@ -4,17 +4,16 @@ import org.jfree.chart.ChartFactory;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
-
-import controller.ActivityControllerImpl;
+import controller.EnvironmentControllerImpl;
 
 public class FairDatasetFactory extends AbstractDatasetFactory{
 	
-	private ActivityControllerImpl controller = new ActivityControllerImpl();
+	private EnvironmentControllerImpl controller = new EnvironmentControllerImpl();
 
 	@Override
 	public PieDataset createDataset() {
 		DefaultPieDataset dataset = new DefaultPieDataset( );
-	    this.controller.getFairList().forEach(f -> {dataset.setValue(f.getName(), f.getTotPeople());});
+	    this.controller.modelActivity.getFairList().forEach(f -> {dataset.setValue(f.getName(), f.getTotPeople());});
 	    return dataset;
 	}
 

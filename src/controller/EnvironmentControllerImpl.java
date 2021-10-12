@@ -1,10 +1,10 @@
 package controller;
 
-import java.util.List;
-import java.util.ArrayList;
-
 import model.analysis.Analysis;
 import model.analysis.AnalysisImpl;
+import model.environment.activity.ActivityEnvironmentImpl;
+import model.environment.visitors.VisitorsImpl;
+import view.menu.EmptyEnvironmentException;
 import view.menu.VisitorsOutOfBoundException;
 import view.model.activity.ActivityAlreadyPresentException;
 import view.model.activity.ViewActivityImpl;
@@ -12,18 +12,25 @@ import view.model.activity.ViewActivityImpl;
 public class EnvironmentControllerImpl implements EnvironmentController {
 
 	private Simulation sim;
-	private int visitorsNumber;
-	private AnalysisImpl currentAnalysis = new AnalysisImpl();
-	private ActivityControllerImpl activityController = new ActivityControllerImpl();
-	private List<ViewActivityImpl> activList = new ArrayList<>();
+	private AnalysisImpl currentAnalysis;
+	public ActivityEnvironmentImpl modelActivity;
+	private VisitorsImpl modelVisitors;
 	
 	
+	public EnvironmentControllerImpl() {
+		this.currentAnalysis = new AnalysisImpl();
+		this.modelActivity = new ActivityEnvironmentImpl();
+	}
 	
 	@Override
-	public void start() {
+	public void start() throws EmptyEnvironmentException {
 //		sim.run(); //fa partire simulazione e thread delle persone
 //		//collegarsi a open nel model passandogli numero persone
 //		//far partire finestra grafica della simulazione
+		
+    	if(this.modelActivity.getActivityList().size() < 1) {
+    		throw new EmptyEnvironmentException();
+    	} 
 
 		/*test
 		List<Fair> fairList = this.activityController.getFairList();
@@ -44,18 +51,8 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 
 	@Override
 	public void addNewActivity(ViewActivityImpl activity) throws ActivityAlreadyPresentException {
-		if(this.activList.stream().filter(a -> a.getName().equals(activity.getName()))
-									.filter(a -> a.getCapacity()==(activity.getCapacity()))
-									.filter(a -> a.getActivityType().equals(activity.getActivityType()))
-									.count() == 1){
-			throw new ActivityAlreadyPresentException();
-		}
-		else {
-		this.activList.add(activity);
-		System.out.print(this.activList);
-		this.activityController.activityInsertion(activity);
-		}
-		}
+		this.modelActivity.activityInsertion(activity);
+	}
 
 	@Override
 	public Analysis getAnalysis(){
@@ -65,24 +62,24 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 
 	public void setVisitorsNumber(int visitorsNum) throws VisitorsOutOfBoundException{
 		if(visitorsNum >= 1 && visitorsNum <= 100) {
-			this.visitorsNumber = visitorsNum;
-		} else throw new VisitorsOutOfBoundException();
-		
-		
+			this.modelVisitors = new VisitorsImpl(visitorsNum);
+		} else throw new VisitorsOutOfBoundException();	
 	}
 	
-	@Override
 	public int getVisitorsNumber() {
-		return this.visitorsNumber;
+		return this.modelVisitors.getVisitorsNumber();
 	}
+	
 
-	@Override
-	public List<ViewActivityImpl> getActivityList() {
-		return this.activList;
-	}
+//	@Override
+//	public List<ViewActivityImpl> getActivityList() {
+//		return this.activityController.getActivityList();
+//	}
+//	
+//	public List<Fair>
 	
 	public void resetActivityList() {
-		this.activList.clear();
+		this.modelActivity.resetActivity();
 	}
 
 
