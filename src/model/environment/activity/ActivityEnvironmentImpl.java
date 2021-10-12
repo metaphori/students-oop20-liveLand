@@ -29,7 +29,9 @@ public class ActivityEnvironmentImpl implements ActivityEnvironment {
 	@Override
 	public void activityInsertion(ViewActivityImpl activity) throws ActivityAlreadyPresentException {
 		if(this.activityList.stream().filter(a -> a.getName().equals(activity.getName()))
-				.filter(a -> a.getCapacity()==(activity.getCapacity()))
+				.filter(a -> a.getCapacity().equals(activity.getCapacity()))
+				.filter(a -> a.getMaxPrice().equals(activity.getMaxPrice()))
+				.filter(a -> a.getMinPrice().equals(activity.getMinPrice()))
 				.filter(a -> a.getActivityType().equals(activity.getActivityType()))
 				.count() == 1){
 			throw new ActivityAlreadyPresentException();

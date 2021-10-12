@@ -16,6 +16,8 @@ public class ViewActivityImpl implements ViewActivity {
 		this.name = name;
 		this.capacity = capacity;
 		this.activityType = activityType;
+		this.minPrice = minPrice;
+		this.maxPrice = maxPrice;
 	}
 	
 //	//costruttore valido per shop e risto
