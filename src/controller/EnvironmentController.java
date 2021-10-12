@@ -48,8 +48,8 @@ public interface EnvironmentController {
 	
 	
     /**
-     * @return the analysis inferred from simulation.
+     * Shows the analysis inferred from simulation.
      */
-    model.analysis.Analysis getAnalysis();
+    void showAnalysis();
 
 }

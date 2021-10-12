@@ -45,7 +45,6 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 		sim.close();
 		//fare close del parco che fa uscire persone
 		//chiudere finestra principale e aprire quella di analisi finale
-		this.getAnalysis();
 
 	}
 
@@ -55,9 +54,11 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 	}
 
 	@Override
-	public Analysis getAnalysis(){
-		currentAnalysis.build();
-		return currentAnalysis;
+	public void showAnalysis(){
+//		currentAnalysis.build();
+//		return currentAnalysis;
+		//prima chiudere finestra simulazione
+		new AnalysisControllerImpl(this);
 	}
 
 	public void setVisitorsNumber(int visitorsNum) throws VisitorsOutOfBoundException{

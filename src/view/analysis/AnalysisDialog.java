@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import org.jfree.chart.ChartPanel;
 
 import controller.AnalysisControllerImpl;
+import controller.EnvironmentControllerImpl;
 import controller.FileControllerImpl;
 
 public class AnalysisDialog {
@@ -23,7 +24,7 @@ public class AnalysisDialog {
 	private JButton save = new JButton("Save analysis");
 	private FileControllerImpl fileController = new FileControllerImpl();
 	
-	public AnalysisDialog(AnalysisControllerImpl controller) {
+	public AnalysisDialog(AnalysisControllerImpl controller, EnvironmentControllerImpl envController) {
 		this.fairPanel = new ChartPanel(controller.getFairChart());
         this.fairPanel.setDomainZoomable(true);
         
