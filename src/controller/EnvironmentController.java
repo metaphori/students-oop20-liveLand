@@ -1,6 +1,6 @@
 package controller;
 
-import java.util.List;
+//import java.util.List;
 
 import view.menu.EmptyEnvironmentException;
 import view.menu.VisitorsOutOfBoundException;
@@ -16,7 +16,7 @@ public interface EnvironmentController {
 	
 	/**
 	 * Starts the simulation
-	 * @throws EmptyEnvironmentException 
+	 * @throws EmptyEnvironmentException if button Start is pressed without adding any ativity 
 	 */
 	void start() throws EmptyEnvironmentException;
 	
@@ -42,7 +42,7 @@ public interface EnvironmentController {
 	
 	
 	/**
-	 * @return the list of activities set int the environment
+	 * @return the list of activities set in the environment
 	 */
 	//List<ViewActivityImpl> getActivityList();
 	

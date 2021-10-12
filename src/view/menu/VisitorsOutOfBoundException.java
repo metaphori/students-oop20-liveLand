@@ -13,7 +13,7 @@ public class VisitorsOutOfBoundException extends IllegalStateException{
      */
     @Override
     public String toString() {
-        return "Visitors' number must be between 1 and 100! Please, try again \n ";
+        return "Visitors' number must be between 1 and 100! Please, try again ";
     }
 
     /**

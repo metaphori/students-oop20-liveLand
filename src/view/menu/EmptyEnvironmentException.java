@@ -13,7 +13,7 @@ public class EmptyEnvironmentException extends Exception {
      */
     @Override
     public String toString() {
-        return "You must add at least an activity to launch the simulation! \n ";
+        return "You must add at least one activity to launch the simulation! ";
     }
 
     /**
