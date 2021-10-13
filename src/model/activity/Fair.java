@@ -31,6 +31,11 @@ public class Fair implements Activity{
 	}
 
 	
+	public ArrayList<PersonTicket> getPeople() {
+		return personList;
+	}
+	
+	
 	public void removePerson() {
 		personList.clear();
 	}

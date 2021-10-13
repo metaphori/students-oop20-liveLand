@@ -26,14 +26,18 @@ public class Profit implements Activity{
 			
 		}
 
-		@Override
+		
 		public void addPerson(PersonTicket person) {
 			personList.add(person);
 			amount();	
 			totPeople++;
-			
 		}
 
+		
+		public ArrayList<PersonTicket> getPeople() {
+			return personList;
+		}
+		
 		
 		public void removePerson() {
 			personList.clear();
@@ -62,7 +66,7 @@ public class Profit implements Activity{
 			
 		}
 
-		@Override
+		
 		public ActivityType getActivityType() {
 			return this.activityType;
 		}

@@ -39,21 +39,21 @@ public class ActivityInsertionTest {
 			System.out.print(exc.getMessage());
 		}
 		assertTrue("Activity1 correctly added in controller's list", 
-				this.controller.modelActivity.getActivityList().contains(this.act1));
+				this.controller.getActivityList().contains(this.act1));
 		try {
 			this.controller.addNewActivity(this.act3);
 		}catch(ActivityAlreadyPresentException exc) {
 			System.out.print(exc.getMessage());
 		}
 		assertTrue("Activity3 correctly added in controller's list", 
-				this.controller.modelActivity.getActivityList().contains(act3));
+				this.controller.getActivityList().contains(act3));
 		assertThrows(ActivityAlreadyPresentException.class, () -> this.controller.addNewActivity(act3));
-		assertFalse("Activity3 not added, already present!", this.controller.modelActivity.getActivityList().size() == 3);
+		assertFalse("Activity3 not added, already present!", this.controller.getActivityList().size() == 3);
 	}
 
 	@Test
 	public void testReset() {
-		this.controller.resetActivityList();
-		assertTrue("Activity list correctly emptied", this.controller.modelActivity.getActivityList().isEmpty());
+		this.controller.resetActivityLists();
+		assertTrue("Activity list correctly emptied", this.controller.getActivityList().isEmpty());
 	}
 }

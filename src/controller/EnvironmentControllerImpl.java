@@ -1,5 +1,9 @@
 package controller;
 
+import java.util.List;
+
+import model.activity.Fair;
+import model.activity.Profit;
 import model.analysis.Analysis;
 import model.analysis.AnalysisImpl;
 import model.environment.activity.ActivityEnvironmentImpl;
@@ -13,7 +17,7 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 
 	private Simulation sim;
 	private AnalysisImpl currentAnalysis;
-	public ActivityEnvironmentImpl modelActivity;
+	private ActivityEnvironmentImpl modelActivity;
 	private VisitorsImpl modelVisitors;
 	
 	
@@ -61,25 +65,35 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 		new AnalysisControllerImpl(this);
 	}
 
+	@Override
 	public void setVisitorsNumber(int visitorsNum) throws VisitorsOutOfBoundException{
 		if(visitorsNum >= 1 && visitorsNum <= 100) {
 			this.modelVisitors = new VisitorsImpl(visitorsNum);
 		} else throw new VisitorsOutOfBoundException();	
 	}
 	
+	@Override
 	public int getVisitorsNumber() {
 		return this.modelVisitors.getVisitorsNumber();
 	}
 	
-
-//	@Override
-//	public List<ViewActivityImpl> getActivityList() {
-//		return this.activityController.getActivityList();
-//	}
-//	
-//	public List<Fair>
+	@Override
+	public List<ViewActivityImpl> getActivityList() {
+		return this.modelActivity.getActivityList();
+	}
 	
-	public void resetActivityList() {
+	@Override
+	public List<Fair> getFairList() {
+		return this.modelActivity.getFairList();
+	}
+	
+	@Override
+	public List<Profit> getProfitList() {
+		return this.modelActivity.getProfitList();
+	}
+	
+	@Override
+	public void resetActivityLists() {
 		this.modelActivity.resetActivity();
 	}
 
