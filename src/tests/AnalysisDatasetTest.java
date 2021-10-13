@@ -19,8 +19,8 @@ import view.model.activity.ViewActivityImpl;
 
 public class AnalysisDatasetTest {
 	
-	private AnalysisControllerImpl controller = new AnalysisControllerImpl();
 	private EnvironmentControllerImpl envController = new EnvironmentControllerImpl();
+	private AnalysisControllerImpl controller = new AnalysisControllerImpl(this.envController);
 	private FairDatasetFactory fairDataset = new FairDatasetFactory();
 	private ProfitDatasetFactory profitDataset = new ProfitDatasetFactory();
 	private final ViewActivityImpl act1 = new ViewActivityBuilder("katun", ActivityType.FAIR).capacity(15).build();
