@@ -16,9 +16,7 @@ public class OpenImpl implements Open{
 	
 	public void FirstEntrance() {
 		for (int i=0; i<numPerson; i++) {
-			PersonTicket person = new PersonTicket(i, null);
-			person.randAge();
-			person.randTicket();
+			PersonTicket person = new PersonTicket();
 			environment.peopleEntrance(person);
 			
 		}
