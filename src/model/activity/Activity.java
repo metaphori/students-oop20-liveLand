@@ -9,10 +9,10 @@ public interface Activity {
 	
 	ActivityType getActivityType();
 	
-	int addPerson(List<PersonTicket> list);
+	void addPerson(PersonTicket person);
 	
-	void removePerson(List<PersonTicket> list);
+	void removePerson();
 	
-	public int getAttendace(int rideAttendance);
+	public int getTotPeople();
 }
 

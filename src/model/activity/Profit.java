@@ -1,7 +1,6 @@
 package model.activity;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Random;
 
 import model.person.ticket.PersonTicket;
@@ -12,12 +11,11 @@ public class Profit implements Activity{
 		private String name;
 		private int money=0;
 		private int totMoney=0;
-		private int rideAttendance=0;
 		private int totPeople=0;
 		private int min;
 		private int max;
 		private ActivityType activityType;
-		ArrayList<PersonTicket> person= new ArrayList<PersonTicket>();
+		ArrayList<PersonTicket> personList= new ArrayList<PersonTicket>();
 		
 
 		public Profit(String name, int min, int max, ActivityType activityType) {
@@ -29,29 +27,16 @@ public class Profit implements Activity{
 		}
 
 		@Override
-		public int addPerson(List<PersonTicket> list) {
-			rideAttendance=list.size();
-			return rideAttendance;
+		public void addPerson(PersonTicket person) {
+			personList.add(person);
+			amount();	
+			totPeople++;
 			
 		}
 
 		
-		public void profitRide (List<PersonTicket> list) {
-			for(int count=0; count<=rideAttendance; count++) {
-				money=amount(min, max);
-				setProfit(getProfit()+money);	
-			}
-		}
-		
-		
-		public void removePerson(List<PersonTicket> list) {
-			list.clear();	
-		}
-
-
-		public int getAttendace(int rideAttendance) {
-			totPeople=totPeople+rideAttendance;
-			return totPeople;
+		public void removePerson() {
+			personList.clear();
 		}
 
 
@@ -65,10 +50,16 @@ public class Profit implements Activity{
 		}
 		
 		
-		public int amount(int min, int max) {
+		public int getTotPeople() {
+			return totPeople;
+		}
+		
+		
+		public void amount() {
 			Random r =  new Random();
 			money=r.nextInt(((max-min)+1)+min);
-			return money;
+			setProfit(getProfit()+money);
+			
 		}
 
 		@Override
@@ -80,12 +71,7 @@ public class Profit implements Activity{
 			return this.name;
 		}
 
-		@Override
-		public String toString() {
-			return "Profit [name=" + name + ", money=" + money + ", totMoney=" + totMoney + ", rideAttendance="
-					+ rideAttendance + ", totPeople=" + totPeople + ", min=" + min + ", max=" + max + ", activityType="
-					+ activityType + ", person=" + person + "]";
-		}
+		
 		
 		
 
