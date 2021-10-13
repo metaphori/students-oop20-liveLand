@@ -2,6 +2,7 @@ package model.activity;
 
 import java.util.ArrayList;
 
+
 import model.person.ticket.PersonTicket;
 import view.model.activity.ActivityType;
 
@@ -59,6 +60,11 @@ public class Fair implements Activity{
 	
 	public String getName() {
 		return this.name;
+	}
+	
+	public ArrayList<PersonTicket> getPeopleList() {
+		return personList;
+		
 	}
 
 }

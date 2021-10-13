@@ -71,7 +71,10 @@ public class Profit implements Activity{
 			return this.name;
 		}
 
-		
+		public ArrayList<PersonTicket> getPeopleList() {
+			return personList;
+			
+		}
 		
 		
 

@@ -6,11 +6,12 @@ import model.person.environment.EnvironmentImpl;
 import model.person.ticket.PersonTicket;
 
 public class PeopleRecirculation extends Thread{
-	Random rand = new Random();
+	private Random rand = new Random();
+	private static final int MIN_ENTRANCE = 1;
 	private EnvironmentImpl environment = new EnvironmentImpl();
 	
 	public void run() {
-			int randPeopleEntrance = rand.nextInt(((PersonIntoPark.getNumVisitorsPark() - PersonIntoPark.getPeopleIntoPark())-1)+1)+1;
+			int randPeopleEntrance = rand.nextInt((PersonIntoPark.getNumVisitorsPark() - PersonIntoPark.getPeopleIntoPark())+1)+PersonIntoPark.getPeopleIntoPark();
 			for (int i =0; i < randPeopleEntrance;i++) {
 				PersonTicket person = new PersonTicket(1, null);
 				person.randAge();
