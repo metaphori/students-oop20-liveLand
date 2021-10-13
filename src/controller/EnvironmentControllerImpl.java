@@ -8,6 +8,7 @@ import model.analysis.Analysis;
 import model.analysis.AnalysisImpl;
 import model.environment.activity.ActivityEnvironmentImpl;
 import model.environment.visitors.VisitorsImpl;
+import person.environment.controller.PersonIntoPark;
 import view.menu.EmptyEnvironmentException;
 import view.menu.VisitorsOutOfBoundException;
 import view.model.activity.ActivityAlreadyPresentException;
@@ -19,6 +20,7 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 	private AnalysisImpl currentAnalysis;
 	private ActivityEnvironmentImpl modelActivity;
 	private VisitorsImpl modelVisitors;
+	private PersonIntoPark modelEnvironment;
 	
 	
 	public EnvironmentControllerImpl() {
@@ -35,7 +37,9 @@ public class EnvironmentControllerImpl implements EnvironmentController {
     	if(this.modelActivity.getActivityList().size() < 1) {
     		throw new EmptyEnvironmentException();
     	} 
-
+    	else {
+    		this.modelEnvironment = new PersonIntoPark(false, this);
+    	}
 		/*test
 		List<Fair> fairList = this.activityController.getFairList();
 		fairList.forEach(f -> {System.out.print(f.toString());});
@@ -47,6 +51,8 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 	@Override
 	public void stop() {
 		sim.close();
+		this.modelEnvironment.stopThread(true);
+		this.showAnalysis();
 		//fare close del parco che fa uscire persone
 		//chiudere finestra principale e aprire quella di analisi finale
 
