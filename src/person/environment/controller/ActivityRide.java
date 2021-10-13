@@ -22,6 +22,7 @@ public class ActivityRide extends Thread {
 	
 	
 	public void run() {
+		System.out.print("Ride thread started");
 		for(Fair f : controller.getFairList()) {
 			do {
 				randParticipant = rand.nextInt(f.getCapacity());

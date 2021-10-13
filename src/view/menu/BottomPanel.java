@@ -47,8 +47,9 @@ public class BottomPanel extends JPanel{
 	    reset.addActionListener(new ActionListener() {
 	        @Override
 	        public void actionPerformed(final ActionEvent e) {
-	             gui.menuPanel.reset();
-	             view.resetActivityLists();;
+//	             gui.menuPanel.reset();
+//	             view.resetActivityLists();
+	        	view.stop();
 	         }
 	     });
     }

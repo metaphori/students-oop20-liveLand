@@ -50,7 +50,7 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 
 	@Override
 	public void stop() {
-		sim.close();
+		//sim.close();
 		this.modelEnvironment.stopThread(true);
 		this.showAnalysis();
 		//fare close del parco che fa uscire persone

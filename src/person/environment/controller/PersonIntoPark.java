@@ -26,6 +26,7 @@ public class PersonIntoPark extends Thread{
 		this.controller = controller;
 		this.recirculation= new PeopleRecirculation(this.environment, this.controller, this);
 		this.ride = new ActivityRide(this.controller, this.environment);
+		this.run();
 
 	}
 	
@@ -47,7 +48,7 @@ public class PersonIntoPark extends Thread{
 		this.open = new OpenImpl(randomFirstEntrance, this.environment);
 		open.FirstEntrance();
 		peopleIntoPark = randomFirstEntrance;
-		
+		System.out.print("main thread started");
 		ride.run();
 		try {
 			Thread.sleep(PERSON_RECIRCULATION);
@@ -66,6 +67,7 @@ public class PersonIntoPark extends Thread{
 			}
 			try {
 				recirculation.wait();
+				System.out.print("people: " + this.peopleIntoPark);
 			} catch (Exception ex) {
 			}
 			try {
