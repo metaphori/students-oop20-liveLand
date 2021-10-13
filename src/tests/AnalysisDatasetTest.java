@@ -21,8 +21,8 @@ public class AnalysisDatasetTest {
 	
 	private EnvironmentControllerImpl envController = new EnvironmentControllerImpl();
 	private AnalysisControllerImpl controller = new AnalysisControllerImpl(this.envController);
-	private FairDatasetFactory fairDataset = new FairDatasetFactory();
-	private ProfitDatasetFactory profitDataset = new ProfitDatasetFactory();
+	private FairDatasetFactory fairDataset = new FairDatasetFactory(this.envController);
+	private ProfitDatasetFactory profitDataset = new ProfitDatasetFactory(this.envController);
 	private final ViewActivityImpl act1 = new ViewActivityBuilder("katun", ActivityType.FAIR).capacity(15).build();
 	private final ViewActivityImpl act2 = new ViewActivityBuilder("bruco mela", ActivityType.BABYFAIR).capacity(25).build();
 	private final ViewActivityImpl act3 = new ViewActivityBuilder("burger king", ActivityType.REST).minPrice(2).maxPrice(30).build();

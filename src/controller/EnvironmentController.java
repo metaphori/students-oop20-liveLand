@@ -1,5 +1,10 @@
 package controller;
 
+import java.util.List;
+
+import model.activity.Fair;
+import model.activity.Profit;
+
 //import java.util.List;
 
 import view.menu.EmptyEnvironmentException;
@@ -40,16 +45,34 @@ public interface EnvironmentController {
 	 */
 	void setVisitorsNumber(int visitorsNum) throws VisitorsOutOfBoundException;
 	
+	/**
+	 * 
+	 * @return the visitors number
+	 */
+	int getVisitorsNumber();
 	
 	/**
 	 * @return the list of activities set in the environment
 	 */
-	//List<ViewActivityImpl> getActivityList();
+	List<ViewActivityImpl> getActivityList();
+	
+	/**
+	 * @return the list of fairs set in the environment
+	 */
+	List<Fair> getFairList();
+	
+	/**
+	 * @return the list of profitable activities (shops and restaurants) set in the environment
+	 */
+	List<Profit> getProfitList();
 	
 	
     /**
      * Shows the analysis inferred from simulation.
      */
     void showAnalysis();
+    
+    void resetActivityLists();
+
 
 }

@@ -8,12 +8,15 @@ import controller.EnvironmentControllerImpl;
 
 public class FairDatasetFactory extends AbstractDatasetFactory{
 	
-	private EnvironmentControllerImpl controller = new EnvironmentControllerImpl();
+	private EnvironmentControllerImpl controller;
+	public FairDatasetFactory(EnvironmentControllerImpl controller) {
+		this.controller = controller;
+	}
 
 	@Override
 	public PieDataset createDataset() {
 		DefaultPieDataset dataset = new DefaultPieDataset( );
-	    this.controller.modelActivity.getFairList().forEach(f -> {dataset.setValue(f.getName(), f.getTotPeople());});
+	    this.controller.getFairList().forEach(f -> {dataset.setValue(f.getName(), f.getTotPeople());});
 	    return dataset;
 	}
 
