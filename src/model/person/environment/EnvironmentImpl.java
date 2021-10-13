@@ -9,9 +9,9 @@ import model.person.ticket.PersonTicket;
 
 public class EnvironmentImpl implements Environment{
 	
-	public final List<PersonTicket> personList = new LinkedList<PersonTicket>();
-	public EntranceImpl entrance = new EntranceImpl();
-	public ExitImpl exit= new ExitImpl();
+	private final List<PersonTicket> personList = new LinkedList<PersonTicket>();
+	private EntranceImpl entrance = new EntranceImpl();
+	private ExitImpl exit= new ExitImpl();
 	
 
 /*Method that inserts people in the park*/

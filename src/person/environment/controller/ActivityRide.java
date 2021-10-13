@@ -30,22 +30,23 @@ public class ActivityRide extends Thread {
 			
 			for (int i = 0 ; i < randParticipant ; i++) {
 				if (f.getActivityType() == ActivityType.BABYFAIR) {
-					f.addPerson(environment.personList.get(i));
+					f.addPerson(environment.getPersonList().get(i));
+					environment.removePerson(i);
 				}
 				else {
 					if (f.controlAge(environment.getPersonList().get(i).getAge())) {
-						f.addPerson(environment.personList.get(i));
+						f.addPerson(environment.getPersonList().get(i));
+						environment.removePerson(i);
 					}
 				}
-				environment.removePerson(i);;
 			}
 		}
 		
 		
 		for(Profit p : controller.getProfitList()) {
-			randParticipant = rand.nextInt(environment.personList.size());
+			randParticipant = rand.nextInt(environment.getPersonList().size());
 			for (int i = 0 ; i < randParticipant ; i++) {
-				p.addPerson(environment.personList.get(i));
+				p.addPerson(environment.getPersonList().get(i));
 				
 			}
 		}
