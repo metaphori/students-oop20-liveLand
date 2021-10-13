@@ -87,11 +87,12 @@ public class PersonIntoPark extends Thread{
 			try {
 				recirculation.notify();
 			} catch (Exception ex) {
-			}
-		
-			
-			
+			}	
 		}
+	}
+	
+	public void stopThread(boolean stop) {
+		this.stopped = stop;
 	}
 	
 }
