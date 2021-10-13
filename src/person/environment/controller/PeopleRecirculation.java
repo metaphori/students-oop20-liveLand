@@ -2,27 +2,36 @@ package person.environment.controller;
 
 import java.util.Random;
 
+import controller.EnvironmentControllerImpl;
 import model.person.environment.EnvironmentImpl;
 import model.person.ticket.PersonTicket;
 
 public class PeopleRecirculation extends Thread{
 	private Random rand = new Random();
-	private static final int MIN_ENTRANCE = 1;
-	private EnvironmentImpl environment = new EnvironmentImpl();
+	private EnvironmentImpl environment;
+	private EnvironmentControllerImpl controller;
+	private PersonIntoPark park;
 	
+	public PeopleRecirculation(EnvironmentImpl environment, EnvironmentControllerImpl controller, PersonIntoPark park) {
+		super();
+		this.environment = environment;
+		this.controller = controller;
+		this.park = park;
+	}
+
 	public void run() {
-			int randPeopleEntrance = rand.nextInt((PersonIntoPark.getNumVisitorsPark() - PersonIntoPark.getPeopleIntoPark())+1)+PersonIntoPark.getPeopleIntoPark();
+			int randPeopleEntrance = rand.nextInt((controller.getVisitorsNumber() - park.getPeopleIntoPark())+1)+park.getPeopleIntoPark();
 			for (int i =0; i < randPeopleEntrance;i++) {
 				PersonTicket person = new PersonTicket(1, null);
 				person.randAge();
 				person.randTicket();
 				environment.peopleEntrance(person);
-				PersonIntoPark.setPeopleIntoPark(PersonIntoPark.getPeopleIntoPark() +1 );
+				park.setPeopleIntoPark(park.getPeopleIntoPark() + 1);
 			}
-			int randPeopleExit = rand.nextInt(((PersonIntoPark.getPeopleIntoPark())-1)+1)+1;
+			int randPeopleExit = rand.nextInt(park.getPeopleIntoPark());
 			for (int i =0; i < randPeopleExit ;i++) {
 				environment.exitPeople();
-				PersonIntoPark.setPeopleIntoPark(PersonIntoPark.getPeopleIntoPark() - 1);
+				park.setPeopleIntoPark(park.getPeopleIntoPark() - 1);
 			}
 	}
 }

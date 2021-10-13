@@ -4,46 +4,50 @@ import java.util.Random;
 
 import controller.EnvironmentControllerImpl;
 import model.environment.open.OpenImpl;
+import model.person.environment.EnvironmentImpl;
 
 
 public class PersonIntoPark extends Thread{
 	private volatile boolean stopped;
-	private static final int MIN_FIRST_ENTRANCE = 1;
 	private static final int PERSON_RECIRCULATION=2000;
-    private static int numVisitorsPark;
     private int randomFirstEntrance;
-    private static int peopleIntoPark;
-	private EnvironmentControllerImpl controller = new EnvironmentControllerImpl();
+    private int peopleIntoPark;
+	private OpenImpl open;;
+	private EnvironmentControllerImpl controller;
+	private EnvironmentImpl environment;
+	private PeopleRecirculation recirculation;
+	private ActivityRide ride;
 	
-	public PersonIntoPark(boolean stopped, int numVisitorsPark) {
+	
+	public PersonIntoPark(boolean stopped, EnvironmentControllerImpl controller) {
 		super();
 		this.stopped = stopped;
-		PersonIntoPark.numVisitorsPark = this.controller.getVisitorsNumber();
+		this.environment = new EnvironmentImpl();
+		this.controller = controller;
+		this.recirculation= new PeopleRecirculation(this.environment, this.controller, this);
+		this.ride = new ActivityRide(this.controller, this.environment);
 
 	}
 	
-	public static int getNumVisitorsPark() {
-		return numVisitorsPark;
-	}
+
 	
-	public static int getPeopleIntoPark() {
+	public int getPeopleIntoPark() {
 		return peopleIntoPark;
 	}
 	
-	public static void setPeopleIntoPark(int newPeople) {
+	public void setPeopleIntoPark(int newPeople) {
 		peopleIntoPark = newPeople;
 	}
 	
 	public void run() {
-	    int MAX_FIRST_ENTRANCE = (int) (numVisitorsPark * 0.5);
+	    int MAX_FIRST_ENTRANCE = (int) (this.controller.getVisitorsNumber() * 0.5);
 		stopped = false;
 		Random rand = new Random();
-		randomFirstEntrance = rand.nextInt((MAX_FIRST_ENTRANCE - MIN_FIRST_ENTRANCE) + 1) + MIN_FIRST_ENTRANCE;
-		OpenImpl open = new OpenImpl(randomFirstEntrance);
+		randomFirstEntrance = rand.nextInt(MAX_FIRST_ENTRANCE);
+		this.open = new OpenImpl(randomFirstEntrance, this.environment);
 		open.FirstEntrance();
 		peopleIntoPark = randomFirstEntrance;
-		PeopleRecirculation recirculation = new PeopleRecirculation();
-		ActivityRide ride = new ActivityRide();
+		
 		ride.run();
 		try {
 			Thread.sleep(PERSON_RECIRCULATION);

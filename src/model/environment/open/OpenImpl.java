@@ -6,11 +6,12 @@ import model.person.ticket.PersonTicket;
 public class OpenImpl implements Open{
 	
 	public final Integer numPerson;
-	public EnvironmentImpl environment = new EnvironmentImpl();
+	public EnvironmentImpl environment;
 	
-	public OpenImpl(Integer numPerson) {
+	public OpenImpl(Integer numPerson, EnvironmentImpl environment) {
 		super();
 		this.numPerson = numPerson;
+		this.environment = environment;
 	}
 	
 	public void FirstEntrance() {

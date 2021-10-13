@@ -25,5 +25,16 @@ public class EnvironmentImpl implements Environment{
 		exit.deletePerson(personList);
 		
 	}
-
+	
+	public List<PersonTicket> getPersonList(){
+		return personList;
+	}
+	
+	public void addPersonList(List<PersonTicket> listPerson) {
+		personList.addAll(listPerson);
+	}
+ 
+	public void removePerson(int i) {
+		personList.remove(i);
+	}
 }
