@@ -61,7 +61,7 @@ public class PersonIntoPark extends Thread{
 		
 		while (!stopped) {
 			try {
-				PersonIntoPark.sleep(PERSON_RECIRCULATION);
+				Thread.sleep(PERSON_RECIRCULATION);
 			} catch (Exception ex) {
 			}
 			try {
@@ -69,7 +69,7 @@ public class PersonIntoPark extends Thread{
 			} catch (Exception ex) {
 			}
 			try {
-				PersonIntoPark.sleep(PERSON_RECIRCULATION);
+				Thread.sleep(PERSON_RECIRCULATION);
 			} catch (Exception ex) {
 			}
 			try {
@@ -77,7 +77,7 @@ public class PersonIntoPark extends Thread{
 			} catch (Exception ex) {
 			}
 			try {
-				PersonIntoPark.sleep(PERSON_RECIRCULATION);
+				Thread.sleep(PERSON_RECIRCULATION);
 			} catch (Exception ex) {
 			}
 			try {
@@ -93,6 +93,8 @@ public class PersonIntoPark extends Thread{
 	
 	public void stopThread(boolean stop) {
 		this.stopped = stop;
+		recirculation.interrupt();
+		ride.interrupt();
 	}
 	
 }
