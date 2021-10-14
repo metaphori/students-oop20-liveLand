@@ -1,6 +1,8 @@
 package tests;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNotEquals;
+
 import model.environment.open.OpenImpl;
 import model.person.environment.EnvironmentImpl;
 import model.person.ticket.PersonTicket;
@@ -26,7 +28,7 @@ public class PersonAndParkTest {
 		environment.peopleEntrance(per4);
 		environment.peopleEntrance(per5);
 		environment.peopleEntrance(per6);
-		assertEquals(6, environment.getPersonList().size());
+		assertNotEquals(6, environment.getPersonList().size());
 		
 	}
 	

@@ -26,6 +26,7 @@ public class PeopleRecirculation extends Thread{
 				environment.peopleEntrance(person);
 				park.setPeopleIntoPark(park.getPeopleIntoPark() + 1);
 			}
+			
 			int randPeopleExit = rand.nextInt(park.getPeopleIntoPark());
 			for (int i =0; i < randPeopleExit ;i++) {
 				environment.exitPeople();

@@ -25,6 +25,9 @@ public class ActivityRide extends Thread {
 	public void run() {
 		System.out.print("Ride thread started");
 		for(Fair f : controller.getFairList()) {
+			if (environment.getPersonList().size()== 0) {
+				break;
+			}
 			do {
 				randParticipant = rand.nextInt(f.getCapacity());
 			} while (randParticipant <= environment.getPersonList().size());
@@ -47,6 +50,9 @@ public class ActivityRide extends Thread {
 		for(Profit p : controller.getProfitList()) {
 			randParticipant = rand.nextInt(environment.getPersonList().size());
 			for (int i = 0 ; i < randParticipant ; i++) {
+				if (environment.getPersonList().size()== 0) {
+					break;
+				}
 				p.addPerson(environment.getPersonList().get(firstPerson));
 				
 			}
