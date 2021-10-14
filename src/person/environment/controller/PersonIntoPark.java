@@ -36,13 +36,16 @@ public class PersonIntoPark extends Thread{
 		return peopleIntoPark;
 	}
 	
-	public void setPeopleIntoPark(int newPeople) {
-		peopleIntoPark = newPeople;
+	public void incPeopleIntoPark() {
+		peopleIntoPark++; 
+	}
+	
+	public void decPeopleIntoPark() {
+		peopleIntoPark--; 
 	}
 	
 	public void run() {
 	    int MAX_FIRST_ENTRANCE = (int) (this.controller.getVisitorsNumber() * 0.5);
-		stopped = false;
 		Random rand = new Random();
 		randomFirstEntrance = rand.nextInt(MAX_FIRST_ENTRANCE);
 		this.open = new OpenImpl(randomFirstEntrance, this.environment);

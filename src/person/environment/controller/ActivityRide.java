@@ -30,7 +30,7 @@ public class ActivityRide extends Thread {
 			}
 			do {
 				randParticipant = rand.nextInt(f.getCapacity());
-			} while (randParticipant <= environment.getPersonList().size());
+			} while (randParticipant >= environment.getPersonList().size());
 			
 			for (int i = 0 ; i < randParticipant ; i++) {
 				if (f.getActivityType() == ActivityType.BABYFAIR) {
@@ -50,9 +50,6 @@ public class ActivityRide extends Thread {
 		for(Profit p : controller.getProfitList()) {
 			randParticipant = rand.nextInt(environment.getPersonList().size());
 			for (int i = 0 ; i < randParticipant ; i++) {
-				if (environment.getPersonList().size()== 0) {
-					break;
-				}
 				p.addPerson(environment.getPersonList().get(firstPerson));
 				
 			}

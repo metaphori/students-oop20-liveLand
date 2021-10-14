@@ -24,13 +24,13 @@ public class PeopleRecirculation extends Thread{
 			for (int i =0; i < randPeopleEntrance;i++) {
 				PersonTicket person = new PersonTicket();
 				environment.peopleEntrance(person);
-				park.setPeopleIntoPark(park.getPeopleIntoPark() + 1);
+				park.incPeopleIntoPark();
 			}
 			
-			int randPeopleExit = rand.nextInt(park.getPeopleIntoPark());
+			int randPeopleExit = rand.nextInt(environment.getPersonList().size());
 			for (int i =0; i < randPeopleExit ;i++) {
 				environment.exitPeople();
-				park.setPeopleIntoPark(park.getPeopleIntoPark() - 1);
+				park.decPeopleIntoPark();
 			}
 	}
 }
