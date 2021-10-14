@@ -1,5 +1,6 @@
 package controller;
 
+
 import java.util.List;
 
 import model.activity.Fair;
@@ -9,6 +10,7 @@ import model.analysis.AnalysisImpl;
 import model.environment.activity.ActivityEnvironmentImpl;
 import model.environment.visitors.VisitorsImpl;
 import person.environment.controller.PersonIntoPark;
+import provaThread.Window;
 import view.menu.EmptyEnvironmentException;
 import view.menu.VisitorsOutOfBoundException;
 import view.model.activity.ActivityAlreadyPresentException;
@@ -38,6 +40,7 @@ public class EnvironmentControllerImpl implements EnvironmentController {
     		throw new EmptyEnvironmentException();
     	} 
     	else {
+    		new Window(this);
     		this.modelEnvironment = new PersonIntoPark(false, this);
     	}
 		/*test
