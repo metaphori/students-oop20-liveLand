@@ -11,6 +11,7 @@ public class PeopleRecirculation extends Thread{
 	private EnvironmentImpl environment;
 	private EnvironmentControllerImpl controller;
 	private PersonIntoPark park;
+	private int personCanEnter;
 	
 	public PeopleRecirculation(EnvironmentImpl environment, EnvironmentControllerImpl controller, PersonIntoPark park) {
 		super();
@@ -20,7 +21,8 @@ public class PeopleRecirculation extends Thread{
 	}
 
 	public void run() {
-			int randPeopleEntrance = rand.nextInt((controller.getVisitorsNumber() - park.getPeopleIntoPark())+1)+park.getPeopleIntoPark();
+			personCanEnter = controller.getVisitorsNumber() - park.getPeopleIntoPark();
+			int randPeopleEntrance = rand.nextInt(personCanEnter);
 			for (int i =0; i < randPeopleEntrance;i++) {
 				PersonTicket person = new PersonTicket();
 				environment.peopleEntrance(person);
