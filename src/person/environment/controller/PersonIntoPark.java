@@ -55,7 +55,7 @@ public class PersonIntoPark extends Thread{
 		} catch (Exception ex) {
 		}
 		try {
-			ride.wait();
+			ride.interrupt();
 		} catch (Exception ex) {
 		}
 		recirculation.run();
@@ -66,7 +66,7 @@ public class PersonIntoPark extends Thread{
 			} catch (Exception ex) {
 			}
 			try {
-				recirculation.wait();
+				recirculation.interrupt();
 				System.out.print("people: " + this.peopleIntoPark);
 			} catch (Exception ex) {
 			}
@@ -75,7 +75,7 @@ public class PersonIntoPark extends Thread{
 			} catch (Exception ex) {
 			}
 			try {
-				ride.notify();
+				ride.run();
 			} catch (Exception ex) {
 			}
 			try {
@@ -83,11 +83,11 @@ public class PersonIntoPark extends Thread{
 			} catch (Exception ex) {
 			}
 			try {
-				ride.wait();
+				ride.interrupt();
 			} catch (Exception ex) {
 			}
 			try {
-				recirculation.notify();
+				recirculation.run();
 			} catch (Exception ex) {
 			}	
 		}

@@ -1,7 +1,6 @@
 package model.person.ticket;
 import java.util.Random;
 
-import model.person.*;
 import model.ticket.*;
 
 /*Class that assign to each person the age and the ticket*/

@@ -13,6 +13,7 @@ public class ActivityRide extends Thread {
 	private EnvironmentImpl environment;
 	private Random rand = new Random();
 	private int randParticipant;
+	private static final int firstPerson = 0;
 	
 	public ActivityRide(EnvironmentControllerImpl controller, EnvironmentImpl environment) {
 		super();
@@ -30,13 +31,13 @@ public class ActivityRide extends Thread {
 			
 			for (int i = 0 ; i < randParticipant ; i++) {
 				if (f.getActivityType() == ActivityType.BABYFAIR) {
-					f.addPerson(environment.getPersonList().get(i));
-					environment.removePerson(i);
+					f.addPerson(environment.getPersonList().get(firstPerson));
+					environment.exitPeople();
 				}
 				else {
-					if (f.controlAge(environment.getPersonList().get(i).getAge())) {
-						f.addPerson(environment.getPersonList().get(i));
-						environment.removePerson(i);
+					if (f.controlAge(environment.getPersonList().get(firstPerson).getAge())) {
+						f.addPerson(environment.getPersonList().get(firstPerson));
+						environment.exitPeople();
 					}
 				}
 			}
@@ -46,7 +47,7 @@ public class ActivityRide extends Thread {
 		for(Profit p : controller.getProfitList()) {
 			randParticipant = rand.nextInt(environment.getPersonList().size());
 			for (int i = 0 ; i < randParticipant ; i++) {
-				p.addPerson(environment.getPersonList().get(i));
+				p.addPerson(environment.getPersonList().get(firstPerson));
 				
 			}
 		}
