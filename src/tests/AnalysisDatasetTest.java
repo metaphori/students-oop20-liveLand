@@ -5,6 +5,8 @@ import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
+import java.util.Random;
+
 import org.jfree.chart.JFreeChart;
 import org.junit.Test;
 
@@ -12,6 +14,7 @@ import controller.AnalysisControllerImpl;
 import controller.EnvironmentControllerImpl;
 import model.analysis.FairDatasetFactory;
 import model.analysis.ProfitDatasetFactory;
+import model.environment.open.OpenImpl;
 import view.model.activity.ActivityAlreadyPresentException;
 import view.model.activity.ActivityType;
 import view.model.activity.ViewActivityBuilder;
@@ -75,9 +78,9 @@ public class AnalysisDatasetTest {
 		JFreeChart fairChart2 = this.controller.getFairChart();
 		JFreeChart profitChart = this.controller.getProfitChart();
 		assertNotNull("Fair chart correctly created", fairChart1);
+		assertNotNull("Profit chart correctly created", profitChart);
 		assertEquals("Fair chart 1 equals fair chart 2", fairChart1, fairChart2);
 		assertNotEquals("Fair chart not equal to profit chart", fairChart1, profitChart);
-		assertNull("Ticket chart is null", this.controller.getTicketChart());
 		
 	}
 	

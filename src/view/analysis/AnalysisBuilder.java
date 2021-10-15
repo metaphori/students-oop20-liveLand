@@ -22,7 +22,6 @@ public class AnalysisBuilder {
 	public AnalysisBuilder(AnalysisControllerImpl controller) {
 		this.fairChart = controller.getFairChart();
 		this.profitChart = controller.getProfitChart();
-		this.ticketChart = controller.getTicketChart();
 	}
 	
 	private String getAnalysisDescription() {

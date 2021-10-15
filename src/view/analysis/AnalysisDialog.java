@@ -20,7 +20,6 @@ public class AnalysisDialog {
 	private JPanel analysisPanel = new JPanel();
 	private ChartPanel fairPanel;
 	private ChartPanel profitPanel;
-	private ChartPanel ticketPanel;
 	private JButton save = new JButton("Save analysis");
 	private FileControllerImpl fileController = new FileControllerImpl();
 	
@@ -30,16 +29,13 @@ public class AnalysisDialog {
         
 		this.profitPanel = new ChartPanel(controller.getProfitChart());
         this.profitPanel.setDomainZoomable(true);
-        
-		this.ticketPanel = new ChartPanel(controller.getTicketChart());
-        this.ticketPanel.setDomainZoomable(true);
 
         analysisPanel.setLayout(new BorderLayout());
         analysisPanel.add(this.fairPanel, BorderLayout.NORTH);
         analysisPanel.add(this.profitPanel, BorderLayout.CENTER);
-        analysisPanel.add(this.ticketPanel, BorderLayout.SOUTH);
         analysisPanel.add(this.save, BorderLayout.PAGE_END);
 
+        frame.setTitle("Fun Fair Analysis");
         frame.add(analysisPanel);
         frame.pack();
         frame.setVisible(true);

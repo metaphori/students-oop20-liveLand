@@ -42,6 +42,7 @@ public class EnvironmentControllerImpl implements EnvironmentController {
     	else {
     		new Window(this);
     		this.modelEnvironment = new PersonIntoPark(false, this);
+    		
     	}
 		/*test
 		List<Fair> fairList = this.activityController.getFairList();
@@ -104,6 +105,10 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 	@Override
 	public void resetActivityLists() {
 		this.modelActivity.resetActivity();
+	}
+	
+	public List<Integer> getEntranceProfit(){
+		return this.modelEnvironment.getEnvironment().getEntranceProfit();
 	}
 
 

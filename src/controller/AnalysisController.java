@@ -7,8 +7,6 @@ public interface AnalysisController {
 	JFreeChart getProfitChart();
 	
 	JFreeChart getFairChart();
-	
-	JFreeChart getTicketChart();
 
 		
 

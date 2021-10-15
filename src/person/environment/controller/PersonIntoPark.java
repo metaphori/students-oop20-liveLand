@@ -102,4 +102,8 @@ public class PersonIntoPark extends Thread{
 		ride.interrupt();
 	}
 	
+	public EnvironmentImpl getEnvironment() {
+		return this.environment;
+	}
+	
 }

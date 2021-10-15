@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.List;
+
 import org.jfree.chart.JFreeChart;
 
 import model.analysis.FairDatasetFactory;
@@ -26,12 +28,6 @@ public class AnalysisControllerImpl implements AnalysisController{
 	@Override
 	public JFreeChart getFairChart() {
 		return this.profitDataset.createChart();
-	}
-
-	@Override
-	public JFreeChart getTicketChart() {
-		// TODO Auto-generated method stub
-		return null;
 	}
 
 

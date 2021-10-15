@@ -32,5 +32,13 @@ public class EnvironmentImpl implements Environment{
 	public synchronized void addPersonList(List<PersonTicket> listPerson) {
 		personList.addAll(listPerson);
 	}
+	
+	public List<Integer> getEntranceProfit(){
+		List<Integer> profit = new LinkedList<>();
+		profit.add(this.entrance.getAdultProfit());
+		profit.add(this.entrance.getReducedProfit());
+		profit.add(this.entrance.getPassProfit());
+		return profit;
+	}
  
 }
