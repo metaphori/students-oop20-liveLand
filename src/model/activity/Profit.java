@@ -23,7 +23,15 @@ public class Profit implements Activity{
 			this.activityType = activityType;
 			this.min=min;
 			this.max=max;
-			
+		}
+		
+		
+		public Profit(String name, int min, int max, ActivityType activityType, int visitors) {
+			this.name = name;
+			this.activityType = activityType;
+			this.min=min;
+			this.max=max;
+			this.totPeople=visitors;
 		}
 
 		
@@ -75,12 +83,13 @@ public class Profit implements Activity{
 			return this.name;
 		}
 
+		
 		public ArrayList<PersonTicket> getPeopleList() {
 			return personList;
 			
 		}
 		
+}
+	
 		
-
-
-	}
+		

@@ -25,6 +25,15 @@ public class Fair implements Activity{
 		this.activityType = activityType;
 	}
 	
+	
+	public Fair(String name, int capacity, ActivityType activityType, int visitors) {
+		this.name = name;
+		this.capacity=capacity;
+		this.activityType = activityType;
+		this.totPeople=visitors;
+	}
+	
+	
 	public void addPerson(PersonTicket person) {
 		personList.add(person);
 		totPeople++;
