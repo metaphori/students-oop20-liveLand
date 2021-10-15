@@ -72,10 +72,4 @@ public class Fair implements Activity{
 		
 	}
 
-	//da eliminare
-	public void setVisitors(int visitors) {
-		this.totPeople = visitors;
-		
-	}
-
 }

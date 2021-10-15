@@ -40,16 +40,16 @@ public class BottomPanel extends JPanel{
 	        	}
 	         }
 	     });
-//     
-//     /**
-//      * This button must reset the fields previously set, reverting the initial state.
-//      */
+	     
+	     /**
+	      * This button must reset the fields previously set, reverting the initial state.
+	      */
 	    reset.addActionListener(new ActionListener() {
 	        @Override
 	        public void actionPerformed(final ActionEvent e) {
-//	             gui.menuPanel.reset();
-//	             view.resetActivityLists();
-	        	view.stop();
+	            gui.menuPanel.reset();
+	            view.resetActivityLists();
+	        	//view.stop();
 	         }
 	     });
     }

@@ -9,6 +9,7 @@ import model.analysis.Analysis;
 import model.analysis.AnalysisImpl;
 import model.environment.activity.ActivityEnvironmentImpl;
 import model.environment.visitors.VisitorsImpl;
+import model.person.environment.EnvironmentImpl;
 import person.environment.controller.PersonIntoPark;
 import provaThread.Window;
 import view.menu.EmptyEnvironmentException;
@@ -74,6 +75,7 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 		//prima chiudere finestra simulazione
 		new AnalysisControllerImpl(this);
 	}
+	
 
 	@Override
 	public void setVisitorsNumber(int visitorsNum) throws VisitorsOutOfBoundException{
@@ -109,6 +111,10 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 	
 	public List<Integer> getEntranceProfit(){
 		return this.modelEnvironment.getEnvironment().getEntranceProfit();
+	}
+	
+	public EnvironmentImpl getEnvironment() {
+		return this.modelEnvironment.getEnvironment();
 	}
 
 

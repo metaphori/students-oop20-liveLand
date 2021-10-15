@@ -21,13 +21,21 @@ public class AnalysisControllerImpl implements AnalysisController{
 	}
 
 	@Override
-	public JFreeChart getProfitChart() {
+	public JFreeChart getFairChart() {
 		return this.fairModel.createChart();
 	}
 
 	@Override
-	public JFreeChart getFairChart() {
+	public JFreeChart getProfitChart() {
 		return this.profitDataset.createChart();
+	}
+	
+	public JFreeChart getPhonyFairChart() {
+		return this.fairModel.createPhonyChart();
+	}
+	
+	public JFreeChart getPhonyProfitChart() {
+		return this.profitDataset.createPhonyChart();
 	}
 
 

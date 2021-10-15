@@ -24,10 +24,10 @@ public class AnalysisDialog {
 	private FileControllerImpl fileController = new FileControllerImpl();
 	
 	public AnalysisDialog(AnalysisControllerImpl controller, EnvironmentControllerImpl envController) {
-		this.fairPanel = new ChartPanel(controller.getFairChart());
+		this.fairPanel = new ChartPanel(controller.getPhonyFairChart());
         this.fairPanel.setDomainZoomable(true);
         
-		this.profitPanel = new ChartPanel(controller.getProfitChart());
+		this.profitPanel = new ChartPanel(controller.getPhonyProfitChart());
         this.profitPanel.setDomainZoomable(true);
 
         analysisPanel.setLayout(new BorderLayout());
