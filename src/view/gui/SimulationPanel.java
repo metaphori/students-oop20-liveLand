@@ -32,18 +32,15 @@ public class SimulationPanel extends JPanel{
 			frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 			frame.setSize(800,600);
 			frame.setResizable(false);
-			
-			
-		//creo il pannello
+						
+		//creation panel
 			final JPanel panel = new JPanel();
-			SimulationPanel grid = new SimulationPanel();
 			panel.setLayout(new BorderLayout());
 			frame.setContentPane(panel);
 			panel.setBackground(Color.WHITE);
-			frame.setContentPane(grid);
 			
-			
-		//creo i bottoni
+
+		//creation bottons
 			final JPanel container = new JPanel();
 			container.setLayout(new FlowLayout());
 			container.add(new JButton ("PAUSE"));
@@ -51,23 +48,10 @@ public class SimulationPanel extends JPanel{
 			container.add(new JButton ("STOP"));
 			panel.add(container, BorderLayout.EAST);
 			container.setBackground(Color.DARK_GRAY);
-			 
+			container.setOpaque(true);
 		}
 	
-		
-	public void paintComponent(Graphics g){
-		super.paintComponent(g);
-		int x, y;
-			for(x=0; x<=560; x=x+10) {
-				g.drawLine(x, 0, x, 560);
-			}
-				for(y=0; y<=560; y=y+10) {
-				g.drawLine(0, y, 560, y);
-			}
-		
 
-	 
-	}
 }
 
 	
