@@ -8,12 +8,9 @@ import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.awt.Point;
-import java.awt.Rectangle;
 import java.awt.Window;
 import java.awt.color.*;
+import java.awt.geom.Line2D;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -21,7 +18,7 @@ import javax.swing.JPanel;
 
 import controller.Controller;
 import controller.ControllerImpl;
-import sun.jvm.hotspot.ui.action.ShowAction;
+import java.awt.*;
 
 public class SimulationPanel extends JPanel{
 
@@ -33,56 +30,44 @@ public class SimulationPanel extends JPanel{
 			final JFrame frame = new JFrame();
 			frame.setTitle("LiveLand");
 			frame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-			frame.setSize(600,500);
-			frame.setResizable(true);
+			frame.setSize(800,600);
+			frame.setResizable(false);
 			
 			
 		//creo il pannello
 			final JPanel panel = new JPanel();
+			SimulationPanel grid = new SimulationPanel();
 			panel.setLayout(new BorderLayout());
 			frame.setContentPane(panel);
 			panel.setBackground(Color.WHITE);
-			/*int lenght = 9;
-			int width = 9;
-			panel.setLayout(new GridLayout(width, lenght)); //pannello griglia
-			panel.setVisible(true);
-			grid = new JButton[width][lenght];
-			for(int y = 0; y < lenght; y++) {
-				for(int x = 0; x < width; x++) {
-					grid[x][y] = new JButton(""+x+","+y+"");
-					panel.add(grid[x][y]);
-				}
-	
-			}*/
+			frame.setContentPane(grid);
 			
-		//creo il bottone
+			
+		//creo i bottoni
 			final JPanel container = new JPanel();
-			container.setLayout(new BorderLayout());
+			container.setLayout(new FlowLayout());
 			container.add(new JButton ("PAUSE"));
 			frame.setVisible(true); 
 			container.add(new JButton ("STOP"));
 			panel.add(container, BorderLayout.EAST);
 			container.setBackground(Color.DARK_GRAY);
-			
-			final JPanel InternPanel = new JPanel();
-			
+			 
+		}
+	
 		
-			
-		class Grid extends Canvas{
-			public void paint(Graphics g) {
-				int x,y;
-				for(x=0; x<=200; x=x+10) {
-					g.drawLine(x, 0, x, 200);
-				}
-				for(y=0; y<=200; y=y+10) {
-					g.drawLine(0, y, 200, y);
-				}
-				
+	public void paintComponent(Graphics g){
+		super.paintComponent(g);
+		int x, y;
+			for(x=0; x<=560; x=x+10) {
+				g.drawLine(x, 0, x, 560);
 			}
-		}
+				for(y=0; y<=560; y=y+10) {
+				g.drawLine(0, y, 560, y);
+			}
 		
-		}
+
 	 
+	}
 }
 
 	
