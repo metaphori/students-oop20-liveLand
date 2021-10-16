@@ -1,5 +1,8 @@
 package controller;
 
-public interface ViewController {
+public interface Controller {
+
+
+	Object getController();
 
 }
