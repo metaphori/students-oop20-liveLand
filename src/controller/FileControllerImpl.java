@@ -3,10 +3,8 @@ package controller;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
-import java.util.List;
 
 import model.analysis.AnalysisImpl;
-import view.analysis.AnalysisBuilder;
 
 /**
  *
@@ -32,20 +30,15 @@ public class FileControllerImpl {
      *             if the writing fails
      */
     public void save() throws IOException {
-        List<String> analysis = new AnalysisImpl(controller).getTextualAnalysis();
+        AnalysisImpl analysis = new AnalysisImpl(controller);
     	try (PrintStream out = new PrintStream(dest)) {
             //out.println(new AnalysisBuilder(controller).getAnalysisDescription());
             out.println("FUNFAIR SIMULATOR ANALYSIS");
-        	out.println(this.getAnalysisDescription());
-        	analysis.forEach(s -> {out.print(s);});
+        	out.println(analysis.getAnalysisDescription());
+        	analysis.getTextualAnalysis().forEach(s -> {out.print(s);});
         }
     	
     }
-    
-	public String getAnalysisDescription() {
-		return "\n***Here is a textual analysis carried out in the simulation, "
-				+ "which environment was set with the parameters you provided*** \n";
-	}
 
     /**
      * @param file

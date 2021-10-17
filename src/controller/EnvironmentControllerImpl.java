@@ -1,15 +1,11 @@
 package controller;
 
-
-import java.util.LinkedList;
 import java.util.List;
 
 import javax.swing.SwingUtilities;
 
 import model.activity.Fair;
 import model.activity.Profit;
-import model.analysis.Analysis;
-import model.analysis.AnalysisImpl;
 import model.environment.activity.ActivityEnvironmentImpl;
 import model.environment.visitors.VisitorsImpl;
 import model.person.environment.EnvironmentImpl;
@@ -47,18 +43,13 @@ public class EnvironmentControllerImpl implements EnvironmentController {
     		this.sim = new Simulation(this); 
     		new Thread(this.sim).start(); 
     		SwingUtilities.invokeLater(new Runnable() {
-    			public void run() { 
+    			public void run() {
+    				//da sostituire con finestra grafica principale
     				new Window(EnvironmentControllerImpl.this); 
     				} 
     			});
     		
     	}
-		/*test
-		List<Fair> fairList = this.activityController.getFairList();
-		fairList.forEach(f -> {System.out.print(f.toString());});
-		List<Profit> profitList = this.activityController.getProfitList();
-		profitList.forEach(p -> {System.out.print(p.toString());});
-		*/
 	}
 
 	@Override

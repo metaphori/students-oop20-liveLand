@@ -5,12 +5,12 @@ import java.awt.event.WindowEvent;
 import javax.swing.*;
 
 
-public class quitDialog {
+public class QuitDialog {
 
 	final JFrame frame = new JFrame();
 	final JPanel panel = new JPanel();
 	
-	public quitDialog() {
+	public QuitDialog() {
 		
 		frame.setTitle("Quitting dialog");
 		frame.setSize(1000,600);
