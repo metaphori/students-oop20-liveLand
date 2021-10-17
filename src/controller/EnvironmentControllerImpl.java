@@ -19,22 +19,17 @@ import view.model.activity.ViewActivityImpl;
 public class EnvironmentControllerImpl implements EnvironmentController {
 
 	private Simulation sim;
-	//private AnalysisImpl currentAnalysis;
 	private ActivityEnvironmentImpl modelActivity;
 	private VisitorsImpl modelVisitors;
 	private PersonIntoPark modelEnvironment;
 	
 	
 	public EnvironmentControllerImpl() {
-		//this.currentAnalysis = new AnalysisImpl(this);
 		this.modelActivity = new ActivityEnvironmentImpl();
 	}
 	
 	@Override
 	public void start() throws EmptyEnvironmentException {
-//		sim.run(); //fa partire simulazione e thread delle persone
-//		//collegarsi a open nel model passandogli numero persone
-//		//far partire finestra grafica della simulazione
 		
     	if(this.modelActivity.getActivityList().size() < 1) {
     		throw new EmptyEnvironmentException();
@@ -55,7 +50,6 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 	@Override
 	public void stop() {
 		sim.stop();
-		//this.modelEnvironment.stopThread(true);
 		this.showAnalysis();
 		//fare close del parco che fa uscire persone
 		//chiudere finestra principale e aprire quella di analisi finale
@@ -69,18 +63,13 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 
 	@Override
 	public void showAnalysis(){
-//		currentAnalysis.build();
-//		return currentAnalysis;
-		//prima chiudere finestra simulazione
 		new AnalysisControllerImpl(this);
 	}
 	
 
 	@Override
 	public void setVisitorsNumber(int visitorsNum) throws VisitorsOutOfBoundException{
-		if(visitorsNum >= 1 && visitorsNum <= 100) {
 			this.modelVisitors = new VisitorsImpl(visitorsNum);
-		} else throw new VisitorsOutOfBoundException();	
 	}
 	
 	@Override

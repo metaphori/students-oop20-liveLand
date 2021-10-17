@@ -17,10 +17,10 @@ public class AnalysisDialog {
 	private JMenuBar save = new JMenuBar();
 	
 	public AnalysisDialog(AnalysisControllerImpl controller, EnvironmentControllerImpl envController) {
-		this.fairPanel = new ChartPanel(controller.getPhonyFairChart());
+		this.fairPanel = new ChartPanel(controller.getFairChart());
         this.fairPanel.setDomainZoomable(true);
         
-		this.profitPanel = new ChartPanel(controller.getPhonyProfitChart());
+		this.profitPanel = new ChartPanel(controller.getProfitChart());
         this.profitPanel.setDomainZoomable(true);
 
         analysisPanel.setLayout(new BorderLayout());
