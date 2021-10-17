@@ -52,15 +52,14 @@ public final class GraphicalUserInterface {
     public void dispose() {
     	frame.setVisible(false);
     	frame.dispose();
-    }
-    
+    }    
 
-//    /**
-//     * 
-//     * @param args
-//     *            ignored
-//     */
-//    public static void main(final String[] args) {
-//        new GraphicalUserInterface().display();
-//    }
+    /**
+     * 
+     * @param args
+     *            ignored
+     */
+    public static void main(final String[] args) {
+        new GraphicalUserInterface().display();
+    }
 }

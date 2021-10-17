@@ -38,6 +38,7 @@ public class EnvironmentImpl implements Environment{
 		profit.add(this.entrance.getAdultProfit());
 		profit.add(this.entrance.getReducedProfit());
 		profit.add(this.entrance.getPassProfit());
+		profit.add(this.entrance.getNumTickets());
 		return profit;
 	}
  

@@ -21,7 +21,6 @@ public class AnalysisDialog {
 	private ChartPanel fairPanel;
 	private ChartPanel profitPanel;
 	private JButton save = new JButton("Save analysis");
-	private FileControllerImpl fileController = new FileControllerImpl();
 	
 	public AnalysisDialog(AnalysisControllerImpl controller, EnvironmentControllerImpl envController) {
 		this.fairPanel = new ChartPanel(controller.getPhonyFairChart());
@@ -34,18 +33,21 @@ public class AnalysisDialog {
         analysisPanel.add(this.fairPanel, BorderLayout.NORTH);
         analysisPanel.add(this.profitPanel, BorderLayout.CENTER);
         analysisPanel.add(this.save, BorderLayout.PAGE_END);
-
+        
         frame.setTitle("Fun Fair Analysis");
         frame.add(analysisPanel);
         frame.pack();
         frame.setVisible(true);
         
         save.addActionListener(ActionEvent -> {
-            try {
-                AnalysisDialog.this.fileController.save(controller);
-            } catch (IOException e) {
-                JOptionPane.showMessageDialog(null, e.getMessage(), "An error occurred", JOptionPane.ERROR_MESSAGE);
-            }
+        	new MenuBarDemo(envController, controller);
+        	//this.frame.setEnabled(false);
+        	this.analysisPanel.setOpaque(true);
+//            try {
+//                AnalysisDialog.this.fileController.save(controller);
+//            } catch (IOException e) {
+//                JOptionPane.showMessageDialog(null, e.getMessage(), "An error occurred", JOptionPane.ERROR_MESSAGE);
+//            }
         });
     }
 

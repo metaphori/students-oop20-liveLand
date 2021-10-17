@@ -1,7 +1,10 @@
 package controller;
 
 
+import java.util.LinkedList;
 import java.util.List;
+
+import javax.swing.SwingUtilities;
 
 import model.activity.Fair;
 import model.activity.Profit;
@@ -20,14 +23,14 @@ import view.model.activity.ViewActivityImpl;
 public class EnvironmentControllerImpl implements EnvironmentController {
 
 	private Simulation sim;
-	private AnalysisImpl currentAnalysis;
+	//private AnalysisImpl currentAnalysis;
 	private ActivityEnvironmentImpl modelActivity;
 	private VisitorsImpl modelVisitors;
 	private PersonIntoPark modelEnvironment;
 	
 	
 	public EnvironmentControllerImpl() {
-		this.currentAnalysis = new AnalysisImpl();
+		//this.currentAnalysis = new AnalysisImpl(this);
 		this.modelActivity = new ActivityEnvironmentImpl();
 	}
 	
@@ -41,8 +44,13 @@ public class EnvironmentControllerImpl implements EnvironmentController {
     		throw new EmptyEnvironmentException();
     	} 
     	else {
-    		new Window(this);
-    		this.modelEnvironment = new PersonIntoPark(false, this);
+    		this.sim = new Simulation(this); 
+    		new Thread(this.sim).start(); 
+    		SwingUtilities.invokeLater(new Runnable() {
+    			public void run() { 
+    				new Window(EnvironmentControllerImpl.this); 
+    				} 
+    			});
     		
     	}
 		/*test
@@ -55,8 +63,8 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 
 	@Override
 	public void stop() {
-		//sim.close();
-		this.modelEnvironment.stopThread(true);
+		sim.stop();
+		//this.modelEnvironment.stopThread(true);
 		this.showAnalysis();
 		//fare close del parco che fa uscire persone
 		//chiudere finestra principale e aprire quella di analisi finale
@@ -110,7 +118,12 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 	}
 	
 	public List<Integer> getEntranceProfit(){
-		return this.modelEnvironment.getEnvironment().getEntranceProfit();
+		return this.sim.getPark().getEnvironment().getEntranceProfit();
+//		List<Integer> profit = new LinkedList<>();
+//		profit.add(300);
+//		profit.add(120);
+//		profit.add(90);
+//		return profit;
 	}
 	
 	public EnvironmentImpl getEnvironment() {

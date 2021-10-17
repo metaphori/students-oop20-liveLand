@@ -55,7 +55,6 @@ public class ProvaAnalisi {
 //			p.setProfit(this.money);
 //			this.money -= 55;
 //		}
-		
 		this.envController.showAnalysis();
 		
 	}

@@ -1,5 +1,6 @@
 package provaThread;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,6 +15,8 @@ public class Window {
 	private final JButton stop = new JButton("Stop");
 	
 	public Window(EnvironmentControllerImpl controller) {
+		frame.getContentPane().setLayout(new BorderLayout()); 
+		frame.getContentPane().add(stop, BorderLayout.CENTER);
 		frame.setContentPane(stop);
 		frame.setVisible(true);
         frame.pack();

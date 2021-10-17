@@ -20,11 +20,11 @@ public class AnalysisBuilder {
 	private JFreeChart ticketChart;
 	
 	public AnalysisBuilder(AnalysisControllerImpl controller) {
-		this.fairChart = controller.getFairChart();
-		this.profitChart = controller.getProfitChart();
+		this.fairChart = controller.getPhonyFairChart();
+		this.profitChart = controller.getPhonyProfitChart();
 	}
 	
-	private String getAnalysisDescription() {
+	public String getAnalysisDescription() {
 		return "Here is a graphic analysis carried out in the simulation, "
 				+ "which environment was set with the parameters you provided";
 	}
@@ -32,9 +32,9 @@ public class AnalysisBuilder {
 	public void build(File dest) throws IOException{
 		try (PrintStream out = new PrintStream(dest)) {
             out.println(getAnalysisDescription());
-            out.print(this.ticketChartImg());
-            out.print(this.profitChartImg());
-            out.print(this.fairChartImg());
+//            out.print(this.ticketChartImg());
+//            out.print(this.profitChartImg());
+//            out.print(this.fairChartImg());
 //            ImageIO.write(this.fairChartImg(), "ProfitBarChart", dest);
 //            ImageIO.
         } catch(IOException exc) {
