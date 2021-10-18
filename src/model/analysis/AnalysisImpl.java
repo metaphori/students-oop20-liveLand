@@ -19,8 +19,8 @@ public class AnalysisImpl implements Analysis{
 	@Override
 	public List<String> FairLiking() {
 		this.controller.getFairList().forEach(f -> {this.fair.add(
-				f.getActivityType() + f.getName() + ", Daily Visitors: " 
-						+ f.getPeople() + "\n");});
+				f.getActivityType()+ ": " + f.getName() + ", Daily Visitors: " 
+						+ f.getTotPeople() + "\n");});
 		return this.fair;
 	}
 	
@@ -35,7 +35,7 @@ public class AnalysisImpl implements Analysis{
 	@Override
 	public List<String> Tickets(){
 		this.tickets.add("Total number of tickets sold: "
-				+ this.controller.getEntranceProfit().get(3));
+				+ this.controller.getEntranceProfit().get(3) + "\n");
 		this.tickets.add("Adult tickets income: "
 				+ this.controller.getEntranceProfit().get(0) + "\n");
 		this.tickets.add("Reduced tickets income: "
