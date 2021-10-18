@@ -24,7 +24,7 @@ public class PersonIntoPark extends Thread{
 		this.controller = controller;
 		this.recirculation= new PeopleRecirculation(this.environment, this.controller, this);
 		this.ride = new ActivityRide(this.controller, this.environment);
-		this.run();
+		this.start();
 
 	}
 	
@@ -47,7 +47,7 @@ public class PersonIntoPark extends Thread{
 		Random rand = new Random();
 		randomFirstEntrance = rand.nextInt(MAX_FIRST_ENTRANCE);
 		this.open = new OpenImpl(randomFirstEntrance, this.environment);
-		open.FirstEntrance();
+		open.firstEntrance();
 		peopleIntoPark = randomFirstEntrance;
 		System.out.print("main thread started");
 //		ride.run();
@@ -95,20 +95,17 @@ public class PersonIntoPark extends Thread{
 	}
 		
 	public void logics() {
-		ride.run();
+		ride.ride();
 		try {
 			Thread.sleep(PERSON_RECIRCULATION);
 		} catch (Exception ex) {
 		}
 		System.out.println("people:" + this.peopleIntoPark);
-		recirculation.run();
+		recirculation.recirculation();
 		
 	}
 	
-	public void stopThread(boolean stop) {
-		recirculation.interrupt();
-		ride.interrupt();
-	}
+
 	
 	public EnvironmentImpl getEnvironment() {
 		return this.environment;

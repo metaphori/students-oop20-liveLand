@@ -8,7 +8,7 @@ import model.activity.Profit;
 import model.person.environment.EnvironmentImpl;
 import view.model.activity.ActivityType;
 
-public class ActivityRide extends Thread {
+public class ActivityRide {
 	private EnvironmentControllerImpl controller;
 	private EnvironmentImpl environment;
 	private Random rand = new Random();
@@ -25,7 +25,7 @@ public class ActivityRide extends Thread {
 	}
 	
 	
-	public void run() {
+	public void ride() {
 		System.out.print("Ride thread started");
 		for(Fair f : controller.getFairList()) {
 			if (environment.getPersonList().size()== 0) {
@@ -55,7 +55,7 @@ public class ActivityRide extends Thread {
 			randParticipant = rand.nextInt(MAX_PROFIT);
 			}while (randParticipant>= environment.getPersonList().size());
 			
-			for (int i = 0 ; i < randParticipant ; i++) {
+			for (int i=0;i<randParticipant;i++){
 				p.addPerson(environment.getPersonList().get(FIRST_PERSON));
 				
 			}

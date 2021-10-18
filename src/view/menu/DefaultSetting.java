@@ -7,8 +7,7 @@ import view.model.activity.ViewActivityBuilder;
 import view.model.activity.ViewActivityImpl;
 
 public class DefaultSetting {
-	
-	private final ViewActivityImpl act1 = new ViewActivityBuilder("Katun", ActivityType.FAIR).capacity(25).build();
+    private final ViewActivityImpl act1 = new ViewActivityBuilder("Katun", ActivityType.FAIR).capacity(25).build();
 	private final ViewActivityImpl act2 = new ViewActivityBuilder("Bruco Mela", ActivityType.BABYFAIR).capacity(15).build();
 	private final ViewActivityImpl act3 = new ViewActivityBuilder("Raptor", ActivityType.FAIR).capacity(20).build();
 	private final ViewActivityImpl act4 = new ViewActivityBuilder("Burger King", ActivityType.REST).minPrice(7).maxPrice(30).build();

@@ -14,7 +14,7 @@ public class OpenImpl implements Open{
 		this.environment = environment;
 	}
 	
-	public void FirstEntrance() {
+	public void firstEntrance() {
 		for (int i=0; i<numPerson; i++) {
 			PersonTicket person = new PersonTicket();
 			environment.peopleEntrance(person);

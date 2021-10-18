@@ -6,7 +6,7 @@ import controller.EnvironmentControllerImpl;
 import model.person.environment.EnvironmentImpl;
 import model.person.ticket.PersonTicket;
 
-public class PeopleRecirculation extends Thread{
+public class PeopleRecirculation{
 	private Random rand = new Random();
 	private EnvironmentImpl environment;
 	private EnvironmentControllerImpl controller;
@@ -22,7 +22,7 @@ public class PeopleRecirculation extends Thread{
 		this.park = park;
 	}
 
-	public void run() {
+	public void recirculation() {
 			personCanEnter = controller.getVisitorsNumber() - park.getPeopleIntoPark();
 			int randPeopleEntrance = rand.nextInt(personCanEnter);
 			for (int i =0; i < randPeopleEntrance;i++) {

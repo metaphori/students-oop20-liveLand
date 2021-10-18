@@ -34,7 +34,7 @@ public class EntranceImpl implements Entrance{
 		numTickets++;
 		
 	}
-	public void SetNumTickets() {
+	public void setNumTickets() {
 		numTickets =+ 1;
 	}
 	

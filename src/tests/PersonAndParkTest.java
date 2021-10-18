@@ -37,7 +37,7 @@ public class PersonAndParkTest {
 	@Test
 	public void ParkTest() {
 		openPark = new OpenImpl(numberOfPerson, environment);
-		openPark.FirstEntrance();
+		openPark.firstEntrance();
 		this.PeopleEntrance();
 		assertNotEquals(6, environment.getPersonList().size());
 		
