@@ -23,7 +23,7 @@ public class Simulation implements Runnable {
 		while(!stopped) {
 			try { 
 				this.task.logics();
-				Thread.sleep(50); 
+				Thread.sleep(1000); 
 				} catch (InterruptedException e) {
 					e.printStackTrace(); } 
 		}
@@ -32,6 +32,5 @@ public class Simulation implements Runnable {
 	public PersonIntoPark getPark() {
 		return this.task;
 	}
-
 
 }

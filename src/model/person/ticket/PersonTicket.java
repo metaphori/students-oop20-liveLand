@@ -39,9 +39,9 @@ public class PersonTicket implements PersonTicketInterface{
 	@Override
 	public Ticket randTicket() {
 		Random rand = new Random();
-		boolean randomTicket = rand.nextBoolean();
+		int randomTicket = rand.nextInt(3);
 		
-		if (randomTicket == true) {
+		if (randomTicket == 3) {
 			return Ticket.SEASON_PASS;
 		}
 		

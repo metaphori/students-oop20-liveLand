@@ -8,7 +8,7 @@ import model.person.environment.EnvironmentImpl;
 
 
 public class PersonIntoPark extends Thread{
-	private static final int PERSON_RECIRCULATION=2000;
+	private static final int PERSON_RECIRCULATION=4000;
     private int randomFirstEntrance;
     private int peopleIntoPark;
 	private OpenImpl open;
@@ -41,7 +41,7 @@ public class PersonIntoPark extends Thread{
 	public void decPeopleIntoPark() {
 		peopleIntoPark--; 
 	}
-	
+
 	public void run() {
 	    int MAX_FIRST_ENTRANCE = (int) (this.controller.getVisitorsNumber() * 0.5);
 		Random rand = new Random();

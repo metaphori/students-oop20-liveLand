@@ -4,9 +4,9 @@ package model.ticket;
  * it's composed by NAME and PRICE*/
 
 public enum Ticket {
-	ADULT(15),
-	REDUCED(10),
-	SEASON_PASS(30);
+	ADULT(30),
+	REDUCED(20),
+	SEASON_PASS(50);
 	
 	
 	private final Integer price;
