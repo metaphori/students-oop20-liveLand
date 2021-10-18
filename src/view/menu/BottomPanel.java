@@ -25,7 +25,7 @@ public class BottomPanel extends JPanel{
     	this.add(def);
     	this.add(start);
     	this.add(reset);
-    	
+    
 //      /*
 //      * alla pressione del pulsante start l'applicativo deve passare all'environmentController il numero
 //      * visitatori e Aggiungere le attività istanziate, per poi richiamare lo start (per avviare la mainWindow
