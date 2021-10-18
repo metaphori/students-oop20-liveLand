@@ -16,14 +16,16 @@ public class BottomPanel extends JPanel{
 	 * 
 	 */
 	private static final long serialVersionUID = 2507932941249841282L;
+	final JButton def = new JButton("Default activity setting");
     final JButton start = new JButton("Start");
     final JButton reset = new JButton("Reset");
     
     public BottomPanel(EnvironmentControllerImpl view, GraphicalUserInterface gui) {
     	this.setLayout(new FlowLayout(FlowLayout.RIGHT));
+    	this.add(def);
     	this.add(start);
     	this.add(reset);
-    	
+    
 //      /*
 //      * alla pressione del pulsante start l'applicativo deve passare all'environmentController il numero
 //      * visitatori e Aggiungere le attività istanziate, per poi richiamare lo start (per avviare la mainWindow
@@ -49,6 +51,13 @@ public class BottomPanel extends JPanel{
 	        public void actionPerformed(final ActionEvent e) {
 	            gui.menuPanel.reset();
 	            view.resetActivityLists();
+	         }
+	     });
+	    
+	    def.addActionListener(new ActionListener() {
+	        @Override
+	        public void actionPerformed(final ActionEvent e) {
+	            new DefaultSetting(view, gui);
 	         }
 	     });
     }

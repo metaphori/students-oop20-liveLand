@@ -1,9 +1,6 @@
-//package view.controller;
-//
-//import controller.EnvironmentControllerImpl;
-//import view.model.activity.ViewActivityImpl;
-//
-//public class ViewControllerImpl implements ViewController {
+package view.controller;
+
+public class ViewControllerImpl implements ViewController {
 //	
 //	private EnvironmentControllerImpl controller = new EnvironmentControllerImpl();
 //
@@ -39,5 +36,5 @@
 //	public void reset() {
 //		this.controller.resetActivityList();
 //	}
-//
-//}
+
+}

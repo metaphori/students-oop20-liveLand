@@ -16,17 +16,20 @@ public final class GraphicalUserInterface {
 
     private final JFrame frame = new JFrame();
     final JPanel canvas = new JPanel();
-    private final EnvironmentControllerImpl view = new EnvironmentControllerImpl();
+    private final EnvironmentControllerImpl controller;
     final WelcomePanel welcomePanel = new WelcomePanel();
-    final MenuPanel menuPanel = new MenuPanel(this.view, this);
-    final BottomPanel bottomPanel = new BottomPanel(this.view, this);
+    final MenuPanel menuPanel;
+    final BottomPanel bottomPanel;
 
 
     /**
      * builds a new {@link GraphicalUserInterface}.
      * @param controller the controller instance.
      */
-    public GraphicalUserInterface() {
+    public GraphicalUserInterface(EnvironmentControllerImpl controller) {
+    	this.controller = controller;
+    	this.menuPanel = new MenuPanel(this.controller, this);
+    	this.bottomPanel = new BottomPanel(this.controller, this);
         this.canvas.setLayout(new BorderLayout());
         this.canvas.add(this.welcomePanel, BorderLayout.NORTH);
         this.canvas.add(this.menuPanel, BorderLayout.CENTER);
@@ -45,7 +48,7 @@ public final class GraphicalUserInterface {
         frame.setLocationByPlatform(true);
     }
 
-    private void display() {
+    public void display() {
         frame.setVisible(true);
     }
     
@@ -53,13 +56,4 @@ public final class GraphicalUserInterface {
     	frame.setVisible(false);
     	frame.dispose();
     }    
-    
-    /**
-     * 
-     * @param args
-     *            ignored
-     */
-    public static void main(final String[] args) {
-        new GraphicalUserInterface().display();
-    }
 }

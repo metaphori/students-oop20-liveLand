@@ -1,11 +1,11 @@
-//package model.person;
-//
-//import model.ticket.Ticket;
-//
-//public interface Person {
+package model.person;
+
+
+
+public interface Person {
 //
 //	int getAge();
 //	
 //	Ticket getTicket();
-//
-//}
+
+}

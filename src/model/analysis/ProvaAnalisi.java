@@ -10,9 +10,9 @@ public class ProvaAnalisi {
 		this.envController.showAnalysis();	
 	}
 	
-    public static void main(final String[] args) {
-    	new ProvaAnalisi();
-    }
+//    public static void main(final String[] args) {
+//    	new ProvaAnalisi();
+//    }
 	
 
 }
