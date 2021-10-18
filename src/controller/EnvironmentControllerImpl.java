@@ -16,22 +16,23 @@ import view.model.activity.ViewActivityImpl;
 
 public class EnvironmentControllerImpl implements EnvironmentController {
 
-	private Simulation sim;
-	private final ActivityEnvironmentImpl modelActivity;
-	private VisitorsImpl modelVisitors;
-	
-	
-	public EnvironmentControllerImpl() {
-		this.modelActivity = new ActivityEnvironmentImpl();
-	}
-	
+    private Simulation sim;
+    private final ActivityEnvironmentImpl modelActivity;
+    private VisitorsImpl modelVisitors;
+
+    public EnvironmentControllerImpl() {
+        this.modelActivity = new ActivityEnvironmentImpl();
+    }
+
+    /**
+      * 
+      */
 	@Override
-	public void start() throws EmptyEnvironmentException {
-		
-    	if(this.modelActivity.getActivityList().size() < 1) {
+	public final void start() throws EmptyEnvironmentException {
+    	    if (this.modelActivity.getActivityList().size() < 1) {
     		throw new EmptyEnvironmentException();
-    	} 
-    	else {
+    	    }
+    	    else {
     		this.sim = new Simulation(this); 
     		new Thread(this.sim).start(); 
     		SwingUtilities.invokeLater(new Runnable() {
@@ -40,12 +41,11 @@ public class EnvironmentControllerImpl implements EnvironmentController {
     				new Window(EnvironmentControllerImpl.this); 
     				} 
     			});
-    		
     	}
 	}
 
 	@Override
-	public void stop() {
+	public final void stop() {
 		sim.stop();
 		this.showAnalysis();
 		//fare close del parco che fa uscire persone
@@ -54,48 +54,58 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 	}
 
 	@Override
-	public void addNewActivity(final ViewActivityImpl activity) throws ActivityAlreadyPresentException {
+	public final void addNewActivity(final ViewActivityImpl activity) throws ActivityAlreadyPresentException {
 		this.modelActivity.activityInsertion(activity);
 	}
 
 	@Override
-	public void showAnalysis(){
+	public final void showAnalysis() {
 		new AnalysisControllerImpl(this);
 	}
 	
 
 	@Override
-	public void setVisitorsNumber(final int visitorsNum) throws VisitorsOutOfBoundException{
+	public final void setVisitorsNumber(final int visitorsNum) throws VisitorsOutOfBoundException {
 			this.modelVisitors = new VisitorsImpl(visitorsNum);
 	}
 	
 	@Override
-	public int getVisitorsNumber() {
+	public final int getVisitorsNumber() {
 		return this.modelVisitors.getVisitorsNumber();
 	}
 	
-	@Override
+	/** 
+	 * @return the list of activities set in the environment
+	 */
 	public List<ViewActivityImpl> getActivityList() {
 		return this.modelActivity.getActivityList();
 	}
 	
-	@Override
+	/**
+	 * @return the list of fairs set in the environment.
+	 */
 	public List<Fair> getFairList() {
 		return this.modelActivity.getFairList();
 	}
 	
-	@Override
+	/**
+	 * @return the list of profitable activities (shops and restaurants) 
+	 * set in the environment.
+	 */
 	public List<Profit> getProfitList() {
 		return this.modelActivity.getProfitList();
 	}
 	
-	@Override
-	public void resetActivityLists() {
-		this.modelActivity.resetActivity();
-	}
+	/**
+	 * @return a list containing profits coming from tickets sale
+	 */
+	public List<Integer> getEntranceProfit() {
+            return this.sim.getPark().getEnvironment().getEntranceProfit();
+    }
 	
-	public List<Integer> getEntranceProfit(){
-		return this.sim.getPark().getEnvironment().getEntranceProfit();
+	@Override
+	public final void resetActivityLists() {
+		this.modelActivity.resetActivity();
 	}
 
 }

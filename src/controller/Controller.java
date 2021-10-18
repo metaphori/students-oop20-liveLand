@@ -1,10 +1,15 @@
 package controller;
 
 public interface Controller {
-	
-	void setView();
 
-	void setEnvironmentController();
-	
+    /**
+     * This method sets the menu view.
+     */
+    void setView();
+
+    /**
+     * This methods sets the environment controller.
+     */
+    void setEnvironmentController();
 
 }
