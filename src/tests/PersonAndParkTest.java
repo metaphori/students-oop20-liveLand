@@ -1,7 +1,8 @@
 package tests;
 
-import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+
+import org.junit.Test;
 
 import model.environment.open.OpenImpl;
 import model.person.environment.EnvironmentImpl;
@@ -18,8 +19,9 @@ public class PersonAndParkTest {
 	private final PersonTicket per5 = new PersonTicket();
 	private final PersonTicket per6 = new PersonTicket();
 	
+	@Test
 	
-	public PersonAndParkTest() {
+	public void ParkTest() {
 		openPark = new OpenImpl(numberOfPerson, environment);
 		openPark.FirstEntrance();
 		environment.peopleEntrance(per1);

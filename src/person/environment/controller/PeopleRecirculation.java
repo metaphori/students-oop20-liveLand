@@ -12,6 +12,7 @@ public class PeopleRecirculation extends Thread{
 	private EnvironmentControllerImpl controller;
 	private PersonIntoPark park;
 	private int personCanEnter;
+	private static final int MAX_EXIT_PERSON = 10;
 	
 	public PeopleRecirculation(EnvironmentImpl environment, EnvironmentControllerImpl controller, PersonIntoPark park) {
 		super();
@@ -29,7 +30,7 @@ public class PeopleRecirculation extends Thread{
 				park.incPeopleIntoPark();
 			}
 			
-			int randPeopleExit = rand.nextInt(environment.getPersonList().size());
+			int randPeopleExit = rand.nextInt(MAX_EXIT_PERSON);
 			for (int i =0; i < randPeopleExit ;i++) {
 				environment.exitPeople();
 				park.decPeopleIntoPark();
