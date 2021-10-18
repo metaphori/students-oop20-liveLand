@@ -9,6 +9,4 @@ public interface ChartImg {
 
 	File fairChartImg() throws IOException;
 
-	File ticketChartImg() throws IOException;
-
 }

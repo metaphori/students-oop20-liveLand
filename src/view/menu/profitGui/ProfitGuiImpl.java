@@ -45,7 +45,7 @@ public class ProfitGuiImpl implements ProfitGui {
         canvas.add(done, BorderLayout.SOUTH);
         
         frame.setContentPane(canvas);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         
         /*
          * Handler
