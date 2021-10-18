@@ -7,13 +7,16 @@ import model.person.ticket.PersonTicket;
 public class EntranceImpl implements Entrance{
 
 	private int profit;
-	private int numTickets;
+	private int numTickets=0;
 	private int adultProfit=0;
 	private int reducedProfit=0;
 	private int passProfit=0;
 	
 	
+	
 	public  void addPerson( PersonTicket personTicket) {
+		
+		
 		switch(personTicket.getTicket()) {
 			case ADULT:
 				adultProfit += personTicket.getTicket().getPrice();
@@ -24,9 +27,15 @@ public class EntranceImpl implements Entrance{
 			case SEASON_PASS:
 				passProfit += personTicket.getTicket().getPrice();
 				
+				
 		}
 		profit =+ personTicket.getTicket().getPrice();
+		System.out.println(numTickets);
 		numTickets++;
+		
+	}
+	public void SetNumTickets() {
+		numTickets =+ 1;
 	}
 	
 	public int getProfit() {
@@ -49,3 +58,5 @@ public class EntranceImpl implements Entrance{
 		return passProfit;
 	}
 }
+
+

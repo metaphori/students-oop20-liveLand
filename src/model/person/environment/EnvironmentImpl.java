@@ -13,23 +13,23 @@ public class EnvironmentImpl implements Environment{
 	
 
 /*Method that inserts people in the park*/
-	public synchronized void peopleEntrance(PersonTicket personTicket) {
+	public void peopleEntrance(PersonTicket personTicket) {
 		personList.add(personTicket);
 		entrance.addPerson(personTicket);
 		
 	}
 
 /*Method that deletes the people from the list*/	
-	public synchronized void exitPeople() {
+	public void exitPeople() {
 		personList.remove(0);
 		
 	}
 	
-	public synchronized List<PersonTicket> getPersonList(){
+	public List<PersonTicket> getPersonList(){
 		return personList;
 	}
 	
-	public synchronized void addPersonList(List<PersonTicket> listPerson) {
+	public void addPersonList(List<PersonTicket> listPerson) {
 		personList.addAll(listPerson);
 	}
 	
@@ -42,4 +42,7 @@ public class EnvironmentImpl implements Environment{
 		return profit;
 	}
  
+	public EntranceImpl getEntrance() {
+		return entrance;
+	}
 }
