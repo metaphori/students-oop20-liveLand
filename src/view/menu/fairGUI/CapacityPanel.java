@@ -22,7 +22,7 @@ public class CapacityPanel extends JPanel{
 	}
 	
 	int getCapacity() {
-		return Integer.valueOf(textCapacity.getText());
+		return Integer.parseInt(textCapacity.getText());
 	}
 
 }

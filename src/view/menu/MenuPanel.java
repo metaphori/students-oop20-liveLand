@@ -37,7 +37,7 @@ public class MenuPanel extends JPanel{
             @Override
             public void actionPerformed(final ActionEvent e) {
             	try {
-	            	view.setVisitorsNumber(Integer.valueOf(visitors.getText()));
+	            	view.setVisitorsNumber(Integer.parseInt(visitors.getText()));
 	            	validate.setEnabled(false);
 	            	MenuPanel.this.activityPanel.activityList.setText("\n");
             	}catch(NumberFormatException exc) {

@@ -18,7 +18,7 @@ public class AnalysisDatasetTest {
 	
 	
 	@Test
-	public void AnalysisDatasetCreation() {
+	public void analysisDatasetCreation() {
 		assertNotNull("The fair dataset has been correctly created", this.fairDataset.createPhonyDataset());
 		assertNotNull("The profit dataset has been correctly created", this.profitDataset.createPhonyDataset());
 		assertNotEquals("fair dataset different from profit dataset", this.fairDataset.createPhonyDataset(),
@@ -27,7 +27,7 @@ public class AnalysisDatasetTest {
 	}
 	
 	@Test
-	public void AnalysisChartCreation() {
+	public void analysisChartCreation() {
 		JFreeChart fairChart1 = this.fairDataset.createPhonyChart();
 		JFreeChart fairChart2 = this.fairDataset.createPhonyChart();
 		JFreeChart profitChart = this.profitDataset.createPhonyChart();

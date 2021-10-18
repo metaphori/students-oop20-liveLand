@@ -30,8 +30,8 @@ public class SettingPanel extends JPanel{
 	public ViewActivityImpl buildNewProfitActivity() throws WrongParametersException{
 		try {
 			return new ViewActivityBuilder(this.namePanel.getName(), this.type)
-					.minPrice(Integer.valueOf(this.rangePanel.textMin.getText()))
-					.maxPrice(Integer.valueOf(this.rangePanel.textMax.getText()))
+					.minPrice(Integer.parseInt(this.rangePanel.textMin.getText()))
+					.maxPrice(Integer.parseInt(this.rangePanel.textMax.getText()))
 					.build();
 		}catch (NumberFormatException exc) {
 			throw new WrongParametersException();

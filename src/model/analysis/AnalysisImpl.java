@@ -17,7 +17,7 @@ public class AnalysisImpl implements Analysis{
 	}
 	
 	@Override
-	public List<String> FairLiking() {
+	public List<String> fairLiking() {
 		this.controller.getFairList().forEach(f -> {this.fair.add(
 				f.getActivityType()+ ": " + f.getName() + ", Daily Visitors: " 
 						+ f.getTotPeople() + "\n");});
@@ -25,7 +25,7 @@ public class AnalysisImpl implements Analysis{
 	}
 	
 	@Override
-	public List<String> Profit() {
+	public List<String> profit() {
 		this.controller.getProfitList().forEach(p -> {this.profit.add(
 				p.getActivityType()+ ": " + p.getName() + ", Daily Income: " 
 						+ p.getProfit() + "\n");});
@@ -33,7 +33,7 @@ public class AnalysisImpl implements Analysis{
 	}
 	
 	@Override
-	public List<String> Tickets(){
+	public List<String> tickets(){
 		this.tickets.add("Total number of tickets sold: "
 				+ this.controller.getEntranceProfit().get(3) + "\n");
 		this.tickets.add("Adult tickets income: "
@@ -49,9 +49,9 @@ public class AnalysisImpl implements Analysis{
 	@Override
 	public List<String> getTextualAnalysis(){
 		List<String> analysis = new LinkedList<>();
-		analysis.addAll(this.Tickets());
-		analysis.addAll(this.FairLiking());
-		analysis.addAll(this.Profit());
+		analysis.addAll(this.tickets());
+		analysis.addAll(this.fairLiking());
+		analysis.addAll(this.profit());
 		return analysis;
 	}
 

@@ -7,11 +7,11 @@ import java.util.List;
 	 */
 public interface Analysis {
 
-	List<String> FairLiking();
+	List<String> fairLiking();
 	
-	List<String> Profit();
+	List<String> profit();
 	
-	List<String> Tickets();
+	List<String> tickets();
 	
 	List<String> getTextualAnalysis();
 	

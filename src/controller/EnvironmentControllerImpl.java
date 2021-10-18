@@ -21,7 +21,6 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 	private Simulation sim;
 	private ActivityEnvironmentImpl modelActivity;
 	private VisitorsImpl modelVisitors;
-	private PersonIntoPark modelEnvironment;
 	
 	
 	public EnvironmentControllerImpl() {
@@ -105,10 +104,5 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 //		profit.add(90);
 //		return profit;
 	}
-	
-	public EnvironmentImpl getEnvironment() {
-		return this.modelEnvironment.getEnvironment();
-	}
-
 
 }
