@@ -1,19 +1,21 @@
 package controller;
 
-import java.io.IOException;
+import view.menu.GraphicalUserInterface;
 
 public class ControllerImpl implements Controller {
+	
+	private EnvironmentControllerImpl controller;
 
 	@Override
 	public void setView() {
-		// TODO Auto-generated method stub
+		new GraphicalUserInterface(this.controller).display();
 
 	}
 
 	@Override
-	public void saveAnalysis(String path) throws IOException {
-		// TODO Auto-generated method stub
-
+	public void setEnvironmentController() {
+		this.controller = new EnvironmentControllerImpl();
+		
 	}
 
 }
