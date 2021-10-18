@@ -1,7 +1,9 @@
 package model.person.environment;
 
+
 import java.util.LinkedList;
 import java.util.List;
+
 
 import model.person.entrance.EntranceImpl;
 import model.person.ticket.PersonTicket;
@@ -41,7 +43,8 @@ public class EnvironmentImpl implements Environment{
 		profit.add(this.entrance.getNumTickets());
 		return profit;
 	}
- 
+
+	
 	public EntranceImpl getEntrance() {
 		return entrance;
 	}
