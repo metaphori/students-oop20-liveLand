@@ -24,7 +24,7 @@ public class SaveAnalysis extends JMenu {
 	private FileControllerImpl fileController;
 	private EnvironmentControllerImpl envController;
 	private AnalysisControllerImpl analysisController;
-    private JPanel panelCenter;
+    private JPanel panelCenter = new JPanel();
     private AnalysisDialog gui;
 
     public SaveAnalysis(EnvironmentControllerImpl envController, 

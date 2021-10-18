@@ -27,14 +27,14 @@ public class TextualAnalysisTest {
 	@Test
 	public void testAnalysisCreation() {
 		assertNotNull("Fair liking textual analysis correcly created", 
-				this.analysis.FairLiking());
+				this.analysis.fairLiking());
 		assertNotNull("Profit textual analysis correcly created", 
-				this.analysis.Profit());
+				this.analysis.profit());
 		assertNotEquals("Fair liking and profit textual analysis are not equal", 
-				this.analysis.FairLiking(), this.analysis.Profit());
-		assertEquals("Fair items are exactly 6", this.analysis.FairLiking().size(), 6);
+				this.analysis.fairLiking(), this.analysis.profit());
+		assertEquals("Fair items are exactly 6", this.analysis.fairLiking().size(), 6);
 		assertNotNull("Tickets sold textual analysis correcly created",
-				this.analysis.Tickets());
+				this.analysis.tickets());
 		assertNotNull("Textual analysis correcly created",
 				this.analysis.getTextualAnalysis());
 		assertEquals("Textual analysis strings are exactly 30",
@@ -59,10 +59,10 @@ public class TextualAnalysisTest {
 				assertEquals(reader.readLine(), this.analysis.getTextualAnalysis().get(i).replace("\n", ""));
 			}
 			for(int i=0; i<ACTIVITY_SIZE; i++) {
-				assertEquals(reader.readLine(), this.analysis.FairLiking().get(i).replace("\n", ""));
+				assertEquals(reader.readLine(), this.analysis.fairLiking().get(i).replace("\n", ""));
 			}
 			for(int i=0; i<ACTIVITY_SIZE; i++) {
-				assertEquals(reader.readLine(), this.analysis.Profit().get(i).replace("\n", ""));
+				assertEquals(reader.readLine(), this.analysis.profit().get(i).replace("\n", ""));
 			}
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();

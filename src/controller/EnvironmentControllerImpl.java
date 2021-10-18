@@ -8,8 +8,6 @@ import model.activity.Fair;
 import model.activity.Profit;
 import model.environment.activity.ActivityEnvironmentImpl;
 import model.environment.visitors.VisitorsImpl;
-import model.person.environment.EnvironmentImpl;
-import person.environment.controller.PersonIntoPark;
 import provaThread.Window;
 import view.menu.EmptyEnvironmentException;
 import view.menu.VisitorsOutOfBoundException;
@@ -98,11 +96,6 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 	
 	public List<Integer> getEntranceProfit(){
 		return this.sim.getPark().getEnvironment().getEntranceProfit();
-//		List<Integer> profit = new LinkedList<>();
-//		profit.add(300);
-//		profit.add(120);
-//		profit.add(90);
-//		return profit;
 	}
 
 }

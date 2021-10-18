@@ -36,6 +36,7 @@ public class BottomPanel extends JPanel{
 	        public void actionPerformed(final ActionEvent e) {
 	        	try {
 	        		view.start();
+	        		gui.dispose();
 	        	}catch(EmptyEnvironmentException exc) {
 	        		gui.welcomePanel.welcomeMsg.setText(exc.getMessage());
 	        		gui.welcomePanel.welcomeMsg.setForeground(Color.RED);
