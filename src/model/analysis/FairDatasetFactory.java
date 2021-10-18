@@ -23,8 +23,27 @@ public class FairDatasetFactory extends AbstractDatasetFactory{
 	@Override
 	public JFreeChart createChart( ) {
 	      JFreeChart chart = ChartFactory.createPieChart(      
-			         "Fair liking",   				// chart title 
+			         "FAIR LIKING STATISTICS",   	// chart title 
 			         this.createDataset(),          // data    
+			         true,             				// include legend   
+			         true, 
+			         false);
+
+			      return chart;
+			   }
+	
+	public PieDataset createPhonyDataset() {
+		DefaultPieDataset dataset = new DefaultPieDataset( );
+	    dataset.setValue("katun", 45);
+	    dataset.setValue("bruco mela", 38);
+	    dataset.setValue("raptor", 60);
+	    return dataset;
+	}
+	
+	public JFreeChart createPhonyChart( ) {
+	      JFreeChart chart = ChartFactory.createPieChart(      
+			         "FAIR LIKING STATISTICS",   	// chart title 
+			         this.createPhonyDataset(),          // data    
 			         true,             				// include legend   
 			         true, 
 			         false);

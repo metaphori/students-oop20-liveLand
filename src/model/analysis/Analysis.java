@@ -1,20 +1,20 @@
 package model.analysis;
 
-	/**
+import java.util.List;
+
+/**
 	 * Interface showing questions the simulation must answer in the end
 	 */
 public interface Analysis {
 
-	String mostLikedFair();
+	List<String> FairLiking();
 	
-	String leastLikedFair();
+	List<String> Profit();
 	
-	String mostProfitableRestaurant();
+	List<String> Tickets();
 	
-	int dailyIncome();
+	List<String> getTextualAnalysis();
 	
-	//income per ogni attivtà presente (?) diversa da giostre
-	
-	//possibile istanziare attività e per ognuna chiamare metodo getIncome 
+	String getAnalysisDescription();
 
 }

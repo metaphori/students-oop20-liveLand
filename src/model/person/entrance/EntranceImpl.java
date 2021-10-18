@@ -8,9 +8,9 @@ public class EntranceImpl implements Entrance{
 
 	private int profit;
 	private int numTickets;
-	private int adultProfit;
-	private int reducedProfit;
-	private int passProfit;
+	private int adultProfit=0;
+	private int reducedProfit=0;
+	private int passProfit=0;
 	
 	
 	public  void addPerson( PersonTicket personTicket) {
