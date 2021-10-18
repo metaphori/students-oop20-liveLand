@@ -1,8 +1,5 @@
 package view.controller;
 
-import controller.EnvironmentControllerImpl;
-import view.model.activity.ViewActivityImpl;
-
 public class ViewControllerImpl implements ViewController {
 //	
 //	private EnvironmentControllerImpl controller = new EnvironmentControllerImpl();

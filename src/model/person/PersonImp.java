@@ -1,5 +1,4 @@
 package model.person;
-import model.ticket.Ticket;
 
 public class PersonImp implements Person{
 //	
