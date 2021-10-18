@@ -4,7 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 
+import model.analysis.Analysis;
 import model.analysis.AnalysisImpl;
+import model.analysis.PhonyAnalysisImpl;
 
 /**
  *
@@ -17,9 +19,15 @@ public class FileControllerImpl {
 
     private File dest = new File(HOME + SEPARATOR + DEFAULT_FILE);
     private EnvironmentControllerImpl controller;
+    private Analysis analysis;
 
     public FileControllerImpl(EnvironmentControllerImpl controller) {
     	this.controller = controller;
+    	this.analysis = new AnalysisImpl(controller);
+    }
+    
+    public FileControllerImpl() {
+    	this.analysis = new PhonyAnalysisImpl();	
     }
     /**
      * Saves a given text on the chosen file.
@@ -30,9 +38,7 @@ public class FileControllerImpl {
      *             if the writing fails
      */
     public void save() throws IOException {
-        AnalysisImpl analysis = new AnalysisImpl(controller);
     	try (PrintStream out = new PrintStream(dest)) {
-            //out.println(new AnalysisBuilder(controller).getAnalysisDescription());
             out.println("FUNFAIR SIMULATOR ANALYSIS");
         	out.println(analysis.getAnalysisDescription());
         	analysis.getTextualAnalysis().forEach(s -> {out.print(s);});
