@@ -39,13 +39,13 @@ public class PersonTicket implements PersonTicketInterface{
 	@Override
 	public Ticket randTicket() {
 		Random rand = new Random();
-		int randomTicket = rand.nextInt(3);
+		int randomTicket = rand.nextInt(4);
 		
 		if (randomTicket == 3) {
 			return Ticket.SEASON_PASS;
 		}
 		
-		else if (this.getAge() < AGE_MAX_REDUCED || this.getAge() > AGE_MIN_REDUCED ) {
+		else if (this.getAge() < AGE_MIN_REDUCED || this.getAge() > AGE_MAX_REDUCED ) {
 			return Ticket.REDUCED;
 		}
 		else {
