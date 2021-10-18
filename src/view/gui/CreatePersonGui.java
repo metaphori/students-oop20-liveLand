@@ -1,37 +1,34 @@
 package view.gui;
 
-import java.awt.Canvas;
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.Point;
+import java.util.HashMap;
+import java.util.Map;
 
 public class CreatePersonGui extends SimulationPanel{
 	
+	private static final int RADIUS = 10;
+	private static final long serialVersionUID = 1L;
+	private final Map<Point,Color> circles = new HashMap<>();
 
-	 public class AdultGrid extends Canvas  {
-		 /**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
+		protected void paintComponentBaby(Graphics g) {
+			for (Map.Entry<Point,Color> e : this.circles.entrySet()) {
+				g.setColor(e.getValue());
+				g.fillOval(e.getKey().x, e.getKey().y, RADIUS, RADIUS);
+			}
+		}
 
-		public void paint(Graphics g) {
-			 g.setColor(Color.GREEN);
-			 g.fillOval(5, 5, 50, 60);
-			 
-		 }
-	 }
-	 
-	 public class BabyGrid extends Canvas {
-		 /**
-		 * 
-		 */
-		private static final long serialVersionUID = 1L;
 
-		public void paint(Graphics g) {
-			 g.setColor(Color.MAGENTA);
-			 g.fillOval(5, 5, 50, 60);
-		 }
-	 }
-	 
-	 
-
+		protected void paintComponentAdult(Graphics g) {
+			for (Map.Entry<Point,Color> e : this.circles.entrySet()) {
+				g.setColor(e.getValue());
+				g.fillOval(e.getKey().x, e.getKey().y, RADIUS, RADIUS);
+			}
+		}
+		
 }
+	 
+	 
+
+
