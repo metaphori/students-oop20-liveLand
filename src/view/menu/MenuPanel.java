@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import controller.EnvironmentControllerImpl;
+import view.model.activity.ViewActivityImpl;
 
 public class MenuPanel extends JPanel{
 
@@ -57,6 +58,10 @@ public class MenuPanel extends JPanel{
 		this.visitors.setText("");
 		this.validate.setEnabled(true);
 		this.activityPanel.activityList.setText("\n	***No activity chosen yet***	\n");
+	}
+	
+	public void setActList(ViewActivityImpl activity) {
+		this.activityPanel.setActivityList(activity);
 	}
 
 }
