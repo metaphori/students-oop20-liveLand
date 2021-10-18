@@ -13,6 +13,10 @@ public class ActivityRide extends Thread {
 	private EnvironmentImpl environment;
 	private Random rand = new Random();
 	private int randParticipant;
+	private static final int FIRST_PERSON = 0;
+	private static final int MAX_PROFIT = 40;
+	
+	
 	
 	public ActivityRide(EnvironmentControllerImpl controller, EnvironmentImpl environment) {
 		super();
@@ -22,29 +26,37 @@ public class ActivityRide extends Thread {
 	
 	
 	public void run() {
+		System.out.print("Ride thread started");
 		for(Fair f : controller.getFairList()) {
+			if (environment.getPersonList().size()== 0) {
+				break;
+			}
 			do {
 				randParticipant = rand.nextInt(f.getCapacity());
-			} while (randParticipant <= environment.getPersonList().size());
+			} while (randParticipant >= environment.getPersonList().size());
 			
 			for (int i = 0 ; i < randParticipant ; i++) {
 				if (f.getActivityType() == ActivityType.BABYFAIR) {
-					f.addPerson(environment.personList.get(i));
+					f.addPerson(environment.getPersonList().get(FIRST_PERSON));
+					environment.exitPeople();
 				}
 				else {
-					if (f.controlAge(environment.getPersonList().get(i).getAge())) {
-						f.addPerson(environment.personList.get(i));
+					if (f.controlAge(environment.getPersonList().get(FIRST_PERSON).getAge())) {
+						f.addPerson(environment.getPersonList().get(FIRST_PERSON));
+						environment.exitPeople();
 					}
 				}
-				environment.removePerson(i);;
 			}
 		}
-		
-		
+
+
 		for(Profit p : controller.getProfitList()) {
-			randParticipant = rand.nextInt(environment.personList.size());
+			do {
+			randParticipant = rand.nextInt(MAX_PROFIT);
+			}while (randParticipant>= environment.getPersonList().size());
+			
 			for (int i = 0 ; i < randParticipant ; i++) {
-				p.addPerson(environment.personList.get(i));
+				p.addPerson(environment.getPersonList().get(FIRST_PERSON));
 				
 			}
 		}
@@ -64,9 +76,4 @@ public class ActivityRide extends Thread {
 		}
 	}
 
-
-
-	
-
-	
 }

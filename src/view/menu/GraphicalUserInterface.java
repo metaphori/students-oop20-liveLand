@@ -49,7 +49,11 @@ public final class GraphicalUserInterface {
         frame.setVisible(true);
     }
     
-
+    public void dispose() {
+    	frame.setVisible(false);
+    	frame.dispose();
+    }    
+    
     /**
      * 
      * @param args

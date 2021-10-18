@@ -15,23 +15,25 @@ public class AnalysisControllerImpl implements AnalysisController{
 	public AnalysisControllerImpl(EnvironmentControllerImpl envController) {
 		this.fairModel = new FairDatasetFactory(envController);
 		this.profitDataset = new ProfitDatasetFactory(envController);
-		//this.view = new AnalysisDialog(this, envController);
-	}
-
-	@Override
-	public JFreeChart getProfitChart() {
-		return this.fairModel.createChart();
+		new AnalysisDialog(this, envController);
 	}
 
 	@Override
 	public JFreeChart getFairChart() {
-		return this.profitDataset.createChart();
+		return this.fairModel.createChart();
 	}
 
 	@Override
-	public JFreeChart getTicketChart() {
-		// TODO Auto-generated method stub
-		return null;
+	public JFreeChart getProfitChart() {
+		return this.profitDataset.createChart();
+	}
+	
+	public JFreeChart getPhonyFairChart() {
+		return this.fairModel.createPhonyChart();
+	}
+	
+	public JFreeChart getPhonyProfitChart() {
+		return this.profitDataset.createPhonyChart();
 	}
 
 

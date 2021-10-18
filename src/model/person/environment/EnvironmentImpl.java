@@ -1,28 +1,29 @@
 package model.person.environment;
 
+
 import java.util.LinkedList;
 import java.util.List;
 
+
 import model.person.entrance.EntranceImpl;
-import model.person.exit.ExitImpl;
 import model.person.ticket.PersonTicket;
 
 public class EnvironmentImpl implements Environment{
 	
-	public final List<PersonTicket> personList = new LinkedList<PersonTicket>();
-	public EntranceImpl entrance = new EntranceImpl();
-	public ExitImpl exit= new ExitImpl();
+	private final List<PersonTicket> personList = new LinkedList<PersonTicket>();
+	private EntranceImpl entrance = new EntranceImpl();
 	
 
 /*Method that inserts people in the park*/
 	public void peopleEntrance(PersonTicket personTicket) {
-		entrance.addPerson(personList, personTicket);
+		personList.add(personTicket);
+		entrance.addPerson(personTicket);
 		
 	}
 
 /*Method that deletes the people from the list*/	
 	public void exitPeople() {
-		exit.deletePerson(personList);
+		personList.remove(0);
 		
 	}
 	
@@ -33,8 +34,18 @@ public class EnvironmentImpl implements Environment{
 	public void addPersonList(List<PersonTicket> listPerson) {
 		personList.addAll(listPerson);
 	}
- 
-	public void removePerson(int i) {
-		personList.remove(i);
+	
+	public List<Integer> getEntranceProfit(){
+		List<Integer> profit = new LinkedList<>();
+		profit.add(this.entrance.getAdultProfit());
+		profit.add(this.entrance.getReducedProfit());
+		profit.add(this.entrance.getPassProfit());
+		profit.add(this.entrance.getNumTickets());
+		return profit;
+	}
+
+	
+	public EntranceImpl getEntrance() {
+		return entrance;
 	}
 }
