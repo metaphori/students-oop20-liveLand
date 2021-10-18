@@ -3,23 +3,13 @@ package tests;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertThat;
+import org.junit.Test;
 
-import java.io.BufferedInputStream;
 import java.io.BufferedReader;
-import java.io.ByteArrayInputStream;
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.Reader;
 
-import org.junit.Test;
-
-import controller.EnvironmentControllerImpl;
 import controller.FileControllerImpl;
 import model.analysis.PhonyAnalysisImpl;
 
@@ -58,8 +48,9 @@ public class TextualAnalysisTest {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		try {
-			BufferedReader reader = new BufferedReader(new FileReader(HOME + SEPARATOR + DEFAULT_FILE));
+		try (
+			BufferedReader reader = new BufferedReader(
+					new FileReader(HOME + SEPARATOR + DEFAULT_FILE))) {
 			assertEquals(reader.readLine(), "FUNFAIR SIMULATOR ANALYSIS");
 			reader.readLine();
 			assertEquals(reader.readLine(), this.analysis.getAnalysisDescription().replace("\n", ""));

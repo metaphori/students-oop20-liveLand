@@ -22,6 +22,9 @@ public class FairDatasetFactory extends AbstractDatasetFactory{
 
 	@Override
 	public JFreeChart createChart( ) {
+		if(this.controller.getFairList().size() == 0) {
+			return null;
+		}
 	      JFreeChart chart = ChartFactory.createPieChart(      
 			         "FAIR LIKING STATISTICS",   	// chart title 
 			         this.createDataset(),          // data    

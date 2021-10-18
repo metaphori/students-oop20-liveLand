@@ -17,14 +17,17 @@ public class AnalysisDialog {
 	private JMenuBar save = new JMenuBar();
 	
 	public AnalysisDialog(AnalysisControllerImpl controller, EnvironmentControllerImpl envController) {
-		this.fairPanel = new ChartPanel(controller.getFairChart());
-        this.fairPanel.setDomainZoomable(true);
+        analysisPanel.setLayout(new BorderLayout());
+		try {
+			this.fairPanel = new ChartPanel(controller.getFairChart());
+	        this.fairPanel.setDomainZoomable(true);
+	        analysisPanel.add(this.fairPanel, BorderLayout.NORTH);
+		}catch (NullPointerException e) {
+			
+		}
         
 		this.profitPanel = new ChartPanel(controller.getProfitChart());
         this.profitPanel.setDomainZoomable(true);
-
-        analysisPanel.setLayout(new BorderLayout());
-        analysisPanel.add(this.fairPanel, BorderLayout.NORTH);
         analysisPanel.add(this.profitPanel, BorderLayout.CENTER);
         this.save.add(new SaveAnalysis(envController, controller).createSaveMenu());
         
