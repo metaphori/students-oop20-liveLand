@@ -4,17 +4,19 @@ import view.menu.VisitorsOutOfBoundException;
 
 public class VisitorsImpl implements Visitors {
 
-	private final int visitors;
+    private final int visitors;
 	
-	public VisitorsImpl(int visitors) {
-		if(visitors >= 1 && visitors <= 100) {
-			this.visitors = visitors;
-		} else throw new VisitorsOutOfBoundException();	
+    public VisitorsImpl(final int visitors) {
+        if(visitors >= 1 && visitors <= 100) {
+            this.visitors = visitors;
+	} else {
+	    throw new VisitorsOutOfBoundException();	
 	}
+    }
 	
-	@Override
-	public int getVisitorsNumber() {
-		return this.visitors;
-	}
+    @Override
+    public int getVisitorsNumber() {
+        return this.visitors;
+    }
 
 }

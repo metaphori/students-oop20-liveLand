@@ -8,11 +8,10 @@ import view.analysis.AnalysisDialog;
 
 public class AnalysisControllerImpl implements AnalysisController{
 	
-	private FairDatasetFactory fairModel;
-	private ProfitDatasetFactory profitDataset;
-	//private AnalysisDialog view;
+	private final FairDatasetFactory fairModel;
+	private final ProfitDatasetFactory profitDataset;
 	
-	public AnalysisControllerImpl(EnvironmentControllerImpl envController) {
+	public AnalysisControllerImpl(final EnvironmentControllerImpl envController) {
 		this.fairModel = new FairDatasetFactory(envController);
 		this.profitDataset = new ProfitDatasetFactory(envController);
 		new AnalysisDialog(this, envController);

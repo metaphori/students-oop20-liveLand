@@ -15,12 +15,12 @@ public class BottomPanel extends JPanel{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 2507932941249841282L;
-	final JButton def = new JButton("Default activity setting");
-    final JButton start = new JButton("Start");
-    final JButton reset = new JButton("Reset");
+    private static final long serialVersionUID = 2507932941249841282L;
+    private final JButton def = new JButton("Default activity setting");
+    private final JButton start = new JButton("Start");
+    private final JButton reset = new JButton("Reset");
     
-    public BottomPanel(EnvironmentControllerImpl view, GraphicalUserInterface gui) {
+    public BottomPanel(final EnvironmentControllerImpl view, final GraphicalUserInterface gui) {
     	this.setLayout(new FlowLayout(FlowLayout.RIGHT));
     	this.add(def);
     	this.add(start);

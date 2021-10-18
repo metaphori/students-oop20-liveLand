@@ -8,35 +8,33 @@ import controller.EnvironmentControllerImpl;
 
 public class FairDatasetFactory extends AbstractDatasetFactory{
 	
-	private EnvironmentControllerImpl controller;
-	public FairDatasetFactory(EnvironmentControllerImpl controller) {
+	private final EnvironmentControllerImpl controller;
+	public FairDatasetFactory(final EnvironmentControllerImpl controller) {
 		this.controller = controller;
 	}
 
 	@Override
 	public PieDataset createDataset() {
-		DefaultPieDataset dataset = new DefaultPieDataset( );
+	    final DefaultPieDataset dataset = new DefaultPieDataset( );
 	    this.controller.getFairList().forEach(f -> {dataset.setValue(f.getName(), f.getTotPeople());});
 	    return dataset;
 	}
 
 	@Override
 	public JFreeChart createChart( ) {
-		if(this.controller.getFairList().size() == 0) {
-			return null;
-		}
-	      JFreeChart chart = ChartFactory.createPieChart(      
+	    if(this.controller.getFairList().size() == 0) {
+		return null;
+	    }
+	    return ChartFactory.createPieChart(      
 			         "FAIR LIKING STATISTICS",   	// chart title 
 			         this.createDataset(),          // data    
 			         true,             				// include legend   
 			         true, 
 			         false);
-
-			      return chart;
-			   }
+	    }
 	
 	public PieDataset createPhonyDataset() {
-		DefaultPieDataset dataset = new DefaultPieDataset( );
+	    final DefaultPieDataset dataset = new DefaultPieDataset( );
 	    dataset.setValue("katun", 45);
 	    dataset.setValue("bruco mela", 38);
 	    dataset.setValue("raptor", 60);
@@ -44,14 +42,12 @@ public class FairDatasetFactory extends AbstractDatasetFactory{
 	}
 	
 	public JFreeChart createPhonyChart( ) {
-	      JFreeChart chart = ChartFactory.createPieChart(      
+	    return ChartFactory.createPieChart(      
 			         "FAIR LIKING STATISTICS",   	// chart title 
 			         this.createPhonyDataset(),          // data    
 			         true,             				// include legend   
 			         true, 
 			         false);
-
-			      return chart;
-			   }
+	}
 
 }

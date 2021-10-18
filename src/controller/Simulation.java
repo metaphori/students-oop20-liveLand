@@ -4,11 +4,11 @@ import person.environment.controller.PersonIntoPark;
 
 public class Simulation implements Runnable {
 	
-	private EnvironmentControllerImpl controller;
+	private final EnvironmentControllerImpl controller;
 	private PersonIntoPark task;
-	private boolean stopped = false;
+	private boolean stopped;
 
-	public Simulation(EnvironmentControllerImpl controller) {
+	public Simulation(final EnvironmentControllerImpl controller) {
 		this.controller = controller;
 
 	}

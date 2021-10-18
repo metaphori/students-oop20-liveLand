@@ -12,10 +12,10 @@ import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
 import controller.EnvironmentControllerImpl;
-import view.menu.fairGUI.FairGui;
-import view.menu.fairGUI.FairGuiImpl;
-import view.menu.profitGui.ProfitGui;
-import view.menu.profitGui.ProfitGuiImpl;
+import view.menu.fair.FairGui;
+import view.menu.fair.FairGuiImpl;
+import view.menu.profit.ProfitGui;
+import view.menu.profit.ProfitGuiImpl;
 import view.model.activity.ActivityType;
 
 public class ActivityInsertionPanelBox extends JPanel{
@@ -23,16 +23,16 @@ public class ActivityInsertionPanelBox extends JPanel{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 2187419885864432704L;
+    private static final long serialVersionUID = 2187419885864432704L;
 	
-	final JPanel activityInsertionPanel = new JPanel();
-    final GridBagConstraints cnst = new GridBagConstraints();
-    final JButton fair = new JButton("Add a FAIR");
-    final JButton restaurant = new JButton("Add a RESTAURANT");
-    final JButton shop = new JButton("Add a SHOP");
-    final ActivityPanel gui;
+    private final JPanel activityInsertionPanel = new JPanel();
+    private final GridBagConstraints cnst = new GridBagConstraints();
+    private final JButton fair = new JButton("Add a FAIR");
+    private final JButton restaurant = new JButton("Add a RESTAURANT");
+    private final JButton shop = new JButton("Add a SHOP");
+    private final ActivityPanel gui;
     
-    public ActivityInsertionPanelBox(EnvironmentControllerImpl view, ActivityPanel gui) {
+    public ActivityInsertionPanelBox(final EnvironmentControllerImpl view, final ActivityPanel gui) {
     	this.gui = gui;
     	this.setLayout(new FlowLayout());
     	activityInsertionPanel.setLayout(new GridBagLayout());
@@ -53,28 +53,28 @@ public class ActivityInsertionPanelBox extends JPanel{
 	    @Override
 		    public void actionPerformed(final ActionEvent e) {
 		    //apri finestra per fair e chiama metodo, restituisce attività che va aggiunta:
-		    FairGui fairWindow = new FairGuiImpl(view, ActivityInsertionPanelBox.this);
+		    final FairGui fairWindow = new FairGuiImpl(view, ActivityInsertionPanelBox.this);
 		    fairWindow.display();
 	      	
 	      }
 	  });
 	    
 	    this.restaurant.addActionListener(new ActionListener() {
-	    @Override
-		    public void actionPerformed(final ActionEvent e) {
-		    //apri finestra per fair e chiama metodo, restituisce attività che va aggiunta:
-		    ProfitGui fairWindow = new ProfitGuiImpl(view, ActivityInsertionPanelBox.this, ActivityType.REST);
-		    fairWindow.display();
+	        @Override
+		public void actionPerformed(final ActionEvent e) {
+		//apri finestra per fair e chiama metodo, restituisce attività che va aggiunta:
+		final ProfitGui profitWindow = new ProfitGuiImpl(view, ActivityInsertionPanelBox.this, ActivityType.REST);
+		profitWindow.display();
 	      	
 	      }
 	  });
 	    
 	    this.shop.addActionListener(new ActionListener() {
-	    @Override
-		    public void actionPerformed(final ActionEvent e) {
+	        @Override
+		public void actionPerformed(final ActionEvent e) {
 		    //apri finestra per fair e chiama metodo, restituisce attività che va aggiunta:
-		    ProfitGui fairWindow = new ProfitGuiImpl(view, ActivityInsertionPanelBox.this, ActivityType.SHOP);
-		    fairWindow.display();
+		final ProfitGui shopWindow = new ProfitGuiImpl(view, ActivityInsertionPanelBox.this, ActivityType.SHOP);
+		shopWindow.display();
 	      	
 	      }
 	  });

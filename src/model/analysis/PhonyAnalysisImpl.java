@@ -7,9 +7,9 @@ public class PhonyAnalysisImpl implements Analysis {
 	
 	//necessario ai fini di testing e debugging
 	
-	private List<String> fair = new LinkedList<>();
-	private List<String> profit = new LinkedList<>();
-	private List<String> tickets = new LinkedList<>();
+	private final List<String> fair = new LinkedList<>();
+	private final List<String> profit = new LinkedList<>();
+	private final List<String> tickets = new LinkedList<>();
 
 	@Override
 	public List<String> fairLiking() {
@@ -36,7 +36,7 @@ public class PhonyAnalysisImpl implements Analysis {
 
 	@Override
 	public List<String> getTextualAnalysis() {
-		List<String> analysis = new LinkedList<>();
+		final List<String> analysis = new LinkedList<>();
 		analysis.addAll(this.tickets());
 		analysis.addAll(this.fairLiking());
 		analysis.addAll(this.profit());

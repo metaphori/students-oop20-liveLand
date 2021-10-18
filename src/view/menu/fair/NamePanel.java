@@ -1,4 +1,4 @@
-package view.menu.fairGUI;
+package view.menu.fair;
 
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -9,9 +9,9 @@ public class NamePanel extends JPanel{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -2519848286506649556L;
-	private static final int TEXT_FIELD_WIDTH = 8;
-    final JLabel name = new JLabel("Choose a name:");
+    private static final long serialVersionUID = -2519848286506649556L; 
+    private static final int TEXT_FIELD_WIDTH = 8;
+    private final JLabel name = new JLabel("Choose a name:");
     final JTextField textName = new JTextField("", TEXT_FIELD_WIDTH);
     
     public NamePanel() {

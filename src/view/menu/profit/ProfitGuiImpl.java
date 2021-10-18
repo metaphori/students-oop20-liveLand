@@ -1,4 +1,4 @@
-package view.menu.profitGui;
+package view.menu.profit;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -11,22 +11,22 @@ import javax.swing.JTextField;
 
 import controller.EnvironmentControllerImpl;
 import view.menu.ActivityInsertionPanelBox;
-import view.menu.fairGUI.WrongParametersException;
+import view.menu.fair.WrongParametersException;
 import view.model.activity.ActivityAlreadyPresentException;
 import view.model.activity.ActivityType;
 import view.model.activity.ViewActivityImpl;
 
 public class ProfitGuiImpl implements ProfitGui {
     private final JFrame frame = new JFrame();       
-    final JPanel canvas = new JPanel();
-    final JTextField textField = new JTextField();
-    final SettingPanel settingPanel;    
-    final JButton done = new JButton("Done");
+    private final JPanel canvas = new JPanel();
+    private final JTextField textField = new JTextField();
+    private final SettingPanel settingPanel;    
+    private final JButton done = new JButton("Done");
 
     
   //finestra che richiede nome, range prezzo (max e min) e alla pressione del tasto done crea la 
   //relativa activityimpl passandola alla gui principale e si chiude
-	public ProfitGuiImpl(EnvironmentControllerImpl view, ActivityInsertionPanelBox gui, ActivityType type) {
+	public ProfitGuiImpl(final EnvironmentControllerImpl view, final ActivityInsertionPanelBox gui, final ActivityType type) {
         canvas.setLayout(new BorderLayout());
         settingPanel = new SettingPanel(type);
         switch(type) {
@@ -55,7 +55,7 @@ public class ProfitGuiImpl implements ProfitGui {
             @Override
             public void actionPerformed(final ActionEvent e) {  
             	try {
-	            	ViewActivityImpl newProfit = ProfitGuiImpl.this.settingPanel.buildNewProfitActivity();
+	            	final ViewActivityImpl newProfit = ProfitGuiImpl.this.settingPanel.buildNewProfitActivity();
 	            	try {
 	            		view.addNewActivity(newProfit);
 	            		gui.getGui().setActivityList(newProfit);

@@ -15,7 +15,7 @@ import controller.EnvironmentControllerImpl;
 public final class GraphicalUserInterface {
 
     private final JFrame frame = new JFrame();
-    final JPanel canvas = new JPanel();
+    private final JPanel canvas = new JPanel();
     private final EnvironmentControllerImpl controller;
     final WelcomePanel welcomePanel = new WelcomePanel();
     final MenuPanel menuPanel;
@@ -26,7 +26,7 @@ public final class GraphicalUserInterface {
      * builds a new {@link GraphicalUserInterface}.
      * @param controller the controller instance.
      */
-    public GraphicalUserInterface(EnvironmentControllerImpl controller) {
+    public GraphicalUserInterface(final EnvironmentControllerImpl controller) {
     	this.controller = controller;
     	this.menuPanel = new MenuPanel(this.controller, this);
     	this.bottomPanel = new BottomPanel(this.controller, this);

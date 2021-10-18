@@ -13,7 +13,7 @@ public class Window {
 	private final JFrame frame = new JFrame();
 	private final JButton stop = new JButton("Stop");
 	
-	public Window(EnvironmentControllerImpl controller) {
+	public Window(final EnvironmentControllerImpl controller) {
 		frame.getContentPane().setLayout(new BorderLayout()); 
 		frame.getContentPane().add(stop, BorderLayout.CENTER);
 		frame.setContentPane(stop);

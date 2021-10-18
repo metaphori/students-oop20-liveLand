@@ -1,4 +1,4 @@
-package view.menu.fairGUI;
+package view.menu.fair;
 
 
 import java.awt.BorderLayout;
@@ -44,7 +44,7 @@ public class FairGuiImpl implements FairGui {
             @Override
             public void actionPerformed(final ActionEvent e) { 
             	try {
-            		ViewActivityImpl newFair = FairGuiImpl.this.settingPanel.buildNewFair();
+            		final ViewActivityImpl newFair = FairGuiImpl.this.settingPanel.buildNewFair();
                 	try {
                 		view.addNewActivity(newFair);
                     	gui.getGui().setActivityList(newFair);
@@ -82,8 +82,7 @@ public class FairGuiImpl implements FairGui {
 	public void reset() {
     	this.settingPanel.capacityPanel.textCapacity.setText("");
     	this.settingPanel.namePanel.textName.setText("");
-    	this.settingPanel.fTypePanel.adultFair.setEnabled(true);
-    	this.settingPanel.fTypePanel.babyFair.setEnabled(true);
+    	this.settingPanel.fTypePanel.enableButtons();
     }
 
     

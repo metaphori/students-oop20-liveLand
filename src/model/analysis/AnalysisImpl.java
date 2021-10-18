@@ -1,18 +1,17 @@
 package model.analysis;
 
+import controller.EnvironmentControllerImpl;
 import java.util.LinkedList;
 import java.util.List;
 
-import controller.EnvironmentControllerImpl;
+public class AnalysisImpl implements Analysis {
 
-public class AnalysisImpl implements Analysis{
+  private final EnvironmentControllerImpl controller;
+  private final List<String> fair = new LinkedList<>();
+  private final List<String> profit = new LinkedList<>();
+  private final List<String> tickets = new LinkedList<>();
 	
-	private EnvironmentControllerImpl controller;
-	private List<String> fair = new LinkedList<>();
-	private List<String> profit = new LinkedList<>();
-	private List<String> tickets = new LinkedList<>();
-	
-	public AnalysisImpl(EnvironmentControllerImpl controller) {
+	public AnalysisImpl(final EnvironmentControllerImpl controller) {
 		this.controller = controller;
 	}
 	
@@ -48,7 +47,7 @@ public class AnalysisImpl implements Analysis{
 	
 	@Override
 	public List<String> getTextualAnalysis(){
-		List<String> analysis = new LinkedList<>();
+		final List<String> analysis = new LinkedList<>();
 		analysis.addAll(this.tickets());
 		analysis.addAll(this.fairLiking());
 		analysis.addAll(this.profit());

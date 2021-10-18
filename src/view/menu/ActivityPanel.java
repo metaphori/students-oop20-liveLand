@@ -14,15 +14,15 @@ public class ActivityPanel extends JPanel{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -2659591942183195854L;
-	private static final int TEXT_AREA_WIDTH = 100;
-	private static final int TEXT_AREA_HEIGHT = 15;
-	final JPanel activityPanelInt = new JPanel(new BorderLayout());
-    final JLabel activityLabel = new JLabel("Activity list: (you must add at least one to launch the simulation)");
-    public JTextArea activityList = new JTextArea("\n	***No activity chosen yet***	\n");
+    private static final long serialVersionUID = -2659591942183195854L;
+    private static final int TEXT_AREA_WIDTH = 100;
+    private static final int TEXT_AREA_HEIGHT = 15;
+    private final JPanel activityPanelInt = new JPanel(new BorderLayout());
+    private final JLabel activityLabel = new JLabel("Activity list: (you must add at least one to launch the simulation)");
+    protected final JTextArea activityList = new JTextArea("\n	***No activity chosen yet***	\n");
    
     
-    public ActivityPanel(EnvironmentControllerImpl view) {
+    public ActivityPanel(final EnvironmentControllerImpl view) {
     	activityPanelInt.add(activityLabel, BorderLayout.NORTH);
     	activityList.setSize(TEXT_AREA_WIDTH, TEXT_AREA_HEIGHT);
         activityList.setEditable(false);
@@ -33,11 +33,9 @@ public class ActivityPanel extends JPanel{
         
     }
     
-    public void setActivityList(ViewActivityImpl activity) {
+    public void setActivityList(final ViewActivityImpl activity) {
     	this.activityList.append(activity.getName() +
     			": " +activity.getActivityType() + "\n");
     }
     
-    
-
 }

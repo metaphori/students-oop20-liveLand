@@ -1,4 +1,4 @@
-package view.menu.profitGui;
+package view.menu.profit;
 
 public interface ProfitGui {
 

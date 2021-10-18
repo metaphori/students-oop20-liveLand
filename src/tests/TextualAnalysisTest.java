@@ -6,7 +6,6 @@ import static org.junit.Assert.assertNotNull;
 import org.junit.Test;
 
 import java.io.BufferedReader;
-import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
@@ -21,8 +20,8 @@ public class TextualAnalysisTest {
     private static final int ACTIVITY_SIZE = 2;
     private static final int TICKET_SIZE = 4;
 	
-	private PhonyAnalysisImpl analysis = new PhonyAnalysisImpl();
-	private FileControllerImpl controller = new FileControllerImpl();
+    private final PhonyAnalysisImpl analysis = new PhonyAnalysisImpl();
+    private final FileControllerImpl controller = new FileControllerImpl();
 	
 	@Test
 	public void testAnalysisCreation() {
@@ -64,8 +63,6 @@ public class TextualAnalysisTest {
 			for(int i=0; i<ACTIVITY_SIZE; i++) {
 				assertEquals(reader.readLine(), this.analysis.profit().get(i).replace("\n", ""));
 			}
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

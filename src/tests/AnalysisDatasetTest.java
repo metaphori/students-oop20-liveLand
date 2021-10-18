@@ -12,9 +12,9 @@ import model.analysis.ProfitDatasetFactory;
 
 public class AnalysisDatasetTest {
 	
-	private EnvironmentControllerImpl envController = new EnvironmentControllerImpl();
-	private FairDatasetFactory fairDataset = new FairDatasetFactory(this.envController);
-	private ProfitDatasetFactory profitDataset = new ProfitDatasetFactory(this.envController);
+	private final EnvironmentControllerImpl envController = new EnvironmentControllerImpl();
+	private final FairDatasetFactory fairDataset = new FairDatasetFactory(this.envController);
+	private final ProfitDatasetFactory profitDataset = new ProfitDatasetFactory(this.envController);
 	
 	
 	@Test
@@ -28,9 +28,9 @@ public class AnalysisDatasetTest {
 	
 	@Test
 	public void analysisChartCreation() {
-		JFreeChart fairChart1 = this.fairDataset.createPhonyChart();
-		JFreeChart fairChart2 = this.fairDataset.createPhonyChart();
-		JFreeChart profitChart = this.profitDataset.createPhonyChart();
+		final JFreeChart fairChart1 = this.fairDataset.createPhonyChart();
+		final JFreeChart fairChart2 = this.fairDataset.createPhonyChart();
+		final JFreeChart profitChart = this.profitDataset.createPhonyChart();
 		assertNotNull("Fair chart correctly created", fairChart1);
 		assertNotNull("Profit chart correctly created", profitChart);
 		assertEquals("Fair chart 1 equals fair chart 2", fairChart1, fairChart2);

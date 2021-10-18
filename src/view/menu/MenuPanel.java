@@ -18,14 +18,14 @@ public class MenuPanel extends JPanel{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 1L;
-	private static final int TEXT_FIELD_WIDTH = 5; 
-	private final JLabel capacity = new JLabel("Choose the number of visitors for this simulation (max. 100):");
+    private static final long serialVersionUID = 1L;
+    private static final int TEXT_FIELD_WIDTH = 5; 
+    private final JLabel capacity = new JLabel("Choose the number of visitors for this simulation (max. 100):");
     private final JButton validate = new JButton("Validate");
     private final JTextField visitors = new JTextField("", TEXT_FIELD_WIDTH);
-    private ActivityPanel activityPanel;
+    private final ActivityPanel activityPanel;
 
-	public MenuPanel(EnvironmentControllerImpl view, GraphicalUserInterface gui) {
+	public MenuPanel(final EnvironmentControllerImpl view, final GraphicalUserInterface gui) {
 		activityPanel = new ActivityPanel(view);
         this.setLayout(new FlowLayout(FlowLayout.CENTER));
         this.add(capacity);
@@ -60,7 +60,7 @@ public class MenuPanel extends JPanel{
 		this.activityPanel.activityList.setText("\n	***No activity chosen yet***	\n");
 	}
 	
-	public void setActList(ViewActivityImpl activity) {
+	public void setActList(final ViewActivityImpl activity) {
 		this.activityPanel.setActivityList(activity);
 	}
 

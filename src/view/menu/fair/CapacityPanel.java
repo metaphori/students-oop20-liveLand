@@ -1,4 +1,4 @@
-package view.menu.fairGUI;
+package view.menu.fair;
 
 import javax.swing.BoxLayout;
 import javax.swing.JLabel;

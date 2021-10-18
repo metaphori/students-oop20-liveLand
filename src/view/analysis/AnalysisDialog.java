@@ -10,33 +10,31 @@ import controller.EnvironmentControllerImpl;
 
 public class AnalysisDialog {
 	
-	private JFrame frame = new JFrame();
-	private JPanel analysisPanel = new JPanel();
-	private ChartPanel fairPanel;
-	private ChartPanel profitPanel;
-	private JMenuBar save = new JMenuBar();
+	private final JFrame frame = new JFrame();
+	private final JPanel analysisPanel = new JPanel();
+	private final JMenuBar save = new JMenuBar();
 	
-	public AnalysisDialog(AnalysisControllerImpl controller, EnvironmentControllerImpl envController) {
-        analysisPanel.setLayout(new BorderLayout());
-		try {
-			this.fairPanel = new ChartPanel(controller.getFairChart());
-	        this.fairPanel.setDomainZoomable(true);
-	        analysisPanel.add(this.fairPanel, BorderLayout.NORTH);
+	public AnalysisDialog(final AnalysisControllerImpl controller, final EnvironmentControllerImpl envController) {
+            analysisPanel.setLayout(new BorderLayout());
+            try {
+                    final ChartPanel fairPanel = new ChartPanel(controller.getFairChart());
+                    fairPanel.setDomainZoomable(true);
+                    analysisPanel.add(fairPanel, BorderLayout.NORTH);
 		}catch (NullPointerException e) {
 			
 		}
         
-		this.profitPanel = new ChartPanel(controller.getProfitChart());
-        this.profitPanel.setDomainZoomable(true);
-        analysisPanel.add(this.profitPanel, BorderLayout.CENTER);
-        this.save.add(new SaveAnalysis(envController, controller, this).createSaveMenu());
+            final ChartPanel profitPanel = new ChartPanel(controller.getProfitChart());
+            profitPanel.setDomainZoomable(true);
+            analysisPanel.add(profitPanel, BorderLayout.CENTER);
+            this.save.add(new SaveAnalysis(envController, controller, this).createSaveMenu());
         
-        frame.setJMenuBar(save);
-        frame.setTitle("Fun Fair Analysis");
-        frame.add(analysisPanel);
-        frame.pack();
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setJMenuBar(save);
+            frame.setTitle("Fun Fair Analysis");
+            frame.add(analysisPanel);
+            frame.pack();
+            frame.setVisible(true);
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
 	
 	public void dispose() {

@@ -1,9 +1,9 @@
-package view.menu.profitGui;
+package view.menu.profit;
 
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
 
-import view.menu.fairGUI.WrongParametersException;
+import view.menu.fair.WrongParametersException;
 import view.model.activity.ActivityType;
 import view.model.activity.ViewActivityBuilder;
 import view.model.activity.ViewActivityImpl;
@@ -19,7 +19,7 @@ public class SettingPanel extends JPanel{
 	final RangePanel rangePanel = new RangePanel();
 	final NamePanel namePanel = new NamePanel();
 	
-	public SettingPanel(ActivityType type) {
+	public SettingPanel(final ActivityType type) {
 		this.type = type;
 		this.setLayout(new BorderLayout());
 		this.add(namePanel, BorderLayout.NORTH);

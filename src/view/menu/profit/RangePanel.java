@@ -1,4 +1,4 @@
-package view.menu.profitGui;
+package view.menu.profit;
 
 import java.awt.FlowLayout;
 
@@ -11,11 +11,11 @@ public class RangePanel extends JPanel{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 6412430283357696850L;
-	private static final int TEXT_FIELD_WIDTH = 8;
-    final JLabel minLabel = new JLabel("Insert minimum price:");
+    private static final long serialVersionUID = 6412430283357696850L;
+    private static final int TEXT_FIELD_WIDTH = 8;
+    private final JLabel minLabel = new JLabel("Insert minimum price:");
     final JTextField textMin = new JTextField("", TEXT_FIELD_WIDTH);
-    final JLabel maxLabel = new JLabel("Insert maximum price:");
+    private final JLabel maxLabel = new JLabel("Insert maximum price:");
     final JTextField textMax = new JTextField("", TEXT_FIELD_WIDTH);
     
     public RangePanel() {

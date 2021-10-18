@@ -9,22 +9,22 @@ public class ViewActivityBuilder {
 	private final String name;
 	private final ActivityType activityType;
 	
-	public ViewActivityBuilder(String name, ActivityType actType) {
+	public ViewActivityBuilder(final String name, final ActivityType actType) {
 		this.name = name;
 		this.activityType = actType;
 	}
 	
-	public ViewActivityBuilder capacity(int capacity) {
+	public ViewActivityBuilder capacity(final int capacity) {
 		this.capacity = Optional.ofNullable(capacity);
 		return this;
 	}
 	
-	public ViewActivityBuilder minPrice(int minPrice) {
+	public ViewActivityBuilder minPrice(final int minPrice) {
 		this.minPrice = Optional.ofNullable(minPrice);
 		return this;
 	}
 	
-	public ViewActivityBuilder maxPrice(int maxPrice) {
+	public ViewActivityBuilder maxPrice(final int maxPrice) {
 		this.maxPrice = Optional.ofNullable(maxPrice);
 		return this;
 	}

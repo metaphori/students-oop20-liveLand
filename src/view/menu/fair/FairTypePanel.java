@@ -1,4 +1,4 @@
-package view.menu.fairGUI;
+package view.menu.fair;
 
 import java.awt.Color;
 import java.awt.event.ActionEvent;
@@ -17,13 +17,13 @@ public class FairTypePanel extends JPanel{
 	 * 
 	 */
 	private static final long serialVersionUID = 4691884725912924108L;
-	final JLabel fairType = new JLabel("Choose fair type:");
-	final JButton adultFair = new JButton("Adult Fair");
-	final JButton babyFair = new JButton("Children Fair");
-	private ActivityType FairType;
+	private final JLabel fairType = new JLabel("Choose fair type:");
+	private final JButton adultFair = new JButton("Adult Fair");
+	private final JButton babyFair = new JButton("Children Fair");
+	private ActivityType activityType;
 	
 	public FairTypePanel() {
-		this.setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
+	    this.setLayout(new BoxLayout(this, BoxLayout.LINE_AXIS));
 	    this.add(fairType);
 	    this.add(adultFair);
 	    this.add(babyFair);
@@ -32,7 +32,7 @@ public class FairTypePanel extends JPanel{
         adultFair.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
-                FairTypePanel.this.FairType = ActivityType.FAIR;
+                FairTypePanel.this.activityType = ActivityType.FAIR;
                 adultFair.setBackground(Color.GREEN);
                 //adultFair.setEnabled(false);
                 babyFair.setEnabled(false);
@@ -42,7 +42,7 @@ public class FairTypePanel extends JPanel{
         babyFair.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
-                FairTypePanel.this.FairType = ActivityType.BABYFAIR;
+                FairTypePanel.this.activityType = ActivityType.BABYFAIR;
                 babyFair.setBackground(Color.GREEN);
                 adultFair.setEnabled(false);
                 //babyFair.setEnabled(false);
@@ -51,7 +51,12 @@ public class FairTypePanel extends JPanel{
 	}
 	
 	public ActivityType getFairType() {
-		return this.FairType;
+		return this.activityType;
+	}
+	
+	public void enableButtons() {
+	    this.adultFair.setEnabled(true);
+	    this.babyFair.setEnabled(true);
 	}
 
 

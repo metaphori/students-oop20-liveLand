@@ -1,4 +1,4 @@
-package view.menu.fairGUI;
+package view.menu.fair;
 
 import java.awt.BorderLayout;
 import javax.swing.JPanel;
@@ -11,11 +11,10 @@ public class SettingPanel extends JPanel{
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 3798508884700068788L;
-	final JPanel settingPanel = new JPanel(new BorderLayout());
-	final FairTypePanel fTypePanel = new FairTypePanel();
-	final NamePanel namePanel = new NamePanel();
-	final CapacityPanel capacityPanel = new CapacityPanel();
+    private static final long serialVersionUID = 3798508884700068788L;
+    final FairTypePanel fTypePanel = new FairTypePanel();
+    final NamePanel namePanel = new NamePanel();
+    final CapacityPanel capacityPanel = new CapacityPanel();
 	
 	public SettingPanel() {
 		this.setLayout(new BorderLayout());

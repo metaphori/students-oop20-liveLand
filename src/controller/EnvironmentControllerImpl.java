@@ -17,7 +17,7 @@ import view.model.activity.ViewActivityImpl;
 public class EnvironmentControllerImpl implements EnvironmentController {
 
 	private Simulation sim;
-	private ActivityEnvironmentImpl modelActivity;
+	private final ActivityEnvironmentImpl modelActivity;
 	private VisitorsImpl modelVisitors;
 	
 	
@@ -54,7 +54,7 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 	}
 
 	@Override
-	public void addNewActivity(ViewActivityImpl activity) throws ActivityAlreadyPresentException {
+	public void addNewActivity(final ViewActivityImpl activity) throws ActivityAlreadyPresentException {
 		this.modelActivity.activityInsertion(activity);
 	}
 
@@ -65,7 +65,7 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 	
 
 	@Override
-	public void setVisitorsNumber(int visitorsNum) throws VisitorsOutOfBoundException{
+	public void setVisitorsNumber(final int visitorsNum) throws VisitorsOutOfBoundException{
 			this.modelVisitors = new VisitorsImpl(visitorsNum);
 	}
 	

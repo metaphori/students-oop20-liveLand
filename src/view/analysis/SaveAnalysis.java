@@ -20,30 +20,28 @@ public class SaveAnalysis extends JMenu {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -531274145809287580L;
-	private FileControllerImpl fileController;
-	private EnvironmentControllerImpl envController;
-	private AnalysisControllerImpl analysisController;
-    private JPanel panelCenter = new JPanel();
-    private AnalysisDialog gui;
+    private static final long serialVersionUID = -531274145809287580L;
+    private final FileControllerImpl fileController;
+    private final AnalysisControllerImpl analysisController;
+    private final JPanel panelCenter = new JPanel();
+    private final AnalysisDialog gui;
 
-    public SaveAnalysis(EnvironmentControllerImpl envController, 
-    		AnalysisControllerImpl analysisController, AnalysisDialog gui) {
-        this.envController = envController;
+    public SaveAnalysis(final EnvironmentControllerImpl envController, 
+    		final AnalysisControllerImpl analysisController, final AnalysisDialog gui) {
         this.analysisController = analysisController;
-        this.fileController = new FileControllerImpl(this.envController);
+        this.fileController = new FileControllerImpl(envController);
         this.gui = gui;
         this.setVisible(true);
     }
 
     protected JMenu createSaveMenu() {
-            JMenu menuFile = new JMenu("Save Analysis");
-                JMenuItem cancel = new JMenuItem("Exit");
-                JMenu radioButtonMenu = new JMenu("Choose where you want to save:");
-                    JRadioButtonMenuItem buttonDefault = new JRadioButtonMenuItem("Default file (~/output.txt)");
-                    JRadioButtonMenuItem buttonChoose = new JRadioButtonMenuItem("Choose file");
-                    JRadioButtonMenuItem buttonCharts = new JRadioButtonMenuItem("Save charts as JPEG files ");
-                    ButtonGroup group = new ButtonGroup();
+            final JMenu menuFile = new JMenu("Save Analysis");
+                final JMenuItem cancel = new JMenuItem("Exit");
+                final JMenu radioButtonMenu = new JMenu("Choose where you want to save:");
+                    final JRadioButtonMenuItem buttonDefault = new JRadioButtonMenuItem("Default file (~/output.txt)");
+                    final JRadioButtonMenuItem buttonChoose = new JRadioButtonMenuItem("Choose file");
+                    final JRadioButtonMenuItem buttonCharts = new JRadioButtonMenuItem("Save charts as JPEG files ");
+                    final ButtonGroup group = new ButtonGroup();
                     group.add(buttonDefault);
                     group.add(buttonChoose);
                     group.add(buttonCharts);
@@ -62,7 +60,7 @@ public class SaveAnalysis extends JMenu {
     }
 
     private class DefaultActionListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
+        public void actionPerformed(final ActionEvent e) {
             try {
 				SaveAnalysis.this.fileController.save();
 			} catch (IOException e1) {
@@ -81,17 +79,17 @@ public class SaveAnalysis extends JMenu {
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
-                } else {
-                    if (result == JFileChooser.CANCEL_OPTION) {
-             
-                }
+//                } else {
+//                    if (result == JFileChooser.CANCEL_OPTION) {
+//             
+//                }
             }
         }
     }
     
     private class ChartsActionListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
-			ChartImg chartSaver = new ChartImgBuilder(analysisController);
+        public void actionPerformed(final ActionEvent e) {
+			final ChartImg chartSaver = new ChartImgBuilder(analysisController);
 			try {
 				chartSaver.fairChartImg();
 			} catch (IOException e1) {
@@ -106,7 +104,7 @@ public class SaveAnalysis extends JMenu {
     }
 
     private class ExitActionListener implements ActionListener {
-        public void actionPerformed(ActionEvent e) {
+        public void actionPerformed(final ActionEvent e) {
             SaveAnalysis.this.gui.dispose();
         }
     }

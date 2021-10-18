@@ -7,8 +7,8 @@ import javax.swing.*;
 
 public class QuitDialog {
 
-	final JFrame frame = new JFrame();
-	final JPanel panel = new JPanel();
+	private final JFrame frame = new JFrame();
+	private final JPanel panel = new JPanel();
 	
 	public QuitDialog() {
 		

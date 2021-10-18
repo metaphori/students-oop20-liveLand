@@ -1,8 +1,8 @@
 package tests;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotEquals;
+import static org.junit.Assert.assertNotSame;
 import static org.junit.Assert.assertThrows;
 import static org.junit.Assert.assertTrue;
 
@@ -16,7 +16,7 @@ import view.model.activity.ViewActivityImpl;
 
 public class ActivityInsertionTest {
 	
-	private EnvironmentControllerImpl controller = new EnvironmentControllerImpl();
+	private final EnvironmentControllerImpl controller = new EnvironmentControllerImpl();
 	private final ViewActivityImpl act1 = new ViewActivityBuilder("katun", ActivityType.FAIR).capacity(15).build();
 	private final ViewActivityImpl act2 = new ViewActivityBuilder("bruco mela", ActivityType.BABYFAIR).capacity(25).build();
 	private final ViewActivityImpl act3 = new ViewActivityBuilder("burger king", ActivityType.REST).minPrice(2).maxPrice(30).build();
@@ -48,7 +48,7 @@ public class ActivityInsertionTest {
 		assertTrue("Activity3 correctly added in controller's list", 
 				this.controller.getActivityList().contains(act3));
 		assertThrows(ActivityAlreadyPresentException.class, () -> this.controller.addNewActivity(act3));
-		assertFalse("Activity3 not added, already present!", this.controller.getActivityList().size() == 3);
+		assertNotSame("Activity3 not added, already present!", this.controller.getActivityList().size() == 3);
 	}
 
 	@Test

@@ -18,9 +18,9 @@ public class FileControllerImpl {
     private static final String DEFAULT_FILE = "output.txt";
 
     private File dest = new File(HOME + SEPARATOR + DEFAULT_FILE);
-    private Analysis analysis;
+    private final Analysis analysis;
 
-    public FileControllerImpl(EnvironmentControllerImpl controller) {
+    public FileControllerImpl(final EnvironmentControllerImpl controller) {
     	this.analysis = new AnalysisImpl(controller);
     }
     

@@ -5,7 +5,7 @@ public class EmptyEnvironmentException extends Exception {
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = -8750281820375052378L;
+    private static final long serialVersionUID = -8750281820375052378L;
 	
     /**
      * 

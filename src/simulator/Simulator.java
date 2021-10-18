@@ -1,8 +1,11 @@
-package FunFairSimulator;
+package simulator;
 
 import controller.ControllerImpl;
 
-public class Simulator {
+public final class Simulator {
+    
+    private Simulator() {
+    }
 	
     /**
      * 

@@ -12,29 +12,25 @@ public class ChartImgBuilder implements ChartImg {
 	
 	private static final int WIDTH = 640;
 	private static final int HEIGHT = 480;
-	private JFreeChart fairChart;
-	private JFreeChart profitChart;
+	private final JFreeChart fairChart;
+	private final JFreeChart profitChart;
 	
-	public ChartImgBuilder(AnalysisControllerImpl controller) {
+	public ChartImgBuilder(final AnalysisControllerImpl controller) {
 		this.fairChart = controller.getFairChart();
 		this.profitChart = controller.getProfitChart();
 	}
 	
 	@Override
 	public File profitChartImg() throws IOException {
-	    int width = WIDTH;    /* Width of the image */
-	    int height = HEIGHT;   /* Height of the image */ 
-	    File profitBarChart = new File( "./res/ProfitBarChart.jpeg" ); 
-	    ChartUtilities.saveChartAsJPEG( profitBarChart , this.profitChart , width , height );
+	    final File profitBarChart = new File( "./res/ProfitBarChart.jpeg" ); 
+	    ChartUtilities.saveChartAsJPEG( profitBarChart , this.profitChart , WIDTH , HEIGHT );
 	    return profitBarChart;
 	}
 	
 	@Override
 	public File fairChartImg() throws IOException {
-	    int width = WIDTH;    /* Width of the image */
-	    int height = HEIGHT;   /* Height of the image */ 
-	    File fairPieChart = new File( "./res/FairBarChart.jpeg" ); 
-	    ChartUtilities.saveChartAsJPEG( fairPieChart , this.fairChart , width , height );
+	    final File fairPieChart = new File( "./res/FairBarChart.jpeg" ); 
+	    ChartUtilities.saveChartAsJPEG( fairPieChart , this.fairChart , WIDTH , HEIGHT );
 	    return fairPieChart;
 	}
 	
