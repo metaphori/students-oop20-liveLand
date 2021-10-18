@@ -25,11 +25,14 @@ public class SaveAnalysis extends JMenu {
 	private EnvironmentControllerImpl envController;
 	private AnalysisControllerImpl analysisController;
     private JPanel panelCenter;
+    private AnalysisDialog gui;
 
-    public SaveAnalysis(EnvironmentControllerImpl envController, AnalysisControllerImpl analysisController) {
+    public SaveAnalysis(EnvironmentControllerImpl envController, 
+    		AnalysisControllerImpl analysisController, AnalysisDialog gui) {
         this.envController = envController;
         this.analysisController = analysisController;
         this.fileController = new FileControllerImpl(this.envController);
+        this.gui = gui;
         this.setVisible(true);
     }
 
@@ -104,7 +107,7 @@ public class SaveAnalysis extends JMenu {
 
     private class ExitActionListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            System.exit(0);
+            SaveAnalysis.this.gui.dispose();
         }
     }
 

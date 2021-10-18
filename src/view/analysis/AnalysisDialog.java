@@ -29,7 +29,7 @@ public class AnalysisDialog {
 		this.profitPanel = new ChartPanel(controller.getProfitChart());
         this.profitPanel.setDomainZoomable(true);
         analysisPanel.add(this.profitPanel, BorderLayout.CENTER);
-        this.save.add(new SaveAnalysis(envController, controller).createSaveMenu());
+        this.save.add(new SaveAnalysis(envController, controller, this).createSaveMenu());
         
         frame.setJMenuBar(save);
         frame.setTitle("Fun Fair Analysis");
@@ -38,5 +38,9 @@ public class AnalysisDialog {
         frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }
+	
+	public void dispose() {
+		this.frame.dispose();
+	}
 
 }
