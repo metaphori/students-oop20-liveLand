@@ -16,6 +16,7 @@ public class DefaultSetting {
 	private final ViewActivityImpl act5 = new ViewActivityBuilder("Pizza Pazza", ActivityType.REST).minPrice(10).maxPrice(25).build();
 	private final ViewActivityImpl act6 = new ViewActivityBuilder("Gingilli", ActivityType.SHOP).minPrice(1).maxPrice(20).build();
 	private final ViewActivityImpl act7 = new ViewActivityBuilder("Souvenirs", ActivityType.SHOP).minPrice(5).maxPrice(15).build();
+	private final ViewActivityImpl act9 = new ViewActivityBuilder("Souvenirs2.0", ActivityType.SHOP).minPrice(5).maxPrice(15).build();
 	
 	
 	public DefaultSetting(EnvironmentControllerImpl view, GraphicalUserInterface gui) {
@@ -28,6 +29,7 @@ public class DefaultSetting {
 		view.addNewActivity(act6);
 		view.addNewActivity(act7);
 		view.addNewActivity(act8);
+		view.addNewActivity(act9);
 		gui.menuPanel.setActList(act1);
 		gui.menuPanel.setActList(act2);
 		gui.menuPanel.setActList(act3);
@@ -36,6 +38,7 @@ public class DefaultSetting {
 		gui.menuPanel.setActList(act6);
 		gui.menuPanel.setActList(act7);
 		gui.menuPanel.setActList(act8);
+		gui.menuPanel.setActList(act9);
 		}catch (ActivityAlreadyPresentException exc) {
 			System.out.print(exc.getMessage());
 		}

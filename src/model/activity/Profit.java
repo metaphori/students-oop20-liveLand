@@ -63,7 +63,7 @@ public class Profit implements Activity{
 			Random r =  new Random();
 			do {
 			money=r.nextInt(max);
-			}while(money>=min);
+			}while(money>min);
 			
 			setProfit(getProfit()+money);
 			
