@@ -60,7 +60,7 @@ public interface EnvironmentController {
     void showAnalysis();
 
     /**
-     * Resets activity list previuosly set.
+     * Resets activity list previously set.
      */
     void resetActivityLists();
 

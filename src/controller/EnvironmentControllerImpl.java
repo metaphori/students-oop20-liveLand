@@ -107,5 +107,4 @@ public class EnvironmentControllerImpl implements EnvironmentController {
 	public final void resetActivityLists() {
 		this.modelActivity.resetActivity();
 	}
-
 }
