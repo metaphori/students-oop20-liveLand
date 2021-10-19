@@ -4,7 +4,7 @@ import controller.EnvironmentControllerImpl;
 import java.util.LinkedList;
 import java.util.List;
 
-public class AnalysisImpl implements Analysis {
+public final class AnalysisImpl implements Analysis {
 
   private final EnvironmentControllerImpl controller;
   private final List<String> fair = new LinkedList<>();
@@ -16,7 +16,7 @@ public class AnalysisImpl implements Analysis {
   }
 
   @Override
-  public final List<String> fairLiking() {
+  public List<String> fairLiking() {
       this.controller.getFairList().forEach(f -> {
           this.fair.add(f.getActivityType() + ": " + f.getName()
                  + ", Daily Visitors: " + f.getTotPeople() + "\n"); });
@@ -24,7 +24,7 @@ public class AnalysisImpl implements Analysis {
   }
 
   @Override
-  public final List<String> profit() {
+  public List<String> profit() {
       this.controller.getProfitList().forEach(p -> {
           this.profit.add(p.getActivityType() + ": " + p.getName()
                  + ", Daily Income: " + p.getProfit() + "\n"); });
@@ -32,7 +32,7 @@ public class AnalysisImpl implements Analysis {
   }
 
   @Override
-  public final List<String> tickets() {
+  public List<String> tickets() {
       this.tickets.add("Total number of tickets sold: "
               + this.controller.getEntranceProfit().get(3) + "\n");
       this.tickets.add("Adult tickets income: "
@@ -45,7 +45,7 @@ public class AnalysisImpl implements Analysis {
   }
 
   @Override
-  public final List<String> getTextualAnalysis() {
+  public List<String> getTextualAnalysis() {
       final List<String> analysis = new LinkedList<>();
       analysis.addAll(this.tickets());
       analysis.addAll(this.fairLiking());
@@ -54,7 +54,7 @@ public class AnalysisImpl implements Analysis {
   }
 
   @Override
-  public final String getAnalysisDescription() {
+  public String getAnalysisDescription() {
       return "\n***Here is a textual analysis carried out in the simulation, "
               + "which environment was set with the parameters you provided*** \n";
   }

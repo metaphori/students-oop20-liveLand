@@ -1,11 +1,12 @@
 package view.model.activity;
 
-public class ActivityAlreadyPresentException extends Exception{
+public class ActivityAlreadyPresentException extends Exception {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = -4311764479448220860L;
+    /**
+     * Exception thrown when an activity already present in the simulation
+     * environment is trying to be added.
+     */
+    private static final long serialVersionUID = -4311764479448220860L;
 
 
     /**

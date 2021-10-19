@@ -9,28 +9,28 @@ import java.util.List;
  * separate from other parts of the project.
  */
 
-public class PhonyAnalysisImpl implements Analysis {
+public final class PhonyAnalysisImpl implements Analysis {
 
     private final List<String> fair = new LinkedList<>();
     private final List<String> profit = new LinkedList<>();
     private final List<String> tickets = new LinkedList<>();
 
     @Override
-    public final List<String> fairLiking() {
+    public List<String> fairLiking() {
         this.fair.add("FAIR: Katun, Daily visitors: 76\n");
         this.fair.add("BABYFAIR: Bruco Mela, Daily visitors: 49\n");
         return this.fair;
     }
 
     @Override
-    public final List<String> profit() {
+    public List<String> profit() {
         this.profit.add("REST: Pizza pazza, Daily income: 570\n");
         this.profit.add("SHOP: Souvenirs, Daily income: 320\n");
         return this.profit;
     }
 
     @Override
-    public final List<String> tickets() {
+    public List<String> tickets() {
         this.tickets.add("Total number of tickets sold: 59\n");
         this.tickets.add("Adult tickets income: 1200\n");
         this.tickets.add("Reduced tickets income: 300\n");
@@ -39,7 +39,7 @@ public class PhonyAnalysisImpl implements Analysis {
     }
 
     @Override
-    public final List<String> getTextualAnalysis() {
+    public List<String> getTextualAnalysis() {
         final List<String> analysis = new LinkedList<>();
         analysis.addAll(this.tickets());
         analysis.addAll(this.fairLiking());
@@ -48,7 +48,7 @@ public class PhonyAnalysisImpl implements Analysis {
     }
 
     @Override
-    public final String getAnalysisDescription() {
+    public String getAnalysisDescription() {
         return "\n***Here is a textual analysis carried out in the simulation, "
                 + "which environment was set with the parameters you provided*** \n";
     }

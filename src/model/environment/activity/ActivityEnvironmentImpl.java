@@ -9,7 +9,7 @@ import view.model.activity.ActivityAlreadyPresentException;
 import view.model.activity.ActivityType;
 import view.model.activity.ViewActivityImpl;
 
-public class ActivityEnvironmentImpl implements ActivityEnvironment {
+public final class ActivityEnvironmentImpl implements ActivityEnvironment {
 
     private final List<Fair> fairList;
     private final List<Profit> profitList;
@@ -23,7 +23,7 @@ public class ActivityEnvironmentImpl implements ActivityEnvironment {
     }
 
     @Override
-    public final void activityInsertion(final ViewActivityImpl activity) throws ActivityAlreadyPresentException {
+    public void activityInsertion(final ViewActivityImpl activity) throws ActivityAlreadyPresentException {
         if (this.activityList.stream().filter(a -> a.getName().equals(activity.getName()))
                                 .filter(a -> a.getCapacity().equals(activity.getCapacity()))
                                 .filter(a -> a.getMaxPrice().equals(activity.getMaxPrice()))
@@ -57,21 +57,25 @@ public class ActivityEnvironmentImpl implements ActivityEnvironment {
 
     }
 
-    public final void resetActivity() {
+    @Override
+    public void resetActivity() {
         this.fairList.clear();
         this.profitList.clear();
         this.activityList.clear();
     }
 
-    public final List<Fair> getFairList() {
+    @Override
+    public List<Fair> getFairList() {
         return this.fairList;
     }
 
-    public final List<Profit> getProfitList() {
+    @Override
+    public List<Profit> getProfitList() {
         return this.profitList;
     }
 
-    public final List<ViewActivityImpl> getActivityList() {
+    @Override
+    public List<ViewActivityImpl> getActivityList() {
         return this.activityList;
     }
 

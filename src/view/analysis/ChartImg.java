@@ -5,8 +5,16 @@ import java.io.IOException;
 
 public interface ChartImg {
 
-	File profitChartImg() throws IOException;
+    /**
+     * @return a file containing the Profit chart saved as jpeg
+     * @throws IOException
+     */
+    File profitChartImg() throws IOException;
 
-	File fairChartImg() throws IOException;
+    /**
+     * @return a file containing the Fair chart saved as jpeg
+     * @throws IOException
+     */
+    File fairChartImg() throws IOException;
 
 }

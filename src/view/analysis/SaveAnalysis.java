@@ -16,10 +16,7 @@ import controller.EnvironmentControllerImpl;
 import controller.FileControllerImpl;
 
 public class SaveAnalysis extends JMenu {
-	
-	/**
-	 * 
-	 */
+
     private static final long serialVersionUID = -531274145809287580L;
     private final FileControllerImpl fileController;
     private final AnalysisControllerImpl analysisController;
@@ -27,13 +24,17 @@ public class SaveAnalysis extends JMenu {
     private final AnalysisDialog gui;
 
     public SaveAnalysis(final EnvironmentControllerImpl envController, 
-    		final AnalysisControllerImpl analysisController, final AnalysisDialog gui) {
+                        final AnalysisControllerImpl analysisController, final AnalysisDialog gui) {
         this.analysisController = analysisController;
         this.fileController = new FileControllerImpl(envController);
         this.gui = gui;
         this.setVisible(true);
     }
 
+    /**
+     * @return the JMenu which shows saving options: save on default file,
+     * choose a specific file or save the charts as jpeg file
+     */
     protected JMenu createSaveMenu() {
             final JMenu menuFile = new JMenu("Save Analysis");
                 final JMenuItem cancel = new JMenuItem("Exit");
@@ -48,7 +49,7 @@ public class SaveAnalysis extends JMenu {
                 radioButtonMenu.add(buttonDefault);
                 radioButtonMenu.add(buttonChoose);
                 radioButtonMenu.add(buttonCharts);
-            menuFile.add(radioButtonMenu);//popup pull-right
+            menuFile.add(radioButtonMenu);
             menuFile.addSeparator();
             menuFile.add(cancel);
         //Listeners
@@ -62,10 +63,10 @@ public class SaveAnalysis extends JMenu {
     private class DefaultActionListener implements ActionListener {
         public void actionPerformed(final ActionEvent e) {
             try {
-				SaveAnalysis.this.fileController.save();
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
+                SaveAnalysis.this.fileController.save();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
         }
     }
     private class ChooseActionListener implements ActionListener {
@@ -75,31 +76,27 @@ public class SaveAnalysis extends JMenu {
                 if (result == JFileChooser.APPROVE_OPTION) {
                     SaveAnalysis.this.fileController.setDestination(chooser.getSelectedFile());
                     try {
-						SaveAnalysis.this.fileController.save();
-					} catch (IOException e1) {
-						e1.printStackTrace();
-					}
-//                } else {
-//                    if (result == JFileChooser.CANCEL_OPTION) {
-//             
-//                }
+                        SaveAnalysis.this.fileController.save();
+                    } catch (IOException e1) {
+                        e1.printStackTrace();
+                    }
             }
         }
     }
-    
+
     private class ChartsActionListener implements ActionListener {
         public void actionPerformed(final ActionEvent e) {
-			final ChartImg chartSaver = new ChartImgBuilder(analysisController);
-			try {
-				chartSaver.fairChartImg();
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
-			try {
-				chartSaver.profitChartImg();
-			} catch (IOException e1) {
-				e1.printStackTrace();
-			}
+            final ChartImg chartSaver = new ChartImgBuilder(analysisController);
+            try {
+                chartSaver.fairChartImg();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
+            try {
+                chartSaver.profitChartImg();
+            } catch (IOException e1) {
+                e1.printStackTrace();
+            }
         }
     }
 
