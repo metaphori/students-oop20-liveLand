@@ -1,4 +1,4 @@
-package model;
+package model.gui.position;
 
 public class PositionAlreadyOccupateException {
 

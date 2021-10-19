@@ -1,4 +1,4 @@
-package model;
+package model.gui.position;
 
 import java.util.Map;
 

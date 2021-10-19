@@ -1,11 +1,11 @@
-package model;
+package model.gui.position;
 
-public class Pair<X, Y> {
+public class Position<X, Y> {
 
 	public X first;
     public Y second;
     
-    public Pair(X first, Y second){
+    public Position(X first, Y second){
     	this.first = first;
     	this.second = second;
     }
