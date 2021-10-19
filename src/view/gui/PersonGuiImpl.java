@@ -1,12 +1,9 @@
-package model.gui.person;
+package view.gui;
 
 import java.awt.Color;
 import java.awt.Point;
-import java.util.Random;
 
-import view.gui.CreatePersonGui;
-
-public class PersonGuiImpl extends CreatePersonGui implements PersonGui{
+public class PersonGuiImpl implements PersonGui{
 
 	
 	private static final long serialVersionUID = 1L;

@@ -13,8 +13,6 @@ import javax.swing.JPanel;
 
 import controller.Controller;
 import controller.ControllerImpl;
-import model.gui.person.PersonGui;
-import model.gui.person.PersonGuiImpl;
 
 
 public class SimulationPanel extends JPanel{

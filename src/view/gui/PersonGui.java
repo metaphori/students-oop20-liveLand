@@ -1,4 +1,4 @@
-package model.gui.person;
+package view.gui;
 
 import java.awt.Color;
 import java.awt.Point;

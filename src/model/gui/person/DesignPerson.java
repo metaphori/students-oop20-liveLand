@@ -2,6 +2,8 @@ package model.gui.person;
 
 import java.awt.Color;
 
+import view.gui.PersonGuiImpl;
+
 public class DesignPerson {
 	
 	public static PersonGuiImpl createAdult(){
