@@ -10,73 +10,68 @@ import view.model.activity.ActivityType;
 import view.model.activity.ViewActivityImpl;
 
 public class ActivityEnvironmentImpl implements ActivityEnvironment {
-	
+
     private final List<Fair> fairList;
     private final List<Profit> profitList;
     private final List<ViewActivityImpl> activityList;
     private ActivityType actType;
-	//si possono inserire le varie attività all'interno di liste preposte (?)o array in modo da poterli poi rendere visibili alla view
-	//magari possibili passare questa lista aggiornata al controller principale che sarà collegato alla view e al model del people behaviour
 
     public ActivityEnvironmentImpl() {
         this.fairList = new ArrayList<>();
-	this.profitList = new ArrayList<>();
-	this.activityList = new ArrayList<>();
+        this.profitList = new ArrayList<>();
+        this.activityList = new ArrayList<>();
     }
-	/*
-	 * activity gli viene passata dal pulsante start nella GUI-menuWindow
-	 */
-    @Override
-    public void activityInsertion(final ViewActivityImpl activity) throws ActivityAlreadyPresentException {
-        if(this.activityList.stream().filter(a -> a.getName().equals(activity.getName()))
-				.filter(a -> a.getCapacity().equals(activity.getCapacity()))
-				.filter(a -> a.getMaxPrice().equals(activity.getMaxPrice()))
-				.filter(a -> a.getMinPrice().equals(activity.getMinPrice()))
-				.filter(a -> a.getActivityType().equals(activity.getActivityType()))
-				.count() == 1) {
-		throw new ActivityAlreadyPresentException();
-	}
-	else {
-	    this.activityList.add(activity);
-	    this.actType = activity.getActivityType();
 
-	    switch(actType) {
-		case BABYFAIR:
-		    fairList.add(new Fair(activity.getName(), activity.getCapacity().orElse(0), actType));
-		    break;
-		case FAIR:
-		    fairList.add(new Fair(activity.getName(), activity.getCapacity().orElse(0), actType));
-		    break;
-		case REST:
-		    profitList.add(new Profit(activity.getName(), activity.getMinPrice().orElse(0), 
-					activity.getMaxPrice().orElse(0), actType));
-		    break;
-		case SHOP:
-		    profitList.add(new Profit(activity.getName(), activity.getMinPrice().orElse(0),
-					activity.getMaxPrice().orElse(0), actType));
-		    break;
-		default:
-		    break;
-	    }
-	}
-			
+    @Override
+    public final void activityInsertion(final ViewActivityImpl activity) throws ActivityAlreadyPresentException {
+        if (this.activityList.stream().filter(a -> a.getName().equals(activity.getName()))
+                                .filter(a -> a.getCapacity().equals(activity.getCapacity()))
+                                .filter(a -> a.getMaxPrice().equals(activity.getMaxPrice()))
+                                .filter(a -> a.getMinPrice().equals(activity.getMinPrice()))
+                                .filter(a -> a.getActivityType().equals(activity.getActivityType()))
+                                .count() == 1) {
+            throw new ActivityAlreadyPresentException();
+        } else {
+            this.activityList.add(activity);
+            this.actType = activity.getActivityType();
+
+            switch (actType) {
+                case BABYFAIR:
+                    fairList.add(new Fair(activity.getName(), activity.getCapacity().orElse(0), actType));
+                    break;
+                case FAIR:
+                    fairList.add(new Fair(activity.getName(), activity.getCapacity().orElse(0), actType));
+                    break;
+                case REST:
+                    profitList.add(new Profit(activity.getName(), activity.getMinPrice().orElse(0), 
+                            activity.getMaxPrice().orElse(0), actType));
+                    break;
+                case SHOP:
+                    profitList.add(new Profit(activity.getName(), activity.getMinPrice().orElse(0),
+                            activity.getMaxPrice().orElse(0), actType));
+                    break;
+                default:
+                    break;
+            }
+        }
+
     }
-	
-    public void resetActivity() {
+
+    public final void resetActivity() {
         this.fairList.clear();
         this.profitList.clear();
         this.activityList.clear();
     }
-	
-    public List<Fair> getFairList(){
+
+    public final List<Fair> getFairList() {
         return this.fairList;
     }
 
-    public List<Profit> getProfitList(){
+    public final List<Profit> getProfitList() {
         return this.profitList;
     }
-	
-    public List<ViewActivityImpl> getActivityList(){
+
+    public final List<ViewActivityImpl> getActivityList() {
         return this.activityList;
     }
 

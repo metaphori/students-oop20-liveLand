@@ -25,7 +25,7 @@ public class Simulation implements Runnable {
      */
     @Override
     public void run() {
-        this.task = new PersonIntoPark(false, this.controller);
+        this.task = new PersonIntoPark(this.controller);
             while (!stopped) {
                     try { 
                             this.task.logics();

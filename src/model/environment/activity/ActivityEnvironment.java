@@ -9,17 +9,34 @@ import view.model.activity.ViewActivityImpl;
 
 public interface ActivityEnvironment {
 
-	/*
-	 * activity gli viene passata dal pulsante start nella GUI-menuWindow
-	 */
-	void activityInsertion(ViewActivityImpl activity) throws ActivityAlreadyPresentException;
+    /**
+     * It adds the new activity (set by the user) to the corresponding 
+     * activity list, either FairList or ProfitList.
+     * @param activity The activity that needs to be added in the environment
+     * @throws ActivityAlreadyPresentException if the activity trying to be 
+     * added is already present in the environment
+     */
+    void activityInsertion(ViewActivityImpl activity) throws ActivityAlreadyPresentException;
 
-	void resetActivity();
+    /**
+     * Resets each activity list.
+     */
+    void resetActivity();
 
-	List<Fair> getFairList();
+    /**
+     * @return a list containing Fair objects set in the environment
+     */
+    List<Fair> getFairList();
 
-	List<Profit> getProfitList();
+    /**
+     * @return a list containing Profit objects set in the environment
+     */
+    List<Profit> getProfitList();
 
-	List<ViewActivityImpl> getActivityList();
+    /**
+     * @return a list containing each activity set, including both 
+     * Fair and Profit objects
+     */
+    List<ViewActivityImpl> getActivityList();
 
 }
