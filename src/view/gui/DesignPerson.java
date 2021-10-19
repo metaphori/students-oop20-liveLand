@@ -1,8 +1,6 @@
-package model.gui.person;
+package view.gui;
 
 import java.awt.Color;
-
-import view.gui.PersonGuiImpl;
 
 public class DesignPerson {
 	
