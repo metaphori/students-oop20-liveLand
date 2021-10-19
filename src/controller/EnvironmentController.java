@@ -1,12 +1,5 @@
 package controller;
 
-import java.util.List;
-
-import model.activity.Fair;
-import model.activity.Profit;
-
-//import java.util.List;
-
 import view.menu.EmptyEnvironmentException;
 import view.menu.VisitorsOutOfBoundException;
 import view.model.activity.ActivityAlreadyPresentException;

@@ -4,7 +4,7 @@ import model.ticket.Ticket;
 
 public interface PersonTicketInterface {
 
-	/*Method that generates a random age*/
+    /*Method that generates a random age*/
 	int randAge();
 
 	int getAge();

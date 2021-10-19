@@ -12,14 +12,14 @@ import controller.EnvironmentControllerImpl;
  * A very simple program using a graphical interface.
  * 
  */
-public final class GraphicalUserInterface {
+public class GraphicalUserInterface {
 
     private final JFrame frame = new JFrame();
     private final JPanel canvas = new JPanel();
     private final EnvironmentControllerImpl controller;
-    final WelcomePanel welcomePanel = new WelcomePanel();
-    final MenuPanel menuPanel;
-    final BottomPanel bottomPanel;
+    protected final WelcomePanel welcomePanel = new WelcomePanel();
+    protected final MenuPanel menuPanel;
+    protected final BottomPanel bottomPanel;
 
 
     /**

@@ -12,7 +12,7 @@ public class WelcomePanel extends JPanel{
 	 * 
 	 */
     private static final long serialVersionUID = 1L;    
-    final JTextArea welcomeMsg = new JTextArea();
+    protected final JTextArea welcomeMsg = new JTextArea();
 	
     public WelcomePanel() { 
         welcomeMsg.setBackground(Color.lightGray);

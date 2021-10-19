@@ -8,10 +8,7 @@ import model.analysis.Analysis;
 import model.analysis.AnalysisImpl;
 import model.analysis.PhonyAnalysisImpl;
 
-/**
- *
- */
-public class FileControllerImpl {
+public class FileControllerImpl implements FileController {
 
     private static final String HOME = System.getProperty("user.home");
     private static final String SEPARATOR = System.getProperty("file.separator");
@@ -21,34 +18,23 @@ public class FileControllerImpl {
     private final Analysis analysis;
 
     public FileControllerImpl(final EnvironmentControllerImpl controller) {
-    	this.analysis = new AnalysisImpl(controller);
-    }
-    
-    public FileControllerImpl() {
-    	this.analysis = new PhonyAnalysisImpl();	
-    }
-    /**
-     * Saves a given text on the chosen file.
-     * 
-     * @param text
-     *            the text to save
-     * @throws IOException
-     *             if the writing fails
-     */
-    public void save() throws IOException {
-    	try (PrintStream out = new PrintStream(dest)) {
-            out.println("FUNFAIR SIMULATOR ANALYSIS");
-        	out.println(analysis.getAnalysisDescription());
-        	analysis.getTextualAnalysis().forEach(s -> {out.print(s);});
-        }
-    	
+        this.analysis = new AnalysisImpl(controller);
     }
 
-    /**
-     * @param file
-     *            the file where to write
-     */
-    public void setDestination(final File file) {
+    public FileControllerImpl() {
+        this.analysis = new PhonyAnalysisImpl();
+    }
+
+    public final void save() throws IOException {
+        try (PrintStream out = new PrintStream(dest)) {
+            out.println("FUNFAIR SIMULATOR ANALYSIS");
+            out.println(analysis.getAnalysisDescription());
+            analysis.getTextualAnalysis().forEach(s -> {
+                out.print(s); });
+        }
+    }
+
+    public final void setDestination(final File file) {
         final File parent = file.getParentFile();
         if (parent.exists()) {
             dest = file;
