@@ -7,43 +7,44 @@ import model.person.environment.EnvironmentImpl;
 import model.person.ticket.PersonTicket;
 import person.environment.motion.PeopleRecirculationGui;
 
-public class PeopleRecirculation{
-	private Random rand = new Random();
-	private EnvironmentImpl environment;
-	private EnvironmentControllerImpl controller;
-	private PersonIntoPark park;
-	private int personCanEnter;
-	private int randPeopleExit;
-	private PeopleRecirculationGui recirculationGui;
-	//private static final int MAX_EXIT_PERSON = 30;
-	
-	public PeopleRecirculation(EnvironmentImpl environment, EnvironmentControllerImpl controller, PersonIntoPark park, PeopleRecirculationGui recirculationGui) {
-		super();
-		this.environment = environment;
-		this.controller = controller;
-		this.park = park;
-		this.recirculationGui = recirculationGui;
-	}
+public final class PeopleRecirculation {
 
-	public void recirculation() {
-			personCanEnter = controller.getVisitorsNumber() - park.getPeopleIntoPark();
-			int randPeopleEntrance = rand.nextInt(personCanEnter);
-			for (int i =0; i < randPeopleEntrance;i++) {
-				PersonTicket person = new PersonTicket();
-				environment.peopleEntrance(person);
-				recirculationGui.peopleEntrance(person);
-				park.incPeopleIntoPark();
-			}
-			
-			int numExit = (int)(controller.getVisitorsNumber() * 0.3);
-			do {
-				 randPeopleExit = rand.nextInt(numExit);
-				}
-			while(randPeopleExit > environment.getPersonList().size());
-			for (int i =0; i < randPeopleExit ;i++) {
-			    recirculationGui.peopleExit(environment.getPersonList().get(0));
-			    environment.exitPeople();
-				park.decPeopleIntoPark();
-			}
-	}
+    private final Random rand = new Random();
+    private final EnvironmentImpl environment;
+    private final EnvironmentControllerImpl controller;
+    private final PersonIntoPark park;
+    private final PeopleRecirculationGui recirculationGui;
+
+    public PeopleRecirculation(final EnvironmentImpl environment, final EnvironmentControllerImpl controller, final PersonIntoPark park, final PeopleRecirculationGui recirculationGui) {
+        super();
+        this.environment = environment;
+        this.controller = controller;
+        this.park = park;
+        this.recirculationGui = recirculationGui;
+    }
+
+    /**
+     * This method generates tow number random that represents the number of people that enter and exit for the park.
+     */
+    public void recirculation() {
+        int randPeopleExit;
+        final int personCanEnter = controller.getVisitorsNumber() - park.getPeopleIntoPark();
+        final int randPeopleEntrance = rand.nextInt(personCanEnter);
+        for (int i = 0; i < randPeopleEntrance; i++) {
+            final PersonTicket person = new PersonTicket();
+            environment.peopleEntrance(person);
+            recirculationGui.peopleEntrance(person);
+            park.incPeopleIntoPark();
+        }
+        final int numExit = (int) (controller.getVisitorsNumber() * 0.3);
+        do {
+            randPeopleExit = rand.nextInt(numExit);
+        }
+        while (randPeopleExit > environment.getPersonList().size());
+        for (int i = 0; i < randPeopleExit; i++) {
+            recirculationGui.peopleExit(environment.getPersonList().get(0));
+            environment.exitPeople();
+            park.decPeopleIntoPark();
+        }
+    }
 }
