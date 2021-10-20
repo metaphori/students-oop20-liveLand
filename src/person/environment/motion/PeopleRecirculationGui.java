@@ -1,16 +1,24 @@
 package person.environment.motion;
 
+import java.util.Map;
+
+import model.person.ticket.PersonTicket;
+
 public class PeopleRecirculationGui {
 
-    public PeopleRecirculationGui() {
-        
+    private Map<PersonTicket, Position> people;
+    
+    public PeopleRecirculationGui(Map<PersonTicket, Position> map) {
+        this.people = map;
+    }
+
+    public void peopleEntrance(PersonTicket person) {
+        this.people.put(person, new Position().randomPosition(this.people));
     }
     
-    public void peopleEntrance(int numPeople) {
-        //richiama un metodo nel model.gui che aggiunge le persone
+    public void peopleExit(PersonTicket person) {
+        this.people.remove(person);
     }
     
-    public void peopleExit(int numPeople) {
-        //richiama metodo nel model.gui che toglie le persone dalla testa della lista
-    }
+    
 }
