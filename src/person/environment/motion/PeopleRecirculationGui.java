@@ -13,11 +13,13 @@ public class PeopleRecirculationGui {
     }
 
     public void peopleEntrance(PersonTicket person) {
-        this.people.put(person, new Position().randomPosition(this.people));
+        //this.people.put(person, new Position().randomPosition(this.people));
+        System.out.println("persona: " + person.toString() + "entrata");
     }
     
     public void peopleExit(PersonTicket person) {
-        this.people.remove(person);
+        //this.people.remove(person);
+        System.out.println("persona: " + person.toString() + "uscita");
     }
     
     

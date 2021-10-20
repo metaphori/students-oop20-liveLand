@@ -15,7 +15,7 @@ public class ActivityRide {
 	private Random rand = new Random();
 	private int randParticipant;
 	private static final int FIRST_PERSON = 0;
-	private static final int MAX_PROFIT = 40;
+	private static final int MAX_PROFIT = 50;
 	private PeopleMovingIntoPark peopleMoving;
 	
 	
@@ -29,7 +29,7 @@ public class ActivityRide {
 	
 	
 	public void ride() {
-		System.out.print("Ride thread started");
+		//System.out.print("Ride thread started");
 		for (final Fair f : controller.getFairList()) {
 			if (environment.getPersonList().size() == 0) {
 				break;

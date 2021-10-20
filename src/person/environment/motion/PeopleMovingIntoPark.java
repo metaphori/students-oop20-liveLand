@@ -17,13 +17,16 @@ public class PeopleMovingIntoPark {
     }
     
     public void goToFair(PersonTicket person, Fair fair) {
+        System.out.println("persona: " + person.toString() + "va in giostra: " + fair.getName());
         //ricavare coordinate della giostra
-        //this.movementModel.move(person, coordinate)
+        //while non mi ritorna posizione della giostra, continuo a far generare coord sempre piu vicine
+        //this.people.replace(person, this.movementModel.move(this.people.get(person), coordinate))
     }
     
     public void goToProfit(PersonTicket person, Profit profit) {
+        System.out.println("persona: " + person.toString() + "va in profit: " + profit.getName());
         //ricavare coordinate del profit
-        //this.movementModel.move(person, coordinate)
+      //this.people.replace(person, this.movementModel.move(this.people.get(person), coordinate))
     }
 
 }

@@ -5,7 +5,12 @@ import model.ticket.*;
 
 /*Class that assign to each person the age and the ticket*/
 public class PersonTicket implements PersonTicketInterface{
-	private static final int AGE_MIN = 2;
+	@Override
+    public String toString() {
+        return "PersonTicket [age=" + age + ", ticket=" + ticket + "]";
+    }
+
+    private static final int AGE_MIN = 2;
     private static final int AGE_MAX = 95;
     private static final int AGE_MAX_REDUCED= 65;
     private static final int AGE_MIN_REDUCED= 12;

@@ -13,7 +13,7 @@ import person.environment.motion.PeopleRecirculationGui;
 import person.environment.motion.Position;
 
 
-public class PersonIntoPark{
+public class PersonIntoPark extends Thread{
     private static final int PERSON_RECIRCULATION = 4000;
     private int peopleIntoPark;
     private final EnvironmentControllerImpl controller;
@@ -30,6 +30,7 @@ public class PersonIntoPark{
         this.controller = controller;
         this.recirculation = new PeopleRecirculation(this.environment, this.controller, this, this.recirculationGui);
         this.ride = new ActivityRide(this.controller, this.environment, this.peopleMoving);
+        this.start();
     }
 
     public int getPeopleIntoPark() {
