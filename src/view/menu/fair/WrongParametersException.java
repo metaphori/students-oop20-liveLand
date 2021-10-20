@@ -1,12 +1,13 @@
 package view.menu.fair;
 
-public class WrongParametersException extends Exception{
+/**
+ * This exception is thrown when an activity is trying to be added
+ * in the simulation environment with parameters in a wrong format.
+ */
+public class WrongParametersException extends Exception {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 5723831699450759311L;
-	
+    private static final long serialVersionUID = 5723831699450759311L;
+
 
     /**
      * 

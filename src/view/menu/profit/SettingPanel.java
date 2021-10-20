@@ -8,35 +8,52 @@ import view.model.activity.ActivityType;
 import view.model.activity.ViewActivityBuilder;
 import view.model.activity.ViewActivityImpl;
 
-public class SettingPanel extends JPanel{
+public class SettingPanel extends JPanel {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 3798508884700068788L;
-	private final ActivityType type;
-	final JPanel settingPanel = new JPanel(new BorderLayout());
-	final RangePanel rangePanel = new RangePanel();
-	final NamePanel namePanel = new NamePanel();
-	
-	public SettingPanel(final ActivityType type) {
-		this.type = type;
-		this.setLayout(new BorderLayout());
-		this.add(namePanel, BorderLayout.NORTH);
-		this.add(rangePanel, BorderLayout.CENTER);
-		
-	}
-	
-	public ViewActivityImpl buildNewProfitActivity() throws WrongParametersException{
-		try {
-			return new ViewActivityBuilder(this.namePanel.getName(), this.type)
-					.minPrice(Integer.parseInt(this.rangePanel.textMin.getText()))
-					.maxPrice(Integer.parseInt(this.rangePanel.textMax.getText()))
-					.build();
-		}catch (NumberFormatException exc) {
-			throw new WrongParametersException();
-		}
-	}
+    private static final long serialVersionUID = 3798508884700068788L;
+    private final ActivityType type;
+    private final RangePanel rangePanel = new RangePanel();
+    private final NamePanel namePanel = new NamePanel();
+
+    public SettingPanel(final ActivityType type) {
+        this.type = type;
+        this.setLayout(new BorderLayout());
+        this.add(namePanel, BorderLayout.NORTH);
+        this.add(rangePanel, BorderLayout.CENTER);
+
+    }
+
+    /**
+     * It builds a new ViewActivityImpl object where the parameters chosen 
+     * are saved.
+     * @return the ViewActivityImpl built
+     * @throws WrongParametersException if any of the parameters
+     * is in a wrong format
+     */
+    public ViewActivityImpl buildNewProfitActivity() throws WrongParametersException {
+        try {
+            return new ViewActivityBuilder(this.namePanel.getName(), this.type)
+                    .minPrice(Integer.parseInt(this.rangePanel.getTextMin().getText()))
+                    .maxPrice(Integer.parseInt(this.rangePanel.getTextMax().getText()))
+                    .build();
+        } catch (NumberFormatException exc) {
+            throw new WrongParametersException();
+        }
+    }
+
+    /**
+     * @return the range panel
+     */
+    public RangePanel getRangePanel() {
+        return rangePanel;
+    }
+
+    /**
+     * @return the name panel
+     */
+    public NamePanel getNamePanel() {
+        return namePanel;
+    }
 
 }
 
