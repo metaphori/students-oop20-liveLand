@@ -10,25 +10,25 @@ import view.model.activity.ActivityType;
 public class Fair implements Activity{
 
     private final String name;
-    private static int totPeople;
+    private int totPeople;
     private final int capacity;
     private final ActivityType activityType;
     private final List<PersonTicket> personList = new ArrayList<>();
 
-    public Fair(String name, int capacity, ActivityType activityType) {
+    public Fair(final String name, final int capacity, final ActivityType activityType) {
         this.name = name;
-        this.capacity=capacity;
+        this.capacity = capacity;
         this.activityType = activityType;
-    }	
+    }
 
-    public Fair(String name, int capacity, ActivityType activityType, int visitors) {
+    public Fair(final String name, final int capacity, final ActivityType activityType, final int visitors) {
         this.name = name;
-        this.capacity=capacity;
+        this.capacity = capacity;
         this.activityType = activityType;
-        this.totPeople=visitors;
+        this.totPeople = visitors;
     }
 	
-    public void addPerson(PersonTicket person) {
+    public void addPerson(final PersonTicket person) {
         personList.add(person);
         totPeople++;
     }

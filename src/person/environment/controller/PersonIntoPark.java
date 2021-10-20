@@ -1,27 +1,35 @@
 package person.environment.controller;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 import controller.EnvironmentControllerImpl;
 import model.environment.open.OpenImpl;
 import model.person.environment.EnvironmentImpl;
+import model.person.ticket.PersonTicket;
+import person.environment.motion.PeopleMovingIntoPark;
+import person.environment.motion.PeopleRecirculationGui;
+import person.environment.motion.Position;
 
 
-public class PersonIntoPark extends Thread {
+public class PersonIntoPark{
     private static final int PERSON_RECIRCULATION = 4000;
     private int peopleIntoPark;
     private final EnvironmentControllerImpl controller;
     private final EnvironmentImpl environment;
     private final PeopleRecirculation recirculation;
     private final ActivityRide ride;
+    private Map<PersonTicket, Position> people = new HashMap<>();
+    private PeopleMovingIntoPark peopleMoving = new PeopleMovingIntoPark(this.people);
+    private PeopleRecirculationGui recirculationGui = new PeopleRecirculationGui(this.people);
 
     public PersonIntoPark(final EnvironmentControllerImpl controller) {
         super();
         this.environment = new EnvironmentImpl();
         this.controller = controller;
-        this.recirculation = new PeopleRecirculation(this.environment, this.controller, this);
-        this.ride = new ActivityRide(this.controller, this.environment);
-        this.start();
+        this.recirculation = new PeopleRecirculation(this.environment, this.controller, this, this.recirculationGui);
+        this.ride = new ActivityRide(this.controller, this.environment, this.peopleMoving);
     }
 
     public int getPeopleIntoPark() {
@@ -43,13 +51,15 @@ public class PersonIntoPark extends Thread {
         final OpenImpl open = new OpenImpl(randomFirstEntrance, this.environment);
         open.firstEntrance();
         peopleIntoPark = randomFirstEntrance;
+        environment.getPersonList().forEach(p -> {
+            recirculationGui.peopleEntrance(p); });
         System.out.print("main thread started");
     }
     public void logics() {
         ride.ride();
         try {
             Thread.sleep(PERSON_RECIRCULATION);
-        } catch (Exception ex) {
+        } catch (InterruptedException ex) {
         }
         System.out.println("people:" + this.peopleIntoPark);
         recirculation.recirculation();
