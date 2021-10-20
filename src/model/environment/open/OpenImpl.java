@@ -3,22 +3,21 @@ package model.environment.open;
 import model.person.environment.EnvironmentImpl;
 import model.person.ticket.PersonTicket;
 
-public class OpenImpl implements Open{
-	
-	public final Integer numPerson;
-	public EnvironmentImpl environment;
-	
-	public OpenImpl(Integer numPerson, EnvironmentImpl environment) {
-		super();
-		this.numPerson = numPerson;
-		this.environment = environment;
-	}
-	
-	public void firstEntrance() {
-		for (int i=0; i<numPerson; i++) {
-			PersonTicket person = new PersonTicket();
-			environment.peopleEntrance(person);
-			
-		}
-	}
+public final class OpenImpl implements Open {
+
+    private final Integer numPerson;
+    private final EnvironmentImpl environment;
+
+    public OpenImpl(final Integer numPerson, final EnvironmentImpl environment) {
+        super();
+        this.numPerson = numPerson;
+        this.environment = environment;
+    }
+
+    public void firstEntrance() {
+        for (int i = 0; i < numPerson; i++) {
+            final PersonTicket person = new PersonTicket();
+            environment.peopleEntrance(person);
+        }
+    }
 }

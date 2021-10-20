@@ -7,7 +7,7 @@ import model.person.ticket.PersonTicket;
 import view.model.activity.ActivityType;
 
 
-public class Fair implements Activity{
+public class Fair implements Activity {
 
     private final String name;
     private int totPeople;

@@ -3,15 +3,26 @@ package model.person.ticket;
 import model.ticket.Ticket;
 
 public interface PersonTicketInterface {
+    /**
+     * @return a random age for the person
+     */
+    int randAge();
 
-    /*Method that generates a random age*/
-	int randAge();
+    /**
+     * 
+     * @return age of the person
+     */
+    int getAge();
 
-	int getAge();
+    /**
+     * 
+     * @return the ticket of the person
+     */
+    Ticket getTicket();
 
-	Ticket getTicket();
-	/*Method that generates a random ticket but it must control the age */
-
-	Ticket randTicket();
-
+    /**
+     * 
+     * @return a random ticket for the person
+     */
+    Ticket randTicket();
 }

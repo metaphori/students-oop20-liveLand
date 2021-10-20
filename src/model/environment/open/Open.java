@@ -2,5 +2,8 @@ package model.environment.open;
 
 public interface Open {
 
-	void firstEntrance();
+    /**
+     * Creates first people that enter into the park.
+     */
+    void firstEntrance();
 }

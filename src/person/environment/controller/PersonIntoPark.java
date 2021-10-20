@@ -13,16 +13,16 @@ import person.environment.motion.PeopleRecirculationGui;
 import person.environment.motion.Position;
 
 
-public class PersonIntoPark extends Thread{
+public final class PersonIntoPark extends Thread {
     private static final int PERSON_RECIRCULATION = 4000;
     private int peopleIntoPark;
     private final EnvironmentControllerImpl controller;
     private final EnvironmentImpl environment;
     private final PeopleRecirculation recirculation;
     private final ActivityRide ride;
-    private Map<PersonTicket, Position> people = new HashMap<>();
-    private PeopleMovingIntoPark peopleMoving = new PeopleMovingIntoPark(this.people);
-    private PeopleRecirculationGui recirculationGui = new PeopleRecirculationGui(this.people);
+    private final Map<PersonTicket, Position> people = new HashMap<>();
+    private final PeopleMovingIntoPark peopleMoving = new PeopleMovingIntoPark(this.people);
+    private final PeopleRecirculationGui recirculationGui = new PeopleRecirculationGui(this.people);
 
     public PersonIntoPark(final EnvironmentControllerImpl controller) {
         super();
@@ -33,18 +33,31 @@ public class PersonIntoPark extends Thread{
         this.start();
     }
 
+    /**
+     * 
+     * @return the number of people that enter into the park.
+     */
     public int getPeopleIntoPark() {
         return peopleIntoPark;
     }
 
+    /**
+     * increments the number of people.
+     */
     public void incPeopleIntoPark() {
         peopleIntoPark++; 
     }
 
+    /**
+     * decrements the number of people.
+     */
     public void decPeopleIntoPark() {
         peopleIntoPark--; 
     }
 
+    /**
+     * At the open of the park it inserts a random number of people.
+     */
     public void run() {
         final int maxFirstEntrance = (int) (this.controller.getVisitorsNumber() * 0.5);
         final Random rand = new Random();
@@ -56,6 +69,10 @@ public class PersonIntoPark extends Thread{
             recirculationGui.peopleEntrance(p); });
         System.out.print("main thread started");
     }
+
+    /**
+     * Activates the ride and recirculation methods.
+     */
     public void logics() {
         ride.ride();
         try {
@@ -66,6 +83,10 @@ public class PersonIntoPark extends Thread{
         recirculation.recirculation();
     }
 
+    /**
+     * 
+     * @return the environment
+     */
     public EnvironmentImpl getEnvironment() {
         return this.environment;
     }
