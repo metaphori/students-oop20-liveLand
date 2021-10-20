@@ -1,6 +1,6 @@
 package controller;
 
-import view.menu.GraphicalUserInterface;
+import view.menu.GraphicalUserInterfaceImpl;
 
 public class ControllerImpl implements Controller {
 
@@ -8,7 +8,7 @@ public class ControllerImpl implements Controller {
 
     @Override
     public final void setView() {
-        new GraphicalUserInterface(this.controller).display();
+        new GraphicalUserInterfaceImpl(this.controller).display();
     }
 
     @Override

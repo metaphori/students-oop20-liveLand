@@ -7,7 +7,7 @@ import model.person.ticket.PersonTicket;
 public class PeopleRecirculationGui {
 
     private Map<PersonTicket, Position> people;
-    
+
     public PeopleRecirculationGui(Map<PersonTicket, Position> map) {
         this.people = map;
     }
@@ -16,11 +16,10 @@ public class PeopleRecirculationGui {
         //this.people.put(person, new Position().randomPosition(this.people));
         System.out.println("persona: " + person.toString() + "entrata");
     }
-    
+
     public void peopleExit(PersonTicket person) {
         //this.people.remove(person);
         System.out.println("persona: " + person.toString() + "uscita");
     }
-    
-    
+
 }

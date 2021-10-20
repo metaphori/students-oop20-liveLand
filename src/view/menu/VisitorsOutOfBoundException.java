@@ -1,12 +1,13 @@
 package view.menu;
 
-public class VisitorsOutOfBoundException extends IllegalStateException{
+public class VisitorsOutOfBoundException extends IllegalStateException {
 
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 6821339703443669838L;
-	
+    /**
+     * This exception is raised if the user tries to set visitors number
+     * below 1 or above 100.
+     */
+    private static final long serialVersionUID = 6821339703443669838L;
+
     /**
      * 
      * @return string representation of this exception
