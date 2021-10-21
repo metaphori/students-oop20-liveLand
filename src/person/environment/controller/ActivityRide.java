@@ -43,8 +43,7 @@ public final class ActivityRide {
                         f.addPerson(environment.getPersonList().get(FIRST_PERSON));
                         peopleMoving.goToFair(environment.getPersonList().get(FIRST_PERSON), f);
                         environment.exitPeople();
-                    }
-                    else {
+                    } else {
                         if (f.controlAge(environment.getPersonList().get(FIRST_PERSON).getAge())) {
                             f.addPerson(environment.getPersonList().get(FIRST_PERSON));
                             peopleMoving.goToFair(environment.getPersonList().get(FIRST_PERSON), f);

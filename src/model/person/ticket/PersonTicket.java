@@ -36,11 +36,9 @@ public final class PersonTicket implements PersonTicketInterface {
         final int randomTicket = rand.nextInt(4);
         if (randomTicket == 3) {
             return Ticket.SEASON_PASS;
-            }
-            else if (this.getAge() < AGE_MIN_REDUCED || this.getAge() > AGE_MAX_REDUCED) {
+            } else if (this.getAge() < AGE_MIN_REDUCED || this.getAge() > AGE_MAX_REDUCED) {
                 return Ticket.REDUCED;
-            }
-                else {
+            } else {
                     return Ticket.ADULT;
                 }
     }
