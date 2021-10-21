@@ -3,8 +3,8 @@ package view.model.activity;
 import java.util.Optional;
 
 /**
- * This class implements a strategy to build ViewActivityImpl objects
- * step-by-step, regardless of activity type.
+ * This class implements a strategy to build {@link ViewActivityImpl}
+ * objects step-by-step, regardless of activity type.
  */
 public class ViewActivityBuilder {
 

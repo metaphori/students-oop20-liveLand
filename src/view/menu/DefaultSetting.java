@@ -6,6 +6,9 @@ import view.model.activity.ActivityType;
 import view.model.activity.ViewActivityBuilder;
 import view.model.activity.ViewActivityImpl;
 
+/**
+ * This class sets a default configuration of the environment.
+ */
 public class DefaultSetting {
     private final ViewActivityImpl act1 = new ViewActivityBuilder("Katun", ActivityType.FAIR).capacity(25).build();
     private final ViewActivityImpl act2 = new ViewActivityBuilder("Bruco Mela", ActivityType.BABYFAIR).capacity(15).build();

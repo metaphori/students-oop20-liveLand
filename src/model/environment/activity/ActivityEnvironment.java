@@ -12,8 +12,8 @@ public interface ActivityEnvironment {
     /**
      * It adds the new activity (set by the user) to the corresponding 
      * activity list, either FairList or ProfitList.
-     * @param activity The activity that needs to be added in the environment
-     * @throws ActivityAlreadyPresentException if the activity trying to be 
+     * @param activity The {@link ViewActivityImpl} that needs to be added in the environment
+     * @throws {@link ActivityAlreadyPresentException} if the activity trying to be 
      * added is already present in the environment
      */
     void activityInsertion(ViewActivityImpl activity) throws ActivityAlreadyPresentException;
@@ -24,12 +24,12 @@ public interface ActivityEnvironment {
     void resetActivity();
 
     /**
-     * @return a list containing Fair objects set in the environment
+     * @return a list containing {@link Fair} objects set in the environment
      */
     List<Fair> getFairList();
 
     /**
-     * @return a list containing Profit objects set in the environment
+     * @return a list containing {@link Profit objects} set in the environment
      */
     List<Profit> getProfitList();
 

@@ -24,10 +24,10 @@ public class SettingPanel extends JPanel {
     }
 
     /**
-     * It builds a new ViewActivityImpl object where the parameters chosen 
+     * It builds a new {@link ViewActivityImpl} object where the parameters chosen 
      * are saved.
      * @return the ViewActivityImpl built
-     * @throws WrongParametersException if any of the parameters
+     * @throws {@link WrongParametersException} if any of the parameters
      * is in a wrong format
      */
     public ViewActivityImpl buildNewProfitActivity() throws WrongParametersException {
@@ -42,14 +42,14 @@ public class SettingPanel extends JPanel {
     }
 
     /**
-     * @return the range panel
+     * @return the {@link RangePanel}
      */
     public RangePanel getRangePanel() {
         return rangePanel;
     }
 
     /**
-     * @return the name panel
+     * @return the {@link NamePanel}
      */
     public NamePanel getNamePanel() {
         return namePanel;

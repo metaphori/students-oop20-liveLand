@@ -43,7 +43,7 @@ public class ActivityPanel extends JPanel {
      * It reverts the initial appearance of the menu.
      */
     public void reset() {
-        this.activityList.setText("\n   ***No activity chosen yet***    \n");
+        this.activityList.setText("\n\t***No activity chosen yet***\t\n");
         this.activityInsertionPanel.enableDisableButtons(false);
     }
 

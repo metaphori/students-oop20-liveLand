@@ -22,6 +22,9 @@ public final class ActivityEnvironmentImpl implements ActivityEnvironment {
         this.activityList = new ArrayList<>();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void activityInsertion(final ViewActivityImpl activity) throws ActivityAlreadyPresentException {
         if (this.activityList.stream().filter(a -> a.getName().equals(activity.getName()))
@@ -57,6 +60,9 @@ public final class ActivityEnvironmentImpl implements ActivityEnvironment {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public void resetActivity() {
         this.fairList.clear();
@@ -64,16 +70,25 @@ public final class ActivityEnvironmentImpl implements ActivityEnvironment {
         this.activityList.clear();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Fair> getFairList() {
         return this.fairList;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<Profit> getProfitList() {
         return this.profitList;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<ViewActivityImpl> getActivityList() {
         return this.activityList;

@@ -1,4 +1,4 @@
-package view.analysis;
+package model.analysis.save;
 
 import java.io.File;
 import java.io.IOException;

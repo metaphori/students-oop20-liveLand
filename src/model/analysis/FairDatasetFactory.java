@@ -13,6 +13,9 @@ public class FairDatasetFactory extends AbstractDatasetFactory {
         this.controller = controller;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public final PieDataset createDataset() {
         final DefaultPieDataset dataset = new DefaultPieDataset();
@@ -21,6 +24,9 @@ public class FairDatasetFactory extends AbstractDatasetFactory {
         return dataset;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public final JFreeChart createChart() {
         if (this.controller.getFairList().size() == 0) {

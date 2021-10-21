@@ -47,7 +47,7 @@ public final class GraphicalUserInterfaceImpl implements GraphicalUserInterface 
     }
 
     /**
-     * It makes the main frame visible. 
+     * {@inheritDoc}
      */
     @Override
     public void display() {
@@ -55,7 +55,7 @@ public final class GraphicalUserInterfaceImpl implements GraphicalUserInterface 
     }
 
     /**
-     * It closes the frame.
+     * {@inheritDoc}
      */
     @Override
     public void dispose() {
@@ -64,7 +64,7 @@ public final class GraphicalUserInterfaceImpl implements GraphicalUserInterface 
     }
 
     /**
-     * @return the welcome panel
+     * {@inheritDoc}
      */
     @Override
     public WelcomePanel getWelcomePanel() {
@@ -72,7 +72,7 @@ public final class GraphicalUserInterfaceImpl implements GraphicalUserInterface 
     }
 
     /**
-     * @return the menu panel
+     * {@inheritDoc}
      */
     @Override
     public MenuPanel getMenuPanel() {
@@ -80,7 +80,7 @@ public final class GraphicalUserInterfaceImpl implements GraphicalUserInterface 
     }
 
     /**
-     * @return the bottom panel
+     * {@inheritDoc}
      */
     @Override
     public BottomPanel getBottomPanel() {

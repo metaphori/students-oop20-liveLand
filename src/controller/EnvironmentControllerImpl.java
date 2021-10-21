@@ -25,8 +25,8 @@ public class EnvironmentControllerImpl implements EnvironmentController {
     }
 
     /**
-      * 
-      */
+     * {@inheritDoc}
+     */
     @Override
     public final void start() throws EmptyEnvironmentException {
         if (this.modelActivity.getActivityList().size() < 1) {
@@ -43,6 +43,9 @@ public class EnvironmentControllerImpl implements EnvironmentController {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public final void stop() {
         sim.stop();
@@ -51,21 +54,33 @@ public class EnvironmentControllerImpl implements EnvironmentController {
         //chiudere finestra principale e aprire quella di analisi finale
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public final void addNewActivity(final ViewActivityImpl activity) throws ActivityAlreadyPresentException {
         this.modelActivity.activityInsertion(activity);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public final void showAnalysis() {
         new AnalysisControllerImpl(this);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public final void setVisitorsNumber(final int visitorsNum) throws VisitorsOutOfBoundException {
         this.modelVisitors = new VisitorsImpl(visitorsNum);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public final int getVisitorsNumber() {
         return this.modelVisitors.getVisitorsNumber();
@@ -100,6 +115,9 @@ public class EnvironmentControllerImpl implements EnvironmentController {
         return this.sim.getPark().getEnvironment().getEntranceProfit();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public final void resetActivityLists() {
         this.modelActivity.resetActivity();

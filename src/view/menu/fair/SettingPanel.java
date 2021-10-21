@@ -25,10 +25,10 @@ public class SettingPanel extends JPanel {
     }
 
     /**
-     * It builds a new ViewActivityImpl object where the parameters chosen 
-     * are saved.
+     * It builds a new {@link ViewActivityImpl} object where the 
+     * parameters chosen are saved.
      * @return the ViewActivityImpl built
-     * @throws WrongParametersException if any of the parameters
+     * @throws {@link WrongParametersException} if any of the parameters
      * is in a wrong format
      */
     public ViewActivityImpl buildNewFair() throws WrongParametersException {
@@ -42,21 +42,21 @@ public class SettingPanel extends JPanel {
     }
 
     /**
-     * @return the fair type panel
+     * @return the {@link FairTypePanel}
      */
     public FairTypePanel getfTypePanel() {
         return fTypePanel;
     }
 
     /**
-     * @return the name panel
+     * @return the {@link NamePanel}
      */
     public NamePanel getNamePanel() {
         return namePanel;
     }
 
     /**
-     * @return the capacity panel
+     * @return the {@link CapacityPanel}
      */
     public CapacityPanel getCapacityPanel() {
         return capacityPanel;

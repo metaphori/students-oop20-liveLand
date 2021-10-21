@@ -1,4 +1,4 @@
-package model.analysis;
+package model.analysis.save;
 
 import java.util.List;
 

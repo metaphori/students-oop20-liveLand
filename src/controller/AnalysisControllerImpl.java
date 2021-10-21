@@ -9,22 +9,28 @@ import view.analysis.AnalysisDialog;
 public class AnalysisControllerImpl implements AnalysisController {
 
     private final FairDatasetFactory fairModel;
-    private final ProfitDatasetFactory profitDataset;
+    private final ProfitDatasetFactory profitModel;
 
     public AnalysisControllerImpl(final EnvironmentControllerImpl envController) {
         this.fairModel = new FairDatasetFactory(envController);
-        this.profitDataset = new ProfitDatasetFactory(envController);
+        this.profitModel = new ProfitDatasetFactory(envController);
         new AnalysisDialog(this, envController);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public final JFreeChart getFairChart() {
         return this.fairModel.createChart();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public final JFreeChart getProfitChart() {
-        return this.profitDataset.createChart();
+        return this.profitModel.createChart();
     }
 
     /**
@@ -40,7 +46,7 @@ public class AnalysisControllerImpl implements AnalysisController {
      *  development easier
      */
     public final JFreeChart getPhonyProfitChart() {
-        return this.profitDataset.createPhonyChart();
+        return this.profitModel.createPhonyChart();
     }
 
 }

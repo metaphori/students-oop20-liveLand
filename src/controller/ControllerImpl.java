@@ -2,17 +2,23 @@ package controller;
 
 import view.menu.GraphicalUserInterfaceImpl;
 
-public class ControllerImpl implements Controller {
+public final class ControllerImpl implements Controller {
 
     private EnvironmentControllerImpl controller;
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public final void setView() {
+    public void setView() {
         new GraphicalUserInterfaceImpl(this.controller).display();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
-    public final void setEnvironmentController() {
+    public void setEnvironmentController() {
         this.controller = new EnvironmentControllerImpl();
     }
 

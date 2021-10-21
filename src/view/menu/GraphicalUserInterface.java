@@ -13,17 +13,17 @@ public interface GraphicalUserInterface {
     void dispose();
 
     /**
-     * @return the welcome panel
+     * @return the {@link WelcomePanel}
      */
     WelcomePanel getWelcomePanel();
 
     /**
-     * @return the menu panel
+     * @return the {@link MenuPanel}
      */
     MenuPanel getMenuPanel();
 
     /**
-     * @return the bottom panel
+     * @return the {@link BottomPanel}
      */
     BottomPanel getBottomPanel();
 

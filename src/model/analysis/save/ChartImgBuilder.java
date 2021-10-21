@@ -1,4 +1,4 @@
-package view.analysis;
+package model.analysis.save;
 
 import java.io.File;
 import java.io.IOException;
@@ -22,6 +22,9 @@ public final class ChartImgBuilder implements ChartImg {
         this.profitChart = controller.getProfitChart();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public File profitChartImg() throws IOException {
         final File profitBarChart = new File(HOME + SEPARATOR + "ProfitBarChart.jpeg");
@@ -29,6 +32,9 @@ public final class ChartImgBuilder implements ChartImg {
         return profitBarChart;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public File fairChartImg() throws IOException {
         final File fairPieChart = new File(HOME + SEPARATOR + "FairBarChart.jpeg"); 

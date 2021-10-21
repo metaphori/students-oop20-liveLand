@@ -4,16 +4,16 @@ import java.util.Optional;
 
 /**
  * ViewActivity defines objects in which the fields set by the user are saved,
- * regardless from the activityType: this is why ViewActivityImpl objects
+ * regardless from the {@link ActivityType}: this is why ViewActivityImpl objects
  * have optional fields that may not be present (Optional). 
  * The class implementing this interface acts as a "bridge" from the view to the 
- * model, making it easier to move data inserted by the user to the ActivityEnvironmentImpl,
- * where Fair and Profit activities are effectively built.
+ * model, making it easier to move data inserted by the user to the
+ * {@link ActivityEnvironmentImpl} where Fair and Profit activities are effectively built.
  */
 public interface ViewActivity {
 
     /**
-     * @return the activity type
+     * @return the {@link ActivityType}
      */
     ActivityType getActivityType();
 

@@ -59,7 +59,8 @@ public class FairTypePanel extends JPanel {
     }
 
     /**
-     * It enables the buttons after a wrong parameters exception thrown.
+     * It enables the buttons after a {@link WrongParametersException}
+     *  is thrown.
      */
     public void enableButtons() {
         this.adultFair.setEnabled(true);

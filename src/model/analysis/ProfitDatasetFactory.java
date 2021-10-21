@@ -15,6 +15,9 @@ public class ProfitDatasetFactory extends AbstractDatasetFactory {
         this.controller = controller;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public final DefaultCategoryDataset createDataset() {
         final DefaultCategoryDataset profitDataset = new DefaultCategoryDataset();
@@ -26,6 +29,9 @@ public class ProfitDatasetFactory extends AbstractDatasetFactory {
         return profitDataset;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public final JFreeChart createChart() {
         return ChartFactory.createBarChart(

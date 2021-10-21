@@ -1,4 +1,4 @@
-package model.analysis;
+package model.analysis.save;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -15,6 +15,9 @@ public final class PhonyAnalysisImpl implements Analysis {
     private final List<String> profit = new LinkedList<>();
     private final List<String> tickets = new LinkedList<>();
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<String> fairLiking() {
         this.fair.add("FAIR: Katun, Daily visitors: 76\n");
@@ -22,6 +25,9 @@ public final class PhonyAnalysisImpl implements Analysis {
         return this.fair;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<String> profit() {
         this.profit.add("REST: Pizza pazza, Daily income: 570\n");
@@ -29,6 +35,9 @@ public final class PhonyAnalysisImpl implements Analysis {
         return this.profit;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<String> tickets() {
         this.tickets.add("Total number of tickets sold: 59\n");
@@ -38,6 +47,9 @@ public final class PhonyAnalysisImpl implements Analysis {
         return this.tickets;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public List<String> getTextualAnalysis() {
         final List<String> analysis = new LinkedList<>();

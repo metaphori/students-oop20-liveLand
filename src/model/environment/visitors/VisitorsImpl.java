@@ -14,6 +14,9 @@ public class VisitorsImpl implements Visitors {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public final int getVisitorsNumber() {
         return this.visitors;

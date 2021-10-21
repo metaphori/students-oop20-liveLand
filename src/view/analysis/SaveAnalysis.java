@@ -14,6 +14,8 @@ import javax.swing.JRadioButtonMenuItem;
 import controller.AnalysisControllerImpl;
 import controller.EnvironmentControllerImpl;
 import controller.FileControllerImpl;
+import model.analysis.save.ChartImg;
+import model.analysis.save.ChartImgBuilder;
 
 public class SaveAnalysis extends JMenu {
 

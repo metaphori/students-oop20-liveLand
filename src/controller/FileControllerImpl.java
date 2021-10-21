@@ -4,9 +4,9 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintStream;
 
-import model.analysis.Analysis;
-import model.analysis.AnalysisImpl;
-import model.analysis.PhonyAnalysisImpl;
+import model.analysis.save.Analysis;
+import model.analysis.save.AnalysisImpl;
+import model.analysis.save.PhonyAnalysisImpl;
 
 public class FileControllerImpl implements FileController {
 
@@ -25,6 +25,10 @@ public class FileControllerImpl implements FileController {
         this.analysis = new PhonyAnalysisImpl();
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public final void save() throws IOException {
         try (PrintStream out = new PrintStream(dest)) {
             out.println("FUNFAIR SIMULATOR ANALYSIS");
@@ -34,6 +38,10 @@ public class FileControllerImpl implements FileController {
         }
     }
 
+    /**
+     * {@inheritDoc}
+     */
+    @Override
     public final void setDestination(final File file) {
         final File parent = file.getParentFile();
         if (parent.exists()) {

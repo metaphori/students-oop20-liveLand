@@ -13,9 +13,7 @@ import javax.swing.border.TitledBorder;
 
 import controller.EnvironmentControllerImpl;
 import view.menu.fair.FairGui;
-import view.menu.fair.FairGuiImpl;
 import view.menu.profit.ProfitGui;
-import view.menu.profit.ProfitGuiImpl;
 import view.model.activity.ActivityType;
 
 public class ActivityInsertionPanelBox extends JPanel {
@@ -47,7 +45,7 @@ public class ActivityInsertionPanelBox extends JPanel {
         this.fair.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
-                final FairGui fairWindow = new FairGuiImpl(view, ActivityInsertionPanelBox.this);
+                final FairGui fairWindow = new FairGui(view, ActivityInsertionPanelBox.this);
                 fairWindow.display();
 
             }
@@ -56,7 +54,7 @@ public class ActivityInsertionPanelBox extends JPanel {
         this.restaurant.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
-                final ProfitGui profitWindow = new ProfitGuiImpl(view, ActivityInsertionPanelBox.this, ActivityType.REST);
+                final ProfitGui profitWindow = new ProfitGui(view, ActivityInsertionPanelBox.this, ActivityType.REST);
                 profitWindow.display();
             }
         });
@@ -64,14 +62,14 @@ public class ActivityInsertionPanelBox extends JPanel {
         this.shop.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(final ActionEvent e) {
-                final ProfitGui shopWindow = new ProfitGuiImpl(view, ActivityInsertionPanelBox.this, ActivityType.SHOP);
+                final ProfitGui shopWindow = new ProfitGui(view, ActivityInsertionPanelBox.this, ActivityType.SHOP);
                 shopWindow.display();
             }
         });
     }
 
     /**
-     * @return the menu graphical user interface
+     * @return the menu {@link GraphicalUserInterface}
      */
     public ActivityPanel getGui() {
         return this.gui;

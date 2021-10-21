@@ -20,7 +20,7 @@ public class Simulation implements Runnable {
     }
 
     /**
-     * It calls logics() method to update people in the park 
+     * It calls {@link PersonIntoPark.logics()} method to update people in the park 
      * every second.
      */
     @Override
@@ -38,7 +38,7 @@ public class Simulation implements Runnable {
 
     /**
      * 
-     * @return PersonInto park task.
+     * @return PersonIntoPark task.
      */
     public PersonIntoPark getPark() {
         return this.task;

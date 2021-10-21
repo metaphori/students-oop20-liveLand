@@ -1,6 +1,7 @@
 package view.model.activity;
 
 public enum ActivityType {
+
     /**
      * Fair, both adults and children can ride it.
      */

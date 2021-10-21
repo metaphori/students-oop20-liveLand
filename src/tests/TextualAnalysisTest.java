@@ -10,7 +10,7 @@ import java.io.FileReader;
 import java.io.IOException;
 
 import controller.FileControllerImpl;
-import model.analysis.PhonyAnalysisImpl;
+import model.analysis.save.PhonyAnalysisImpl;
 
 public class TextualAnalysisTest {
 	
