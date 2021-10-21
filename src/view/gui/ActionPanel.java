@@ -10,21 +10,28 @@ import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
 import controller.Controller;
+import view.gui.SimulationPanel;
 
 public class ActionPanel extends JPanel implements ActionListener{
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 5233557063053665457L;
-	//l'utente può decidere se mettere in pausa la simulazione oppure terminarla
+	//l'utente puï¿½ decidere se mettere in pausa la simulazione oppure terminarla
 	private final JButton pause = new JButton("PAUSE");
 	private final JButton close = new JButton("STOP");
-	private int numClicks = 0;
 	
 	
 	 public ActionPanel(final Controller view, final SimulationPanel main){
 	        super();
-	        this.setLayout(new FlowLayout(FlowLayout.RIGHT));
+	        close.addActionListener(
+	                new ActionListener() {
+	            public void actionPerformed(ActionEvent e) {
+	                simulation.dispose();
+	            }
+	            
+	        });
+	       /* this.setLayout(new FlowLayout(FlowLayout.RIGHT));
 	        this.close.addActionListener(e -> {
 	            SwingUtilities.invokeLater(() -> view.getController().PAUSE());
 	        });
@@ -36,17 +43,18 @@ public class ActionPanel extends JPanel implements ActionListener{
 	        this.add(this.stop);
 	        this.close.setEnabled(false);
 	        this.stop.setEnabled(false);
-	        this.setOpaque(true);
+	        this.setOpaque(true);*/
 	    }
 	 
-	public void actionPerformed(ActionEvent e) {
-		numClicks++;
-		
-	}
-	
 	public static void main(String[] args) {
 		
 	}
+
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+        
+    }
 }
 	
 	

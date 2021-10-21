@@ -7,8 +7,8 @@ import java.util.Map;
 
 
 public class DecisionMakerPersonImpl implements DecisionMakerPerson {
-	//la persona va nell'attività più vicina
-	public Map<Action, Double> getDecision(final BacteriaKnowledge knowledge) {
+	//la persona va nell'attivitï¿½ piï¿½ vicina
+	/*public Map<Action, Double> getDecision(final BacteriaKnowledge knowledge) {
         final Map<Action, Double> result = new HashMap<>();
         final Map<Direction, Double> distances = new EnumMap<>(Direction.class);
         double tempVal = 0.0;
@@ -22,7 +22,7 @@ public class DecisionMakerPersonImpl implements DecisionMakerPerson {
                 v) -> result.put(ActionFactory.createAction(ActionType.MOVE, d,
                         Math.min(knowledge.getCurrentPerception().distFromActivity(d)),
                         v != 0 ? ((totVal - v) / totVal) : 0)));
-        return result;
+        return result;*/
 
-	}
 }
+

@@ -12,8 +12,8 @@ public class PersonGuiImpl implements PersonGui{
 	private Point point;
 	
 	public PersonGuiImpl() {
-		this.radius = 0;
-		this.point = new Point(0,0);
+		this.radius = 2;
+		this.point = new Point(2,3);
 		this.color = Color.CYAN;
 	}
 	
@@ -40,6 +40,10 @@ public class PersonGuiImpl implements PersonGui{
 	public void setColor(Color color) {
 		this.color = color;
 	}
+
+    public static void setTranslateX(double pallinaX) {
+        
+    }
   
 	
 
