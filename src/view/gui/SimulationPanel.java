@@ -23,7 +23,7 @@ public class SimulationPanel extends JPanel {
 	private static final long serialVersionUID = 7114066347061701832L;
 	private final Controller controller = new ControllerImpl();
 	List<PersonGui> person = new ArrayList<>();
-
+	
 	
 	public static void main(String[] args) {
 		final JFrame frame = new JFrame();
@@ -54,34 +54,35 @@ public class SimulationPanel extends JPanel {
 		//creation simulation
 		final DesignPerson simulation = new DesignPerson();
 		panel.add(simulation, BorderLayout.CENTER);
-		
-		
-		
-	}
+		DesignPerson.createAdult(4, 5);
+		DesignPerson.createBaby(2, 3);
+	
 	
 	//draw oval 
-	public void paintComponent(Graphics g) {
-	    super.paintComponent(g); 
-	    g.fillOval(10, 10, 20, 20);
-	 
-  
 	}
-
+	public void paintComponent(Graphics g) {
+	    super.paintComponent(g);
+	    g.setColor(Color.RED);
+	    g.fillOval(8, 8, 15, 15);
+	    g.translate(2,3);
+	    g.setColor(Color.PINK);
+	    g.fillOval(6, 6, 12, 12);
+	    g.translate(10, 8);
 	    
+	    DesignPerson.createAdult(4, 5);
+            DesignPerson.createBaby(2, 3);
+
+	}
 	
-	//actionlistener
-        /*stop.addActionListener(new ActionListener() {
-            public void actionPerformed(final ActionEvent e) {                  
-                SimulationPanel.dispose();
-          
-                }
-        });
-        
-        pause.addActionListener(new ActionListener() {
-            public void actionPerformed(final ActionEvent e) {
-                
-            }
-        }); */  
+         // se il rettangolo e' scappato troppo a destra, 
+         // lo riporto alla posizione iniziale:
+         /*if (x > 200) {
+             rettangolo.translate(-x, 0);
+         disegno.repaint();
+     }*/
+
 	
-}	
+}
+
+
 

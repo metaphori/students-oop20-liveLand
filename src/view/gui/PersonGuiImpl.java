@@ -41,9 +41,7 @@ public class PersonGuiImpl implements PersonGui{
 		this.color = color;
 	}
 
-    public static void setTranslateX(double pallinaX) {
-        
-    }
+    
   
 	
 
