@@ -1,3 +1,7 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
 formatter_profile=_Java Conventions OOP
+=======
+formatter_profile=_java conventions OOP
+>>>>>>> feature-GUI
 formatter_settings_version=20
