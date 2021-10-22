@@ -1,7 +1,7 @@
 package controller;
 
 import model.gui.position.Position;
-import view.gui.PersonGui;
+import view.gui.Circle;
 
 public class ControllerImpl implements Controller{
 
@@ -11,7 +11,7 @@ public class ControllerImpl implements Controller{
 		return null;
 	}
 
-	 public synchronized void addPersonFromView(final PersonGui person, final Position position) {
+	 public synchronized void addPersonFromView(final Circle person, final Position position) {
 	
 	        
 	    }

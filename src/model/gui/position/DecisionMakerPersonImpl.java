@@ -23,6 +23,7 @@ public class DecisionMakerPersonImpl implements DecisionMakerPerson {
                         Math.min(knowledge.getCurrentPerception().distFromActivity(d)),
                         v != 0 ? ((totVal - v) / totVal) : 0)));
         return result;*/
-
+    
+   
 }
 

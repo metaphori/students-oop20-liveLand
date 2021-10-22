@@ -3,7 +3,7 @@ package view.gui;
 import java.awt.Color;
 import java.awt.Point;
 
-public interface PersonGui {
+public interface Circle {
 	
 	Point getPoint();
 	

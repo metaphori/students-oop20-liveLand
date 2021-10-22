@@ -14,16 +14,16 @@ public class DesignPerson extends JPanel {
      */
     private static final long serialVersionUID = 1L;
 
-    public static PersonGuiImpl createAdult(int x, int y){
-		PersonGuiImpl adult = new PersonGuiImpl();
+    public static CircleImpl createAdult(int x, int y){
+		CircleImpl adult = new CircleImpl();
 		adult.setColor(Color.GREEN);
 		adult.setRadius(4);
 		adult.setPoint(new Point(10, 3));
 		return adult;
 	}
 
-	public static PersonGuiImpl createBaby(int x, int y) {
-		PersonGuiImpl baby = new PersonGuiImpl();
+	public static CircleImpl createBaby(int x, int y) {
+		CircleImpl baby = new CircleImpl();
 		baby.setColor(Color.PINK);
 		baby.setRadius(2);
 		baby.setPoint(new Point(3, 4));
@@ -33,11 +33,11 @@ public class DesignPerson extends JPanel {
 	public void paintComponent(Graphics g) {
             super.paintComponent(g); 
             g.setColor(Color.RED);
-            g.fillOval(8, 8, 15, 15);
-            g.translate(2,3);
-            g.setColor(Color.PINK);
-            g.fillOval(6, 6, 12, 12);
-            g.translate(10, 8);
+            g.fillOval(getWidth()/2, getHeight()/2, 15, 15);
+           // g.translate(2,3);
+            g.setColor(Color.CYAN);
+            g.fillOval(getWidth()/4, getHeight()/5, 12, 12);
+            //g.translate(10, 8);
    
           
         }
@@ -108,6 +108,7 @@ public class DesignPerson extends JPanel {
 	                rettangolo.translate(-x, 0);
 	            disegno.repaint();
 	        }
+	        
 	    } // fine classe interna Ricevitor
 	
 	*/

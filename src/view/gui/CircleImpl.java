@@ -3,7 +3,7 @@ package view.gui;
 import java.awt.Color;
 import java.awt.Point;
 
-public class PersonGuiImpl implements PersonGui{
+public class CircleImpl implements Circle{
 
 	
 	private static final long serialVersionUID = 1L;
@@ -11,7 +11,7 @@ public class PersonGuiImpl implements PersonGui{
 	private Color color;
 	private Point point;
 	
-	public PersonGuiImpl() {
+	public CircleImpl() {
 		this.radius = 2;
 		this.point = new Point(2,3);
 		this.color = Color.CYAN;
