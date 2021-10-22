@@ -2,6 +2,9 @@ package model.gui.activity;
 
 import java.util.List;
 
+import view.model.activity.ActivityType;
+import view.model.activity.ViewActivityImpl;
+
 public class ActivityInsertion {
 	private List<Square> shop;
 	private List<Square> restaurant;
@@ -25,22 +28,22 @@ public class ActivityInsertion {
 			 ActivityType type =  a.getType();
 			 swich(type){ 
 				 case BABYFAIR: {
-					 babyFair.add(StaticFactoryBuilding.createBabyFair(20, 9, 10, 10, "bruco", distanceBabyFair));
+					 babyFair.add(DesignActivity.createBabyFair(20, 9, 10, 10, "bruco", distanceBabyFair));
 					 distanceBabyFair= +200;
 				 }
 				 break; 
 				 case ADULTFAIR: {
-					 adultFair.add(StaticFactoryBuilding.createAdultFair(20, 9, 2, 9, "katun", distanceAdultFair));
+					 adultFair.add(DesignActivity.createAdultFair(20, 9, 2, 9, "katun", distanceAdultFair));
 					 distanceAdultFair = +200;
 				 }
 				 break; 
 				 case SHOP: {
-					 shop.add(StaticFactoryBuilding.createShop(20, 9, 0, 10, "Gingilli", distanceShop));
+					 shop.add(DesignActivity.createShop(20, 9, 0, 10, "Gingilli", distanceShop));
 					 distanceShop = +200;
 				 } 
 				 break; 
 				 case RESTAURANT: {
-					 restaurant.add(StaticFactoryBuilding.createRestaurant(20, 9, 10, 10, "pizza",distanceRestaurant));
+					 restaurant.add(DesignActivity.createRestaurant(20, 9, 10, 10, "pizza",distanceRestaurant));
 					 distanceRestaurant = +200;
 				 }				 
 				 break; 

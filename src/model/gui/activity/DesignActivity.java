@@ -16,7 +16,7 @@ public class DesignActivity {
         shop.setHeight(height / ht);
         shop.setX(1);
         shop.setY(((width / y) + 1) + distance);
-        shop.setColor(Color.YELLOW);
+        shop.setColor(new Color(255, 160, 122));
         shop.setName(name);
         return shop;
     }
@@ -27,7 +27,7 @@ public class DesignActivity {
         restaurant.setHeight(width / wh);
         restaurant.setX((width / x) + distance);
         restaurant.setY(height - (width / wh));
-        restaurant.setColor(Color.GREEN);
+        restaurant.setColor(new Color(239, 127, 127));
         restaurant.setName(name);
         return restaurant;
     }
@@ -38,7 +38,7 @@ public class DesignActivity {
         babyFair.setHeight(width / wh);
         babyFair.setX((width / x) + distance);
         babyFair.setY(1);
-        babyFair.setColor(Color.CYAN);
+        babyFair.setColor(new Color(192, 0, 250));
         babyFair.setName(name);
         return babyFair;
     }
@@ -49,7 +49,7 @@ public class DesignActivity {
         adultFair.setHeight(width / wh);
         adultFair.setX((width / x) + distance);
         adultFair.setY(1);
-        adultFair.setColor(Color.RED);
+        adultFair.setColor(new Color(15, 226, 0));
         adultFair.setName(name);
         return adultFair;
     }
