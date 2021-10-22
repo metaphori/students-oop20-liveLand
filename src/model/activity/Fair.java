@@ -12,6 +12,7 @@ public class Fair implements Activity {
     private final String name;
     private int totPeople;
     private final int capacity;
+    private static final int MIN_AGE = 12;
     private final ActivityType activityType;
     private final List<PersonTicket> personList = new ArrayList<>();
 
@@ -27,45 +28,41 @@ public class Fair implements Activity {
         this.activityType = activityType;
         this.totPeople = visitors;
     }
-	
-    public void addPerson(final PersonTicket person) {
+
+    public final void addPerson(final PersonTicket person) {
         personList.add(person);
         totPeople++;
     }
 
-    public List<PersonTicket> getPeople() {
+    public final List<PersonTicket> getPeople() {
         return personList;
-    }	
+    }
 
-    public void removePerson() {
+    public final void removePerson() {
         personList.clear();
-    }	
+    }
 
-    public int getTotPeople() {
+    public final int getTotPeople() {
         return totPeople;
-    }	
+    }
 
-    public int getCapacity() {
+    public final int getCapacity() {
         return capacity;
     }
 
-    public boolean controlAge(int age) {
-        if(age>12) {
-            return true;
-        }else {
-            return false;
-        }
+    public final boolean controlAge(final int age) {
+        return age > MIN_AGE;
     }
 
-    public ActivityType getActivityType() {
+    public final ActivityType getActivityType() {
         return this.activityType;
     }
 
-    public String getName() {
+    public final String getName() {
         return this.name;
     }
 
-    public List<PersonTicket> getPeopleList() {
-        return personList;	
+    public final List<PersonTicket> getPeopleList() {
+        return personList;
     }
 }
