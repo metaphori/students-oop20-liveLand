@@ -16,7 +16,7 @@ public class DesignPerson extends JPanel {
 
         public static CircleImpl createAdult(int x, int y, int radius) {
             CircleImpl adult = new CircleImpl();
-            adult.setColor(Color.GREEN);
+            adult.setColor(Color.YELLOW);
             adult.setRadius(radius);
             adult.setX(x);
             adult.setY(y);
@@ -31,18 +31,18 @@ public class DesignPerson extends JPanel {
             baby.setY(y);
             return baby;
         }
-
-        public void paintComponent(Graphics g) {
-            super.paintComponent(g);
-            g.setColor(Color.RED);
-            g.fillOval(getWidth() / 2, getHeight() / 2, 15, 15);
-            // g.translate(2,3);
-            g.setColor(Color.CYAN);
-            g.fillOval(getWidth() / 4, getHeight() / 5, 12, 12);
-            // g.translate(10, 8);
-
+        
+        public static CircleImpl createPass(int x, int y, int radius) {
+            CircleImpl pass = new CircleImpl();
+            pass.setColor(Color.BLUE);
+            pass.setRadius(radius);
+            pass.setX(x);
+            pass.setY(y);
+            return pass;
         }
 
+        
+     
         /*
          * public class Movimento1 extends JApplet {
          * 

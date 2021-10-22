@@ -35,6 +35,7 @@ public class SimulationPanel extends JPanel {
     private Map<PersonTicket, Position<Integer, Integer>> map;
     private List<CircleImpl> adult = new ArrayList<>();
     private List<CircleImpl> baby = new ArrayList<>();
+    private List<CircleImpl> pass = new ArrayList<>();
     private List<Square> shop;
     private List<Square> restaurant;
     private List<Square> adultFair;
@@ -42,6 +43,7 @@ public class SimulationPanel extends JPanel {
 
     private static final int ADULT_RADIUS = 20;
     private static final int BABY_RADIUS = 15;
+    private static final int PASS_RADIUS = 20;
     private final JFrame frame;
 
     public SimulationPanel(ViewControllerImpl controller) {
@@ -86,13 +88,17 @@ public class SimulationPanel extends JPanel {
         final Map<PersonTicket, Position<Integer, Integer>> people = this.map;
         final List<CircleImpl> adult = new ArrayList<>();
         final List<CircleImpl> baby = new ArrayList<>();
+        final List<CircleImpl> pass = new ArrayList<>();
         for (PersonTicket p : people.keySet()) {
-            if (p.getAge() > 12) {
-                adult.add(DesignPerson.createAdult(people.get(p).getFirst(), people.get(p).getSecond(), ADULT_RADIUS));
+            if (p.getTicket().equals(Ticket.SEASON_PASS)) {
+                pass.add(DesignPerson.createPass(people.get(p).getFirst(), people.get(p).getSecond(), PASS_RADIUS));
                 System.out.println("Posizione di " + p.toString() + "= x: " + map.get(p).getFirst() + "y: "
                         + map.get(p).getSecond());
-            } else {
+            } else if(p.getAge() < 13) {
                 baby.add(DesignPerson.createBaby(people.get(p).getFirst(), people.get(p).getSecond(), BABY_RADIUS));
+            }
+            else {
+                adult.add(DesignPerson.createAdult(people.get(p).getFirst(), people.get(p).getSecond(), ADULT_RADIUS));
             }
             this.adult = adult;
             this.baby = baby;
@@ -116,64 +122,74 @@ public class SimulationPanel extends JPanel {
                     g.fillOval(baby.getX(), baby.getY(), (int) baby.getRadius(), (int) baby.getRadius());
                 }
             }
-
-            for (Square babyFair : babyFair) {
-                g.setColor(babyFair.getColor());
-                g.fillRect(babyFair.getX(), babyFair.getY(), babyFair.getWidth(), babyFair.getHeight());
-                g.setColor(Color.BLACK);
-                g.drawRect(babyFair.getX(), babyFair.getY(), babyFair.getWidth(), babyFair.getHeight());
-                g.setColor(Color.BLACK);
-                g.drawString(babyFair.getName(), babyFair.getX(), babyFair.getY() + 30);
-            }
-
-            for (Square adultFair : adultFair) {
-                g.setColor(adultFair.getColor());
-                g.fillRect(adultFair.getX(), adultFair.getY(), adultFair.getWidth(), adultFair.getHeight());
-                g.setColor(Color.BLACK);
-                g.drawRect(adultFair.getX(), adultFair.getY(), adultFair.getWidth(), adultFair.getHeight());
-                g.setColor(Color.BLACK);
-                g.drawString(adultFair.getName(), adultFair.getX(), adultFair.getY() + 30);
-            }
-
-            for (Square restaurant : restaurant) {
-                g.setColor(restaurant.getColor());
-                g.fillRect(restaurant.getX(), restaurant.getY(), restaurant.getWidth(), restaurant.getHeight());
-                g.setColor(Color.BLACK);
-                g.drawRect(restaurant.getX(), restaurant.getY(), restaurant.getWidth(), restaurant.getHeight());
-                g.setColor(Color.BLACK);
-                g.drawString(restaurant.getName(), restaurant.getX(), restaurant.getY() + 30);
-            }
-
-            for (Square shop : shop) {
-                g.setColor(shop.getColor());
-                g.fillRect(shop.getX(), shop.getY(), shop.getWidth(), shop.getHeight());
-                g.setColor(Color.BLACK);
-                g.drawRect(shop.getX(), shop.getY(), shop.getWidth(), shop.getHeight());
-                g.setColor(Color.BLACK);
-                g.drawString(shop.getName(), shop.getX(), shop.getY() + 30);
-            }
             
-            /*
-             * for(ViewActivityImpl a: controller.getActivList()) {
-             *  ActivityType type = a.getType(); 
-             *  swich(type){ 
-             *  case BabyFair: {
-             * StaticFactoryBuildin.createShop(20, 9, 0, 10); }
-             *  break;
-             *  case AdultFair: {
-             * adultFair.add(StaticFactoryBuildin.createAdultFair()); }
-             *  break;
-             *   case Shop: {
-             * shop.add(StaticFactoryBuildin.createShop(20, 9, 0, )); } 
-             * break;
-             *  case
-             * Restaurant: { restaurant.add(StaticFactoryBuildin.createRestaurant()); }
-             * break; }
-             * 
-             * }
-             */
+            if (this.pass.size() != 0) {
+                for (CircleImpl pass : pass) {
+                    g.setColor(pass.getColor());
+                    g.fillOval(pass.getX(), pass.getY(), (int) pass.getRadius(), (int) pass.getRadius());
+                }
+            }
+
+//            for (Square babyFair : babyFair) {
+//                g.setColor(babyFair.getColor());
+//                g.fillRect(babyFair.getX(), babyFair.getY(), babyFair.getWidth(), babyFair.getHeight());
+//                g.setColor(Color.BLACK);
+//                g.drawRect(babyFair.getX(), babyFair.getY(), babyFair.getWidth(), babyFair.getHeight());
+//                g.setColor(Color.BLACK);
+//                g.drawString(babyFair.getName(), babyFair.getX(), babyFair.getY() + 30);
+//            }
+//            
+//            
+//
+//            for (Square adultFair : adultFair) {
+//                g.setColor(adultFair.getColor());
+//                g.fillRect(adultFair.getX(), adultFair.getY(), adultFair.getWidth(), adultFair.getHeight());
+//                g.setColor(Color.BLACK);
+//                g.drawRect(adultFair.getX(), adultFair.getY(), adultFair.getWidth(), adultFair.getHeight());
+//                g.setColor(Color.BLACK);
+//                g.drawString(adultFair.getName(), adultFair.getX(), adultFair.getY() + 30);
+//            }
+//
+//            for (Square restaurant : restaurant) {
+//                g.setColor(restaurant.getColor());
+//                g.fillRect(restaurant.getX(), restaurant.getY(), restaurant.getWidth(), restaurant.getHeight());
+//                g.setColor(Color.BLACK);
+//                g.drawRect(restaurant.getX(), restaurant.getY(), restaurant.getWidth(), restaurant.getHeight());
+//                g.setColor(Color.BLACK);
+//                g.drawString(restaurant.getName(), restaurant.getX(), restaurant.getY() + 30);
+//            }
+//
+//            for (Square shop : shop) {
+//                g.setColor(shop.getColor());
+//                g.fillRect(shop.getX(), shop.getY(), shop.getWidth(), shop.getHeight());
+//                g.setColor(Color.BLACK);
+//                g.drawRect(shop.getX(), shop.getY(), shop.getWidth(), shop.getHeight());
+//                g.setColor(Color.BLACK);
+//                g.drawString(shop.getName(), shop.getX(), shop.getY() + 30);
+//            }
+//            
+//            /*
+//             * for(ViewActivityImpl a: controller.getActivList()) {
+//             *  ActivityType type = a.getType(); 
+//             *  swich(type){ 
+//             *  case BabyFair: {
+//             * StaticFactoryBuildin.createShop(20, 9, 0, 10); }
+//             *  break;
+//             *  case AdultFair: {
+//             * adultFair.add(StaticFactoryBuildin.createAdultFair()); }
+//             *  break;
+//             *   case Shop: {
+//             * shop.add(StaticFactoryBuildin.createShop(20, 9, 0, )); } 
+//             * break;
+//             *  case
+//             * Restaurant: { restaurant.add(StaticFactoryBuildin.createRestaurant()); }
+//             * break; }
+//             * 
+//             * }
+//             */
             this.adult.clear();
             this.baby.clear();
+            this.pass.clear();
         } catch (ConcurrentModificationException e) {
             System.out.println(e.getMessage());
         }
