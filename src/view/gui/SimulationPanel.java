@@ -152,6 +152,26 @@ public class SimulationPanel extends JPanel {
                 g.setColor(Color.BLACK);
                 g.drawString(shop.getName(), shop.getX(), shop.getY() + 30);
             }
+            
+            /*
+             * for(ViewActivityImpl a: controller.getActivList()) {
+             *  ActivityType type = a.getType(); 
+             *  swich(type){ 
+             *  case BabyFair: {
+             * StaticFactoryBuildin.createShop(20, 9, 0, 10); }
+             *  break;
+             *  case AdultFair: {
+             * adultFair.add(StaticFactoryBuildin.createAdultFair()); }
+             *  break;
+             *   case Shop: {
+             * shop.add(StaticFactoryBuildin.createShop(20, 9, 0, )); } 
+             * break;
+             *  case
+             * Restaurant: { restaurant.add(StaticFactoryBuildin.createRestaurant()); }
+             * break; }
+             * 
+             * }
+             */
             this.adult.clear();
             this.baby.clear();
         } catch (ConcurrentModificationException e) {
