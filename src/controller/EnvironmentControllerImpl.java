@@ -9,6 +9,7 @@ import model.activity.Profit;
 import model.environment.activity.ActivityEnvironmentImpl;
 import model.environment.visitors.VisitorsImpl;
 import provaThread.Window;
+import view.controller.ViewControllerImpl;
 import view.menu.EmptyEnvironmentException;
 import view.menu.VisitorsOutOfBoundException;
 import view.model.activity.ActivityAlreadyPresentException;
@@ -19,6 +20,7 @@ public class EnvironmentControllerImpl implements EnvironmentController {
     private Simulation sim;
     private final ActivityEnvironmentImpl modelActivity;
     private VisitorsImpl modelVisitors;
+    private ViewControllerImpl viewController;
 
     public EnvironmentControllerImpl() {
         this.modelActivity = new ActivityEnvironmentImpl();
@@ -32,14 +34,15 @@ public class EnvironmentControllerImpl implements EnvironmentController {
         if (this.modelActivity.getActivityList().size() < 1) {
             throw new EmptyEnvironmentException();
         } else {
-            this.sim = new Simulation(this); 
+            this.viewController = new ViewControllerImpl(this);
+            this.sim = new Simulation(this, this.viewController); 
             new Thread(this.sim).start(); 
-            SwingUtilities.invokeLater(new Runnable() {
-                public void run() {
-                    //da sostituire con finestra grafica principale
-                    new Window(EnvironmentControllerImpl.this); 
-                }
-            });
+//            SwingUtilities.invokeLater(new Runnable() {
+//                public void run() {
+//                    //da sostituire con finestra grafica principale
+//                    new Window(EnvironmentControllerImpl.this); 
+//                }
+//            });
         }
     }
 

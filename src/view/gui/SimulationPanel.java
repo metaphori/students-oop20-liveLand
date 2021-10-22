@@ -18,20 +18,23 @@ import javax.swing.JPanel;
 import controller.Controller;
 import controller.ControllerImpl;
 import model.gui.position.Position;
+import model.gui.position.RandomPosition;
 import model.person.ticket.PersonTicket;
 import model.ticket.Ticket;
+import view.controller.ViewControllerImpl;
 
 
 
 public class SimulationPanel extends JPanel {
 
     private static final long serialVersionUID = 7114066347061701832L;
-    private final Controller controller = new ControllerImpl();
+    private final ViewControllerImpl controller;
     private Map<PersonTicket, Position<Integer, Integer>> map;
     private List<CircleImpl> adult = new ArrayList<>();
     private List<CircleImpl> baby = new ArrayList<>();
     private static final int ADULT_RADIUS = 10;
     private static final int BABY_RADIUS = 8;
+    private final JFrame frame;
 
 //    public void listPerson() {
 //        int i = 0;
@@ -44,8 +47,9 @@ public class SimulationPanel extends JPanel {
 //        }
 //    }
 
-    public SimulationPanel() {
-        final JFrame frame = new JFrame();
+    public SimulationPanel(ViewControllerImpl controller) {
+        this.controller = controller;
+        this.frame = new JFrame();
         frame.setTitle("LiveLand");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setResizable(true);
@@ -68,8 +72,8 @@ public class SimulationPanel extends JPanel {
         container.add(new JButton("STOP"));
         panel.add(container, BorderLayout.EAST);
         container.setBackground(Color.DARK_GRAY);
-        
         this.map = new HashMap<PersonTicket, Position<Integer, Integer>>();
+        this.map.put(new PersonTicket(), new RandomPosition().randomPosition(map));
         panel.add(this, BorderLayout.CENTER);
         this.setBackground(Color.WHITE);
 
@@ -89,15 +93,18 @@ public class SimulationPanel extends JPanel {
     // draw oval
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        for (CircleImpl adult : adult) {
-            g.setColor(adult.getColor());
-            g.fillOval(adult.getX(), adult.getY(), (int) adult.getRadius(), (int) adult.getRadius());
-
+        if(this.adult.size() != 0) {
+            for (CircleImpl adult : adult) {
+                g.setColor(adult.getColor());
+                g.fillOval(adult.getX(), adult.getY(), (int) adult.getRadius(), (int) adult.getRadius());
+    
+            }
         }
-
-        for (CircleImpl baby : baby) {
-            g.setColor(baby.getColor());
-            g.fillOval(baby.getX(), baby.getY(), (int) baby.getRadius(), (int) baby.getRadius());
+        if(this.baby.size() != 0) {
+            for (CircleImpl baby : baby) {
+                g.setColor(baby.getColor());
+                g.fillOval(baby.getX(), baby.getY(), (int) baby.getRadius(), (int) baby.getRadius());
+            }
         }
         this.adult.clear();
         this.baby.clear();
@@ -105,6 +112,11 @@ public class SimulationPanel extends JPanel {
 
     public Map<PersonTicket, Position<Integer, Integer>> getPeopleMap(){
         return this.map;
+    }
+    
+    public void close() {
+        this.frame.dispose();
+        this.controller.stop();
     }
           
 }

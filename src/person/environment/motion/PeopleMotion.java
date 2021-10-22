@@ -19,6 +19,11 @@ public class PeopleMotion implements Runnable {
     }
     @Override
     public void run() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e1) {
+            e1.printStackTrace();
+        }
         while(!stopped) {
             this.panel.updateSimulation();
             try {

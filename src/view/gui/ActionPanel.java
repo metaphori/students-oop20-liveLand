@@ -25,7 +25,7 @@ public class ActionPanel extends JPanel implements ActionListener{
             super();
             close.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-//                    simulation.dispose();
+                    main.close();
                 }
 
             });
@@ -39,10 +39,10 @@ public class ActionPanel extends JPanel implements ActionListener{
              * this.stop.setEnabled(false); this.setOpaque(true);
              */
         }
-
-        public static void main(String[] args) {
-
-        }
+//
+//        public static void main(String[] args) {
+//
+//        }
         
        
         @Override

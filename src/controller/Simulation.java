@@ -1,15 +1,18 @@
 package controller;
 
 import person.environment.controller.PersonIntoPark;
+import view.controller.ViewControllerImpl;
 
 public class Simulation implements Runnable {
 
     private final EnvironmentControllerImpl controller;
+    private final ViewControllerImpl viewController;
     private PersonIntoPark task;
     private boolean stopped;
 
-    public Simulation(final EnvironmentControllerImpl controller) {
+    public Simulation(final EnvironmentControllerImpl controller, ViewControllerImpl viewController) {
         this.controller = controller;
+        this.viewController = viewController;
     }
 
     /**
@@ -25,7 +28,7 @@ public class Simulation implements Runnable {
      */
     @Override
     public void run() {
-        this.task = new PersonIntoPark(this.controller);
+        this.task = new PersonIntoPark(this.controller, this.viewController);
             while (!stopped) {
                     try { 
                             this.task.logics();
