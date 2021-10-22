@@ -3,10 +3,10 @@ package model.gui.position;
 import java.awt.Point;
 import java.time.Duration;
 
-import view.gui.PersonGuiImpl;
+import view.gui.CircleImpl;
 import view.gui.SimulationPanel;
 
-public class DirectionPerson extends PersonGuiImpl{
+public class DirectionPerson extends CircleImpl{
      
     public DirectionPerson(int x, int y){
         
