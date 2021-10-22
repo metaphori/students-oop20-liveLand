@@ -40,7 +40,7 @@ public final class PeopleRecirculation {
         do {
             randPeopleExit = rand.nextInt(numExit);
         }
-        while (randPeopleExit > environment.getPersonList().size());
+        while (randPeopleExit > environment.getPersonList().size()*0.3);
         for (int i = 0; i < randPeopleExit; i++) {
             recirculationGui.peopleExit(environment.getPersonList().get(0));
             environment.exitPeople();

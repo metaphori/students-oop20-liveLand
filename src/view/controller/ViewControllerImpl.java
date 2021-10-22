@@ -20,7 +20,7 @@ public class ViewControllerImpl implements ViewController {
     
     public ViewControllerImpl(EnvironmentControllerImpl controller) {
         this.envController = controller;
-//        this.thread = new PeopleMotion(this.simulation);
+        this.thread = new PeopleMotion(this.simulation);
 //        new Thread(this.thread).start(); 
 //        SwingUtilities.invokeLater(new Runnable() {
 //            public void run() {
@@ -37,11 +37,16 @@ public class ViewControllerImpl implements ViewController {
     }
 
     public Map<PersonTicket, Position<Integer, Integer>> getPeopleMap(){
+        System.out.println(this.simulation.getPeopleMap().size());
         return this.simulation.getPeopleMap();
     }
     
+    public SimulationPanel getSimPanel() {
+        return this.simulation;
+    }
+    
     public void stop() {
-        //this.thread.stop();
+        this.thread.stop();
         this.envController.stop();
     }
     

@@ -17,6 +17,7 @@ public class PeopleRecirculationGui {
     public void peopleEntrance(PersonTicket person) {
         this.people.put(person, new RandomPosition().randomPosition(this.people));
         System.out.println("persona: " + person.toString() + "entrata");
+        System.out.println(this.people.size());
     }
 
     public void peopleExit(PersonTicket person) {

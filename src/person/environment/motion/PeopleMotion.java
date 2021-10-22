@@ -13,6 +13,7 @@ public class PeopleMotion implements Runnable {
 //    private PeopleRecirculationGui recirculation = new PeopleRecirculationGui(this.people);
     private boolean stopped = false;
     private SimulationPanel panel;
+    private PeopleThread thread;
 
     public PeopleMotion(SimulationPanel panel) {
         this.panel = panel;
@@ -21,11 +22,12 @@ public class PeopleMotion implements Runnable {
     public void run() {
         try {
             Thread.sleep(1000);
+            this.thread = new PeopleThread(this.panel);
         } catch (InterruptedException e1) {
             e1.printStackTrace();
         }
         while(!stopped) {
-            this.panel.updateSimulation();
+            
             try {
                 Thread.sleep(200);
             } catch (InterruptedException e) {

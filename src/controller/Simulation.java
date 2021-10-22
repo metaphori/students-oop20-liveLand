@@ -30,9 +30,10 @@ public class Simulation implements Runnable {
     public void run() {
         this.task = new PersonIntoPark(this.controller, this.viewController);
             while (!stopped) {
-                    try { 
+                this.viewController.getSimPanel().updateSimulation();   
+                try { 
+                            Thread.sleep(50);
                             this.task.logics();
-                            Thread.sleep(1000); 
                             } catch (InterruptedException e) {
                                 e.printStackTrace(); 
                             } 

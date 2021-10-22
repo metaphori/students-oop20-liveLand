@@ -14,7 +14,7 @@ import view.controller.ViewControllerImpl;
 
 
 public final class PersonIntoPark extends Thread {
-    private static final int PERSON_RECIRCULATION = 4000;
+    private static final int PERSON_RECIRCULATION = 2000;
     private int peopleIntoPark;
     private final EnvironmentControllerImpl controller;
     private final EnvironmentImpl environment;

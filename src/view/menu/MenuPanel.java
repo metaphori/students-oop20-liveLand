@@ -20,7 +20,7 @@ public class MenuPanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
     private static final int TEXT_FIELD_WIDTH = 5; 
-    private final JLabel capacity = new JLabel("Choose the number of visitors for this simulation (max. 100):");
+    private final JLabel capacity = new JLabel("Choose the number of visitors for this simulation (max. 300):");
     private final JButton validate = new JButton("Validate");
     private final JTextField visitors = new JTextField("", TEXT_FIELD_WIDTH);
     private final ActivityPanel activityPanel;
