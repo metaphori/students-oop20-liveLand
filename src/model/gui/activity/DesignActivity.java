@@ -1,4 +1,4 @@
-package view.gui;
+package model.gui.activity;
 
 import java.awt.Color;
 import java.awt.Toolkit;
@@ -44,7 +44,7 @@ public class DesignActivity {
     }
 
     public static Square createAdultFair(final int wh, final int ht, final int x, final int y, final String name, final int distance) {
-        final Square adultFair = new Square();
+        Square adultFair = new Square();
         adultFair.setWidth(height / ht);
         adultFair.setHeight(width / wh);
         adultFair.setX((width / x) + distance);

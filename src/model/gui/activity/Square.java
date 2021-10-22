@@ -1,4 +1,4 @@
-package view.gui;
+package model.gui.activity;
 
 import java.awt.Color;
 
