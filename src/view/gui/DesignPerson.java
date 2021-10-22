@@ -16,7 +16,7 @@ public class DesignPerson extends JPanel {
 
         public static CircleImpl createAdult(int x, int y, int radius) {
             CircleImpl adult = new CircleImpl();
-            adult.setColor(Color.YELLOW);
+            adult.setColor(new Color(15,226,0));
             adult.setRadius(radius);
             adult.setX(x);
             adult.setY(y);
@@ -25,7 +25,7 @@ public class DesignPerson extends JPanel {
 
         public static CircleImpl createBaby(int x, int y, int radius) {
             CircleImpl baby = new CircleImpl();
-            baby.setColor(Color.PINK);
+            baby.setColor(new Color(192,0,250));
             baby.setRadius(radius);
             baby.setX(x);
             baby.setY(y);
@@ -34,7 +34,7 @@ public class DesignPerson extends JPanel {
         
         public static CircleImpl createPass(int x, int y, int radius) {
             CircleImpl pass = new CircleImpl();
-            pass.setColor(Color.BLUE);
+            pass.setColor(new Color(0,155,232));
             pass.setRadius(radius);
             pass.setX(x);
             pass.setY(y);

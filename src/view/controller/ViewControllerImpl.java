@@ -1,10 +1,13 @@
 package view.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.swing.SwingUtilities;
 
 import controller.EnvironmentControllerImpl;
+import model.gui.activity.ActivityInsertion;
+import model.gui.activity.Square;
 import model.gui.position.Position;
 import model.person.ticket.PersonTicket;
 import person.environment.motion.PeopleMotion;
@@ -17,10 +20,14 @@ public class ViewControllerImpl implements ViewController {
     private SimulationPanel simulation;
     private PeopleMotion thread;
     private EnvironmentControllerImpl envController;
+    private ActivityInsertion modelActivity;
+    
     
     public ViewControllerImpl(EnvironmentControllerImpl controller) {
         this.envController = controller;
         this.thread = new PeopleMotion(this.simulation);
+        this.modelActivity = new ActivityInsertion(this.envController);
+        this.modelActivity.listActivity();
 //        new Thread(this.thread).start(); 
 //        SwingUtilities.invokeLater(new Runnable() {
 //            public void run() {
@@ -45,6 +52,9 @@ public class ViewControllerImpl implements ViewController {
         return this.simulation;
     }
     
+    public ActivityInsertion getModelActivity() {
+        return this.modelActivity;
+    }
     public void stop() {
         this.thread.stop();
         this.envController.stop();

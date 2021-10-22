@@ -20,6 +20,8 @@ import javax.swing.JPanel;
 
 import controller.Controller;
 import controller.ControllerImpl;
+import model.gui.activity.ActivityInsertion;
+import model.gui.activity.Square;
 import model.gui.position.Position;
 import model.gui.position.RandomPosition;
 import model.person.ticket.PersonTicket;
@@ -36,10 +38,6 @@ public class SimulationPanel extends JPanel {
     private List<CircleImpl> adult = new ArrayList<>();
     private List<CircleImpl> baby = new ArrayList<>();
     private List<CircleImpl> pass = new ArrayList<>();
-    private List<Square> shop;
-    private List<Square> restaurant;
-    private List<Square> adultFair;
-    private List<Square> babyFair;
 
     private static final int ADULT_RADIUS = 20;
     private static final int BABY_RADIUS = 15;
@@ -59,7 +57,7 @@ public class SimulationPanel extends JPanel {
         final JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
         frame.setContentPane(panel);
-        panel.setBackground(Color.WHITE);
+        panel.setBackground(new Color(216,216,216));
 
         // creation bottons
         final JPanel container = new JPanel();
@@ -70,7 +68,6 @@ public class SimulationPanel extends JPanel {
         panel.add(container, BorderLayout.EAST);
         container.setBackground(Color.DARK_GRAY);
         this.map = new HashMap<PersonTicket, Position<Integer, Integer>>();
-        this.map.put(new PersonTicket(), new RandomPosition().randomPosition(map));
         panel.add(this, BorderLayout.CENTER);
         this.setBackground(Color.WHITE);
 
@@ -102,6 +99,7 @@ public class SimulationPanel extends JPanel {
             }
             this.adult = adult;
             this.baby = baby;
+            this.pass = pass;
             this.repaint();
         }
     }
@@ -130,66 +128,43 @@ public class SimulationPanel extends JPanel {
                 }
             }
 
-//            for (Square babyFair : babyFair) {
-//                g.setColor(babyFair.getColor());
-//                g.fillRect(babyFair.getX(), babyFair.getY(), babyFair.getWidth(), babyFair.getHeight());
-//                g.setColor(Color.BLACK);
-//                g.drawRect(babyFair.getX(), babyFair.getY(), babyFair.getWidth(), babyFair.getHeight());
-//                g.setColor(Color.BLACK);
-//                g.drawString(babyFair.getName(), babyFair.getX(), babyFair.getY() + 30);
-//            }
-//            
-//            
-//
-//            for (Square adultFair : adultFair) {
-//                g.setColor(adultFair.getColor());
-//                g.fillRect(adultFair.getX(), adultFair.getY(), adultFair.getWidth(), adultFair.getHeight());
-//                g.setColor(Color.BLACK);
-//                g.drawRect(adultFair.getX(), adultFair.getY(), adultFair.getWidth(), adultFair.getHeight());
-//                g.setColor(Color.BLACK);
-//                g.drawString(adultFair.getName(), adultFair.getX(), adultFair.getY() + 30);
-//            }
-//
-//            for (Square restaurant : restaurant) {
-//                g.setColor(restaurant.getColor());
-//                g.fillRect(restaurant.getX(), restaurant.getY(), restaurant.getWidth(), restaurant.getHeight());
-//                g.setColor(Color.BLACK);
-//                g.drawRect(restaurant.getX(), restaurant.getY(), restaurant.getWidth(), restaurant.getHeight());
-//                g.setColor(Color.BLACK);
-//                g.drawString(restaurant.getName(), restaurant.getX(), restaurant.getY() + 30);
-//            }
-//
-//            for (Square shop : shop) {
-//                g.setColor(shop.getColor());
-//                g.fillRect(shop.getX(), shop.getY(), shop.getWidth(), shop.getHeight());
-//                g.setColor(Color.BLACK);
-//                g.drawRect(shop.getX(), shop.getY(), shop.getWidth(), shop.getHeight());
-//                g.setColor(Color.BLACK);
-//                g.drawString(shop.getName(), shop.getX(), shop.getY() + 30);
-//            }
-//            
-//            /*
-//             * for(ViewActivityImpl a: controller.getActivList()) {
-//             *  ActivityType type = a.getType(); 
-//             *  swich(type){ 
-//             *  case BabyFair: {
-//             * StaticFactoryBuildin.createShop(20, 9, 0, 10); }
-//             *  break;
-//             *  case AdultFair: {
-//             * adultFair.add(StaticFactoryBuildin.createAdultFair()); }
-//             *  break;
-//             *   case Shop: {
-//             * shop.add(StaticFactoryBuildin.createShop(20, 9, 0, )); } 
-//             * break;
-//             *  case
-//             * Restaurant: { restaurant.add(StaticFactoryBuildin.createRestaurant()); }
-//             * break; }
-//             * 
-//             * }
-//             */
-            this.adult.clear();
-            this.baby.clear();
-            this.pass.clear();
+            for (Square babyFair : this.controller.getModelActivity().getBabyFair()) {
+                g.setColor(babyFair.getColor());
+                g.fillRect(babyFair.getX(), babyFair.getY(), babyFair.getWidth(), babyFair.getHeight());
+                g.setColor(Color.BLACK);
+                g.drawRect(babyFair.getX(), babyFair.getY(), babyFair.getWidth(), babyFair.getHeight());
+                g.setColor(Color.BLACK);
+                g.drawString(babyFair.getName(), babyFair.getX(), babyFair.getY() + 30);
+            }
+            
+            
+
+            for (Square adultFair : this.controller.getModelActivity().getAdultFair()) {
+                g.setColor(adultFair.getColor());
+                g.fillRect(adultFair.getX(), adultFair.getY(), adultFair.getWidth(), adultFair.getHeight());
+                g.setColor(Color.BLACK);
+                g.drawRect(adultFair.getX(), adultFair.getY(), adultFair.getWidth(), adultFair.getHeight());
+                g.setColor(Color.BLACK);
+                g.drawString(adultFair.getName(), adultFair.getX(), adultFair.getY() + 30);
+            }
+
+            for (Square restaurant : this.controller.getModelActivity().getRestaurant()) {
+                g.setColor(restaurant.getColor());
+                g.fillRect(restaurant.getX(), restaurant.getY(), restaurant.getWidth(), restaurant.getHeight());
+                g.setColor(Color.BLACK);
+                g.drawRect(restaurant.getX(), restaurant.getY(), restaurant.getWidth(), restaurant.getHeight());
+                g.setColor(Color.BLACK);
+                g.drawString(restaurant.getName(), restaurant.getX(), restaurant.getY() + 30);
+            }
+
+            for (Square shop : this.controller.getModelActivity().getShop()) {
+                g.setColor(shop.getColor());
+                g.fillRect(shop.getX(), shop.getY(), shop.getWidth(), shop.getHeight());
+                g.setColor(Color.BLACK);
+                g.drawRect(shop.getX(), shop.getY(), shop.getWidth(), shop.getHeight());
+                g.setColor(Color.BLACK);
+                g.drawString(shop.getName(), shop.getX(), shop.getY() + 30);
+            }
         } catch (ConcurrentModificationException e) {
             System.out.println(e.getMessage());
         }

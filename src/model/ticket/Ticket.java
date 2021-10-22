@@ -5,15 +5,15 @@ public enum Ticket {
     /**
      * Ticket for people with age between 12 and 65 years old. 
      */
-    ADULT(20),
+    ADULT(15),
     /**
      * Ticket for people younger then 12 years old and older than 65 year ols.
      */
-    REDUCED(15),
+    REDUCED(10),
     /**
      * Season_pass.
      */
-    SEASON_PASS(40);
+    SEASON_PASS(30);
 
     private final Integer price;
 
