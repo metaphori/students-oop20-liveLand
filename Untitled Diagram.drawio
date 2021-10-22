@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-10-22T20:23:35.290Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1 Safari/605.1.15" etag="u4C_ShxWTAneX_li5VoV" version="15.5.8" type="github" pages="5">
+<mxfile host="app.diagrams.net" modified="2021-10-22T20:43:19.222Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1 Safari/605.1.15" etag="NjQMXcLj0ZtdiM4YNBpj" version="15.5.8" type="github" pages="6">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="946" dy="645" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -261,8 +261,8 @@
       <root>
         <mxCell id="Kes3zp-cRvQgR5Dzs4Uk-0" />
         <mxCell id="Kes3zp-cRvQgR5Dzs4Uk-1" parent="Kes3zp-cRvQgR5Dzs4Uk-0" />
-        <mxCell id="Kes3zp-cRvQgR5Dzs4Uk-2" value="Inserimento attività" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" vertex="1" parent="Kes3zp-cRvQgR5Dzs4Uk-1">
-          <mxGeometry x="339" y="60" width="150" height="20" as="geometry" />
+        <mxCell id="Kes3zp-cRvQgR5Dzs4Uk-2" value="Activity insertion" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" vertex="1" parent="Kes3zp-cRvQgR5Dzs4Uk-1">
+          <mxGeometry x="349" y="60" width="130" height="20" as="geometry" />
         </mxCell>
         <mxCell id="Kes3zp-cRvQgR5Dzs4Uk-3" value="&lt;&lt;Interface&gt;&gt;&#xa;EnvironmentController" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=16;" vertex="1" parent="Kes3zp-cRvQgR5Dzs4Uk-1">
           <mxGeometry x="252.5" y="570" width="300" height="84" as="geometry" />
@@ -356,6 +356,17 @@
             <mxPoint x="360" y="430" as="sourcePoint" />
             <mxPoint x="520" y="430" as="targetPoint" />
           </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="eXwee696dCS-7AfkM0U9" name="Page-6">
+    <mxGraphModel dx="946" dy="645" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="j8UfkbDBr7yq3QSpxxsV-0" />
+        <mxCell id="j8UfkbDBr7yq3QSpxxsV-1" parent="j8UfkbDBr7yq3QSpxxsV-0" />
+        <mxCell id="YyE-Fd6N_NH_pzbpOSK1-0" value="Analysis factory" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=16;" vertex="1" parent="j8UfkbDBr7yq3QSpxxsV-1">
+          <mxGeometry x="349" y="60" width="130" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
