@@ -10,7 +10,7 @@ import model.person.environment.EnvironmentImpl;
 import model.person.ticket.PersonTicket;
 import person.environment.motion.PeopleMovingIntoPark;
 import person.environment.motion.PeopleRecirculationGui;
-import person.environment.motion.Position;
+import view.controller.ViewControllerImpl;
 
 
 public final class PersonIntoPark extends Thread {
@@ -20,14 +20,15 @@ public final class PersonIntoPark extends Thread {
     private final EnvironmentImpl environment;
     private final PeopleRecirculation recirculation;
     private final ActivityRide ride;
-    private final Map<PersonTicket, Position> people = new HashMap<>();
-    private final PeopleMovingIntoPark peopleMoving = new PeopleMovingIntoPark(this.people);
-    private final PeopleRecirculationGui recirculationGui = new PeopleRecirculationGui(this.people);
+    private final PeopleMovingIntoPark peopleMoving;
+    private final PeopleRecirculationGui recirculationGui;
 
-    public PersonIntoPark(final EnvironmentControllerImpl controller) {
+    public PersonIntoPark(final EnvironmentControllerImpl controller, ViewControllerImpl viewController) {
         super();
         this.environment = new EnvironmentImpl();
         this.controller = controller;
+        this.peopleMoving = new PeopleMovingIntoPark(viewController.getPeopleMap());
+        this.recirculationGui = new PeopleRecirculationGui(viewController.getPeopleMap());
         this.recirculation = new PeopleRecirculation(this.environment, this.controller, this, this.recirculationGui);
         this.ride = new ActivityRide(this.controller, this.environment, this.peopleMoving);
         this.start();

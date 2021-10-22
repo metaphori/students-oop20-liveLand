@@ -25,7 +25,7 @@ public class ActionPanel extends JPanel implements ActionListener{
             super();
             close.addActionListener(new ActionListener() {
                 public void actionPerformed(ActionEvent e) {
-                    simulation.dispose();
+//                    simulation.dispose();
                 }
 
             });

@@ -4,14 +4,15 @@ import java.util.Map;
 
 import model.activity.Fair;
 import model.activity.Profit;
+import model.gui.position.Position;
 import model.person.ticket.PersonTicket;
 
 public class PeopleMovingIntoPark {
     
-    private Map<PersonTicket, Position> people;
+    private Map<PersonTicket, Position<Integer, Integer>> people;
     //private Motion movementModel;
     
-    public PeopleMovingIntoPark(Map<PersonTicket, Position> map) {
+    public PeopleMovingIntoPark(Map<PersonTicket, Position<Integer, Integer>> map) {
         this.people = map;
        // this.movementModel = new Motion(this.people);
     }

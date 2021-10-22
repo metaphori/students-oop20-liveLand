@@ -7,7 +7,9 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -15,6 +17,9 @@ import javax.swing.JPanel;
 
 import controller.Controller;
 import controller.ControllerImpl;
+import model.gui.position.Position;
+import model.person.ticket.PersonTicket;
+import model.ticket.Ticket;
 
 
 
@@ -22,21 +27,24 @@ public class SimulationPanel extends JPanel {
 
     private static final long serialVersionUID = 7114066347061701832L;
     private final Controller controller = new ControllerImpl();
-    List<CircleImpl> adult = new ArrayList<>();
-    List<CircleImpl> baby = new ArrayList<>();
+    private Map<PersonTicket, Position<Integer, Integer>> map;
+    private List<CircleImpl> adult = new ArrayList<>();
+    private List<CircleImpl> baby = new ArrayList<>();
+    private static final int ADULT_RADIUS = 10;
+    private static final int BABY_RADIUS = 8;
 
-    public void listPerson() {
-        int i = 0;
-        for (int x = 0; x < 100; x++) {
-            adult.add(DesignPerson.createAdult(10, 50, 20));
-            baby.add(DesignPerson.createBaby(200, 60, 40));
-            adult.add(DesignPerson.createAdult(45, 80, 15));
-            baby.add(DesignPerson.createBaby(100, 45, 35));
-            i = +20;
-        }
-    }
+//    public void listPerson() {
+//        int i = 0;
+//        for (int x = 0; x < 100; x++) {
+//            adult.add(DesignPerson.createAdult(10, 50, 20));
+//            baby.add(DesignPerson.createBaby(200, 60, 40));
+//            adult.add(DesignPerson.createAdult(45, 80, 15));
+//            baby.add(DesignPerson.createBaby(100, 45, 35));
+//            i = +20;
+//        }
+//    }
 
-    public static void main(String[] args) {
+    public SimulationPanel() {
         final JFrame frame = new JFrame();
         frame.setTitle("LiveLand");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -60,15 +68,24 @@ public class SimulationPanel extends JPanel {
         container.add(new JButton("STOP"));
         panel.add(container, BorderLayout.EAST);
         container.setBackground(Color.DARK_GRAY);
-
-        // creation simulation
-        final SimulationPanel simulation = new SimulationPanel();
-        simulation.listPerson();
-        panel.add(simulation, BorderLayout.CENTER);
-        simulation.setBackground(Color.WHITE);
+        
+        this.map = new HashMap<PersonTicket, Position<Integer, Integer>>();
+        panel.add(this, BorderLayout.CENTER);
+        this.setBackground(Color.WHITE);
 
     }
 
+    public void updateSimulation() {
+        for(PersonTicket p: map.keySet()) {
+            if(p.getTicket().equals(Ticket.ADULT)) {
+                adult.add(DesignPerson.createAdult(map.get(p).getFirst(), 
+                        map.get(p).getSecond(), ADULT_RADIUS));
+            } else {
+                baby.add(DesignPerson.createBaby(map.get(p).getFirst(), 
+                        map.get(p).getSecond(), BABY_RADIUS));  
+            }
+        }
+      }
     // draw oval
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -82,52 +99,15 @@ public class SimulationPanel extends JPanel {
             g.setColor(baby.getColor());
             g.fillOval(baby.getX(), baby.getY(), (int) baby.getRadius(), (int) baby.getRadius());
         }
-	    
-	   
-            
-            // se il rettangolo e' scappato troppo a destra, 
-            // lo riporto alla posizione iniziale:
-            /*if (x > 200) {
-                adult.translate(-x, 0);
-            .repaint();
-        }*/
-            
-           /* //for (int i=0; i<cont; i++) {
-            Square babyF = StaticFactoryBuildin.createBabyFair();
-            //(Square) babyFair.get(i);
-            g.setColor(babyF.getColor());
-            g.fillRect(babyF.getX(), babyF.getY(), babyF.getWidth(), babyF.getHeight());
-            g.setColor(Color.BLACK);
-            g.drawRect(babyF.getX(), babyF.getY(), babyF.getWidth(), babyF.getHeight());
-            //}
+        this.adult.clear();
+        this.baby.clear();
+    }
 
-            Square adultF = StaticFactoryBuildin.createAdultFair();
-            g.setColor(adultF.getColor());
-            g.fillRect(adultF.getX(), adultF.getY(), adultF.getWidth(), adultF.getHeight());
-            g.setColor(Color.BLACK);
-            g.drawRect(adultF.getX(), adultF.getY(), adultF.getWidth(), adultF.getHeight());
-
-            Square restar = StaticFactoryBuildin.createRestaurant();
-            g.setColor(restar.getColor());
-            g.fillRect(restar.getX(), restar.getY(), restar.getWidth(), restar.getHeight());
-            g.setColor(Color.BLACK);
-            g.drawRect(restar.getX(), restar.getY(), restar.getWidth(), restar.getHeight());
-
-            Square sh = StaticFactoryBuildin.createShop();
-            g.setColor(sh.getColor());
-            g.fillRect(sh.getX(), sh.getY(), sh.getWidth(), sh.getHeight());
-            g.setColor(Color.BLACK);
-            g.drawRect(sh.getX(),sh.getY(), sh.getWidth(), sh.getHeight());
-    }*/
-
+    public Map<PersonTicket, Position<Integer, Integer>> getPeopleMap(){
+        return this.map;
+    }
           
-                }
-	 
-            
-	
-	
- 
-	 }
+}
 
 
 

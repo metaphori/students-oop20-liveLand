@@ -2,13 +2,14 @@ package person.environment.motion;
 
 import java.util.Map;
 
+import model.gui.position.Position;
 import model.person.ticket.PersonTicket;
 
 public class PeopleRecirculationGui {
 
-    private Map<PersonTicket, Position> people;
+    private Map<PersonTicket, Position<Integer, Integer>> people;
 
-    public PeopleRecirculationGui(Map<PersonTicket, Position> map) {
+    public PeopleRecirculationGui(Map<PersonTicket, Position<Integer, Integer>> map) {
         this.people = map;
     }
 
