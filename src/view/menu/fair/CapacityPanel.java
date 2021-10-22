@@ -32,7 +32,7 @@ public class CapacityPanel extends JPanel {
      * @param text to be written in the capacity text field
      */
     public void setCapacityText(final String text) {
-        this.capacity.setText(text);
+        this.textCapacity.setText(text);
     }
 
 }

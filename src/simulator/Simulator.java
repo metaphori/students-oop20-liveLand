@@ -6,7 +6,7 @@ public final class Simulator {
 
     private Simulator() {
     }
-	
+
     /**
      * It creates a new ControllerImpl, which sets the environment by 
      * allocating the EnvironmentControllerImpl and displaying menu dialog.
@@ -14,7 +14,7 @@ public final class Simulator {
      *            ignored
      */
     public static void main(final String[] args) {
-    	final ControllerImpl controller = new ControllerImpl();
+        final ControllerImpl controller = new ControllerImpl();
         controller.setEnvironmentController();
         controller.setView();
     }

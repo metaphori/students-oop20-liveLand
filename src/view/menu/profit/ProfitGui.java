@@ -63,10 +63,6 @@ public final class ProfitGui implements ActivityGui {
                         ProfitGui.this.textField.setText(exc.getMessage());
                         ProfitGui.this.textField.setForeground(Color.RED);
                         ProfitGui.this.reset();
-                    } catch (NullPointerException exc) {
-                        ProfitGui.this.textField.setText("\t***You must select the fair type!***\t");
-                        ProfitGui.this.textField.setForeground(Color.RED);
-                        ProfitGui.this.reset();
                     }
                 } catch (WrongParametersException exc) {
                     ProfitGui.this.textField.setText(exc.getMessage());

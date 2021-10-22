@@ -11,7 +11,7 @@ import model.analysis.FairDatasetFactory;
 import model.analysis.ProfitDatasetFactory;
 
 public class AnalysisDatasetTest {
-	
+
 	private final EnvironmentControllerImpl envController = new EnvironmentControllerImpl();
 	private final FairDatasetFactory fairDataset = new FairDatasetFactory(this.envController);
 	private final ProfitDatasetFactory profitDataset = new ProfitDatasetFactory(this.envController);
@@ -23,7 +23,6 @@ public class AnalysisDatasetTest {
 		assertNotNull("The profit dataset has been correctly created", this.profitDataset.createPhonyDataset());
 		assertNotEquals("fair dataset different from profit dataset", this.fairDataset.createPhonyDataset(),
 				this.profitDataset.createPhonyDataset());
-		
 	}
 	
 	@Test
@@ -35,7 +34,6 @@ public class AnalysisDatasetTest {
 		assertNotNull("Profit chart correctly created", profitChart);
 		assertEquals("Fair chart 1 equals fair chart 2", fairChart1, fairChart2);
 		assertNotEquals("Fair chart not equal to profit chart", fairChart1, profitChart);
-		
 	}
 	
 

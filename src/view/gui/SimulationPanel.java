@@ -26,14 +26,14 @@ import model.gui.position.Position;
 import model.gui.position.RandomPosition;
 import model.person.ticket.PersonTicket;
 import model.ticket.Ticket;
-import view.controller.ViewControllerImpl;
+import view.controller.ViewController;
 
 
 
 public class SimulationPanel extends JPanel {
 
     private static final long serialVersionUID = 7114066347061701832L;
-    private final ViewControllerImpl controller;
+    private final ViewController controller;
     private Map<PersonTicket, Position<Integer, Integer>> map;
     private List<CircleImpl> adult = new ArrayList<>();
     private List<CircleImpl> baby = new ArrayList<>();
@@ -44,7 +44,7 @@ public class SimulationPanel extends JPanel {
     private static final int PASS_RADIUS = 20;
     private final JFrame frame;
 
-    public SimulationPanel(ViewControllerImpl controller) {
+    public SimulationPanel(ViewController controller) {
         this.controller = controller;
         this.frame = new JFrame();
         frame.setTitle("LiveLand");

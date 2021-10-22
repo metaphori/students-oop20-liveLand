@@ -1,64 +1,43 @@
 package view.controller;
 
-import java.util.List;
 import java.util.Map;
-
-import javax.swing.SwingUtilities;
-
 import controller.EnvironmentControllerImpl;
 import model.gui.activity.ActivityInsertion;
-import model.gui.activity.Square;
 import model.gui.position.Position;
 import model.person.ticket.PersonTicket;
-import person.environment.motion.PeopleMotion;
-import provaThread.Window;
-import view.gui.PersonGui;
 import view.gui.SimulationPanel;
 
 public class ViewControllerImpl implements ViewController {
 
-    private SimulationPanel simulation;
-    private PeopleMotion thread;
-    private EnvironmentControllerImpl envController;
-    private ActivityInsertion modelActivity;
-    
-    
-    public ViewControllerImpl(EnvironmentControllerImpl controller) {
+    private final SimulationPanel simulation;
+    private final EnvironmentControllerImpl envController;
+    private final ActivityInsertion modelActivity;
+
+    public ViewControllerImpl(final EnvironmentControllerImpl controller) {
         this.envController = controller;
-        this.thread = new PeopleMotion(this.simulation);
         this.modelActivity = new ActivityInsertion(this.envController);
         this.modelActivity.listActivity();
-//        new Thread(this.thread).start(); 
-//        SwingUtilities.invokeLater(new Runnable() {
-//            public void run() {
-//                //da sostituire con finestra grafica principale
-//                ViewControllerImpl.this.simulation = new SimulationPanel(ViewControllerImpl.this); 
-//            }
-//        });
         this.simulation = new SimulationPanel(this);
     }
-    @Override
-    public Object getController() {
-        // TODO Auto-generated method stub
-        return null;
-    }
 
+    @Override
     public Map<PersonTicket, Position<Integer, Integer>> getPeopleMap(){
         System.out.println(this.simulation.getPeopleMap().size());
         return this.simulation.getPeopleMap();
     }
-    
+
+    @Override
     public SimulationPanel getSimPanel() {
         return this.simulation;
     }
-    
+
+    @Override
     public ActivityInsertion getModelActivity() {
         return this.modelActivity;
     }
+    @Override
     public void stop() {
-        this.thread.stop();
         this.envController.stop();
     }
-    
 
 }

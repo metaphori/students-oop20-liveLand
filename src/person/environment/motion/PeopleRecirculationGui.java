@@ -6,21 +6,33 @@ import model.gui.position.Position;
 import model.gui.position.RandomPosition;
 import model.person.ticket.PersonTicket;
 
+/**
+ * This class models a correspondence between the internal park environment
+ * and its graphical representation, by adding or removing people to the simulation.
+ */
 public class PeopleRecirculationGui {
 
-    private Map<PersonTicket, Position<Integer, Integer>> people;
+    private final Map<PersonTicket, Position<Integer, Integer>> people;
 
-    public PeopleRecirculationGui(Map<PersonTicket, Position<Integer, Integer>> map) {
+    public PeopleRecirculationGui(final Map<PersonTicket, Position<Integer, Integer>> map) {
         this.people = map;
     }
 
-    public void peopleEntrance(PersonTicket person) {
+    /**
+     * This method adds a new person to the graphical simulation.
+     * @param person to be added
+     */
+    public void peopleEntrance(final PersonTicket person) {
         this.people.put(person, new RandomPosition().randomPosition(this.people));
         System.out.println("persona: " + person.toString() + "entrata");
         System.out.println(this.people.size());
     }
 
-    public void peopleExit(PersonTicket person) {
+    /**
+     * This method removes a new person to the graphical simulation.
+     * @param person who needs to exit
+     */
+    public void peopleExit(final PersonTicket person) {
         this.people.remove(person);
         System.out.println("persona: " + person.toString() + "uscita");
     }

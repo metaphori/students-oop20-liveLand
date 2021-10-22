@@ -10,11 +10,11 @@ import model.person.environment.EnvironmentImpl;
 import model.person.ticket.PersonTicket;
 import person.environment.motion.PeopleMovingIntoPark;
 import person.environment.motion.PeopleRecirculationGui;
-import view.controller.ViewControllerImpl;
+import view.controller.ViewController;
 
 
 public final class PersonIntoPark extends Thread {
-    private static final int PERSON_RECIRCULATION = 2000;
+    private static final int PERSON_RECIRCULATION = 1000;
     private int peopleIntoPark;
     private final EnvironmentControllerImpl controller;
     private final EnvironmentImpl environment;
@@ -23,7 +23,7 @@ public final class PersonIntoPark extends Thread {
     private final PeopleMovingIntoPark peopleMoving;
     private final PeopleRecirculationGui recirculationGui;
 
-    public PersonIntoPark(final EnvironmentControllerImpl controller, ViewControllerImpl viewController) {
+    public PersonIntoPark(final EnvironmentControllerImpl controller, ViewController viewController) {
         super();
         this.environment = new EnvironmentImpl();
         this.controller = controller;

@@ -1,14 +1,11 @@
 package controller;
 
 import java.util.List;
-
-import javax.swing.SwingUtilities;
-
 import model.activity.Fair;
 import model.activity.Profit;
 import model.environment.activity.ActivityEnvironmentImpl;
 import model.environment.visitors.VisitorsImpl;
-import provaThread.Window;
+import view.controller.ViewController;
 import view.controller.ViewControllerImpl;
 import view.menu.EmptyEnvironmentException;
 import view.menu.VisitorsOutOfBoundException;
@@ -20,7 +17,7 @@ public class EnvironmentControllerImpl implements EnvironmentController {
     private Simulation sim;
     private final ActivityEnvironmentImpl modelActivity;
     private VisitorsImpl modelVisitors;
-    private ViewControllerImpl viewController;
+    private ViewController viewController;
 
     public EnvironmentControllerImpl() {
         this.modelActivity = new ActivityEnvironmentImpl();
