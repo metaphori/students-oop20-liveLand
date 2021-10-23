@@ -17,7 +17,7 @@ import controller.FileControllerImpl;
 import model.analysis.save.ChartImg;
 import model.analysis.save.ChartImgBuilder;
 
-public class SaveAnalysis extends JMenu {
+public class SaveAnalysisMenu extends JMenu {
 
     private static final long serialVersionUID = -531274145809287580L;
     private final FileControllerImpl fileController;
@@ -25,7 +25,7 @@ public class SaveAnalysis extends JMenu {
     private final JPanel panelCenter = new JPanel();
     private final AnalysisDialog gui;
 
-    public SaveAnalysis(final EnvironmentControllerImpl envController, 
+    public SaveAnalysisMenu(final EnvironmentControllerImpl envController, 
                         final AnalysisControllerImpl analysisController, final AnalysisDialog gui) {
         this.analysisController = analysisController;
         this.fileController = new FileControllerImpl(envController);
@@ -65,7 +65,7 @@ public class SaveAnalysis extends JMenu {
     private class DefaultActionListener implements ActionListener {
         public void actionPerformed(final ActionEvent e) {
             try {
-                SaveAnalysis.this.fileController.save();
+                SaveAnalysisMenu.this.fileController.save();
             } catch (IOException e1) {
                 e1.printStackTrace();
             }
@@ -76,9 +76,9 @@ public class SaveAnalysis extends JMenu {
             final JFileChooser chooser = new JFileChooser();
                 final int result = chooser.showSaveDialog(panelCenter);
                 if (result == JFileChooser.APPROVE_OPTION) {
-                    SaveAnalysis.this.fileController.setDestination(chooser.getSelectedFile());
+                    SaveAnalysisMenu.this.fileController.setDestination(chooser.getSelectedFile());
                     try {
-                        SaveAnalysis.this.fileController.save();
+                        SaveAnalysisMenu.this.fileController.save();
                     } catch (IOException e1) {
                         e1.printStackTrace();
                     }
@@ -104,7 +104,7 @@ public class SaveAnalysis extends JMenu {
 
     private class ExitActionListener implements ActionListener {
         public void actionPerformed(final ActionEvent e) {
-            SaveAnalysis.this.gui.dispose();
+            SaveAnalysisMenu.this.gui.dispose();
         }
     }
 

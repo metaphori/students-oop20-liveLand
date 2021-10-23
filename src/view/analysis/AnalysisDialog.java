@@ -25,7 +25,7 @@ public class AnalysisDialog {
         final ChartPanel profitPanel = new ChartPanel(controller.getProfitChart());
         profitPanel.setDomainZoomable(true);
         analysisPanel.add(profitPanel, BorderLayout.CENTER);
-        this.save.add(new SaveAnalysis(envController, controller, this).createSaveMenu());
+        this.save.add(new SaveAnalysisMenu(envController, controller, this).createSaveMenu());
 
         frame.setJMenuBar(save);
         frame.setTitle("Fun Fair Analysis");
