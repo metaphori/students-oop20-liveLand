@@ -10,7 +10,6 @@ import view.model.activity.ActivityType;
 public class Profit implements Activity {
 
     private final String name;
-    //private final int money = 0;
     private int totMoney;
     private int totPeople;
     private final int min;
@@ -37,10 +36,6 @@ public class Profit implements Activity {
         personList.add(person);
         amount();
         totPeople++;
-    }
-
-    public final List<PersonTicket> getPeople() {
-        return personList;
     }
 
     public final void removePerson() {
@@ -82,4 +77,5 @@ public class Profit implements Activity {
         return personList;
 
     }
+
 }

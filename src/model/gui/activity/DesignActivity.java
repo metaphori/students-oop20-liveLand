@@ -15,7 +15,7 @@ public class DesignActivity {
         shop.setWidth(width / wh);
         shop.setHeight(height / ht);
         shop.setX(1);
-        shop.setY(((width / y) + 1) + distance);
+        shop.setY(width / y + 1 + distance);
         shop.setColor(new Color(255, 160, 122));
         shop.setName(name);
         return shop;
@@ -25,7 +25,7 @@ public class DesignActivity {
         final Square restaurant = new Square();
         restaurant.setWidth(height / ht);
         restaurant.setHeight(width / wh);
-        restaurant.setX((width / x) + distance);
+        restaurant.setX(width / x + distance);
         restaurant.setY(height - (width / wh));
         restaurant.setColor(new Color(239, 127, 127));
         restaurant.setName(name);
@@ -36,7 +36,7 @@ public class DesignActivity {
         final Square babyFair = new Square();
         babyFair.setWidth(height / ht);
         babyFair.setHeight(width / wh);
-        babyFair.setX((width / x) + distance);
+        babyFair.setX(width / x + distance);
         babyFair.setY(1);
         babyFair.setColor(new Color(192, 0, 250));
         babyFair.setName(name);
@@ -44,10 +44,10 @@ public class DesignActivity {
     }
 
     public static Square createAdultFair(final int wh, final int ht, final int x, final int y, final String name, final int distance) {
-        Square adultFair = new Square();
+        final Square adultFair = new Square();
         adultFair.setWidth(height / ht);
         adultFair.setHeight(width / wh);
-        adultFair.setX((width / x) + distance);
+        adultFair.setX(width / x + distance);
         adultFair.setY(1);
         adultFair.setColor(new Color(15, 226, 0));
         adultFair.setName(name);

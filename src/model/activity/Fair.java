@@ -16,12 +16,25 @@ public class Fair implements Activity {
     private final ActivityType activityType;
     private final List<PersonTicket> personList = new ArrayList<>();
 
+    /**
+     * 
+     * @param name
+     * @param capacity
+     * @param activityType
+     */
     public Fair(final String name, final int capacity, final ActivityType activityType) {
         this.name = name;
         this.capacity = capacity;
         this.activityType = activityType;
     }
 
+    /**
+     * 
+     * @param name
+     * @param capacity
+     * @param activityType
+     * @param visitors
+     */
     public Fair(final String name, final int capacity, final ActivityType activityType, final int visitors) {
         this.name = name;
         this.capacity = capacity;
@@ -29,39 +42,63 @@ public class Fair implements Activity {
         this.totPeople = visitors;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public final void addPerson(final PersonTicket person) {
         personList.add(person);
         totPeople++;
     }
 
-    public final List<PersonTicket> getPeople() {
-        return personList;
-    }
-
+    /**
+     * {@inheritDoc}
+     */
     public final void removePerson() {
         personList.clear();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public final int getTotPeople() {
         return totPeople;
     }
 
+    /**
+     * 
+     * @return
+     */
     public final int getCapacity() {
         return capacity;
     }
 
+    /**
+     * 
+     * @param age
+     * @return
+     */
     public final boolean controlAge(final int age) {
         return age > MIN_AGE;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public final ActivityType getActivityType() {
         return this.activityType;
     }
 
+    /**
+     * 
+     * @return
+     */
     public final String getName() {
         return this.name;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public final List<PersonTicket> getPeopleList() {
         return personList;
     }
