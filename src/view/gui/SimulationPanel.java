@@ -15,6 +15,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -52,7 +53,7 @@ public class SimulationPanel extends JPanel {
      * 
      * @param Method that creates the frame with dimension.
      */
-    public SimulationPanel(ViewController controller) {
+    public SimulationPanel(final ViewController controller) {
         this.controller = controller;
         this.frame = new JFrame();
         frame.setTitle("LiveLand");
@@ -81,7 +82,7 @@ public class SimulationPanel extends JPanel {
         this.setBackground(Color.WHITE);
 
         stop.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
+            public void actionPerformed(final ActionEvent e) {
                 SimulationPanel.this.frame.dispose();
                 controller.stop();
             }
@@ -121,7 +122,7 @@ public class SimulationPanel extends JPanel {
      * Method used to draw the circles and squares that are associated with people
      * and activities respectively.
      */
-    public final void paintComponent(Graphics g) {
+    public final void paintComponent(final Graphics g) {
         try {
             super.paintComponent(g);
             if (this.adult.size() != 0) {
@@ -185,12 +186,12 @@ public class SimulationPanel extends JPanel {
 
     }
 
-    public Map<PersonTicket, Position<Integer, Integer>> getPeopleMap() {
+    public final Map<PersonTicket, Position<Integer, Integer>> getPeopleMap() {
         System.out.println(this.map.size());
         return this.map;
     }
 
-    public void close() {
+    public final void close() {
         this.frame.dispose();
         this.controller.stop();
     }
