@@ -1,11 +1,12 @@
 package view.gui;
 
 import java.awt.BorderLayout;
-import java.applet.*;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -18,10 +19,8 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import controller.Controller;
-import controller.ControllerImpl;
-import model.gui.activity.ActivityInsertion;
 import model.gui.activity.Square;
+import model.gui.person.CircleImpl;
 import model.gui.position.Position;
 import model.gui.position.RandomPosition;
 import model.person.ticket.PersonTicket;
@@ -30,6 +29,11 @@ import view.controller.ViewController;
 
 
 
+/**
+ * 
+ * In this class there is the creation of the main panel for the simulation and the drawing of the circles and squares.
+ *
+ */
 public class SimulationPanel extends JPanel {
 
     private static final long serialVersionUID = 7114066347061701832L;
@@ -44,6 +48,10 @@ public class SimulationPanel extends JPanel {
     private static final int PASS_RADIUS = 20;
     private final JFrame frame;
 
+    /**
+     * 
+     * @param Method that creates the frame with dimension.
+     */
     public SimulationPanel(ViewController controller) {
         this.controller = controller;
         this.frame = new JFrame();
@@ -53,13 +61,14 @@ public class SimulationPanel extends JPanel {
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setMinimumSize(new Dimension(600, 400));
 
-        // creation panel
         final JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
         frame.setContentPane(panel);
-        panel.setBackground(new Color(216,216,216));
+        panel.setBackground(new Color(216, 216, 216));
 
-        // creation bottons
+        /**
+         * Creating the stop button.
+         */
         final JPanel container = new JPanel();
         container.setLayout(new FlowLayout());
         final JButton stop = new JButton("STOP");
@@ -81,6 +90,10 @@ public class SimulationPanel extends JPanel {
 
     }
 
+    /**
+     * Method used to update the simulation by passing it the three types of ticket
+     * and associating them with the three lists created.
+     */
     public void updateSimulation() {
         final Map<PersonTicket, Position<Integer, Integer>> people = this.map;
         final List<CircleImpl> adult = new ArrayList<>();
@@ -91,10 +104,9 @@ public class SimulationPanel extends JPanel {
                 pass.add(DesignPerson.createPass(people.get(p).getFirst(), people.get(p).getSecond(), PASS_RADIUS));
                 System.out.println("Posizione di " + p.toString() + "= x: " + map.get(p).getFirst() + "y: "
                         + map.get(p).getSecond());
-            } else if(p.getAge() < 13) {
+            } else if (p.getAge() < 13) {
                 baby.add(DesignPerson.createBaby(people.get(p).getFirst(), people.get(p).getSecond(), BABY_RADIUS));
-            }
-            else {
+            } else {
                 adult.add(DesignPerson.createAdult(people.get(p).getFirst(), people.get(p).getSecond(), ADULT_RADIUS));
             }
             this.adult = adult;
@@ -104,8 +116,12 @@ public class SimulationPanel extends JPanel {
         }
     }
 
-    // draw oval
-    public void paintComponent(Graphics g) {
+    /**
+     * 
+     * Method used to draw the circles and squares that are associated with people
+     * and activities respectively.
+     */
+    public final void paintComponent(Graphics g) {
         try {
             super.paintComponent(g);
             if (this.adult.size() != 0) {
@@ -120,7 +136,7 @@ public class SimulationPanel extends JPanel {
                     g.fillOval(baby.getX(), baby.getY(), (int) baby.getRadius(), (int) baby.getRadius());
                 }
             }
-            
+
             if (this.pass.size() != 0) {
                 for (CircleImpl pass : pass) {
                     g.setColor(pass.getColor());
@@ -136,8 +152,6 @@ public class SimulationPanel extends JPanel {
                 g.setColor(Color.BLACK);
                 g.drawString(babyFair.getName(), babyFair.getX(), babyFair.getY() + 30);
             }
-            
-            
 
             for (Square adultFair : this.controller.getModelActivity().getAdultFair()) {
                 g.setColor(adultFair.getColor());
@@ -182,7 +196,5 @@ public class SimulationPanel extends JPanel {
     }
 
 }
-
-
 
 

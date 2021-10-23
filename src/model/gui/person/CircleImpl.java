@@ -1,8 +1,13 @@
-package view.gui;
+package model.gui.person;
 
 import java.awt.Color;
 import java.awt.Point;
 
+/**
+ * 
+ * Implementation of the Circle class by passing it the various parameters and getter and setter.
+ *
+ */
 public class CircleImpl implements Circle{
 
 	
@@ -14,7 +19,7 @@ public class CircleImpl implements Circle{
 
     public CircleImpl() {
         this.radius = 2;
-        this.color = Color.CYAN;
+        this.color = color;
         this.x = 0;
         this.y = 0;
     }
@@ -51,5 +56,5 @@ public class CircleImpl implements Circle{
     public int getY() {
         return y;
     }
-	
+
 }

@@ -12,13 +12,18 @@ import javax.swing.SwingUtilities;
 import controller.Controller;
 import view.gui.SimulationPanel;
 
+/**
+ * 
+ * 
+ * Stop button class to close the simulation and open the final statistics.
+ * 
+ *
+ */
 public class ActionPanel extends JPanel implements ActionListener{
 	/**
 	 * 
 	 */
         private static final long serialVersionUID = 5233557063053665457L;
-        // l'utente pu� decidere se mettere in pausa la simulazione oppure terminarla
-        private final JButton pause = new JButton("PAUSE");
         private final JButton close = new JButton("STOP");
 
         public ActionPanel(final Controller view, final SimulationPanel main) {
@@ -29,25 +34,12 @@ public class ActionPanel extends JPanel implements ActionListener{
                 }
 
             });
-            /*
-             * this.setLayout(new FlowLayout(FlowLayout.RIGHT));
-             * this.close.addActionListener(e -> { SwingUtilities.invokeLater(() ->
-             * view.getController().PAUSE()); }); this.pause.addActionListener(e -> {
-             * SwingUtilities.invokeLater(() -> view.getController().STOP()); });
-             * 
-             * this.add(this.pause); this.add(this.stop); this.close.setEnabled(false);
-             * this.stop.setEnabled(false); this.setOpaque(true);
-             */
         }
-//
-//        public static void main(String[] args) {
-//
-//        }
-        
-       
+
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            // TODO Auto-generated method stub
+            
         }
 }
 	

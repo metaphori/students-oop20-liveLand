@@ -3,7 +3,7 @@ package model.gui.position;
 import java.awt.Point;
 import java.time.Duration;
 
-import view.gui.CircleImpl;
+import model.gui.person.CircleImpl;
 import view.gui.SimulationPanel;
 
 public class DirectionPerson extends CircleImpl{

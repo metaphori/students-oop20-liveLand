@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import model.gui.person.CircleImpl;
 import model.person.ticket.PersonTicket;
 import model.ticket.Ticket;
-import view.gui.CircleImpl;
 import view.gui.DesignPerson;
 import view.gui.SimulationPanel;
 
