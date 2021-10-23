@@ -11,21 +11,27 @@ import model.ticket.Ticket;
 import view.gui.DesignPerson;
 import view.gui.SimulationPanel;
 
+/**
+ * 
+ * Class that redraws people every time.
+ *
+ */
 public class RepaintPeople {
-    
+
     private DesignPerson design = new DesignPerson();
     private List<CircleImpl> adult = new ArrayList<>();
     private List<CircleImpl> baby = new ArrayList<>();
     private static final int ADULT_RADIUS = 10;
     private static final int BABY_RADIUS = 8;
     private SimulationPanel panel;
-    
-    public RepaintPeople(SimulationPanel panel) {
+
+    public RepaintPeople(final SimulationPanel panel) {
         this.panel = panel;
     }
-    public void repaint(Map<PersonTicket, Position<Integer, Integer>> map) {
-        for(PersonTicket p: map.keySet()) {
-            if(p.getTicket().equals(Ticket.ADULT)) {
+
+    public final void repaint(final Map<PersonTicket, Position<Integer, Integer>> map) {
+        for (PersonTicket p: map.keySet()) {
+            if (p.getTicket().equals(Ticket.ADULT)) {
                 adult.add(DesignPerson.createAdult(map.get(p).getFirst(), 
                         map.get(p).getSecond(), ADULT_RADIUS));
             } else {
@@ -34,7 +40,7 @@ public class RepaintPeople {
             }
             //this.panel.paintComponent(this.adult);
         }
-        
+
     }
 
 

@@ -6,16 +6,16 @@ import java.time.Duration;
 import model.gui.person.CircleImpl;
 import view.gui.SimulationPanel;
 
-public class DirectionPerson extends CircleImpl{
-     
-    public DirectionPerson(int x, int y){
-        
+public class DirectionPerson extends CircleImpl {
+
+    public DirectionPerson(final int x, final int y){
+
     Point aPoint = new Point();
     Point bPoint = new Point(50, 25);
     Point cPoint = new Point(bPoint);
-    
+
     System.out.println("cPoint is located at: " + cPoint);
-    
+
     System.out.println("aPoint is located at: " + aPoint);
     aPoint.move(100, 50);
 
@@ -25,9 +25,9 @@ public class DirectionPerson extends CircleImpl{
     aPoint.translate(10, 20);
     System.out.println("aPoint is now at: " + aPoint);
 
-    if (aPoint.equals(bPoint))
-      System.out.println("aPoint and bPoint are at the same location.");
+    if (aPoint.equals(bPoint)) {
+        System.out.println("aPoint and bPoint are at the same location.");
+    }
   }
-        
-     
+
 }

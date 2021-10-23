@@ -8,14 +8,14 @@ import java.awt.Point;
  * Implementation of the Circle class by passing it the various parameters and getter and setter.
  *
  */
-public class CircleImpl implements Circle{
+public class CircleImpl implements Circle {
 
-	
     private static final long serialVersionUID = 1L;
     private double radius;
     private Color color;
     private int x;
     private int y;
+
 
     public CircleImpl() {
         this.radius = 2;
@@ -24,36 +24,62 @@ public class CircleImpl implements Circle{
         this.y = 0;
     }
 
-    public double getRadius() {
+    /**
+     * {@inheritDoc}
+     */
+    public final double getRadius() {
         return radius;
     }
 
-    public Color getColor() {
+    /**
+     * {@inheritDoc}
+     */
+    public final Color getColor() {
         return color;
     }
 
-    public void setRadius(double r) {
+    /**
+     * {@inheritDoc}
+     */
+    public final void setRadius(final double r) {
         this.radius = r;
     }
 
-    public void setColor(Color color) {
+    /**
+     * {@inheritDoc}
+     */
+    public final void setColor(final Color color) {
         this.color = color;
     }
 
-    public void setX(int x) {
+    /**
+     * {@inheritDoc}
+     */
+    public final void setX(final int x) {
         this.x = x;
     }
 
-    public void setY(int y) {
+    /**
+     * {@inheritDoc}
+     */
+    public final void setY(final int y) {
         this.y = y;
 
     }
 
-    public int getX() {
+    /**
+     * {@inheritDoc}
+     * 
+     */
+    public final int getX() {
         return x;
     }
 
-    public int getY() {
+    /**
+     * {@inheritDoc}
+     * 
+     */
+    public final int getY() {
         return y;
     }
 

@@ -19,17 +19,15 @@ import view.gui.SimulationPanel;
  * 
  *
  */
-public class ActionPanel extends JPanel implements ActionListener{
-	/**
-	 * 
-	 */
+public class ActionPanel extends JPanel implements ActionListener {
+
         private static final long serialVersionUID = 5233557063053665457L;
         private final JButton close = new JButton("STOP");
 
         public ActionPanel(final Controller view, final SimulationPanel main) {
             super();
             close.addActionListener(new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
+                public void actionPerformed(final ActionEvent e) {
                     main.close();
                 }
 
@@ -37,9 +35,9 @@ public class ActionPanel extends JPanel implements ActionListener{
         }
 
         @Override
-        public void actionPerformed(ActionEvent e) {
+        public void actionPerformed(final ActionEvent e) {
             // TODO Auto-generated method stub
-            
+
         }
 }
 	

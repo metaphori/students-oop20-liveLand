@@ -18,7 +18,7 @@ public class DesignPerson extends JPanel {
 
         private static final long serialVersionUID = 1L;
 
-        public static CircleImpl createAdult(int x, int y, int radius) {
+        public static final CircleImpl createAdult(final int x, final int y, final int radius) {
             CircleImpl adult = new CircleImpl();
             adult.setColor(new Color(15,226,0));
             adult.setRadius(radius);
@@ -27,7 +27,7 @@ public class DesignPerson extends JPanel {
             return adult;
         }
 
-        public static CircleImpl createBaby(int x, int y, int radius) {
+        public static CircleImpl createBaby(final int x, final int y, final int radius) {
             CircleImpl baby = new CircleImpl();
             baby.setColor(new Color(192,0,250));
             baby.setRadius(radius);
@@ -36,7 +36,7 @@ public class DesignPerson extends JPanel {
             return baby;
         }
 
-        public static CircleImpl createPass(int x, int y, int radius) {
+        public static CircleImpl createPass(final int x, final int y, final int radius) {
             CircleImpl pass = new CircleImpl();
             pass.setColor(new Color(0,155,232));
             pass.setRadius(radius);

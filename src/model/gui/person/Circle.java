@@ -11,38 +11,38 @@ import java.awt.Point;
 public interface Circle {
     /**
      * 
-     * @param Set the X.
+     * @param Set the coordinate X.
      */
     void setX(int x);
 
     /**
      * 
-     * @param Set the Y.
+     * @param Set the coordinate Y.
      */
     void setY(int y);
 
     /**
      * 
-     * @param radius
+     * @param Set circle radius.
      */
     void setRadius(double radius);
 
     /**
      * 
-     * @param color
+     * @param Set circle color. 
      */
 
     void setColor(Color color);
 
     /**
      * 
-     * @return the radius of the circle
+     * @return the radius of circle.
      */
     double getRadius();
 
     /**
      * 
-     * @return the color of the circle
+     * @return the color of circle.
      */
     Color getColor();
 
