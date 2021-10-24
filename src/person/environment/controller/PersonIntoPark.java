@@ -1,13 +1,10 @@
 package person.environment.controller;
 
-import java.util.HashMap;
-import java.util.Map;
 import java.util.Random;
 
 import controller.EnvironmentControllerImpl;
 import model.environment.open.OpenImpl;
 import model.person.environment.EnvironmentImpl;
-import model.person.ticket.PersonTicket;
 import person.environment.motion.PeopleMovingIntoPark;
 import person.environment.motion.PeopleRecirculationGui;
 import view.controller.ViewController;
@@ -23,7 +20,7 @@ public final class PersonIntoPark extends Thread {
     private final PeopleMovingIntoPark peopleMoving;
     private final PeopleRecirculationGui recirculationGui;
 
-    public PersonIntoPark(final EnvironmentControllerImpl controller, ViewController viewController) {
+    public PersonIntoPark(final EnvironmentControllerImpl controller, final ViewController viewController) {
         super();
         this.environment = new EnvironmentImpl();
         this.controller = controller;
