@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-10-24T16:01:55.274Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15" etag="TWQbnpIUpStnnG0sgUXG" version="15.5.8" type="github" pages="8">
+<mxfile host="app.diagrams.net" modified="2021-10-24T16:06:26.831Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.1 Safari/605.1.15" etag="Ozz2LtdyZJvYAO5gJZNb" version="15.5.8" type="github" pages="8">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1180" dy="515" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -595,7 +595,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="ohI4Xb5qZoReTl-djgKk" name="Page-8">
-    <mxGraphModel dx="1686" dy="736" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="983" dy="429" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="31FxwAKJAUr35Q9jbKmm-0" />
         <mxCell id="31FxwAKJAUr35Q9jbKmm-1" parent="31FxwAKJAUr35Q9jbKmm-0" />
@@ -633,15 +633,6 @@
         </mxCell>
         <mxCell id="uwUcCvrAQTwnOLVvJduW-0" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Environment&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ peopleEntrance(PersonTicket) : void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ exitPeople() : void&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+getPersonList() : List&amp;lt;&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+getEntranceProfit : List&amp;lt;&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+getEntrance: EntranceImpl&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="31FxwAKJAUr35Q9jbKmm-1" vertex="1">
           <mxGeometry x="50" y="400" width="220" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="FbMHKGrPk1RH_tuHrosi-0" value="AnalysisDatasetFactory" style="swimlane;fontStyle=3;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" parent="31FxwAKJAUr35Q9jbKmm-1" vertex="1">
-          <mxGeometry x="520" y="720" width="170" height="70" as="geometry" />
-        </mxCell>
-        <mxCell id="FbMHKGrPk1RH_tuHrosi-1" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="FbMHKGrPk1RH_tuHrosi-0" vertex="1">
-          <mxGeometry y="26" width="170" height="8" as="geometry" />
-        </mxCell>
-        <mxCell id="FbMHKGrPk1RH_tuHrosi-2" value="+ createDataset( ): Dataset&#xa;+ createChart( ): JFreeChart" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=2" parent="FbMHKGrPk1RH_tuHrosi-0" vertex="1">
-          <mxGeometry y="34" width="170" height="36" as="geometry" />
         </mxCell>
         <mxCell id="yVkGLchIaaPQN3jA37tl-4" value="&lt;&lt;Interface&gt;&gt;&#xa;Activity" style="swimlane;fontStyle=1;align=center;verticalAlign=top;childLayout=stackLayout;horizontal=1;startSize=50;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fontSize=12;" parent="31FxwAKJAUr35Q9jbKmm-1" vertex="1">
           <mxGeometry x="500" y="140" width="227.5" height="142" as="geometry" />
@@ -724,6 +715,9 @@
               <mxPoint x="550.1" y="650" />
             </Array>
           </mxGeometry>
+        </mxCell>
+        <mxCell id="aEj7Xhb1T1h1mpjHmt3--0" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;Interface&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Analysis&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ fairLiking( ): List&amp;lt;String&amp;gt;&lt;br&gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ profit( ): List&amp;lt;String&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ tickets( ): List&amp;lt;String&amp;gt;&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" vertex="1" parent="31FxwAKJAUr35Q9jbKmm-1">
+          <mxGeometry x="480" y="722" width="227.5" height="88" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
