@@ -18,19 +18,31 @@ public final class PersonTicket implements PersonTicketInterface {
         this.ticket = this.randTicket();
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public int randAge() {
         final Random rand = new Random();
         return rand.nextInt((AGE_MAX - AGE_MIN) + 1) + AGE_MIN;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public int getAge() {
         return age;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public Ticket getTicket() {
         return ticket;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public Ticket randTicket() {
         final Random rand = new Random();
         final int randomTicket = rand.nextInt(4);

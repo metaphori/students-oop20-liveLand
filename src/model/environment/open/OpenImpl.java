@@ -13,7 +13,9 @@ public final class OpenImpl implements Open {
         this.numPerson = numPerson;
         this.environment = environment;
     }
-
+    /**
+     * {@inheritDoc}
+     */
     public void firstEntrance() {
         for (int i = 0; i < numPerson; i++) {
             final PersonTicket person = new PersonTicket();

@@ -12,6 +12,9 @@ public final class EntranceImpl implements Entrance {
     private int reducedProfit;
     private int passProfit;
 
+    /**
+     * {@inheritDoc}
+     */
     public void addPerson(final PersonTicket personTicket) {
 
         switch (personTicket.getTicket()) {
@@ -30,22 +33,37 @@ public final class EntranceImpl implements Entrance {
         numTickets++;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public int getProfit() {
         return profit;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public int getNumTickets() {
         return numTickets;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public int getAdultProfit() {
         return adultProfit;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public int getReducedProfit() {
         return reducedProfit;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public int getPassProfit() {
         return passProfit;
     }
