@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.Toolkit;
@@ -19,6 +20,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTextArea;
 
 import model.gui.activity.Square;
 import model.gui.person.CircleImpl;
@@ -32,7 +34,7 @@ import view.controller.ViewController;
 
 /**
  * 
- * In this class there is the creation of the main panel for the simulation and the drawing of the circles and squares.
+ * In this panel there is the creation of the simulation and the drawing of the circles and squares.
  *
  */
 public class SimulationPanel extends JPanel {
@@ -48,6 +50,7 @@ public class SimulationPanel extends JPanel {
     private static final int BABY_RADIUS = 15;
     private static final int PASS_RADIUS = 20;
     private final JFrame frame;
+    private final JTextArea legend = new JTextArea();
 
     /**
      * 
@@ -58,9 +61,10 @@ public class SimulationPanel extends JPanel {
         this.frame = new JFrame();
         frame.setTitle("LiveLand");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(true);
+        frame.setResizable(false);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-        frame.setMinimumSize(new Dimension(600, 400));
+        frame.setMinimumSize(new Dimension(frame.getWidth(), frame.getHeight()));
+
 
         final JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
@@ -68,18 +72,30 @@ public class SimulationPanel extends JPanel {
         panel.setBackground(new Color(216, 216, 216));
 
         /**
+         * Creating the legend
+         */
+        legend.setText("BLUE = person with pass\n" + "PURPLE = babies\n" + "GREEN = adults");
+        legend.setForeground(Color.WHITE);
+        legend.setBackground(Color.DARK_GRAY);
+        legend.setEditable(false);
+        final Font legendFont = legend.getFont().deriveFont(Font.ITALIC, 15f);
+        legend.setFont(legendFont);
+        this.add(legend);
+
+        /**
          * Creating the stop button.
          */
         final JPanel container = new JPanel();
-        container.setLayout(new FlowLayout());
+        container.setLayout(new BorderLayout());
         final JButton stop = new JButton("STOP");
         frame.setVisible(true);
-        container.add(stop);
+        container.add(stop, BorderLayout.NORTH);
         panel.add(container, BorderLayout.EAST);
         container.setBackground(Color.DARK_GRAY);
         this.map = new HashMap<PersonTicket, Position<Integer, Integer>>();
         panel.add(this, BorderLayout.CENTER);
         this.setBackground(Color.WHITE);
+        container.add(legend, BorderLayout.CENTER);
 
         stop.addActionListener(new ActionListener() {
             public void actionPerformed(final ActionEvent e) {
