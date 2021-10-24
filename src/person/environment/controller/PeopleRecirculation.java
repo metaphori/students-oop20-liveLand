@@ -10,6 +10,7 @@ import person.environment.motion.PeopleRecirculationGui;
 public final class PeopleRecirculation {
 
     private final Random rand = new Random();
+    private static final double MAX_EXIT = 0.3;
     private final EnvironmentImpl environment;
     private final EnvironmentControllerImpl controller;
     private final PersonIntoPark park;
@@ -36,11 +37,11 @@ public final class PeopleRecirculation {
             recirculationGui.peopleEntrance(person);
             park.incPeopleIntoPark();
         }
-        final int numExit = (int) (controller.getVisitorsNumber() * 0.3);
+        final int numExit = (int) (controller.getVisitorsNumber() * MAX_EXIT);
         do {
             randPeopleExit = rand.nextInt(numExit);
         }
-        while (randPeopleExit > environment.getPersonList().size()*0.3);
+        while (randPeopleExit > environment.getPersonList().size() * MAX_EXIT);
         for (int i = 0; i < randPeopleExit; i++) {
             recirculationGui.peopleExit(environment.getPersonList().get(0));
             environment.exitPeople();
