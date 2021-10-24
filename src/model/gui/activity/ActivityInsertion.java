@@ -15,6 +15,10 @@ public class ActivityInsertion {
     private final List<Square> babyFair;
     private final EnvironmentControllerImpl controller;
 
+    /**
+     * 
+     * @param controller
+     */
     public ActivityInsertion(final EnvironmentControllerImpl controller) {
         this.shop = new LinkedList<>();
         this.restaurant = new LinkedList<>();
@@ -23,6 +27,9 @@ public class ActivityInsertion {
         this.controller = controller;
     }
 
+    /**
+     * Add objects in their list.
+     */
     public final void listActivity() {
         int distanceAdultFair = 0;
         int distanceBabyFair = 0;
@@ -57,18 +64,34 @@ public class ActivityInsertion {
 
     }
 
+    /**
+     * 
+     * @return list of shops
+     */
     public final List<Square> getShop() {
         return shop;
     }
 
+    /**
+     * 
+     * @return list of restaurants
+     */
     public final List<Square> getRestaurant() {
         return restaurant;
     }
 
+    /**
+     * 
+     * @return list of adult fairs
+     */
     public final List<Square> getAdultFair() {
         return adultFair;
     }
 
+    /**
+     * 
+     * @return list of baby fairs
+     */
     public final List<Square> getBabyFair() {
         return babyFair;
     }

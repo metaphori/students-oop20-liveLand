@@ -66,7 +66,7 @@ public class Fair implements Activity {
 
     /**
      * 
-     * @return
+     * @return maximum capacity of a fair
      */
     public final int getCapacity() {
         return capacity;
@@ -75,7 +75,7 @@ public class Fair implements Activity {
     /**
      * 
      * @param age
-     * @return
+     * @return boolean which varies depending on whether the person can enter the fair or not according to age
      */
     public final boolean controlAge(final int age) {
         return age > MIN_AGE;
@@ -90,7 +90,7 @@ public class Fair implements Activity {
 
     /**
      * 
-     * @return
+     * @return name of the fair
      */
     public final String getName() {
         return this.name;

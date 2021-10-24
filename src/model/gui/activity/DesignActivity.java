@@ -10,6 +10,16 @@ public class DesignActivity {
     private static int width = (int) SCREEN.getWidth();
     private static int height = (int) SCREEN.getHeight();
 
+    /**
+     * 
+     * @param wh
+     * @param ht
+     * @param x
+     * @param y
+     * @param name
+     * @param distance
+     * @return object shop
+     */
     public static Square createShop(final int wh, final int ht, final int x, final int y, final String name, final int distance) {
         final Square shop = new Square();
         shop.setWidth(width / wh);
@@ -21,6 +31,16 @@ public class DesignActivity {
         return shop;
     }
 
+    /**
+     * 
+     * @param wh
+     * @param ht
+     * @param x
+     * @param y
+     * @param name
+     * @param distance
+     * @return object restaurant
+     */
     public static Square createRestaurant(final int wh, final int ht, final int x, final int y, final String name, final int distance) {
         final Square restaurant = new Square();
         restaurant.setWidth(height / ht);
@@ -32,6 +52,16 @@ public class DesignActivity {
         return restaurant;
     }
 
+    /**
+     * 
+     * @param wh
+     * @param ht
+     * @param x
+     * @param y
+     * @param name
+     * @param distance
+     * @return object babyFair
+     */
     public static Square createBabyFair(final int wh, final int ht, final int x, final int y, final String name, final int distance) {
         final Square babyFair = new Square();
         babyFair.setWidth(height / ht);
@@ -43,6 +73,16 @@ public class DesignActivity {
         return babyFair;
     }
 
+    /**
+     * 
+     * @param wh
+     * @param ht
+     * @param x
+     * @param y
+     * @param name
+     * @param distance
+     * @return object adultFair
+     */
     public static Square createAdultFair(final int wh, final int ht, final int x, final int y, final String name, final int distance) {
         final Square adultFair = new Square();
         adultFair.setWidth(height / ht);

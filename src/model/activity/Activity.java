@@ -16,24 +16,24 @@ public interface Activity {
     /**
      * 
      * @param person
-     * Add people to the people list of every single Activity.
+     * Add people to the people's list of every single Activity.
      */
     void addPerson(PersonTicket person);
 
     /**
-     * Clear the list of people.
+     * Clear people's list.
      */
     void removePerson();
 
     /**
      * 
-     * @return list of the people of every single race of every single fair.
+     * @return list of the people of every single race of every single Activity.
      */
     List<PersonTicket> getPeopleList();
 
     /**
      * 
-     * @return number of people who have been in each single fair.
+     * @return number of people who have been in each single Activity.
      */
     int getTotPeople();
 }

@@ -10,6 +10,9 @@ public class Square {
     private String name;
     private Color color;
 
+    /**
+     * 
+     */
     public Square() {
         this.width = 0;
         this.height = 0;
@@ -19,50 +22,98 @@ public class Square {
         this.color = Color.BLACK;
     }
 
+    /**
+     * 
+     * @return name
+     */
     public final String getName() {
         return name;
     }
 
+    /**
+     * 
+     * @param name
+     */
     public final void setName(final String name) {
         this.name = name;
     }
 
+    /**
+     * 
+     * @return width
+     */
     public final int getWidth() {
         return width;
     }
 
+    /**
+     * 
+     * @param width
+     */
     public final void setWidth(final int width) {
         this.width = width;
     }
 
+    /**
+     * 
+     * @return height
+     */
     public final int getHeight() {
         return height;
     }
 
+    /**
+     * 
+     * @param height
+     */
     public final void setHeight(final int height) {
         this.height = height;
     }
 
+    /**
+     * 
+     * @return color
+     */
     public final Color getColor() {
         return color;
     }
 
+    /**
+     * 
+     * @param color
+     */
     public final void setColor(final Color color) {
         this.color = color;
     }
 
+    /**
+     * 
+     * @return coordinate x
+     */
     public final int getX() {
         return x;
     }
 
+    /**
+     * 
+     * @param x
+     */
     public final void setX(final int x) {
         this.x = x;
     }
 
+    /**
+     * 
+     * @return coordinate y
+     */
     public final int getY() {
         return y;
     }
 
+    /**
+     * 
+     * @param y
+     */
     public final void setY(final int y) {
         this.y = y;
     }
