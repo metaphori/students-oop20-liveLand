@@ -3,7 +3,7 @@ package model.analysis;
 import org.jfree.chart.JFreeChart;
 import org.jfree.data.general.Dataset;
 
-public abstract class AbstractDatasetFactory {
+public abstract class AnalysisDatasetFactory {
 
     /**
      * @return A dataset containing analysis data

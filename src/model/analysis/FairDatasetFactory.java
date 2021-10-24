@@ -6,7 +6,7 @@ import org.jfree.data.general.DefaultPieDataset;
 import org.jfree.data.general.PieDataset;
 import controller.EnvironmentControllerImpl;
 
-public class FairDatasetFactory extends AbstractDatasetFactory {
+public class FairDatasetFactory extends AnalysisDatasetFactory {
 
     private final EnvironmentControllerImpl controller;
     public FairDatasetFactory(final EnvironmentControllerImpl controller) {

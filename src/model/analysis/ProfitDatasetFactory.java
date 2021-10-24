@@ -6,7 +6,7 @@ import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.DefaultCategoryDataset;
 import controller.EnvironmentControllerImpl;
 
-public class ProfitDatasetFactory extends AbstractDatasetFactory {
+public class ProfitDatasetFactory extends AnalysisDatasetFactory {
 
     private final EnvironmentControllerImpl controller;
     private static final String TICK = "TICKETS";
