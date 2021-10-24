@@ -4,7 +4,7 @@ public class VisitorsOutOfBoundException extends IllegalStateException {
 
     /**
      * This exception is raised if the user tries to set visitors number
-     * below 1 or above 100.
+     * below 1 or above 300.
      */
     private static final long serialVersionUID = 6821339703443669838L;
 
@@ -14,7 +14,7 @@ public class VisitorsOutOfBoundException extends IllegalStateException {
      */
     @Override
     public String toString() {
-        return "Visitors' number must be between 1 and 100! Please, try again ";
+        return "Visitors' number must be between 1 and 300! Please, try again ";
     }
 
     /**

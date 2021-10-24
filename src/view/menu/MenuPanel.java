@@ -1,5 +1,6 @@
 package view.menu;
 
+import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,18 +21,21 @@ public class MenuPanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
     private static final int TEXT_FIELD_WIDTH = 5; 
+    private final JPanel visitorsPanel;
     private final JLabel capacity = new JLabel("Choose the number of visitors for this simulation (max. 300):");
     private final JButton validate = new JButton("Validate");
     private final JTextField visitors = new JTextField("", TEXT_FIELD_WIDTH);
     private final ActivityPanel activityPanel;
 
     public MenuPanel(final EnvironmentControllerImpl view, final GraphicalUserInterface gui) {
-        activityPanel = new ActivityPanel(view);
-        this.setLayout(new FlowLayout(FlowLayout.CENTER));
-        this.add(capacity);
-        this.add(visitors);
-        this.add(validate);
-        this.add(activityPanel);
+        this.activityPanel = new ActivityPanel(view);
+        this.visitorsPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+        this.visitorsPanel.add(capacity);
+        this.visitorsPanel.add(visitors);
+        this.visitorsPanel.add(validate);
+        this.setLayout(new BorderLayout());
+        this.add(visitorsPanel, BorderLayout.NORTH);
+        this.add(activityPanel, BorderLayout.CENTER);
 
         validate.addActionListener(new ActionListener() {
             @Override

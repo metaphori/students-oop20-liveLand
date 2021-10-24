@@ -39,10 +39,11 @@ public final class GraphicalUserInterfaceImpl implements GraphicalUserInterface 
         frame.setTitle("FunFair Simulator");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        final Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
-        final int sw = (int) screen.getWidth();
-        final int sh = (int) screen.getHeight();
-        frame.setSize(sw / 2, sh / 3);
+//        final Dimension screen = Toolkit.getDefaultToolkit().getScreenSize();
+//        final int sw = (int) screen.getWidth();
+//        final int sh = (int) screen.getHeight();
+//        frame.setSize(sw / 2, sh / 2);
+        frame.setMinimumSize(new Dimension(frame.getWidth(), frame.getHeight()));
         frame.setLocationByPlatform(true);
     }
 

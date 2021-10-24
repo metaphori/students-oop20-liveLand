@@ -27,7 +27,7 @@ public final class ChartImgBuilder implements ChartImg {
      */
     @Override
     public File profitChartImg() throws IOException {
-        final File profitBarChart = new File(HOME + SEPARATOR + "ProfitBarChart.jpeg");
+        final File profitBarChart = new File(HOME + SEPARATOR + "LiveLand_ProfitBarChart.jpeg");
         ChartUtilities.saveChartAsJPEG(profitBarChart, this.profitChart, WIDTH, HEIGHT);
         return profitBarChart;
     }
@@ -37,7 +37,7 @@ public final class ChartImgBuilder implements ChartImg {
      */
     @Override
     public File fairChartImg() throws IOException {
-        final File fairPieChart = new File(HOME + SEPARATOR + "FairBarChart.jpeg"); 
+        final File fairPieChart = new File(HOME + SEPARATOR + "LiveLand_FairPieChart.jpeg"); 
         ChartUtilities.saveChartAsJPEG(fairPieChart, this.fairChart, WIDTH, HEIGHT);
         return fairPieChart;
     }
