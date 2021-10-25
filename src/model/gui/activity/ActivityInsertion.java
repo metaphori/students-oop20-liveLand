@@ -15,20 +15,19 @@ public class ActivityInsertion {
     private final List<Square> adultFair;
     private final List<Square> babyFair;
     private final EnvironmentControllerImpl controller;
-    private final DesignActivity design;
 
     /**
      * 
      * @param controller
      */
-    public ActivityInsertion(final EnvironmentControllerImpl controller, ViewControllerImpl viewController) {
+    public ActivityInsertion(final EnvironmentControllerImpl controller) {
 
         this.shop = new LinkedList<>();
         this.restaurant = new LinkedList<>();
         this.adultFair = new LinkedList<>();
         this.babyFair = new LinkedList<>();
         this.controller = controller;
-        this.design = new DesignActivity(viewController);
+
     }
 
     /**
@@ -56,7 +55,7 @@ public class ActivityInsertion {
                 distanceShop += 200;
                 break;
             case REST: 
-                restaurant.add(DesignActivity.createRestaurant(15, 9, 10, 10, a.getName(), distanceRestaurant));
+                restaurant.add(DesignActivity.createRestaurant(20, 9, 10, 10, a.getName(), distanceRestaurant));
                 distanceRestaurant += 200;
                 break;
             default:

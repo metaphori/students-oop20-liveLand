@@ -9,15 +9,9 @@ import java.awt.Dimension;
 
 public class DesignActivity {
 
-    private final Dimension screen;
-    private static int WIDTH;
-    private static int HEIGHT;
-
-    public DesignActivity(final ViewControllerImpl controller) {
-        this.screen = controller.getSimPanel().getFrameSize();
-        WIDTH = (int) this.screen.getWidth();
-        HEIGHT = (int) this.screen.getHeight();
-    }
+    private static final Dimension SCREEN = Toolkit.getDefaultToolkit().getScreenSize();
+    private static int WIDTH = (int) SCREEN.getWidth();
+    private static int HEIGHT = (int) SCREEN.getHeight();
 
     /**
      * 

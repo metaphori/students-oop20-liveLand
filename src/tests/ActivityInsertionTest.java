@@ -38,15 +38,14 @@ public class ActivityInsertionTest {
         } catch (ActivityAlreadyPresentException exc) {
             System.out.print(exc.getMessage());
         }
-        assertTrue("Activity1 correctly added in controller's list", 
+        assertTrue("Activity1 correctly added in controller's list",
                 this.controller.getActivityList().contains(this.act1));
         try {
             this.controller.addNewActivity(this.act3);
         } catch (ActivityAlreadyPresentException exc) {
             System.out.print(exc.getMessage());
         }
-        assertTrue("Activity3 correctly added in controller's list", 
-                this.controller.getActivityList().contains(act3));
+        assertTrue("Activity3 correctly added in controller's list", this.controller.getActivityList().contains(act3));
         assertThrows(ActivityAlreadyPresentException.class, () -> this.controller.addNewActivity(act3));
         assertNotSame("Activity3 not added, already present!", this.controller.getActivityList().size() == 3);
     }
