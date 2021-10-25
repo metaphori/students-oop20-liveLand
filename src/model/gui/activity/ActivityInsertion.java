@@ -18,7 +18,7 @@ public class ActivityInsertion {
 
     /**
      * 
-     * @param controller
+     * @param controller constructor
      */
     public ActivityInsertion(final EnvironmentControllerImpl controller) {
 

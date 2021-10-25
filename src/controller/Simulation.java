@@ -24,7 +24,7 @@ public class Simulation implements Runnable {
     }
 
     /**
-     * It calls {@link PersonIntoPark.logics()} method to update people in the park 
+     * It calls PersonIntoPark.logics() method to update people in the park 
      * every second.
      */
     @Override

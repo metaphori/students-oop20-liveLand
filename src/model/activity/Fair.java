@@ -18,9 +18,9 @@ public class Fair implements Activity {
 
     /**
      * 
-     * @param name
-     * @param capacity
-     * @param activityType
+     * @param name activity name
+     * @param capacity activity capacity
+     * @param activityType activity type
      */
     public Fair(final String name, final int capacity, final ActivityType activityType) {
         this.name = name;
@@ -30,10 +30,10 @@ public class Fair implements Activity {
 
     /**
      * 
-     * @param name
-     * @param capacity
-     * @param activityType
-     * @param visitors
+     * @param name activity name
+     * @param capacity activity capacity
+     * @param activityType activity type
+     * @param visitors visitors number
      */
     public Fair(final String name, final int capacity, final ActivityType activityType, final int visitors) {
         this.name = name;
@@ -74,7 +74,7 @@ public class Fair implements Activity {
 
     /**
      * 
-     * @param age
+     * @param age control people age
      * @return boolean which varies depending on whether the person can enter the fair or not according to age
      */
     public final boolean controlAge(final int age) {

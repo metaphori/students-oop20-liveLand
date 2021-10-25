@@ -14,7 +14,7 @@ public interface EnvironmentController {
 
     /**
      * Starts the simulation.
-     * @throws {@link EmptyEnvironmentException} if button Start is pressed without 
+     * @throws EmptyEnvironmentException if button Start is pressed without 
      * adding any activity. 
      */
     void start() throws EmptyEnvironmentException;
@@ -27,15 +27,15 @@ public interface EnvironmentController {
     /**
      * Adds a new activity to the environment, based on user's choices.
      * @param activity which stores user's choices
-     * @throws {@link ActivityAlreadyPresentException} if an activity with same parameters
+     * @throws ActivityAlreadyPresentException if an activity with same parameters
      * has already been added.
      */
     void addNewActivity(ViewActivityImpl activity) throws ActivityAlreadyPresentException;
 
     /**
      * Sets the visitors number as selected by the user in the gui menu.
-     * @param visitorsNum
-     * @throws {@link VisitorsOutOfBoundException} if the number chosen by the user is 
+     * @param visitorsNum visitors number
+     * @throws VisitorsOutOfBoundException if the number chosen by the user is 
      * less than 1 or greater than 100
      */
     void setVisitorsNumber(int visitorsNum) throws VisitorsOutOfBoundException;

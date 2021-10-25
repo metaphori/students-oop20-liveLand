@@ -8,12 +8,12 @@ import java.util.Optional;
  * have optional fields that may not be present (Optional). 
  * The class implementing this interface acts as a "bridge" from the view to the 
  * model, making it easier to move data inserted by the user to the
- * {@link ActivityEnvironmentImpl} where Fair and Profit activities are effectively built.
+ * ActivityEnvironmentImpl where Fair and Profit activities are effectively built.
  */
 public interface ViewActivity {
 
     /**
-     * @return the {@link ActivityType}
+     * @return the activity type
      */
     ActivityType getActivityType();
 

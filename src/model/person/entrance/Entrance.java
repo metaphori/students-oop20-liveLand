@@ -8,7 +8,7 @@ public interface Entrance {
 
     /**
      * Increments the profit based on ticket type.
-     * @param personTicket
+     * @param personTicket person ticket
      */
     void addPerson(PersonTicket personTicket);
 

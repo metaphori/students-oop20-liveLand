@@ -10,7 +10,7 @@ public interface Environment {
 
     /**
      * Adding a new person into the park.
-     * @param personTicket
+     * @param personTicket personTicket
      */
     void peopleEntrance(PersonTicket personTicket);
 

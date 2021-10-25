@@ -24,7 +24,7 @@ public class Square {
 
     /**
      * 
-     * @return name
+     * @return name  
      */
     public final String getName() {
         return name;
@@ -32,7 +32,7 @@ public class Square {
 
     /**
      * 
-     * @param name
+     * @param name activity name
      */
     public final void setName(final String name) {
         this.name = name;
@@ -48,7 +48,7 @@ public class Square {
 
     /**
      * 
-     * @param width
+     * @param width activity width 
      */
     public final void setWidth(final int width) {
         this.width = width;
@@ -64,7 +64,7 @@ public class Square {
 
     /**
      * 
-     * @param height
+     * @param height activity height
      */
     public final void setHeight(final int height) {
         this.height = height;
@@ -80,7 +80,7 @@ public class Square {
 
     /**
      * 
-     * @param color
+     * @param color activity color
      */
     public final void setColor(final Color color) {
         this.color = color;
@@ -96,7 +96,7 @@ public class Square {
 
     /**
      * 
-     * @param x
+     * @param x coordinate x
      */
     public final void setX(final int x) {
         this.x = x;
@@ -112,7 +112,7 @@ public class Square {
 
     /**
      * 
-     * @param y
+     * @param y coordinate y
      */
     public final void setY(final int y) {
         this.y = y;

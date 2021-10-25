@@ -3,8 +3,8 @@ package model.gui.position;
 /**
  * 
  *
- * @param <X>
- * @param <Y>
+ * @param <X> coordinate x
+ * @param <Y> coordinate y
  */
 
 public class Position<X, Y> {

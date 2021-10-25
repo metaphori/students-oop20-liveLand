@@ -7,13 +7,13 @@ public interface ChartImg {
 
     /**
      * @return a file containing the Profit chart saved as jpeg
-     * @throws IOException
+     * @throws IOException exception
      */
     File profitChartImg() throws IOException;
 
     /**
      * @return a file containing the Fair chart saved as jpeg
-     * @throws IOException
+     * @throws IOException exception
      */
     File fairChartImg() throws IOException;
 

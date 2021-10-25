@@ -27,7 +27,7 @@ public class SettingPanel extends JPanel {
      * It builds a new {@link ViewActivityImpl} object where the parameters chosen 
      * are saved.
      * @return the ViewActivityImpl built
-     * @throws {@link WrongParametersException} if any of the parameters
+     * @throws WrongParametersException if any of the parameters
      * is in a wrong format
      */
     public ViewActivityImpl buildNewProfitActivity() throws WrongParametersException {

@@ -19,10 +19,10 @@ public class Profit implements Activity {
 
     /**
      * 
-     * @param name
-     * @param min
-     * @param max
-     * @param activityType
+     * @param name profit name
+     * @param min profit min
+     * @param max profit max
+     * @param activityType activity type
      */
     public Profit(final String name, final int min, final int max, final ActivityType activityType) {
         this.name = name;
@@ -33,11 +33,11 @@ public class Profit implements Activity {
 
     /**
      * 
-     * @param name
-     * @param min
-     * @param max
-     * @param activityType
-     * @param visitors
+     * @param name profit name
+     * @param min profit min
+     * @param max profit max
+     * @param activityType activity type
+     * @param visitors visitors number
      */
     public Profit(final String name, final int min, final int max, final ActivityType activityType, final int visitors) {
         this.name = name;
@@ -65,7 +65,7 @@ public class Profit implements Activity {
 
     /**
      * 
-     * @param money
+     * @param money money
      * 
      */
     public final void setProfit(final int money) {

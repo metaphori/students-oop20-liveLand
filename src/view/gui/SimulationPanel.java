@@ -54,7 +54,7 @@ public class SimulationPanel extends JPanel {
 
     /**
      * 
-     * @param Method that creates the frame with dimension.
+     * @param controller Method that creates the frame with dimension.
      */
     public SimulationPanel(final ViewController controller) {
         this.controller = controller;

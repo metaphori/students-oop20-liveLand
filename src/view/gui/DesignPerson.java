@@ -21,9 +21,9 @@ public class DesignPerson extends JPanel {
 
         /**
          * 
-         * @param x
-         * @param y
-         * @param radius
+         * @param x coordinate x
+         * @param y coordinate y
+         * @param radius circle radius
          * @return creation of the adult 
          */
         public static final CircleImpl createAdult(final int x, final int y, final int radius) {
@@ -36,9 +36,9 @@ public class DesignPerson extends JPanel {
         }
         /**
          * 
-         * @param x
-         * @param y
-         * @param radius
+         * @param x coordinate x
+         * @param y coordinate y
+         * @param radius circle radius
          * @return creation of the baby 
          */
 
@@ -52,9 +52,9 @@ public class DesignPerson extends JPanel {
         }
         /**
          * 
-         * @param x
-         * @param y
-         * @param radius
+         * @param x coordinate x
+         * @param y coordinate y
+         * @param radius circle radius
          * @return creation of the pass
          */
 

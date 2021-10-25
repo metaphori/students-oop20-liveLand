@@ -15,13 +15,13 @@ public class DesignActivity {
 
     /**
      * 
-     * @param wh
-     * @param ht
-     * @param x
-     * @param y
-     * @param name
-     * @param distance
-     * @return object shop
+     * @param wh width
+     * @param ht height
+     * @param x coordinate x
+     * @param y coordinate y
+     * @param name activity name
+     * @param distance activity distance
+     * @return object shop 
      */
     public static Square createShop(final int wh, final int ht, final int x, final int y, final String name, final int distance) {
         final Square shop = new Square();
@@ -36,13 +36,13 @@ public class DesignActivity {
 
     /**
      * 
-     * @param wh
-     * @param ht
-     * @param x
-     * @param y
-     * @param name
-     * @param distance
-     * @return object restaurant
+     * @param wh width
+     * @param ht height
+     * @param x coordinate x
+     * @param y coordinate y 
+     * @param name activity name
+     * @param distance activity distance
+     * @return object restaurant 
      */
     public static Square createRestaurant(final int wh, final int ht, final int x, final int y, final String name, final int distance) {
         final Square restaurant = new Square();
@@ -57,13 +57,13 @@ public class DesignActivity {
 
     /**
      * 
-     * @param wh
-     * @param ht
-     * @param x
-     * @param y
-     * @param name
-     * @param distance
-     * @return object babyFair
+     * @param wh width
+     * @param ht height
+     * @param x coordinate x
+     * @param y coordinate y
+     * @param name activity name
+     * @param distance activity distance
+     * @return object babyFair 
      */
     public static Square createBabyFair(final int wh, final int ht, final int x, final int y, final String name, final int distance) {
         final Square babyFair = new Square();
@@ -78,12 +78,12 @@ public class DesignActivity {
 
     /**
      * 
-     * @param wh
-     * @param ht
-     * @param x
-     * @param y
-     * @param name
-     * @param distance
+     * @param wh width 
+     * @param ht height
+     * @param x coordinate x
+     * @param y coordinate y
+     * @param name activity name
+     * @param distance activity distance
      * @return object adultFair
      */
     public static Square createAdultFair(final int wh, final int ht, final int x, final int y, final String name, final int distance) {
