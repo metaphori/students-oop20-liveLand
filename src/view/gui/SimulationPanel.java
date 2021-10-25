@@ -61,7 +61,7 @@ public class SimulationPanel extends JPanel {
         this.frame = new JFrame();
         frame.setTitle("LiveLand");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setResizable(false);
+        //frame.setResizable(false);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setMinimumSize(new Dimension(frame.getWidth(), frame.getHeight()));
 
@@ -91,7 +91,7 @@ public class SimulationPanel extends JPanel {
         frame.setVisible(true);
         container.add(stop, BorderLayout.NORTH);
         panel.add(container, BorderLayout.EAST);
-        container.setBackground(Color.DARK_GRAY);
+        //Set Return
         this.map = new HashMap<PersonTicket, Position<Integer, Integer>>();
         panel.add(this, BorderLayout.CENTER);
         this.setBackground(Color.WHITE);
@@ -141,6 +141,8 @@ public class SimulationPanel extends JPanel {
     public final void paintComponent(final Graphics g) {
         try {
             super.paintComponent(g);
+            Image background = Toolkit.getDefaultToolkit().createImage("C:\\Users\\enric\\OneDrive\\Desktop\\Parco.jpeg");
+            g.drawImage(background, 0, 0, null);
             if (this.adult.size() != 0) {
                 for (CircleImpl adult : adult) {
                     g.setColor(adult.getColor());
@@ -210,6 +212,10 @@ public class SimulationPanel extends JPanel {
     public final void close() {
         this.frame.dispose();
         this.controller.stop();
+    }
+
+    public Dimension getFrameSize() {
+        return frame.getSize();
     }
 
 }

@@ -2,7 +2,6 @@ package model.gui.position;
 
 /**
  * 
- * @author enric
  *
  * @param <X>
  * @param <Y>

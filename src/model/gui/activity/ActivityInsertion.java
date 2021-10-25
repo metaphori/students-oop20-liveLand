@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import controller.EnvironmentControllerImpl;
+import view.controller.ViewControllerImpl;
 import view.model.activity.ActivityType;
 import view.model.activity.ViewActivityImpl;
 
@@ -14,13 +15,15 @@ public class ActivityInsertion {
     private final List<Square> adultFair;
     private final List<Square> babyFair;
     private final EnvironmentControllerImpl controller;
+    private final DesignActivity design;
 
-    public ActivityInsertion(final EnvironmentControllerImpl controller) {
+    public ActivityInsertion(final EnvironmentControllerImpl controller, ViewControllerImpl viewController) {
         this.shop = new LinkedList<>();
         this.restaurant = new LinkedList<>();
         this.adultFair = new LinkedList<>();
         this.babyFair = new LinkedList<>();
         this.controller = controller;
+        this.design = new DesignActivity(viewController);
     }
 
     public final void listActivity() {
@@ -45,7 +48,7 @@ public class ActivityInsertion {
                 distanceShop += 200;
                 break;
             case REST: 
-                restaurant.add(DesignActivity.createRestaurant(20, 9, 10, 10, a.getName(), distanceRestaurant));
+                restaurant.add(DesignActivity.createRestaurant(15, 9, 10, 10, a.getName(), distanceRestaurant));
                 distanceRestaurant += 200;
                 break;
             default:

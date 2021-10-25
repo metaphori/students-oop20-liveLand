@@ -11,13 +11,21 @@ import model.gui.person.CircleImpl;
 
 /**
  * 
- * 
+ * Class that draws people by passing them the color, the radius and the position.
+ *
  *
  */
 public class DesignPerson extends JPanel {
 
         private static final long serialVersionUID = 1L;
 
+        /**
+         * 
+         * @param x
+         * @param y
+         * @param radius
+         * @return creation of the adult 
+         */
         public static final CircleImpl createAdult(final int x, final int y, final int radius) {
             CircleImpl adult = new CircleImpl();
             adult.setColor(new Color(15,226,0));
@@ -26,6 +34,13 @@ public class DesignPerson extends JPanel {
             adult.setY(y);
             return adult;
         }
+        /**
+         * 
+         * @param x
+         * @param y
+         * @param radius
+         * @return creation of the baby 
+         */
 
         public static CircleImpl createBaby(final int x, final int y, final int radius) {
             CircleImpl baby = new CircleImpl();
@@ -35,6 +50,13 @@ public class DesignPerson extends JPanel {
             baby.setY(y);
             return baby;
         }
+        /**
+         * 
+         * @param x
+         * @param y
+         * @param radius
+         * @return creation of the pass
+         */
 
         public static CircleImpl createPass(final int x, final int y, final int radius) {
             CircleImpl pass = new CircleImpl();

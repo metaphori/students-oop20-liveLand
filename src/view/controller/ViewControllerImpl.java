@@ -15,9 +15,9 @@ public class ViewControllerImpl implements ViewController {
 
     public ViewControllerImpl(final EnvironmentControllerImpl controller) {
         this.envController = controller;
-        this.modelActivity = new ActivityInsertion(this.envController);
-        this.modelActivity.listActivity();
         this.simulation = new SimulationPanel(this);
+        this.modelActivity = new ActivityInsertion(this.envController, this);
+        this.modelActivity.listActivity();
     }
 
     @Override
