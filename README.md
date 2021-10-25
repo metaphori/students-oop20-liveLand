@@ -1,1 +1,3 @@
 # OOP-2021-LiveLand
+L'obiettivo di quest'applicazione è quello di realizzare una simulazione interattiva di un parco divertimenti, con la possibilità per l'utente di scegliere come strutturare le attività in esso presenti (variando tra giostre, ristoranti e shop) e il numero di ingressi giornalieri.
+L'applicazione mostrerà gli spostamenti (prevalentemente randomizzati) delle persone nell'ambiente e registrerà le frequenze per ogni attività. L'obiettivo finale sarà quello di mostrare, al termine della simulazione, un'analisi delle attività maggiormente visitate e, nell'ottica di un possibile gestore del parco, statistiche riguardanti gli incassi giornalieri.

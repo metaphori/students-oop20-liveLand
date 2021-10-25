@@ -1,12 +1,25 @@
 package view.model.activity;
 
-//da eliminare una volte fatto il merge del progetto (questa parte andrà nel model)
-
 public enum ActivityType {
-	
-	BABYFAIR,
-	FAIR,
-	REST,
-	SHOP;
+
+    /**
+     * Fair, both adults and children can ride it.
+     */
+    BABYFAIR,
+
+    /**
+     * Adult fair, children are not allowed to enter here.
+     */
+    FAIR,
+
+    /**
+     * Restaurant, it is a profitable activity.
+     */
+    REST,
+
+    /**
+     * Shop, it is a profitable activity.
+     */
+    SHOP;
 
 }

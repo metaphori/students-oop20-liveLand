@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<fileset-config file-format-version="1.2.0" simple-config="true" sync-formatter="false">
+  <local-check-config name="Lab06-style" location="internal_config_1634587871281.xml" type="internal" description=""/>
+  <local-check-config name="lab-style" location="internal_config_1634592449003.xml" type="internal" description=""/>
+  <local-check-config name="Lab-style" location="config/checkstyle/checkstyle.xml" type="project" description="">
+    <additional-data name="protect-config-file" value="false"/>
+  </local-check-config>
+  <fileset name="all" enabled="true" check-config-name="Lab-style" local="true">
+    <file-match-pattern match-pattern="." include-pattern="true"/>
+  </fileset>
+</fileset-config>

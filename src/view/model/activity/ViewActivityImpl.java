@@ -1,45 +1,73 @@
 package view.model.activity;
 
-public class ViewActivityImpl implements ViewActivity {
-	
-	private int capacity;
-	private int minPrice;
-	private int maxPrice;
-	private ActivityType activityType;
-	
-	//costruttore valido per giostre, sia per bambini che per adulti
-	public ViewActivityImpl(int capacity, ActivityType activityType) {
-		this.capacity = capacity;
-//		this.minPrice = 0;
-//		this.maxPrice = 0;
-		this.activityType = activityType;
-	}
-	
-	//costruttore valido per shop e risto
-	public ViewActivityImpl(int minPrice, int maxPrice, ActivityType activityType) {
-		this.minPrice = minPrice;
-		this.maxPrice = maxPrice;
-		this.activityType = activityType;
-	}
+import java.util.Optional;
 
-	@Override
-	public int getCapacity() {
-		return this.capacity;
-	}
+public final class ViewActivityImpl implements ViewActivity {
 
-	@Override
-	public int getMinPrice() {
-		return this.minPrice;
-	}
+    private final Optional<Integer> capacity;
+    private final Optional<Integer> minPrice;
+    private final Optional<Integer> maxPrice;
+    private final String name;
+    private final ActivityType activityType;
 
-	@Override
-	public int getMaxPrice() {
-		return this.maxPrice;
-	}
+    public ViewActivityImpl(final String name, final Optional<Integer> capacity, 
+                            final Optional<Integer> minPrice,
+                            final Optional<Integer> maxPrice, 
+                            final ActivityType activityType) {
+        this.name = name;
+        this.capacity = capacity;
+        this.activityType = activityType;
+        this.minPrice = minPrice;
+        this.maxPrice = maxPrice;
+    }
 
-	@Override
-	public ActivityType getActivityType() {
-		return this.activityType;
-	}
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Optional<Integer> getCapacity() {
+        return this.capacity;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Optional<Integer> getMinPrice() {
+        return this.minPrice;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public Optional<Integer> getMaxPrice() {
+        return this.maxPrice;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public ActivityType getActivityType() {
+        return this.activityType;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String getName() {
+        return this.name;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    @Override
+    public String toString() {
+        return "ViewActivityImpl [capacity=" + capacity + ", minPrice=" + minPrice + ", maxPrice=" + maxPrice
+                    + ", name=" + name + ", activityType=" + activityType + "]";
+    }
 
 }
