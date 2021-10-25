@@ -61,7 +61,6 @@ public class SimulationPanel extends JPanel {
         this.frame = new JFrame();
         frame.setTitle("LiveLand");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //frame.setResizable(false);
         frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
         frame.setMinimumSize(new Dimension(frame.getWidth(), frame.getHeight()));
 
