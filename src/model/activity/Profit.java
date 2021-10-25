@@ -17,6 +17,13 @@ public class Profit implements Activity {
     private final ActivityType activityType;
     private final List<PersonTicket> personList = new ArrayList<>();
 
+    /**
+     * 
+     * @param name
+     * @param min
+     * @param max
+     * @param activityType
+     */
     public Profit(final String name, final int min, final int max, final ActivityType activityType) {
         this.name = name;
         this.activityType = activityType;
@@ -24,6 +31,14 @@ public class Profit implements Activity {
         this.max = max;
     }
 
+    /**
+     * 
+     * @param name
+     * @param min
+     * @param max
+     * @param activityType
+     * @param visitors
+     */
     public Profit(final String name, final int min, final int max, final ActivityType activityType, final int visitors) {
         this.name = name;
         this.activityType = activityType;
@@ -32,28 +47,49 @@ public class Profit implements Activity {
         this.totPeople = visitors;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public final void addPerson(final PersonTicket person) {
         personList.add(person);
         amount();
         totPeople++;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public final void removePerson() {
         personList.clear();
     }
 
+    /**
+     * 
+     * @param money
+     * 
+     */
     public final void setProfit(final int money) {
         this.totMoney = money;
     }
 
+    /**
+     * 
+     * @return money earned in one race
+     */
     public final int getProfit() {
         return totMoney;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public final int getTotPeople() {
         return totPeople;
     }
 
+    /**
+     * Money spend by each person at random.
+     */
     public final void amount() {
         int money;
         final Random r = new Random();
@@ -65,14 +101,24 @@ public class Profit implements Activity {
 
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public final ActivityType getActivityType() {
         return this.activityType;
     }
 
+    /**
+     * 
+     * @return name of the restaurant or shop
+     */
     public final String getName() {
         return this.name;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public final List<PersonTicket> getPeopleList() {
         return personList;
 

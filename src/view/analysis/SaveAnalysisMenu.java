@@ -54,7 +54,6 @@ public class SaveAnalysisMenu extends JMenu {
             menuFile.add(radioButtonMenu);
             menuFile.addSeparator();
             menuFile.add(cancel);
-        //Listeners
         buttonDefault.addActionListener(new DefaultActionListener());
         buttonChoose.addActionListener(new ChooseActionListener());
         buttonCharts.addActionListener(new ChartsActionListener());
