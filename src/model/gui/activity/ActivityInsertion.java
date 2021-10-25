@@ -17,15 +17,12 @@ public class ActivityInsertion {
     private final EnvironmentControllerImpl controller;
     private final DesignActivity design;
 
-<<<<<<< HEAD
-    public ActivityInsertion(final EnvironmentControllerImpl controller, ViewControllerImpl viewController) {
-=======
     /**
      * 
      * @param controller
      */
-    public ActivityInsertion(final EnvironmentControllerImpl controller) {
->>>>>>> c19162ca019d375b772e55bfdd477a40398063b5
+    public ActivityInsertion(final EnvironmentControllerImpl controller, ViewControllerImpl viewController) {
+
         this.shop = new LinkedList<>();
         this.restaurant = new LinkedList<>();
         this.adultFair = new LinkedList<>();
